@@ -31,7 +31,9 @@ env:
   # 英文仓发布的内容包（英文三版本文档 + 资产 + 构建期 data/）。
   CONTENT_URL: https://github.com/newwlfz/mikrotik_manual_i18n/releases/download/content-v1/content-v1.tar.zst
   BUILD_HEAP_MB: '6144'
-  NPM_CONFIG_CACHE: ${{ runner.temp }}/npm-cache
+  # 注：`${{ runner.temp }}` 只在 job/step 级 env 可用，workflow 级 env 用了会
+  # 让整个 workflow 变成 invalid（run 直接失败且没有 job）。npm 缓存目录在
+  # 下面三个 step 里各自注入 NPM_CONFIG_CACHE。
 
 jobs:
   build:
@@ -54,13 +56,19 @@ jobs:
           echo "content package extracted:"
           du -sh docs versioned_docs static hardware blog changelog data
       - name: Prepare npm cache directory
+        env:
+          NPM_CONFIG_CACHE: ${{ runner.temp }}/npm-cache
         run: mkdir -p "$NPM_CONFIG_CACHE"
       - uses: actions/setup-node@v4
+        env:
+          NPM_CONFIG_CACHE: ${{ runner.temp }}/npm-cache
         with:
           node-version: '22'
           cache: npm
           cache-dependency-path: package-lock.json
       - run: npm ci
+        env:
+          NPM_CONFIG_CACHE: ${{ runner.temp }}/npm-cache
       # 单语种构建：i18n/zh-Hans 覆盖层 + 内容包 → Docusaurus（--locale zh-Hans）
       # → Pagefind → llms.txt（中文站内的绝对链接）。
       - name: Build site
