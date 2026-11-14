@@ -35,11 +35,14 @@
 
 `.github/workflows/pages.yml` 在 push / 手动触发时先跑**一批**翻译
 （`--budget-minutes=90`，可中断、可续跑），有进度就提交回 `main`；摘要里的
-`pending` 归零才构建并部署，否则线上保持旧版。命令、断点文件与失败处理见
-[guides/CI.md](guides/CI.md)。
+`pending` 归零才构建并部署，否则线上保持旧版。翻译前先做**预检**
+（`verify:llm --quick`）：额度/鉴权失败（401/402/403/429）时批量翻译根本不启动、
+不提交任何东西，job 默认失败、线上不动；确实要带着英文上线，可在手动触发里勾
+`publish_on_llm_error`。命令、断点文件与失败处理见 [guides/CI.md](guides/CI.md)。
 
 ```bash
 npm run translate:pending -- --json          # 还剩多少待译单位
+npm run verify:llm -- --quick                # 预检（max_tokens=8，不烧额度）
 npm run translate:batch -- --budget-minutes=5 --json   # 本地跑一小批
 npm run translate:verify                     # 覆盖层结构校验
 ```
