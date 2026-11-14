@@ -112,8 +112,10 @@ env:
   BASE_URL: /mikrotik_manual_zh_hans/
   LOCALE_EN_URL: https://newwlfz.github.io
   LOCALE_EN_BASE_URL: /mikrotik_manual_i18n/
-  LOCALE_ZH_URL: https://newwlfz.github.io
-  LOCALE_ZH_BASE_URL: /mikrotik_manual_zh_hans/
+  # 其它语种站点的地址全部来自 `locales.json`。`LOCALE_<X>_*` 只按主语言子标签
+  # 匹配（`zh-Hans`、`zh-Hant` 都命中 `ZH`），在这里写 `LOCALE_ZH_BASE_URL` 会让
+  # 简体、繁体的语言下拉和 `hreflang` 都指向简体站；要覆盖中文站地址请用本地预览，
+  # 不要写进工作流。
   # 共享资源源站 = 英文站的基址（不带尾斜杠）。改英文站域名/前缀时必须同步改这里，
   # 否则所有语种站的图片、PDF、视频都会 404。见 guides/CI.md「共享资源」。
   ASSET_ORIGIN: https://newwlfz.github.io/mikrotik_manual_i18n
