@@ -1,0 +1,174 @@
+---
+sidebar_key: "diagnostics-monitoring-and-troubleshooting/log/cef-with-elasticsearch"
+sidebar_position: 1
+title: "带 Elasticsearch 的 CEF"
+sidebar_label: "带 Elasticsearch 的 CEF"
+description: "本指南说明如何使用 Elasticsearch、Kibana 和 Fleet Server 配合 MikroTik RouterOS 设备配置 CEF 日志收集与分析。内容涵盖前提条件、Elastic 与 RouterOS 两侧组件的设置步骤，包括代理策略创建和 CEF 集成配置。"
+tags:
+  - 'elasticsearch'
+  - 'cef-logging'
+  - 'kibana'
+source: https://manual.mikrotik.com/docs/diagnostics-monitoring-and-troubleshooting/log/cef-with-elasticsearch
+captured_at: '2026-11-09T11:35:47.715Z'
+translated_at: "2026-11-11T16:56:16.529Z"
+translation_provider: "opencode-go"
+translation_model: "deepseek-v4.1-flash"
+---
+
+## 简介 {#introduction}
+
+Elasticsearch 是一个流行的 NoSQL 数据库，可用于存储各种数据，包括 CEF 日志。结合 Kibana，您可以创建一个强大的工具来分析来自 RouterOS 设备的 CEF 日志。本指南将依赖 Elasticsearch 集成，要使其正常工作，您需要有一个可用的 Elasticsearch 环境。本指南不会涵盖 Elasticsearch 和 Kibana 的安装说明，但会涵盖设置 CEF 日志收集和分析的相关步骤。
+
+使用 Elasticsearch 可以进行多种配置，但本指南将采用以下原则：
+
+- RouterOS (10.0.0.1) 设备将 CEF 日志发送到运行 [CEF 集成](https://www.elastic.co/docs/reference/integrations/cef) 的服务器 (10.0.0.2)。
+- 运行 CEF 集成的服务器 (10.0.0.2) 接收 CEF 日志、处理数据，并将其发送到 [Fleet Server](https://www.elastic.co/guide/en/fleet/current/fleet-server.html) (10.0.0.3)。
+- Fleet Server (10.0.0.3) 将数据存储在 [Elasticsearch](https://www.elastic.co/elasticsearch) (10.0.0.4) 中。
+- [Kibana](https://www.elastic.co/kibana) (10.0.0.5) 从 Elasticsearch (10.0.0.4) 检索数据、进行分析，并允许您搜索数据。
+
+:::info
+本指南不会将 [Logstash](https://www.elastic.co/logstash) 用作分析 CEF 日志的一部分；它已被 Fleet Server 取代。
+
+:::
+
+:::info
+可以将 Elasticsearch、Kibana、Fleet Server 和 CEF 日志集成安装在同一台设备上。
+
+:::
+
+## 先决条件 {#prerequisites}
+
+- [设置 Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/setup.html)。  
+  :::info
+  Elasticsearch 在许多平台上得到广泛支持。建议设置一个 Elasticsearch 节点集群。
+  :::
+- [设置 Kibana](https://www.elastic.co/guide/en/kibana/current/setup.html)。  
+  :::info
+  Kibana 可以安装在安装 Elasticsearch 的同一台设备上，但出于性能原因，也可以安装在单独的设备上。虽然不借助 Kibana 也可以分析 CEF 日志，但这需要编写自己的 API 请求。Kibana 非常易于使用，并且具有广泛的功能。
+  :::
+- [Set up Fleet Server](https://www.elastic.co/guide/en/fleet/current/add-fleet-server-on-prem.html).  
+  :::info
+  可以在安装 Elasticsearch 和/或 Kibana 的同一台设备上设置 Fleet Server。建议将 Fleet Server 安装在其他设备上。有关硬件和拓扑要求的建议，请参阅 Elasticsearch 手册。
+  :::
+
+## 设置 {#set-up}
+
+设置说明分为两部分：Elastic（有关 Elasticsearch、Kibana 和 Fleet Server 的配置）和 RouterOS（与您的 RouterOS 设备相关的配置）。
+
+### Elastic {#elastic}
+
+:::warning
+某些步骤可能会随时间而变化，请参阅 Elastic 的手册以获取最新步骤。
+:::
+
+- [登录到您的 Kibana](https://www.elastic.co/guide/en/kibana/current/access.html)。
+- 在主菜单下打开 [Fleet](https://www.elastic.co/guide/en/kibana/current/fleet.html) 部分。
+- 打开“[Agent policies](https://www.elastic.co/guide/en/fleet/current/agent-policy.html)”部分。
+- 按“Create agent policy”按钮以[创建新的代理策略](https://www.elastic.co/guide/en/fleet/current/agent-policy.html#create-a-policy)。
+- 为策略命名，例如“CEF policy”，根据需要调整高级设置，然后创建策略。或者您可以使用下面的 API 请求：  
+
+  ```text
+  POST kbn:/api/fleet/agent_policies
+  {
+    "name": "CEF policy",
+    "description": "",
+    "namespace": "default",
+    "monitoring_enabled": [
+      "logs",
+      "metrics"
+    ],
+    "inactivity_timeout": 1209600,
+    "is_protected": false
+  }
+  ```
+
+- 单击其名称，打开新建的策略。
+- 按“[添加集成](https://www.elastic.co/guide/en/fleet/current/agent-policy.html#add-integration)”按钮。
+- 搜索“[Common Event Format (CEF)](https://www.elastic.co/docs/reference/integrations/cef)”并按下“添加 Common Event Format (CEF)”。
+- 调整配置，确保：  
+  - 在“Collect CEF application logs (input: udp)”部分下，将“Syslog Host”设置为“0.0.0.0”，并保留默认监听端口 9003/UDP。  
+  - 在“Collect CEF application logs (input: tcp)”部分下，将“Syslog Host”设置为“0.0.0.0”。
+- 保存该集成。
+- 按“[将 Elastic Agent 添加到你的主机](https://www.elastic.co/guide/en/fleet/current/elastic-agent-installation.html)”按钮。
+- 按照说明将 Elastic Agent 添加到你的主机。  
+  :::info
+  Elastic 官方手册建议将 Elastic Agent 安装为 Fleet 管理。建议遵循该建议，因为当代理由 Fleet 管理时，管理代理会更容易。
+  :::
+- 转到主菜单中的“Stack Management”，然后打开“[Ingest Pipelines](https://www.elastic.co/guide/en/elasticsearch/reference/current/ingest.html)”。
+- 按“[Create pipeline](https://www.elastic.co/guide/en/fleet/current/data-streams-pipeline-tutorial.html#data-streams-pipeline-one)”然后“New pipeline”来创建新的 Ingest Pipeline。
+- 将“Name”设置为“logs-cef.log@custom”。
+- 按“Import processors”并粘贴以下处理器：  
+
+  ```json
+  {
+  	"processors": [
+  		{
+  			"set": {
+  			"ignore_empty_value": true,
+  			"field": "host.name",
+  			"copy_from": "cef.extensions.deviceHostName"
+  			}
+  		},
+  		{
+  			"set": {
+  			"ignore_empty_value": true,
+  			"field": "host.ip",
+  			"copy_from": "cef.extensions.deviceAddress"
+  			}
+  		}
+  	]
+  }
+  ```
+
+  :::info
+  “logs-cef.log@custom”管道不是必需的，但当您还将 Elasticsearch 用于其他类型的日志时，它可以让搜索日志更容易。
+  :::
+- 按“Save pipeline”。
+- 确保您已在主机上以及从 RouterOS 设备 (10.0.0.1) 路径中的其他位置打开 9003/UDP 端口。
+- 您的 Elastic Agent 现已准备好接收 CEF 日志。
+
+### RouterOS {#routeros}
+
+1. 在你的 RouterOS 设备（10.0.0.1）上配置[远程日志记录动作](./index.md#send-the-log-to-a-syslog-server)：
+
+   ```ros
+   /system/logging/action
+   add cef-event-delimiter="\n" name=cef remote=10.0.0.2 \
+       remote-log-format=cef remote-port=9003 \
+       syslog-time-format=iso8601 target=remote
+   ```
+
+   名称可以是任意由字母和数字组成的名称（例如 `cef`）；路由器会将日志发送到您设置的 `remote` 地址和端口。
+
+2. 为你希望从 RouterOS 设备（10.0.0.1）接收的每个[主题](./index.md#topics)添加一条规则，例如：
+
+   ```ros
+   /system/logging
+   add action=cef topics=info
+   add action=cef topics=error
+   add action=cef topics=critical
+   add action=cef topics=warning
+   add action=cef topics=bridge,stp
+   ```
+
+3. 您现在应该开始看到 CEF 日志被接收。
+4. 继续阅读本指南以开始使用 Kibana。
+
+### 使用 Kibana {#using-kibana}
+
+Kibana 允许您搜索已接收的 CEF 日志。要查看已接收的日志，请执行以下操作：
+
+1. [登录到您的 Kibana](https://www.elastic.co/guide/en/kibana/current/access.html)。
+2. 从主菜单打开“Discover”。
+3. [添加筛选器](https://www.elastic.co/guide/en/kibana/current/discover-get-started.html#explore-fields-in-your-data)，并使用以下参数：  
+
+   ```text
+   Select a field: data_stream.dataset
+   Select operator: IS
+   Select a value: cef.log
+   ```
+
+4. 为简单起见，我们建议在 Discover 菜单中[搜索字段](https://www.elastic.co/guide/en/kibana/current/discover-get-started.html#explore-fields-in-your-data)，搜索“message”，然后将其添加到视图中。
+5. 我们还建议搜索“host.name”字段，并将其也添加到视图中。
+6. 考虑[保存搜索](https://www.elastic.co/guide/en/kibana/current/save-open-search.html#_save_a_search)，以便以后更轻松地访问。
+7. 完成！

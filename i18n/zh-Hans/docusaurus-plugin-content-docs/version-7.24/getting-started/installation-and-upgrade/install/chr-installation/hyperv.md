@@ -1,0 +1,34 @@
+---
+sidebar_key: "getting-started/installation-and-upgrade/install/chr-installation/hyperv"
+sidebar_position: 4
+title: "CHR：Hyper-V 安装"
+sidebar_label: "CHR：Hyper-V 安装"
+description: "本页介绍在 Microsoft Hyper-V 上安装 MikroTik RouterOS CHR，详细说明支持的网络适配器（synthetic 和 legacy）以及磁盘控制器（系统磁盘使用 IDE，辅助磁盘使用 SCSI），并附有 Hyper-V 文档的链接。"
+source: https://manual.mikrotik.com/docs/7.24/getting-started/installation-and-upgrade/install/chr-installation/hyperv
+captured_at: '2026-11-04T11:28:37+08:00'
+translated_at: "2026-11-11T16:55:57.729Z"
+translation_provider: "opencode-go"
+translation_model: "deepseek-v4.1-flash"
+---
+
+## 支持的网络和磁盘接口 {#supported-network-and-disk-interfaces}
+
+### Microsoft Hyper-V {#microsoft-hyper-v}
+
+**网络适配器：**
+
+- 网络适配器（合成）
+- 传统网络适配器
+
+**磁盘控制器：**
+
+- IDE
+- SCSI
+
+> **注意：** 在 Hyper-V 上，SCSI 控制器类型仅支持用于辅助磁盘。系统磁盘映像必须挂接到 IDE 控制器。
+
+#### Hyper-V {#hyper-v}
+
+**Hyper-V 文档：**
+
+- https://technet.microsoft.com/en-us/library/cc816585(v=ws.10).aspx#Anchor_2

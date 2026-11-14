@@ -1,0 +1,1214 @@
+{
+  "sidebar.docs.doc.introduction": {
+    "message": "简介",
+    "description": "Doc 'Introduction'"
+  },
+  "sidebar.docs.category.getting-started": {
+    "message": "入门",
+    "description": "Category 'Getting Started'"
+  },
+  "sidebar.docs.doc.getting-started/first-time-configuration": {
+    "message": "首次配置",
+    "description": "Doc 'First Time Configuration'"
+  },
+  "sidebar.docs.doc.getting-started/manual-network-setup": {
+    "message": "手动网络设置",
+    "description": "Doc 'Manual Network Setup'"
+  },
+  "sidebar.docs.doc.getting-started/securing-your-router": {
+    "message": "保护您的路由器",
+    "description": "Doc 'Securing your router'"
+  },
+  "sidebar.docs.category.getting-started/networking-fundamentals": {
+    "message": "网络基础",
+    "description": "Category 'Networking Fundamentals'"
+  },
+  "sidebar.docs.doc.getting-started/networking-fundamentals/ipv6-addresses": {
+    "message": "IPv6 地址",
+    "description": "Doc 'IPv6 Addresses'"
+  },
+  "sidebar.docs.doc.getting-started/networking-fundamentals/ipv6-neighbor-discovery": {
+    "message": "IPv6 邻居发现",
+    "description": "Doc 'IPv6 Neighbor Discovery'"
+  },
+  "sidebar.docs.category.getting-started/installation-and-upgrade": {
+    "message": "安装与升级",
+    "description": "Category 'Installation and Upgrade'"
+  },
+  "sidebar.docs.category.getting-started/installation-and-upgrade/install/chr-installation": {
+    "message": "CHR：安装",
+    "description": "Category 'CHR: Installation'"
+  },
+  "sidebar.docs.doc.getting-started/installation-and-upgrade/install/chr-installation/aws": {
+    "message": "CHR：AWS 安装",
+    "description": "Doc 'CHR: AWS Installation'"
+  },
+  "sidebar.docs.doc.getting-started/installation-and-upgrade/install/chr-installation/esxi": {
+    "message": "CHR：VMware ESXi 安装",
+    "description": "Doc 'CHR: VMWare ESXi Installation'"
+  },
+  "sidebar.docs.doc.getting-started/installation-and-upgrade/install/chr-installation/hetzner": {
+    "message": "CHR：Hetzner Cloud 安装",
+    "description": "Doc 'CHR: Hetzner Cloud Installation'"
+  },
+  "sidebar.docs.doc.getting-started/installation-and-upgrade/install/chr-installation/hyperv": {
+    "message": "CHR：Hyper-V 安装",
+    "description": "Doc 'CHR: Hyper-V Installation'"
+  },
+  "sidebar.docs.doc.getting-started/installation-and-upgrade/install/chr-installation/proxmox": {
+    "message": "CHR：Proxmox VE 安装",
+    "description": "Doc 'CHR: Proxmox VE Installation'"
+  },
+  "sidebar.docs.doc.getting-started/installation-and-upgrade/install/chr-installation/troubleshooting": {
+    "message": "CHR：故障排查",
+    "description": "Doc 'CHR: Troubleshooting'"
+  },
+  "sidebar.docs.doc.getting-started/installation-and-upgrade/install/chr-installation/virtualbox": {
+    "message": "CHR：VirtualBox 安装",
+    "description": "Doc 'CHR: VirtualBox Installation'"
+  },
+  "sidebar.docs.doc.getting-started/installation-and-upgrade/install/chr-installation/vultr": {
+    "message": "CHR：Vultr 安装",
+    "description": "Doc 'CHR: Vultr Installation'"
+  },
+  "sidebar.docs.doc.getting-started/installation-and-upgrade/install/x86-installation": {
+    "message": "x86 安装",
+    "description": "Doc 'x86 Installation'"
+  },
+  "sidebar.docs.doc.getting-started/installation-and-upgrade/upgrade": {
+    "message": "升级",
+    "description": "Doc 'Upgrade'"
+  },
+  "sidebar.docs.category.getting-started/installation-and-upgrade/netinstall": {
+    "message": "Netinstall",
+    "description": "Category 'Netinstall'"
+  },
+  "sidebar.docs.doc.getting-started/installation-and-upgrade/netinstall/netinstall-windows": {
+    "message": "Windows 版 Netinstall",
+    "description": "Doc 'Netinstall for Windows'"
+  },
+  "sidebar.docs.doc.getting-started/installation-and-upgrade/netinstall/netinstall-linux": {
+    "message": "Linux 版 Netinstall",
+    "description": "Doc 'Netinstall for Linux'"
+  },
+  "sidebar.docs.doc.getting-started/installation-and-upgrade/netinstall/netinstall-package": {
+    "message": "Netinstall 安装包",
+    "description": "Doc 'Netinstall package'"
+  },
+  "sidebar.docs.doc.getting-started/installation-and-upgrade/packages": {
+    "message": "软件包",
+    "description": "Doc 'Packages'"
+  },
+  "sidebar.docs.category.getting-started/configuration-management": {
+    "message": "配置管理",
+    "description": "Category 'Configuration Management'"
+  },
+  "sidebar.docs.doc.getting-started/configuration-management/backup": {
+    "message": "备份",
+    "description": "Doc 'Backup'"
+  },
+  "sidebar.docs.doc.getting-started/configuration-management/default-configuration-passwords": {
+    "message": "默认配置密码",
+    "description": "Doc 'Default Configuration Passwords'"
+  },
+  "sidebar.docs.doc.getting-started/configuration-management/default-configurations": {
+    "message": "默认配置",
+    "description": "Doc 'Default configurations'"
+  },
+  "sidebar.docs.doc.getting-started/configuration-management/list-of-menus-with-sensitive-parameters": {
+    "message": "带敏感参数的菜单列表",
+    "description": "Doc 'List of menus with sensitive parameters'"
+  },
+  "sidebar.docs.doc.getting-started/configuration-management/routeros-configuration-reset": {
+    "message": "RouterOS 配置重置",
+    "description": "Doc 'RouterOS configuration reset'"
+  },
+  "sidebar.docs.category.getting-started/routeros-licensing": {
+    "message": "RouterOS 许可证密钥",
+    "description": "Category 'RouterOS Licensing'"
+  },
+  "sidebar.docs.category.getting-started/routeros-licensing/chr": {
+    "message": "云托管路由器，CHR",
+    "description": "Category 'Cloud Hosted Router, CHR'"
+  },
+  "sidebar.docs.doc.getting-started/routeros-licensing/chr/chr-licensing": {
+    "message": "CHR：许可",
+    "description": "Doc 'CHR: Licensing'"
+  },
+  "sidebar.docs.doc.getting-started/routeros-licensing/mikrotik-hardware/index": {
+    "message": "MikroTik 硬件许可",
+    "description": "Doc 'MikroTik Hardware Licensing'"
+  },
+  "sidebar.docs.doc.getting-started/routeros-licensing/x86/index": {
+    "message": "x86 许可",
+    "description": "Doc 'x86 Licensing'"
+  },
+  "sidebar.docs.category.getting-started/software-specifications": {
+    "message": "软件规格",
+    "description": "Category 'Software Specifications'"
+  },
+  "sidebar.docs.doc.getting-started/software-specifications/feature-support-based-on-architecture": {
+    "message": "基于架构的功能支持",
+    "description": "Doc 'Feature support based on architecture'"
+  },
+  "sidebar.docs.doc.getting-started/upgrading-to-v7": {
+    "message": "升级到 v7",
+    "description": "Doc 'Upgrading to v7'"
+  },
+  "sidebar.docs.category.management-tools": {
+    "message": "管理工具",
+    "description": "Category 'Management Tools'"
+  },
+  "sidebar.docs.doc.management-tools/winbox-legacy": {
+    "message": "WinBox v3（旧版）",
+    "description": "Doc 'WinBox v3 (Legacy)'"
+  },
+  "sidebar.docs.doc.management-tools/mikrotik-mobile-app": {
+    "message": "MikroTik 移动应用",
+    "description": "Doc 'MikroTik mobile app'"
+  },
+  "sidebar.docs.doc.management-tools/console": {
+    "message": "控制台",
+    "description": "Doc 'Console'"
+  },
+  "sidebar.docs.doc.management-tools/serial-console": {
+    "message": "串行控制台",
+    "description": "Doc 'Serial Console'"
+  },
+  "sidebar.docs.doc.management-tools/quick-set": {
+    "message": "快速设置",
+    "description": "Doc 'Quick Set'"
+  },
+  "sidebar.docs.doc.management-tools/mac-server": {
+    "message": "MAC 服务器",
+    "description": "Doc 'MAC server'"
+  },
+  "sidebar.docs.doc.management-tools/branding": {
+    "message": "品牌定制",
+    "description": "Doc 'Branding'"
+  },
+  "sidebar.docs.category.system-information-and-utilities": {
+    "message": "系统信息与实用工具",
+    "description": "Category 'System Information and Utilities'"
+  },
+  "sidebar.docs.doc.system-information-and-utilities/clock": {
+    "message": "时钟",
+    "description": "Doc 'Clock'"
+  },
+  "sidebar.docs.doc.system-information-and-utilities/device-mode": {
+    "message": "设备模式",
+    "description": "Doc 'Device mode'"
+  },
+  "sidebar.docs.doc.system-information-and-utilities/e-mail": {
+    "message": "电子邮件",
+    "description": "Doc 'Email'"
+  },
+  "sidebar.docs.doc.system-information-and-utilities/fetch": {
+    "message": "获取",
+    "description": "Doc 'Fetch'"
+  },
+  "sidebar.docs.doc.system-information-and-utilities/files": {
+    "message": "文件",
+    "description": "Doc 'Files'"
+  },
+  "sidebar.docs.doc.system-information-and-utilities/identity": {
+    "message": "身份",
+    "description": "Doc 'Identity'"
+  },
+  "sidebar.docs.doc.system-information-and-utilities/ip-packing": {
+    "message": "IP 打包",
+    "description": "Doc 'IP Packing'"
+  },
+  "sidebar.docs.doc.system-information-and-utilities/neighbor-discovery": {
+    "message": "邻居发现",
+    "description": "Doc 'Neighbor Discovery'"
+  },
+  "sidebar.docs.doc.system-information-and-utilities/note": {
+    "message": "备注",
+    "description": "Doc 'Note'"
+  },
+  "sidebar.docs.doc.system-information-and-utilities/partitions": {
+    "message": "分区",
+    "description": "Doc 'Partitions'"
+  },
+  "sidebar.docs.doc.system-information-and-utilities/precision-time-protocol": {
+    "message": "精确时间协议",
+    "description": "Doc 'Precision Time Protocol'"
+  },
+  "sidebar.docs.doc.system-information-and-utilities/scheduler": {
+    "message": "调度器",
+    "description": "Doc 'Scheduler'"
+  },
+  "sidebar.docs.doc.system-information-and-utilities/services": {
+    "message": "服务",
+    "description": "Doc 'Services'"
+  },
+  "sidebar.docs.doc.system-information-and-utilities/wake-on-lan": {
+    "message": "网络唤醒",
+    "description": "Doc 'Wake on LAN'"
+  },
+  "sidebar.docs.category.diagnostics-monitoring-and-troubleshooting": {
+    "message": "诊断与监控",
+    "description": "Category 'Diagnostics and Monitoring'"
+  },
+  "sidebar.docs.doc.diagnostics-monitoring-and-troubleshooting/traceroute": {
+    "message": "跟踪路由",
+    "description": "Doc 'Traceroute'"
+  },
+  "sidebar.docs.doc.diagnostics-monitoring-and-troubleshooting/packet-sniffer": {
+    "message": "数据包嗅探器",
+    "description": "Doc 'Packet Sniffer'"
+  },
+  "sidebar.docs.doc.diagnostics-monitoring-and-troubleshooting/bandwidth-test": {
+    "message": "带宽测试",
+    "description": "Doc 'Bandwidth test'"
+  },
+  "sidebar.docs.doc.diagnostics-monitoring-and-troubleshooting/speed-test": {
+    "message": "速度测试",
+    "description": "Doc 'Speed Test'"
+  },
+  "sidebar.docs.doc.diagnostics-monitoring-and-troubleshooting/flood-ping": {
+    "message": "泛洪 Ping",
+    "description": "Doc 'Flood Ping'"
+  },
+  "sidebar.docs.doc.diagnostics-monitoring-and-troubleshooting/interface-stats-and-monitor-traffic": {
+    "message": "接口统计与 monitor-traffic",
+    "description": "Doc 'Interface stats and monitor-traffic'"
+  },
+  "sidebar.docs.doc.diagnostics-monitoring-and-troubleshooting/traffic-generator": {
+    "message": "流量生成器",
+    "description": "Doc 'Traffic Generator'"
+  },
+  "sidebar.docs.doc.diagnostics-monitoring-and-troubleshooting/netwatch": {
+    "message": "网络监控",
+    "description": "Doc 'Netwatch'"
+  },
+  "sidebar.docs.doc.diagnostics-monitoring-and-troubleshooting/graphing": {
+    "message": "图表",
+    "description": "Doc 'Graphing'"
+  },
+  "sidebar.docs.doc.diagnostics-monitoring-and-troubleshooting/health": {
+    "message": "健康",
+    "description": "Doc 'Health'"
+  },
+  "sidebar.docs.doc.diagnostics-monitoring-and-troubleshooting/resource": {
+    "message": "资源",
+    "description": "Doc 'Resource'"
+  },
+  "sidebar.docs.doc.diagnostics-monitoring-and-troubleshooting/profiler": {
+    "message": "分析器",
+    "description": "Doc 'Profiler'"
+  },
+  "sidebar.docs.doc.diagnostics-monitoring-and-troubleshooting/ip-scan": {
+    "message": "IP 扫描",
+    "description": "Doc 'IP Scan'"
+  },
+  "sidebar.docs.doc.diagnostics-monitoring-and-troubleshooting/detect-internet": {
+    "message": "检测互联网",
+    "description": "Doc 'Detect Internet'"
+  },
+  "sidebar.docs.doc.diagnostics-monitoring-and-troubleshooting/dynamic-dns": {
+    "message": "DNS 更新",
+    "description": "Doc 'DNS update'"
+  },
+  "sidebar.docs.doc.diagnostics-monitoring-and-troubleshooting/watchdog": {
+    "message": "看门狗",
+    "description": "Doc 'Watchdog'"
+  },
+  "sidebar.docs.doc.diagnostics-monitoring-and-troubleshooting/downgrading-routeros": {
+    "message": "降级 RouterOS",
+    "description": "Doc 'Downgrading RouterOS'"
+  },
+  "sidebar.docs.category.diagnostics-monitoring-and-troubleshooting/log": {
+    "message": "日志",
+    "description": "Category 'Logs'"
+  },
+  "sidebar.docs.doc.diagnostics-monitoring-and-troubleshooting/log/cef-with-elasticsearch": {
+    "message": "带 Elasticsearch 的 CEF",
+    "description": "Doc 'CEF with Elasticsearch'"
+  },
+  "sidebar.docs.doc.diagnostics-monitoring-and-troubleshooting/log/syslog-with-elasticsearch": {
+    "message": "使用 Elasticsearch 的 Syslog",
+    "description": "Doc 'Syslog with Elasticsearch'"
+  },
+  "sidebar.docs.category.diagnostics-monitoring-and-troubleshooting/traffic-flow": {
+    "message": "流量监控",
+    "description": "Category 'Traffic Flow'"
+  },
+  "sidebar.docs.doc.diagnostics-monitoring-and-troubleshooting/traffic-flow/netflow-analysis-with-elasticsearch": {
+    "message": "使用 Elasticsearch 进行 NetFlow 分析",
+    "description": "Doc 'NetFlow analysis with Elasticsearch'"
+  },
+  "sidebar.docs.category.hardware": {
+    "message": "硬件",
+    "description": "Category 'Hardware'"
+  },
+  "sidebar.docs.category.hardware/disks": {
+    "message": "磁盘",
+    "description": "Category 'Disks'"
+  },
+  "sidebar.docs.doc.hardware/disks/smart": {
+    "message": "S.M.A.R.T. 信息",
+    "description": "Doc 'S.M.A.R.T. info'"
+  },
+  "sidebar.docs.doc.hardware/grounding": {
+    "message": "接地",
+    "description": "Doc 'Grounding'"
+  },
+  "sidebar.docs.doc.hardware/lcd-touchscreen": {
+    "message": "LCD 触摸屏",
+    "description": "Doc 'LCD Touchscreen'"
+  },
+  "sidebar.docs.doc.hardware/leds": {
+    "message": "LED 指示灯",
+    "description": "Doc 'LEDs'"
+  },
+  "sidebar.docs.doc.hardware/mtu-in-routeros": {
+    "message": "RouterOS 中的 MTU",
+    "description": "Doc 'MTU in RouterOS'"
+  },
+  "sidebar.docs.doc.hardware/peripherals": {
+    "message": "外围设备",
+    "description": "Doc 'Peripherals'"
+  },
+  "sidebar.docs.doc.hardware/ports": {
+    "message": "端口",
+    "description": "Doc 'Ports'"
+  },
+  "sidebar.docs.doc.hardware/product-naming": {
+    "message": "产品命名",
+    "description": "Doc 'Product Naming'"
+  },
+  "sidebar.docs.doc.hardware/routerboard": {
+    "message": "路由器主板",
+    "description": "Doc 'RouterBOARD'"
+  },
+  "sidebar.docs.doc.hardware/s-plus-rj10-general-guidance": {
+    "message": "S+RJ10 通用指南",
+    "description": "Doc 'S+RJ10 general guidance'"
+  },
+  "sidebar.docs.doc.hardware/try-before-rma": {
+    "message": "RMA 前试用",
+    "description": "Doc 'Try Before RMA'"
+  },
+  "sidebar.docs.doc.hardware/usb-features": {
+    "message": "USB 功能",
+    "description": "Doc 'USB Features'"
+  },
+  "sidebar.docs.category.wired-connections": {
+    "message": "有线连接",
+    "description": "Category 'Wired Connections'"
+  },
+  "sidebar.docs.doc.wired-connections/ethernet": {
+    "message": "以太网",
+    "description": "Doc 'Ethernet'"
+  },
+  "sidebar.docs.doc.wired-connections/mikrotik-wired-interface-compatibility": {
+    "message": "MikroTik 有线接口兼容性",
+    "description": "Doc 'MikroTik wired interface compatibility'"
+  },
+  "sidebar.docs.doc.wired-connections/pwr-line": {
+    "message": "PWR 产品线",
+    "description": "Doc 'PWR Line'"
+  },
+  "sidebar.docs.category.wireless": {
+    "message": "无线",
+    "description": "Category 'Wireless'"
+  },
+  "sidebar.docs.category.wireless/wifi": {
+    "message": "Wi-Fi 6 / 7（802.11ax/be）",
+    "description": "Category 'Wi-Fi 6 / 7 (802.11ax/be)'"
+  },
+  "sidebar.docs.doc.wireless/wifi/configuring-outdoor-cpe-to-ap-links": {
+    "message": "配置室外 CPE 到 AP 链路",
+    "description": "Doc 'Configuring outdoor CPE to AP links'"
+  },
+  "sidebar.docs.doc.wireless/wifi/configuring-repeater": {
+    "message": "配置无线中继器",
+    "description": "Doc 'Configuring a wireless repeater'"
+  },
+  "sidebar.docs.doc.wireless/wifi/configuring-standalone-access-point": {
+    "message": "配置独立接入点",
+    "description": "Doc 'Configuring standalone access point'"
+  },
+  "sidebar.docs.doc.wireless/wifi/interworking-for-wifi6": {
+    "message": "WiFi6 互通",
+    "description": "Doc 'Interworking for WiFi6'"
+  },
+  "sidebar.docs.category.wireless/abgn": {
+    "message": "802.11 a/b/g/n",
+    "description": "Category '802.11 a/b/g/n'"
+  },
+  "sidebar.docs.category.wireless/abgn/capsman": {
+    "message": "CAPsMAN",
+    "description": "Category 'CAPsMAN'"
+  },
+  "sidebar.docs.doc.wireless/abgn/capsman/ap-controller-capsman": {
+    "message": "AP 控制器",
+    "description": "Doc 'AP Controller (CAPsMAN)'"
+  },
+  "sidebar.docs.doc.wireless/abgn/capsman/capsman-with-vlans": {
+    "message": "CAPsMAN 与 VLAN",
+    "description": "Doc 'CAPsMAN with VLANs'"
+  },
+  "sidebar.docs.doc.wireless/abgn/hwmpplus-mesh": {
+    "message": "HWMPplus 网状网",
+    "description": "Doc 'HWMPplus mesh'"
+  },
+  "sidebar.docs.doc.wireless/abgn/interworking-profiles": {
+    "message": "互通配置文件",
+    "description": "Doc 'Interworking Profiles'"
+  },
+  "sidebar.docs.doc.wireless/abgn/spectral-scan": {
+    "message": "频谱扫描",
+    "description": "Doc 'Spectral scan'"
+  },
+  "sidebar.docs.doc.wireless/abgn/vlans-on-wireless": {
+    "message": "无线网络上的 VLAN",
+    "description": "Doc 'VLANs on Wireless'"
+  },
+  "sidebar.docs.doc.wireless/abgn/wireless-interface": {
+    "message": "无线接口",
+    "description": "Doc 'Wireless Interface'"
+  },
+  "sidebar.docs.doc.wireless/abgn/wireless-troubleshooting": {
+    "message": "无线故障排查",
+    "description": "Doc 'Wireless Troubleshooting'"
+  },
+  "sidebar.docs.category.wireless/w60g": {
+    "message": "W60G",
+    "description": "Category '60 GHz (W60G)'"
+  },
+  "sidebar.docs.doc.wireless/w60g/distance-guide": {
+    "message": "距离指南",
+    "description": "Doc 'Distance guide'"
+  },
+  "sidebar.docs.doc.wireless/w60g/fail-over-ptmp-cli-example": {
+    "message": "故障切换 PtMP CLI 示例",
+    "description": "Doc 'Fail-over PtMP CLI example'"
+  },
+  "sidebar.docs.doc.wireless/w60g/fail-over-ptp-cli-example": {
+    "message": "故障转移 PtP CLI 示例",
+    "description": "Doc 'Fail-over PtP CLI example'"
+  },
+  "sidebar.docs.doc.wireless/w60g/fail-over-ptp-gui-example": {
+    "message": "故障转移 PtP GUI 示例",
+    "description": "Doc 'Fail-over PtP GUI example'"
+  },
+  "sidebar.docs.doc.wireless/w60g/ptp-cli-example": {
+    "message": "PtP CLI 示例",
+    "description": "Doc 'PtP CLI example'"
+  },
+  "sidebar.docs.doc.wireless/w60g/ptp-gui-example": {
+    "message": "点对点图形界面示例",
+    "description": "Doc 'PtP GUI example'"
+  },
+  "sidebar.docs.category.wireless/user-guides": {
+    "message": "案例研究",
+    "description": "Category 'User Guides'"
+  },
+  "sidebar.docs.doc.wireless/user-guides/enterprise-wireless-security-user": {
+    "message": "企业级无线安全与 User Manager v5",
+    "description": "Doc 'Enterprise wireless security with User Manager v5'"
+  },
+  "sidebar.docs.doc.wireless/user-guides/wireless-station-modes": {
+    "message": "无线站点模式",
+    "description": "Doc 'Wireless Station Modes'"
+  },
+  "sidebar.docs.category.mobile-networking": {
+    "message": "移动网络",
+    "description": "Category 'Mobile Networking'"
+  },
+  "sidebar.docs.category.mobile-networking/gps": {
+    "message": "GPS",
+    "description": "Category 'GPS'"
+  },
+  "sidebar.docs.doc.mobile-networking/gps/gps-tracking-using-http-post": {
+    "message": "使用 HTTP POST 进行 GPS 跟踪",
+    "description": "Doc 'GPS-tracking using HTTP POST'"
+  },
+  "sidebar.docs.doc.mobile-networking/gps/gps-tracking-using-mqtt-and-thingsboard": {
+    "message": "使用 MQTT 和 ThingsBoard 进行 GPS 跟踪",
+    "description": "Doc 'GPS-tracking using MQTT and ThingsBoard'"
+  },
+  "sidebar.docs.doc.mobile-networking/mikrotik-connectivity": {
+    "message": "MikroTik 连接性",
+    "description": "Doc 'MikroTik Connectivity'"
+  },
+  "sidebar.docs.doc.mobile-networking/sms": {
+    "message": "短信",
+    "description": "Doc 'SMS'"
+  },
+  "sidebar.docs.category.mobile-networking/user-guides": {
+    "message": "用户指南",
+    "description": "Category 'User Guides'"
+  },
+  "sidebar.docs.category.mobile-networking/bg77-modem-at-commands": {
+    "message": "BG77 调制解调器 AT 命令",
+    "description": "Category 'BG77 modem AT commands'"
+  },
+  "sidebar.docs.doc.mobile-networking/bg77-modem-at-commands/wwan-and-gnss-priority-automatization": {
+    "message": "WWAN 与 GNSS 优先级自动化",
+    "description": "Doc 'WWAN and GNSS priority automatization'"
+  },
+  "sidebar.docs.doc.mobile-networking/dual-sim-application": {
+    "message": "双 SIM 卡应用",
+    "description": "Doc 'Dual SIM Application'"
+  },
+  "sidebar.docs.category.bridging-and-switching": {
+    "message": "桥接与交换",
+    "description": "Category 'Bridging and Switching'"
+  },
+  "sidebar.docs.doc.bridging-and-switching/marvell-prestera-switch-chip-features": {
+    "message": "Marvell Prestera 交换芯片功能",
+    "description": "Doc 'Marvell Prestera switch chip features'"
+  },
+  "sidebar.docs.doc.bridging-and-switching/l3-hardware-offloading": {
+    "message": "L3 硬件卸载",
+    "description": "Doc 'L3 Hardware Offloading'"
+  },
+  "sidebar.docs.doc.bridging-and-switching/quality-of-service": {
+    "message": "服务质量",
+    "description": "Doc 'Quality of Service'"
+  },
+  "sidebar.docs.doc.bridging-and-switching/switch-chip-features": {
+    "message": "交换机芯片功能",
+    "description": "Doc 'Other Switch Chip Features'"
+  },
+  "sidebar.docs.category.bridging-and-switching/swos": {
+    "message": "SwOS",
+    "description": "Category 'SwOS'"
+  },
+  "sidebar.docs.doc.bridging-and-switching/swos/crs3": {
+    "message": "CRS3xx 和 CSS3xx 系列手册",
+    "description": "Doc 'CRS3xx and CSS3xx Series Manual'"
+  },
+  "sidebar.docs.doc.bridging-and-switching/swos/css106": {
+    "message": "CSS106 (RB260) 系列手册",
+    "description": "Doc 'CSS106 (RB260) series Manual'"
+  },
+  "sidebar.docs.doc.bridging-and-switching/swos/css610": {
+    "message": "CSS610 系列手册",
+    "description": "Doc 'CSS610 series Manual'"
+  },
+  "sidebar.docs.doc.bridging-and-switching/swos/gpen21": {
+    "message": "GPEN21 系列手册",
+    "description": "Doc 'GPEN21 series Manual'"
+  },
+  "sidebar.docs.doc.bridging-and-switching/swos/troubleshooting": {
+    "message": "无法升级 SwOS",
+    "description": "Doc 'Cannot upgrade SwOS'"
+  },
+  "sidebar.docs.category.bridging-and-switching/user-guides": {
+    "message": "桥接与交换案例研究",
+    "description": "Category 'User Guides'"
+  },
+  "sidebar.docs.doc.bridging-and-switching/user-guides/basic-vlan-switching": {
+    "message": "基础 VLAN 交换",
+    "description": "Doc 'Basic VLAN switching'"
+  },
+  "sidebar.docs.doc.bridging-and-switching/user-guides/bridge-igmp-mld-snooping": {
+    "message": "网桥 IGMP/MLD 侦听",
+    "description": "Doc 'Bridge IGMP/MLD snooping'"
+  },
+  "sidebar.docs.doc.bridging-and-switching/user-guides/bridge-vlan-table": {
+    "message": "网桥 VLAN 表",
+    "description": "Doc 'Bridge VLAN Table'"
+  },
+  "sidebar.docs.doc.bridging-and-switching/user-guides/crs1xx-2xx-series-switches-examples": {
+    "message": "CRS1xx/2xx 系列交换机示例",
+    "description": "Doc 'CRS1xx/2xx series switch examples'"
+  },
+  "sidebar.docs.doc.bridging-and-switching/user-guides/layer2-misconfiguration": {
+    "message": "Layer2 配置错误",
+    "description": "Doc 'Layer2 misconfiguration'"
+  },
+  "sidebar.docs.doc.bridging-and-switching/user-guides/loop-protect": {
+    "message": "环路保护",
+    "description": "Doc 'Loop Protect'"
+  },
+  "sidebar.docs.doc.bridging-and-switching/user-guides/spanning-tree-protocol": {
+    "message": "生成树协议",
+    "description": "Doc 'Spanning Tree Protocol'"
+  },
+  "sidebar.docs.doc.bridging-and-switching/user-guides/wireless-vlan-trunk": {
+    "message": "无线 VLAN 中继",
+    "description": "Doc 'Wireless VLAN Trunk'"
+  },
+  "sidebar.docs.doc.bridging-and-switching/user-guides/wmm-and-vlan-priority": {
+    "message": "WMM 与 VLAN 优先级",
+    "description": "Doc 'WMM and VLAN priority'"
+  },
+  "sidebar.docs.category.network-management": {
+    "message": "网络服务",
+    "description": "Category 'Network Services'"
+  },
+  "sidebar.docs.category.network-management/cloud": {
+    "message": "云",
+    "description": "Category 'Cloud'"
+  },
+  "sidebar.docs.doc.network-management/cloud/back-to-home": {
+    "message": "Back To Home（远程回家）",
+    "description": "Doc 'Back To Home'"
+  },
+  "sidebar.docs.doc.network-management/cloud/cloud-backup": {
+    "message": "云备份",
+    "description": "Doc 'Cloud backup'"
+  },
+  "sidebar.docs.doc.network-management/cloud/communication-mikrotik-cloud-servers": {
+    "message": "与 MikroTik 云服务通信",
+    "description": "Doc 'Communication with MikroTik Cloud Services'"
+  },
+  "sidebar.docs.doc.network-management/cloud/file-share": {
+    "message": "文件共享",
+    "description": "Doc 'File Share'"
+  },
+  "sidebar.docs.category.network-management/dhcp": {
+    "message": "DHCP",
+    "description": "Category 'DHCP'"
+  },
+  "sidebar.docs.doc.network-management/dhcp/client": {
+    "message": "DHCP 客户端",
+    "description": "Doc 'DHCP Client'"
+  },
+  "sidebar.docs.doc.network-management/dhcp/server": {
+    "message": "DHCP 服务器",
+    "description": "Doc 'DHCP Server'"
+  },
+  "sidebar.docs.doc.network-management/dhcp/relay": {
+    "message": "DHCP 中继",
+    "description": "Doc 'DHCP Relay'"
+  },
+  "sidebar.docs.doc.network-management/dhcp/dhcpv6-client": {
+    "message": "DHCPv6 客户端",
+    "description": "Doc 'DHCPv6 Client'"
+  },
+  "sidebar.docs.doc.network-management/dhcp/dhcpv6-server": {
+    "message": "DHCPv6 服务器",
+    "description": "Doc 'DHCPv6 Server'"
+  },
+  "sidebar.docs.category.network-management/proxy": {
+    "message": "代理",
+    "description": "Category 'Proxy'"
+  },
+  "sidebar.docs.doc.network-management/proxy/web-proxy": {
+    "message": "Web 代理",
+    "description": "Doc 'Web Proxy'"
+  },
+  "sidebar.docs.doc.network-management/proxy/reverse-proxy": {
+    "message": "反向代理",
+    "description": "Doc 'Reverse Proxy'"
+  },
+  "sidebar.docs.category.network-management/socks": {
+    "message": "SOCKS",
+    "description": "Category 'SOCKS'"
+  },
+  "sidebar.docs.category.user-guides/routing-and-networking-protocols": {
+    "message": "路由与网络协议",
+    "description": "Category 'Routing and Networking Protocols'"
+  },
+  "sidebar.docs.doc.user-guides/routing-and-networking-protocols/routing-decision": {
+    "message": "路由决策",
+    "description": "Doc 'Routing Decision'"
+  },
+  "sidebar.docs.doc.user-guides/routing-and-networking-protocols/moving-from-rosv6-to-rosv7": {
+    "message": "从 ROSv6 迁移到 ROSv7",
+    "description": "Doc 'Moving from ROSv6 to ROSv7'"
+  },
+  "sidebar.docs.doc.user-guides/routing-and-networking-protocols/routing-protocol-multi-core-support": {
+    "message": "路由协议多核支持",
+    "description": "Doc 'Routing Protocol Multi-core Support'"
+  },
+  "sidebar.docs.doc.user-guides/routing-and-networking-protocols/policy-routing": {
+    "message": "策略路由",
+    "description": "Doc 'Policy Routing'"
+  },
+  "sidebar.docs.category.user-guides/routing-and-networking-protocols/unicast": {
+    "message": "单播",
+    "description": "Category 'Unicast'"
+  },
+  "sidebar.docs.doc.user-guides/routing-and-networking-protocols/unicast/bgp/understanding-bgp": {
+    "message": "理解 BGP",
+    "description": "Doc 'Understanding BGP'"
+  },
+  "sidebar.docs.doc.user-guides/routing-and-networking-protocols/unicast/bgp/peering-sessions": {
+    "message": "对等会话",
+    "description": "Doc 'Peering Sessions'"
+  },
+  "sidebar.docs.doc.user-guides/routing-and-networking-protocols/unicast/bgp/nexthop-selection": {
+    "message": "下一跳选择",
+    "description": "Doc 'Nexthop Selection'"
+  },
+  "sidebar.docs.doc.user-guides/routing-and-networking-protocols/unicast/bgp/route-leak-prevention": {
+    "message": "路由泄露防护",
+    "description": "Doc 'Route Leak Prevention'"
+  },
+  "sidebar.docs.doc.user-guides/routing-and-networking-protocols/unicast/bgp/faq": {
+    "message": "常见问题",
+    "description": "Doc 'FAQ'"
+  },
+  "sidebar.docs.doc.user-guides/routing-and-networking-protocols/unicast/ospf/understanding-ospf": {
+    "message": "理解 OSPF",
+    "description": "Doc 'Understanding OSPF'"
+  },
+  "sidebar.docs.doc.user-guides/routing-and-networking-protocols/unicast/ospf/neighbour-relationship": {
+    "message": "邻居关系",
+    "description": "Doc 'Neighbor Relationship'"
+  },
+  "sidebar.docs.doc.user-guides/routing-and-networking-protocols/unicast/ospf/routing-calculation": {
+    "message": "路由表计算",
+    "description": "Doc 'Routing Table Calculation'"
+  },
+  "sidebar.docs.doc.user-guides/routing-and-networking-protocols/unicast/ospf/areas-and-virtual-links": {
+    "message": "区域和虚拟链路",
+    "description": "Doc 'Areas and Virtual Links'"
+  },
+  "sidebar.docs.doc.user-guides/routing-and-networking-protocols/unicast/ospf/faq": {
+    "message": "常见问题",
+    "description": "Doc 'FAQ'"
+  },
+  "sidebar.docs.doc.user-guides/routing-and-networking-protocols/mpls/exp-bit-and-mpls-queuing": {
+    "message": "EXP 位和 MPLS 队列",
+    "description": "Doc 'EXP bit and MPLS Queuing'"
+  },
+  "sidebar.docs.doc.user-guides/routing-and-networking-protocols/mpls/traffic-eng": {
+    "message": "流量工程",
+    "description": "Doc 'Traffic Eng'"
+  },
+  "sidebar.docs.doc.user-guides/routing-and-networking-protocols/mpls/vpls/control-word": {
+    "message": "控制字",
+    "description": "Doc 'Control Word'"
+  },
+  "sidebar.docs.category.user-guides/routing-and-networking-protocols/multicast": {
+    "message": "组播",
+    "description": "Category 'Multicast'"
+  },
+  "sidebar.docs.doc.user-guides/routing-and-networking-protocols/multicast/group-management-protocol": {
+    "message": "组管理协议",
+    "description": "Doc 'Group Management Protocol'"
+  },
+  "sidebar.docs.doc.user-guides/routing-and-networking-protocols/multicast/igmp-proxy": {
+    "message": "IGMP 代理",
+    "description": "Doc 'IGMP Proxy'"
+  },
+  "sidebar.docs.doc.user-guides/routing-and-networking-protocols/route-distinguisher-and-route-target": {
+    "message": "路由区分符和路由目标",
+    "description": "Doc 'Route Distinguisher and Route Target'"
+  },
+  "sidebar.docs.doc.user-guides/routing-and-networking-protocols/route-selection-and-filtering": {
+    "message": "路由选择和过滤",
+    "description": "Doc 'Route Selection and Filtering'"
+  },
+  "sidebar.docs.category.firewall-and-quality-of-service": {
+    "message": "防火墙与服务质量",
+    "description": "Category 'Firewall and Quality of Service'"
+  },
+  "sidebar.docs.category.firewall-and-quality-of-service/firewall": {
+    "message": "防火墙",
+    "description": "Category 'Firewall'"
+  },
+  "sidebar.docs.doc.firewall-and-quality-of-service/firewall/address-lists": {
+    "message": "地址列表",
+    "description": "Doc 'Address lists'"
+  },
+  "sidebar.docs.doc.firewall-and-quality-of-service/firewall/common-firewall-matchers-and-actions": {
+    "message": "常用防火墙匹配器和动作",
+    "description": "Doc 'Common Firewall Matchers and Actions'"
+  },
+  "sidebar.docs.doc.firewall-and-quality-of-service/firewall/filter": {
+    "message": "筛选",
+    "description": "Doc 'Filter'"
+  },
+  "sidebar.docs.doc.firewall-and-quality-of-service/packet-flow-in-routeros": {
+    "message": "RouterOS 中的数据包流程",
+    "description": "Doc 'Packet Flow in RouterOS'"
+  },
+  "sidebar.docs.doc.firewall-and-quality-of-service/connection-tracking": {
+    "message": "连接跟踪",
+    "description": "Doc 'Connection tracking'"
+  },
+  "sidebar.docs.category.firewall-and-quality-of-service/queues": {
+    "message": "队列",
+    "description": "Category 'Queues'"
+  },
+  "sidebar.docs.doc.firewall-and-quality-of-service/queues/htb-hierarchical-token-bucket": {
+    "message": "HTB（分层令牌桶）",
+    "description": "Doc 'HTB (Hierarchical Token Bucket)'"
+  },
+  "sidebar.docs.doc.firewall-and-quality-of-service/queues/pcq-example": {
+    "message": "PCQ 示例",
+    "description": "Doc 'PCQ example'"
+  },
+  "sidebar.docs.doc.firewall-and-quality-of-service/queues/queue-burst": {
+    "message": "队列突发",
+    "description": "Doc 'Queue Burst'"
+  },
+  "sidebar.docs.doc.firewall-and-quality-of-service/queues/queue-size": {
+    "message": "队列大小",
+    "description": "Doc 'Queue size'"
+  },
+  "sidebar.docs.category.firewall-and-quality-of-service/queues/queue-types": {
+    "message": "队列类型",
+    "description": "Category 'Queue types'"
+  },
+  "sidebar.docs.doc.firewall-and-quality-of-service/kid-control": {
+    "message": "儿童上网管控",
+    "description": "Doc 'Kid Control'"
+  },
+  "sidebar.docs.category.firewall-and-quality-of-service/user-guides": {
+    "message": "防火墙与 QoS 案例研究",
+    "description": "Category 'User Guides'"
+  },
+  "sidebar.docs.doc.firewall-and-quality-of-service/user-guides/bruteforce-prevention": {
+    "message": "SSH 暴力破解防护",
+    "description": "Doc 'SSH brute-force protection'"
+  },
+  "sidebar.docs.doc.firewall-and-quality-of-service/user-guides/building-advanced-firewall": {
+    "message": "构建高级防火墙",
+    "description": "Doc 'Building Advanced Firewall'"
+  },
+  "sidebar.docs.doc.firewall-and-quality-of-service/user-guides/connection-rate": {
+    "message": "连接速率",
+    "description": "Doc 'Connection rate'"
+  },
+  "sidebar.docs.doc.firewall-and-quality-of-service/user-guides/ddos-protection": {
+    "message": "DDoS 防护",
+    "description": "Doc 'DDoS protection'"
+  },
+  "sidebar.docs.doc.firewall-and-quality-of-service/user-guides/port-knocking": {
+    "message": "端口敲门",
+    "description": "Doc 'Port knocking'"
+  },
+  "sidebar.docs.category.virtual-private-networks": {
+    "message": "虚拟专用网络",
+    "description": "Category 'Virtual Private Networks'"
+  },
+  "sidebar.docs.category.virtual-private-networks/ipsec": {
+    "message": "IPsec",
+    "description": "Category 'IPsec'"
+  },
+  "sidebar.docs.doc.virtual-private-networks/ipsec/ikev2-eap-between-nordvpn-and-routeros": {
+    "message": "NordVPN 与 RouterOS 之间的 IKEv2 EAP",
+    "description": "Doc 'IKEv2 EAP between NordVPN and RouterOS'"
+  },
+  "sidebar.docs.doc.virtual-private-networks/ipsec/qkd-integration-in-routeros-ipsec-ppk": {
+    "message": "RouterOS IPsec 中的 QKD 集成",
+    "description": "Doc 'QKD Integration in RouterOS IPsec (PPK)'"
+  },
+  "sidebar.docs.category.virtual-private-networks/l2tp": {
+    "message": "L2TP",
+    "description": "Category 'L2TP'"
+  },
+  "sidebar.docs.doc.virtual-private-networks/l2tp/lac-and-lns-setup-with-cisco-as-lac": {
+    "message": "使用 Cisco 作为 LAC 的 LAC 和 LNS 设置",
+    "description": "Doc 'LAC and LNS setup with Cisco as LAC'"
+  },
+  "sidebar.docs.category.virtual-private-networks/pppoe": {
+    "message": "PPPoE",
+    "description": "Category 'PPPoE'"
+  },
+  "sidebar.docs.doc.virtual-private-networks/pppoe/ipv6-pd-over-ppp": {
+    "message": "基于 PPP 的 IPv6 PD",
+    "description": "Doc 'IPv6 PD over PPP'"
+  },
+  "sidebar.docs.doc.virtual-private-networks/pppoe/mlppp-over-single-and-multiple-links": {
+    "message": "基于单链路和多链路的 MLPPP",
+    "description": "Doc 'MLPPP over single and multiple links'"
+  },
+  "sidebar.docs.category.authentication-authorization-accounting": {
+    "message": "AAA 与用户管理",
+    "description": "Category 'AAA and User Management'"
+  },
+  "sidebar.docs.doc.authentication-authorization-accounting/certificates": {
+    "message": "证书",
+    "description": "Doc 'Certificates'"
+  },
+  "sidebar.docs.category.authentication-authorization-accounting/hotspot-captive-portal": {
+    "message": "HotSpot - 强制门户",
+    "description": "Category 'HotSpot - Captive portal'"
+  },
+  "sidebar.docs.doc.authentication-authorization-accounting/hotspot-captive-portal/hotspot-customisation": {
+    "message": "热点自定义",
+    "description": "Doc 'Hotspot customisation'"
+  },
+  "sidebar.docs.doc.authentication-authorization-accounting/user-manager": {
+    "message": "用户管理器",
+    "description": "Doc 'User Manager'"
+  },
+  "sidebar.docs.doc.authentication-authorization-accounting/user": {
+    "message": "用户",
+    "description": "Doc 'User'"
+  },
+  "sidebar.docs.category.high-availability-solutions": {
+    "message": "高可用性解决方案",
+    "description": "Category 'High Availability Solutions'"
+  },
+  "sidebar.docs.doc.high-availability-solutions/bonding": {
+    "message": "绑定",
+    "description": "Doc 'Bonding'"
+  },
+  "sidebar.docs.category.high-availability-solutions/load-balancing": {
+    "message": "负载均衡",
+    "description": "Category 'Load Balancing'"
+  },
+  "sidebar.docs.doc.high-availability-solutions/load-balancing/failover-wan-backup": {
+    "message": "故障转移",
+    "description": "Doc 'Failover (WAN Backup)'"
+  },
+  "sidebar.docs.doc.high-availability-solutions/load-balancing/per-connection-classifier": {
+    "message": "每连接分类器",
+    "description": "Doc 'Per connection classifier'"
+  },
+  "sidebar.docs.doc.high-availability-solutions/multi-chassis-link-aggregation-group": {
+    "message": "多机箱链路聚合组",
+    "description": "Doc 'Multi-chassis Link Aggregation Group'"
+  },
+  "sidebar.docs.category.high-availability-solutions/user-guides": {
+    "message": "用户指南",
+    "description": "Category 'User Guides'"
+  },
+  "sidebar.docs.doc.high-availability-solutions/user-guides/bonding-examples": {
+    "message": "绑定示例",
+    "description": "Doc 'Bonding Examples'"
+  },
+  "sidebar.docs.doc.high-availability-solutions/user-guides/vrrp-configuration-examples": {
+    "message": "VRRP 配置示例",
+    "description": "Doc 'VRRP Configuration Examples'"
+  },
+  "sidebar.docs.category.internet-of-things": {
+    "message": "物联网",
+    "description": "Category 'Internet of Things'"
+  },
+  "sidebar.docs.category.internet-of-things/bluetooth": {
+    "message": "蓝牙",
+    "description": "Category 'Bluetooth'"
+  },
+  "sidebar.docs.category.internet-of-things/bluetooth/mikrotik-beacon-manager": {
+    "message": "MikroTik Beacon 管理器",
+    "description": "Category 'MikroTik Beacon Manager'"
+  },
+  "sidebar.docs.doc.internet-of-things/bluetooth/mikrotik-beacon-manager/mikrotik-beacon-manager-android-devices": {
+    "message": "适用于 Android 设备的 MikroTik Beacon Manager",
+    "description": "Doc 'MikroTik Beacon Manager for Android devices'"
+  },
+  "sidebar.docs.doc.internet-of-things/bluetooth/mikrotik-beacon-manager/mikrotik-beacon-manager-for-ios-devices": {
+    "message": "适用于 iOS 设备的 MikroTik Beacon Manager",
+    "description": "Doc 'MikroTik Beacon Manager for iOS devices'"
+  },
+  "sidebar.docs.doc.internet-of-things/bluetooth/mikrotik-beacon-manager/mikrotik-bluetooth-tg-bt5-xx-tag": {
+    "message": "MikroTik 蓝牙 TG-BT5-XX 标签更新日志",
+    "description": "Doc 'MikroTik Bluetooth TG-BT5-XX tag changelog'"
+  },
+  "sidebar.docs.doc.internet-of-things/bluetooth/mikrotik-beacon-manager/mikrotik-tag-advertisement-formats": {
+    "message": "MikroTik 标签通告格式",
+    "description": "Doc 'MikroTik Tag advertisement formats'"
+  },
+  "sidebar.docs.category.internet-of-things/bluetooth/user-guides": {
+    "message": "用户指南",
+    "description": "Category 'User Guides'"
+  },
+  "sidebar.docs.doc.internet-of-things/bluetooth/user-guides/bluetooth-tag-tracking-mqtt-thingsboard": {
+    "message": "使用 MQTT 和 ThingsBoard 进行蓝牙标签追踪",
+    "description": "Doc 'Bluetooth tag-tracking using MQTT and ThingsBoard'"
+  },
+  "sidebar.docs.doc.internet-of-things/bluetooth/user-guides/email-notification-mikrotik-ble-tag-s": {
+    "message": "MikroTik BLE 标签加速度计触发时的电子邮件通知",
+    "description": "Doc 'Email notification on the MikroTik BLE tag's accelerometer triggers'"
+  },
+  "sidebar.docs.doc.internet-of-things/bluetooth/user-guides/https-post-and-azure-configuration": {
+    "message": "HTTPS post 与 Azure 配置",
+    "description": "Doc 'HTTPS post and Azure configuration'"
+  },
+  "sidebar.docs.doc.internet-of-things/bluetooth/user-guides/ifttt-app-notifications-ble-tag": {
+    "message": "当 BLE 标签出现在 KNOT 范围内时通过 IFTTT 应用发送通知",
+    "description": "Doc 'IFTTT app notifications on BLE tag appearance in KNOT's range'"
+  },
+  "sidebar.docs.doc.internet-of-things/bluetooth/user-guides/mqtt-and-azure-configuration": {
+    "message": "MQTT 和 Azure 配置",
+    "description": "Doc 'MQTT and Azure configuration'"
+  },
+  "sidebar.docs.doc.internet-of-things/bluetooth/user-guides/mqtt-https-and-aws-configuration": {
+    "message": "MQTT/HTTPS 和 AWS 配置",
+    "description": "Doc 'MQTT/HTTPS and AWS configuration'"
+  },
+  "sidebar.docs.doc.internet-of-things/bluetooth/user-guides/sending-temperature-readings-from-tg": {
+    "message": "发送 TG-BT5-OUT 标签的温度读数到 ThingsBoard",
+    "description": "Doc 'Sending temperature readings from the TG-BT5-OUT tag to ThingsBoard'"
+  },
+  "sidebar.docs.category.internet-of-things/gpio": {
+    "message": "GPIO",
+    "description": "Category 'GPIO'"
+  },
+  "sidebar.docs.doc.internet-of-things/gpio/using-gpio-as-pulse-input-from-meter": {
+    "message": "使用 GPIO 作为仪表设备的脉冲输入",
+    "description": "Doc 'Using the GPIO as pulse input from a meter device'"
+  },
+  "sidebar.docs.category.internet-of-things/lora": {
+    "message": "Lora",
+    "description": "Category 'Lora'"
+  },
+  "sidebar.docs.doc.internet-of-things/lora/general-properties": {
+    "message": "通用属性",
+    "description": "Doc 'General Properties'"
+  },
+  "sidebar.docs.category.internet-of-things/lora/user-guides": {
+    "message": "用户指南",
+    "description": "Category 'User Guides'"
+  },
+  "sidebar.docs.doc.internet-of-things/lora/user-guides/aws-lorawan-configuration": {
+    "message": "AWS LoRaWAN 配置",
+    "description": "Doc 'AWS LoRaWAN configuration'"
+  },
+  "sidebar.docs.doc.internet-of-things/lora/user-guides/step-by-step-installation": {
+    "message": "逐步安装",
+    "description": "Doc 'Step by step installation'"
+  },
+  "sidebar.docs.doc.internet-of-things/lora/user-guides/tg-lr-setup-guide": {
+    "message": "TG-LR 设置指南",
+    "description": "Doc 'TG-LR setup guide'"
+  },
+  "sidebar.docs.category.internet-of-things/mqtt": {
+    "message": "MQTT",
+    "description": "Category 'MQTT'"
+  },
+  "sidebar.docs.doc.internet-of-things/mqtt/kaa-iot-setup": {
+    "message": "Kaa IoT 设置",
+    "description": "Doc 'Kaa IoT setup'"
+  },
+  "sidebar.docs.doc.internet-of-things/mqtt/mqtt-and-thingsboard-configuration": {
+    "message": "MQTT 与 ThingsBoard 配置",
+    "description": "Doc 'MQTT and ThingsBoard configuration'"
+  },
+  "sidebar.docs.doc.internet-of-things/wiliot": {
+    "message": "威利奥特",
+    "description": "Doc 'Wiliot'"
+  },
+  "sidebar.docs.category.storage": {
+    "message": "存储",
+    "description": "Category 'Storage'"
+  },
+  "sidebar.docs.category.storage/btrfs": {
+    "message": "Btrfs",
+    "description": "Category 'index'"
+  },
+  "sidebar.docs.doc.storage/btrfs/maintenance": {
+    "message": "Btrfs 维护",
+    "description": "Doc 'Btrfs maintenance'"
+  },
+  "sidebar.docs.doc.storage/btrfs/snapshots": {
+    "message": "Btrfs 子卷与快照",
+    "description": "Doc 'Btrfs subvolumes and snapshots'"
+  },
+  "sidebar.docs.doc.storage/dlna": {
+    "message": "DLNA 媒体服务器",
+    "description": "Doc 'DLNA Media Server'"
+  },
+  "sidebar.docs.doc.storage/encrypted-storage": {
+    "message": "加密存储",
+    "description": "Doc 'Encrypted storage (dm-crypt)'"
+  },
+  "sidebar.docs.category.storage/raid": {
+    "message": "RAID",
+    "description": "Category 'RAID'"
+  },
+  "sidebar.docs.doc.storage/raid/hot-spare": {
+    "message": "设置热备盘",
+    "description": "Doc 'Setting a hot spare disk'"
+  },
+  "sidebar.docs.doc.storage/raid/moving-array": {
+    "message": "将 RAID 阵列迁移到其他设备",
+    "description": "Doc 'Moving your RAID array to a different device'"
+  },
+  "sidebar.docs.doc.storage/ramdisk": {
+    "message": "内存盘",
+    "description": "Doc 'Ramdisk'"
+  },
+  "sidebar.docs.doc.storage/self-encrypting-drives": {
+    "message": "自加密硬盘",
+    "description": "Doc 'Self-encrypting drives (SED)'"
+  },
+  "sidebar.docs.doc.storage/tmpfs": {
+    "message": "临时文件系统",
+    "description": "Doc 'Tmpfs'"
+  },
+  "sidebar.docs.category.containers": {
+    "message": "容器",
+    "description": "Category 'Containers'"
+  },
+  "sidebar.docs.category.containers/apps": {
+    "message": "应用",
+    "description": "Category 'Apps'"
+  },
+  "sidebar.docs.doc.containers/apps/available-apps": {
+    "message": "可用应用列表",
+    "description": "Doc 'List of available Apps'"
+  },
+  "sidebar.docs.category.containers/user-guides": {
+    "message": "用户指南",
+    "description": "Category 'User Guides'"
+  },
+  "sidebar.docs.doc.containers/user-guides/claire-homeassistant": {
+    "message": "将 Claire 与 hAP be³ Media 上的 Home Assistant 配对",
+    "description": "Doc 'Claire and Home Assistant'"
+  },
+  "sidebar.docs.doc.containers/user-guides/container-freeradius-server": {
+    "message": "容器 - freeradius 服务器",
+    "description": "Doc 'Container - freeradius server'"
+  },
+  "sidebar.docs.doc.containers/user-guides/container-haproxy": {
+    "message": "容器 - HAProxy",
+    "description": "Doc 'Container - HAProxy'"
+  },
+  "sidebar.docs.doc.containers/user-guides/container-homeassistant": {
+    "message": "容器 - HomeAssistant",
+    "description": "Doc 'Container - HomeAssistant'"
+  },
+  "sidebar.docs.doc.containers/user-guides/container-matrix-synapse": {
+    "message": "容器 - Matrix",
+    "description": "Doc 'Container - Matrix (Synapse)'"
+  },
+  "sidebar.docs.doc.containers/user-guides/container-mosquitto-mqtt-server": {
+    "message": "容器 - mosquitto MQTT 服务器",
+    "description": "Doc 'Container - mosquitto MQTT server'"
+  },
+  "sidebar.docs.doc.containers/user-guides/container-postgres": {
+    "message": "容器 - Postgres",
+    "description": "Doc 'Container - Postgres'"
+  },
+  "sidebar.docs.doc.containers/user-guides/container-thingsboard-mqtt-http-server": {
+    "message": "容器 - ThingsBoard MQTT/HTTP 服务器",
+    "description": "Doc 'Container - ThingsBoard MQTT/HTTP server'"
+  },
+  "sidebar.docs.category.developer-guides": {
+    "message": "开发者指南",
+    "description": "Category 'Developer Guides'"
+  },
+  "sidebar.docs.category.developer-guides/api": {
+    "message": "API",
+    "description": "Category 'API'"
+  },
+  "sidebar.docs.doc.developer-guides/api/python3-example": {
+    "message": "Python3 示例",
+    "description": "Doc 'Python3 Example'"
+  },
+  "sidebar.docs.category.developer-guides/scripting": {
+    "message": "脚本",
+    "description": "Category 'Scripting'"
+  },
+  "sidebar.docs.doc.developer-guides/scripting/scripting-examples": {
+    "message": "脚本示例",
+    "description": "Doc 'Scripting examples'"
+  },
+  "sidebar.docs.doc.developer-guides/scripting/scripting-tips-and-tricks": {
+    "message": "脚本技巧与窍门",
+    "description": "Doc 'Scripting Tips and Tricks'"
+  },
+  "sidebar.docs.category.cli-reference": {
+    "message": "CLI 参考",
+    "description": "Category 'CLI Reference'"
+  },
+  "sidebar.docs.link.version-comparison": {
+    "message": "版本比较",
+    "description": "Link 'Version comparison'"
+  }
+}

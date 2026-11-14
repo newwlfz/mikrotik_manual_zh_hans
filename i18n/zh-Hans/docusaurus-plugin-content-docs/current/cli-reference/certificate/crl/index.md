@@ -1,0 +1,39 @@
+---
+sidebar_key: "cli-reference/certificate/crl"
+title: "crl"
+sidebar_label: 'crl'
+source: https://manual.mikrotik.com/docs/cli-reference/certificate/crl
+captured_at: '2026-11-09T11:35:47.715Z'
+translated_at: "2026-11-11T16:56:16.529Z"
+translation_provider: "opencode-go"
+translation_model: "deepseek-v4.1-flash"
+---
+
+-----------
+
+## certificate/crl {#certificatecrl}
+**类型：** 目录
+
+<ArgTable c1="标志" c2="名称" c3="描述">
+<ArgTableRow arg="E" typ="expired">已过期</ArgTableRow>
+<ArgTableRow arg="D" typ="dynamic">动态</ArgTableRow>
+<ArgTableRow arg="I" typ="invalid">无效</ArgTableRow>
+</ArgTable>
+
+<ArgTable c1="参数" c2="类型" c3="描述">
+<ArgTableRow arg="url" typ="string" mandatory="1"></ArgTableRow>
+</ArgTable>
+
+<ArgTable c1="只读参数" c2="类型" c3="描述">
+<ArgTableRow arg="cert" typ="enum (none)"></ArgTableRow>
+<ArgTableRow arg="trust-store" typ="alt { all: enum (all)
+, component: ubit (ipsec, wpa-eap, capsman, fetch, sstp, ovpn, mqtt, email, netwatch, radius, container, userman, lora, wiliot, openflow, tr069, dot1x, dns, www, api, reverse-proxy, logging)
+ }"></ArgTableRow>
+<ArgTableRow arg="num" typ="num"></ArgTableRow>
+<ArgTableRow arg="revoked" typ="num"></ArgTableRow>
+<ArgTableRow arg="next-update" typ="date"></ArgTableRow>
+<ArgTableRow arg="last-update" typ="date"></ArgTableRow>
+<ArgTableRow arg="akid" typ="string"></ArgTableRow>
+<ArgTableRow arg="fingerprint" typ="string"></ArgTableRow>
+<ArgTableRow arg="signature" typ="string"></ArgTableRow>
+</ArgTable>

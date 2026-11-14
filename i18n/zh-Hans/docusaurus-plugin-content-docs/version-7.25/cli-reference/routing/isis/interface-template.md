@@ -1,0 +1,53 @@
+---
+sidebar_key: "cli-reference/routing/isis/interface-template"
+sidebar_position: 2
+title: "interface-template"
+sidebar_label: 'interface-template'
+source: https://manual.mikrotik.com/docs/7.25/cli-reference/routing/isis/interface-template
+captured_at: '2026-11-01T21:25:11+08:00'
+translated_at: "2026-11-11T16:56:12.375Z"
+translation_provider: "opencode-go"
+translation_model: "deepseek-v4.1-flash"
+---
+
+-----------
+
+## routing/isis/interface-template {#routingisisinterface-template}
+**类型：** 目录
+
+<ArgTable c1="标志" c2="名称" c3="描述">
+<ArgTableRow arg="X" typ="disabled">已禁用</ArgTableRow>
+<ArgTableRow arg="I" typ="inactive">未激活</ArgTableRow>
+</ArgTable>
+
+<ArgTable c1="参数" c2="类型" c3="描述">
+<ArgTableRow arg="instance" typ="enum"></ArgTableRow>
+<ArgTableRow arg="interfaces" typ="object { interface: iface_enum
+ }" unset="1"></ArgTableRow>
+<ArgTableRow arg="levels" typ="ubit (l1, l2)"></ArgTableRow>
+<ArgTableRow arg="ptp" typ="switch" unset="1"></ArgTableRow>
+<ArgTableRow arg="passive" typ="switch" unset="1"></ArgTableRow>
+<ArgTableRow arg="ptp.hello-interval" typ="num" unset="1"></ArgTableRow>
+<ArgTableRow arg="ptp.hello-multiplier" typ="num" unset="1"></ArgTableRow>
+<ArgTableRow arg="ptp.hello-3way" typ="switch" unset="1"></ArgTableRow>
+<ArgTableRow arg="ptp.l1.csnp-interval" typ="num" unset="1"></ArgTableRow>
+<ArgTableRow arg="ptp.l1.psnp-interval" typ="num" unset="1"></ArgTableRow>
+<ArgTableRow arg="ptp.l1.metric" typ="num" unset="1"></ArgTableRow>
+<ArgTableRow arg="ptp.l2.csnp-interval" typ="num" unset="1"></ArgTableRow>
+<ArgTableRow arg="ptp.l2.psnp-interval" typ="num" unset="1"></ArgTableRow>
+<ArgTableRow arg="ptp.l2.metric" typ="num" unset="1"></ArgTableRow>
+<ArgTableRow arg="bcast.l1.hello-interval" typ="num" unset="1"></ArgTableRow>
+<ArgTableRow arg="bcast.l1.hello-interval-dr" typ="num" unset="1"></ArgTableRow>
+<ArgTableRow arg="bcast.l1.hello-multiplier" typ="num" unset="1"></ArgTableRow>
+<ArgTableRow arg="bcast.l1.priority" typ="num" unset="1"></ArgTableRow>
+<ArgTableRow arg="bcast.l1.csnp-interval" typ="num" unset="1"></ArgTableRow>
+<ArgTableRow arg="bcast.l1.psnp-interval" typ="num" unset="1"></ArgTableRow>
+<ArgTableRow arg="bcast.l1.metric" typ="num" unset="1"></ArgTableRow>
+<ArgTableRow arg="bcast.l2.hello-interval" typ="num" unset="1"></ArgTableRow>
+<ArgTableRow arg="bcast.l2.hello-interval-dr" typ="num" unset="1"></ArgTableRow>
+<ArgTableRow arg="bcast.l2.hello-multiplier" typ="num" unset="1"></ArgTableRow>
+<ArgTableRow arg="bcast.l2.priority" typ="num" unset="1"></ArgTableRow>
+<ArgTableRow arg="bcast.l2.csnp-interval" typ="num" unset="1"></ArgTableRow>
+<ArgTableRow arg="bcast.l2.psnp-interval" typ="num" unset="1"></ArgTableRow>
+<ArgTableRow arg="bcast.l2.metric" typ="num" unset="1"></ArgTableRow>
+</ArgTable>
