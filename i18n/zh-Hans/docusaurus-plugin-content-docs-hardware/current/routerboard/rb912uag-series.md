@@ -12,7 +12,6 @@ translation_model: "deepseek-v4.1-flash"
 
 - **[RB912UAG-5HPnD](https://mikrotik.com/product/RB912UAG-5HPnD)**
 - **[RB912UAG-2HPnD](https://mikrotik.com/product/RB912UAG-2HPnD)**
-
 :::
 
 ## 安全警告 {#safety-warnings}

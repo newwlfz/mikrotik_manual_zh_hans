@@ -1,5 +1,5 @@
 ---
-title: "KNOT Embedded LTE4 Global EG25-G&KNe"
+title: "KNOT 嵌入式 LTE4 全球版 EG25-G&KNe"
 slug: /knot-embedded-lte4-global-eg25-g-and-kne
 source: https://manual.mikrotik.com/hardware/knot-embedded-lte4-global-eg25-g-and-kne
 captured_at: '2026-11-04T09:51:54+08:00'

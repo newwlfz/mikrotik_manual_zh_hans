@@ -17,7 +17,6 @@ translation_model: "deepseek-v4.1-flash"
 - **SXT LTE kit-US**
 - **SXT LTE kit**
 - **SXT LTE6 kit**（2023）
-
 :::
 
 SXT kit 作为完整套件提供，包含内置调制解调器，并连接到内置天线。它具有两个支持 MDI-X 自动检测的 10/100 以太网接口。有两个 micro SIM 卡槽可用，以便在蜂窝网络运营商之间切换。

@@ -1,5 +1,5 @@
 ---
-title: "L14G-2ax-BT5-HL9&EG800Q (KNOT Gateway HL9)"
+title: "L14G-2ax-BT5-HL9&EG800Q（KNOT Gateway HL9）"
 slug: /l14g-2ax-bt5-hl9-and-eg800q
 source: https://manual.mikrotik.com/hardware/l14g-2ax-bt5-hl9-and-eg800q
 captured_at: '2026-11-04T09:53:05+08:00'

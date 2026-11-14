@@ -1,5 +1,5 @@
 ---
-title: "Audience"
+title: "受众"
 slug: /audience
 source: https://manual.mikrotik.com/hardware/audience
 captured_at: '2026-11-04T05:55:05+08:00'

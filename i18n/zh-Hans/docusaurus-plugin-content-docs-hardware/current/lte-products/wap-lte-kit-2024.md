@@ -1,5 +1,5 @@
 ---
-title: "wAP LTE kit (2024)"
+title: "wAP LTE kit（2024）"
 slug: /wap-lte-kit-2024
 source: https://manual.mikrotik.com/hardware/wap-lte-kit-2024
 captured_at: '2026-11-04T10:07:45+08:00'

@@ -50,7 +50,7 @@ translation_model: "deepseek-v4.1-flash"
 
 ![](/img/984ad54320693690.webp)
 
-## Norma Oficial Mexicana {#norma-oficial-mexicana}
+## 墨西哥官方标准 {#norma-oficial-mexicana}
 
 能源效率符合 NOM-029-ENER-2017。
 

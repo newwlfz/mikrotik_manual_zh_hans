@@ -1,5 +1,5 @@
 ---
-title: "Audience LTE6 kit"
+title: "Audience LTE6 套件"
 slug: /audience-lte6-kit
 source: https://manual.mikrotik.com/hardware/audience-lte6-kit
 captured_at: '2026-11-04T09:43:11+08:00'
@@ -224,7 +224,7 @@ CAN ICES-003 (B) / NMB-003 (B)
 
 ![](/img/984ad54320693690.webp)
 
-## Norma Oficial Mexicana {#norma-oficial-mexicana}
+## 墨西哥官方标准 {#norma-oficial-mexicana}
 
 频率范围（最大输出功率）：2400-2483.5 MHz (30 dBm)，5725-5850 MHz (30 dBm)。可用信道可能因型号和产品认证而异。
 

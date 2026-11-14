@@ -29,7 +29,6 @@ GPIO 代表通用输入/输出（General-Purpose Input/Output）。它是路由�
 - [KNOT 引脚定义可在此处找到](https://help.mikrotik.com/docs/spaces/UM/pages/41680915/RB924i-2nD-BT5+BG77#RB924i2nDBT5%26BG77-GPIOpinout)。
 - [KNOT Embedded LTE4 引脚定义，见此处。](https://help.mikrotik.com/docs/spaces/UM/pages/366477381/KNOT+Embedded+LTE4+EC25-EU+KNe#KNOTEmbeddedLTE4EC25EU%26KNe-GPIOpinout)
 - [RBM33G 引脚定义，见此处](https://help.mikrotik.com/docs/spaces/UM/pages/14222434/RBM33G#RBM33G-GPIOpinout)。
-
 :::
 
 ### RouterOS 配置 {#routeros-configuration}

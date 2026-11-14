@@ -1,5 +1,5 @@
 ---
-title: "wAP LR2 kit"
+title: "wAP LR2 套件"
 slug: /wap-lr2-kit
 source: https://manual.mikrotik.com/hardware/wap-lr2-kit
 captured_at: '2026-11-04T10:07:34+08:00'

@@ -1,5 +1,5 @@
 ---
-title: "Wireless Wire Cube"
+title: "无线 Wire Cube"
 slug: /wireless-wire-cube
 source: https://manual.mikrotik.com/hardware/wireless-wire-cube
 captured_at: '2026-11-04T10:08:49+08:00'

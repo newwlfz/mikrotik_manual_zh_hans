@@ -120,7 +120,7 @@ CCR1072-1G-8S+ 是一款配备八个 SFP+ 笼口的高性能多核路由器。�
 
 <p><Img src="/img/984ad54320693690.webp" alt="" width={240} height={240} /></p>
 
-## Norma Oficial Mexicana {#norma-oficial-mexicana}
+## 墨西哥官方标准 {#norma-oficial-mexicana}
 
 能源效率符合 NOM-029-ENER-2017。
 

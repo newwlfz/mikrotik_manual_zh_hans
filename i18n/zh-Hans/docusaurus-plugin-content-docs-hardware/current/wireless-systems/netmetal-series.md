@@ -18,7 +18,6 @@ translation_model: "deepseek-v4.1-flash"
 - **[NetMetal 5SHP](https://mikrotik.com/product/RB921UAGS-5SHPacD-NM)**
 - **[NetMetal 5 triple](https://mikrotik.com/product/RB922UAGS-5HPacT-NM)**
 - **[NetMetal 5SHP triple](https://mikrotik.com/product/RB921UAGS-5SHPacT-NM)**
-
 :::
 
 NetMetal 是一款坚固的防水户外设备。它配备高功率无线接口和一个千兆以太网接口，支持 MDI-X 自动检测。设备具有两个或三个 RP-SMA 接头，用于连接外置天线（取决于型号）。设备包装内附有 24 V 电源适配器、PoE 供电器和两个安装环。共有四种型号可供选择——两款三链设备（带 miniPCIe 插槽和不带），以及两款双链型号（带 miniPCIe 插槽和不带）。在这种情况下，设备上还留有额外的位置用于安装更多 RP-SMA 接头。

@@ -1,5 +1,5 @@
 ---
-title: "SXTsq Embedded LTE4 Global"
+title: "SXTsq 嵌入式 LTE4 全球版"
 slug: /sxtsq-embedded-lte4-global
 source: https://manual.mikrotik.com/hardware/sxtsq-embedded-lte4-global
 captured_at: '2026-11-04T10:05:19+08:00'

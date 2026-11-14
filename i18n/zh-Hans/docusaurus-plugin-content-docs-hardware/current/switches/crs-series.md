@@ -18,7 +18,6 @@ translation_model: "deepseek-v4.1-flash"
 - **CRS112-8G-4S-IN**
 - **CRS210-8G-2S+IN**
 - **CRS212-1G-10S-1S+IN**
-
 :::
 
 CRS 是一款高度可配置的交换机，由 RouterOS 驱动。

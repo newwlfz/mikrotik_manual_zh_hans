@@ -1,6 +1,6 @@
 {
- "schema": 1,
- "note": "Blocks the model returned unchanged (technical notation, grammar, identifiers). The planner never queues them again; config/force-translate.yml overrides a lock.",
+ "schema": 2,
+ "note": "Units the model returned unchanged: technical notation, grammar, identifiers and proper-noun titles. The planner never queues them again; config/force-translate.yml overrides a block lock.",
  "blocks": [
   "# Btrfs",
   "# Btrfs RAID",
@@ -46,6 +46,7 @@
   "## FastTrack",
   "## FastTrack {#fasttrack}",
   "## GPS",
+  "## GPS {#gps}",
   "## HomeAP",
   "## HomeAP {#homeap}",
   "## HotSpot",
@@ -54,6 +55,7 @@
   "## Hotspot 2.0 {#hotspot-20}",
   "## IAID",
   "## IAID {#iaid}",
+  "## IAQM-THC2PV-W/G {#iaqm-thc2pv-wg}",
   "## IPFIX",
   "## IPFIX {#ipfix}",
   "## IPv6",
@@ -67,6 +69,8 @@
   "## LAG",
   "## LAG {#lag}",
   "## LED",
+  "## LED {#leds}",
+  "## LED {#led}",
   "## LLDP",
   "## LLDP {#lldp}",
   "## LTE",
@@ -82,8 +86,10 @@
   "## MTU",
   "## MTU {#mtu}",
   "## Modbus",
+  "## Modbus {#modbus}",
   "## NSSA",
   "## NSSA {#nssa}",
+  "## Norma Oficial Mexicana {#norma-oficial-mexicana}",
   "## Nstreme",
   "## Nstreme Dual",
   "## Nstreme Dual {#nstreme-dual}",
@@ -93,6 +99,7 @@
   "## PIM-SM {#pim-sm}",
   "## PoE",
   "## PoE {#poe}",
+  "## PoE-Out {#poe-out}",
   "## Q-in-Q",
   "## Q-in-Q {#q-in-q}",
   "## QoS",
@@ -126,6 +133,7 @@
   "## VLAN {#vlan}",
   "## VPN",
   "## VPN {#vpn}",
+  "## VPN[​](#vpn \"Direct link to VPN\") {#vpn}",
   "## WDS",
   "## WDS {#wds}",
   "## WPS",
@@ -138,10 +146,129 @@
   "## WiFi EasyMesh {#wifi-easymesh}",
   "## WinBox",
   "## WinBox {#winbox}",
+  "## [ATL LTE18 kit](LINK) (ATLGM&EG18-EA) {#atl-lte18-kit-atlgmeg18-ea}",
+  "## [AWS LoRaWAN 配置](LINK) {#aws-lorawan-configuration}",
+  "## [Audience](LINK) (RBD25G-5HPacQD2HPnD) {#audience-rbd25g-5hpacqd2hpnd}",
+  "## [BaseBox 5](LINK) (RB912UAG-5HPnD-OUT) {#basebox-5-rb912uag-5hpnd-out}",
+  "## [CCR1009-7G-1C-1S+PC](LINK) {#ccr1009-7g-1c-1spc}",
+  "## [CCR1009-7G-1C-1S+](LINK) {#ccr1009-7g-1c-1s}",
+  "## [CCR1009-7G-1C-PC](LINK) {#ccr1009-7g-1c-pc}",
+  "## [CCR1016-12G](LINK) {#ccr1016-12g}",
+  "## [CCR1016-12S-1S+](LINK) {#ccr1016-12s-1s}",
+  "## [CCR1072-1G-8S+](LINK) {#ccr1072-1g-8s}",
+  "## [CCR2004-16G-2S+PC](LINK) {#ccr2004-16g-2spc}",
+  "## [CCR2004-16G-2S+](LINK) {#ccr2004-16g-2s}",
+  "## [CCR2004-1G-12S+2XS](LINK) {#ccr2004-1g-12s2xs}",
+  "## [CCR2004-1G-2XS-PCIe](LINK) {#ccr2004-1g-2xs-pcie}",
+  "## [CCR2116-12G-4S+](LINK) {#ccr2116-12g-4s}",
+  "## [CCR2216-1G-12XS-2XQ](LINK) {#ccr2216-1g-12xs-2xq}",
+  "## [CRS106-1C-5S](LINK) {#crs106-1c-5s}",
+  "## [CRS112-8G-4S-IN](LINK) {#crs112-8g-4s-in}",
+  "## [CRS112-8P-4S-IN](LINK) {#crs112-8p-4s-in}",
+  "## [CRS304-4XG-IN](LINK) {#crs304-4xg-in}",
+  "## [CRS305-1G-4S+IN](LINK) {#crs305-1g-4sin}",
+  "## [CRS309-1G-8S+IN](LINK) {#crs309-1g-8sin}",
+  "## [CRS310-1G-5S-4S+IN](LINK) {#crs310-1g-5s-4sin}",
+  "## [CRS310-8G+2S+IN](LINK) {#crs310-8g2sin}",
+  "## [CRS312-4C+8XG-RM](LINK) {#crs312-4c8xg-rm}",
+  "## [CRS317-1G-16S+RM](LINK) {#crs317-1g-16srm}",
+  "## [CRS320-8P-8B-4S+RM](LINK) {#crs320-8p-8b-4srm}",
+  "## [CRS326-24G-2S+IN](LINK) {#crs326-24g-2sin}",
+  "## [CRS326-24G-2S+RM](LINK) {#crs326-24g-2srm}",
+  "## [CRS326-24S+2Q+RM](LINK) {#crs326-24s2qrm}",
+  "## [Chateau 5G ax](LINK) (S53UG+M-5HaxD2HaxD-TC&RG502Q-EA) {#chateau-5g-ax-s53ugm-5haxd2haxd-tcrg502q-ea}",
+  "## [Chateau 5G](LINK) (D53G-5HacD2HnD-TC&RG502Q-EA) {#chateau-5g-d53g-5hacd2hnd-tcrg502q-ea}",
+  "## [Chateau LTE12](LINK) (RBD53G-5HacD2HnD-TC&EG12-EA) {#chateau-lte12-rbd53g-5hacd2hnd-tceg12-ea}",
+  "## [Chateau LTE18 ax](LINK) (S53UG+5HaxD2HaxD-TC&EG18-EA) {#chateau-lte18-ax-s53ug5haxd2haxd-tceg18-ea}",
+  "## [Chateau LTE6 ax](LINK) (S53UG+5HaxD2HaxD-TC&FG621-EA) {#chateau-lte6-ax-s53ug5haxd2haxd-tcfg621-ea}",
+  "## [Chateau LTE6-US](LINK) (D53G-5HacD2HnD-TC&EG06-A) {#chateau-lte6-us-d53g-5hacd2hnd-tceg06-a}",
+  "## [Chateau LTE6](LINK) (D53G-5HacD2HnD-TC&FG621-EA) {#chateau-lte6-d53g-5hacd2hnd-tcfg621-ea}",
+  "## [Chateau LTE7 ax](LINK) (S53UG+5HaxD2HaxD-TC&R11e-LTE7) {#chateau-lte7-ax-s53ug5haxd2haxd-tcr11e-lte7}",
+  "## [Chateau PRO ax](LINK) (H53UiG-5HaxQ2HaxQ) {#chateau-pro-ax-h53uig-5haxq2haxq}",
+  "## [Cube Lite60](LINK) (RBCube-60ad) {#cube-lite60-rbcube-60ad}",
+  "## [DISC Lite5 ac](LINK) (RBDiscG-5acD) {#disc-lite5-ac-rbdiscg-5acd}",
+  "## [DISC Lite5](LINK) (RBDisc-5nD) {#disc-lite5-rbdisc-5nd}",
+  "## [DynaDish 5](LINK) (RBDynaDishG-5HacD) {#dynadish-5-rbdynadishg-5hacd}",
+  "## [FTC21-ups](LINK) {#ftc21-ups}",
+  "## [L009UiGS-RM](LINK) {#l009uigs-rm}",
+  "## [LDF 2](LINK) (RBLDF-2nD) {#ldf-2-rbldf-2nd}",
+  "## [LDF 5 ac](LINK) (RBLDFG-5acD) {#ldf-5-ac-rbldfg-5acd}",
+  "## [LHG 5 ax](LINK) (LHG-5axD) {#lhg-5-ax-lhg-5axd}",
+  "## [LHG 5](LINK) (RBLHG-5nD) {#lhg-5-rblhg-5nd}",
+  "## [LHG 60G](LINK) (RBLHGG-60ad) {#lhg-60g-rblhgg-60ad}",
+  "## [LHG Lite60](LINK) (RBLHG-60ad) {#lhg-lite60-rblhg-60ad}",
+  "## [LHG R](LINK) (RBLHGR) {#lhg-r-rblhgr}",
+  "## [LHG XL 2](LINK) (RBLHG-2nD-XL) {#lhg-xl-2-rblhg-2nd-xl}",
+  "## [LHG XL 5 ac](LINK) (RBLHGG-5acD-XL) {#lhg-xl-5-ac-rblhgg-5acd-xl}",
+  "## [LHG XL 5 ax](LINK) (LHG-5axD-XL) {#lhg-xl-5-ax-lhg-5axd-xl}",
+  "## [LHG XL 52 ac](LINK) (RBLHGG-5HPacD2HPnD-XL) {#lhg-xl-52-ac-rblhgg-5hpacd2hpnd-xl}",
+  "## [LHGG LTE6 kit](LINK) (RBLHGGR&R11e-LTE6) {#lhgg-lte6-kit-rblhggrr11e-lte6}",
+  "## [LtAP mini](LINK) (RB912R-2nD-LTm) {#ltap-mini-rb912r-2nd-ltm}",
+  "## [Metal 52 ac](LINK) (RBMetalG-52SHPacn) {#metal-52-ac-rbmetalg-52shpacn}",
+  "## [NetMetal 5](LINK) (RB922UAGS-5HPacD-NM) {#netmetal-5-rb922uags-5hpacd-nm}",
+  "## [OmniTIK 5 PoE ac](LINK) (RBOmniTikPG-5HacD) {#omnitik-5-poe-ac-rbomnitikpg-5hacd}",
+  "## [PowerBox Pro](LINK) (RB960PGS-PB) {#powerbox-pro-rb960pgs-pb}",
+  "## [PowerBox](LINK) (RB750P-PBr2) {#powerbox-rb750p-pbr2}",
+  "## [QRT 5 ac](LINK) (RB911G-5HPacD-QRT) {#qrt-5-ac-rb911g-5hpacd-qrt}",
+  "## [QRT 5](LINK) (RB911G-5HPnD-QRT) {#qrt-5-rb911g-5hpnd-qrt}",
+  "## [RB2011UiAS-IN](LINK) {#rb2011uias-in}",
+  "## [RB2011UiAS-RM](LINK) {#rb2011uias-rm}",
+  "## [RB2011iL-IN](LINK) {#rb2011il-in}",
+  "## [RB2011iL-RM](LINK) {#rb2011il-rm}",
+  "## [RB2011iLS-IN](LINK) {#rb2011ils-in}",
+  "## [RB3011UiAS-RM](LINK) {#rb3011uias-rm}",
+  "## [RB4011iGS+5HacQ2HnD-IN](LINK) (RB4011iGS+5HacQ2HnD-IN) {#rb4011igs5hacq2hnd-in-rb4011igs5hacq2hnd-in}",
+  "## [RB4011iGS+RM](LINK) {#rb4011igsrm}",
+  "## [RB5009UG+S+IN](LINK) {#rb5009ugsin}",
+  "## [RB5009UPr+S+IN](LINK) {#rb5009uprsin}",
+  "## [RB5009UPr+S+OUT](LINK) {#rb5009uprsout}",
+  "## [SEXTANT G](LINK) (RBSEXTANTG-5HPnD) {#sextant-g-rbsextantg-5hpnd}",
+  "## [SXT 2](LINK) (RBSXTG-2HnD) {#sxt-2-rbsxtg-2hnd}",
+  "## [SXT R](LINK) (RBSXTR) {#sxt-r-rbsxtr}",
+  "## [SXTsq 5 High Power](LINK) (RBSXTsq5HPnD) {#sxtsq-5-high-power-rbsxtsq5hpnd}",
+  "## [SXTsq 5 ac](LINK) (RBSXTsqG-5acD) {#sxtsq-5-ac-rbsxtsqg-5acd}",
+  "## [SXTsq Embedded LTE4 Global](LINK) (EG25-G&SXTsq) {#sxtsq-embedded-lte4-global-eg25-gsxtsq}",
+  "## [TG-LR 配置指南](LINK) {#tg-lr-setup-guide}",
   "## [The Things Stack](LINK) {#the-things-stackdocs724internet-of-thingslorauser-guidesthe-things-stack}",
   "## [The Things Stack](LINK) {#the-things-stackdocs725internet-of-thingslorauser-guidesthe-things-stack}",
   "## [The Things Stack](LINK) {#the-things-stackdocsinternet-of-thingslorauser-guidesthe-things-stack}",
   "## [The Things Stack](LINK) {#the-things-stack}",
+  "## [Wireless Wire Cube](LINK) (CubeG-5ac60adpair) {#wireless-wire-cube-cubeg-5ac60adpair}",
+  "## [Wireless Wire Dish](LINK) (RBLHGG-60adkit) {#wireless-wire-dish-rblhgg-60adkit}",
+  "## [Wireless Wire nRAY](LINK) (nRAYG-60adpair) {#wireless-wire-nray-nrayg-60adpair}",
+  "## [cAP ax](LINK) (cAPGi-5HaxD2HaxD) {#cap-ax-capgi-5haxd2haxd}",
+  "## [cAP lite](LINK) (RBcAPL-2nD) {#cap-lite-rbcapl-2nd}",
+  "## [cAP](LINK) (RBcAP2nD) {#cap-rbcap2nd}",
+  "## [hAP ac lite TC](LINK) (RB952Ui-5ac2nD-TC) {#hap-ac-lite-tc-rb952ui-5ac2nd-tc}",
+  "## [hAP ac3 LTE6 kit](LINK) (RBD53GR-5HacD2HnD&R11e-LTE6) {#hap-ac3-lte6-kit-rbd53gr-5hacd2hndr11e-lte6}",
+  "## [hAP ac](LINK) (RB962UiGS-5HacT2HnT) {#hap-ac-rb962uigs-5hact2hnt}",
+  "## [hAP ac²](LINK) (RBd52G-5HacD2HnD-TC) {#hap-ac-rbd52g-5hacd2hnd-tc}",
+  "## [hAP ac³](LINK) (RBd53iG-5HacD2HnD) {#hap-ac-rbd53ig-5hacd2hnd}",
+  "## [hAP ax S](LINK) (E62iUGS-2axD5axT) {#hap-ax-s-e62iugs-2axd5axt}",
+  "## [hAP ax lite](LINK) (L41G-2axD) {#hap-ax-lite-l41g-2axd}",
+  "## [hAP ax²](LINK) (C52iG-5HaxD2HaxD-TC) {#hap-ax-c52ig-5haxd2haxd-tc}",
+  "## [hAP ax³](LINK) (C53UiG+5HPaxD2HPaxD) {#hap-ax-c53uig5hpaxd2hpaxd}",
+  "## [hAP be lite](LINK) (A42G-HbeP) {#hap-be-lite-a42g-hbep}",
+  "## [hAP be³ Media](LINK) (MA53UG+HbeH) {#hap-be-media-ma53ughbeh}",
+  "## [hAP lite TC](LINK) (RB941-2nD-TC) {#hap-lite-tc-rb941-2nd-tc}",
+  "## [hAP lite](LINK) (RB941-2nD) {#hap-lite-rb941-2nd}",
+  "## [hAP mini](LINK) (RB931-2nD) {#hap-mini-rb931-2nd}",
+  "## [hAP](LINK) (RB951Ui-2nD) {#hap-rb951ui-2nd}",
+  "## [hEX PoE](LINK) (RB960PGS) {#hex-poe-rb960pgs}",
+  "## [hEX S (2025)](LINK) (E60iUGS) {#hex-s-2025-e60iugs}",
+  "## [hEX S](LINK) (RB760iGS) {#hex-s-rb760igs}",
+  "## [hEX lite](LINK) (RB750r2) {#hex-lite-rb750r2}",
+  "## [hEX refresh](LINK) (E50UG) {#hex-refresh-e50ug}",
+  "## [hEX](LINK) (RB750Gr3) {#hex-rb750gr3}",
+  "## [mANTBox 2 12s](LINK) (RB911G-2HPnD-12S) {#mantbox-2-12s-rb911g-2hpnd-12s}",
+  "## [mANTBox 52 15s](LINK) (RBD22UGS-5HPacD2HnD-15S) {#mantbox-52-15s-rbd22ugs-5hpacd2hnd-15s}",
+  "## [wAP LTE kit (2024)](LINK) (RBwAPR-2nD&EC200A-EU) {#wap-lte-kit-2024-rbwapr-2ndec200a-eu}",
+  "## [wAP R ac](LINK) (RBwAPGR-5HacD2HnD) {#wap-r-ac-rbwapgr-5hacd2hnd}",
+  "## [wAP R](LINK) (RBwAPR-2nD) {#wap-r-rbwapr-2nd}",
+  "## [wAP ac](LINK) (RBwAPG-5HacD2HnD) {#wap-ac-rbwapg-5hacd2hnd}",
+  "## [wAP ax LTE7 kit](LINK) (wAPGR-5HaxD2HaxD&R11e-LTE7) {#wap-ax-lte7-kit-wapgr-5haxd2haxdr11e-lte7}",
+  "## [wAP ax](LINK) (wAPG-5HaxD2HaxD) {#wap-ax-wapg-5haxd2haxd}",
+  "## [分步安装](LINK) {#step-by-step-installation}",
   "## address-flags {#address-flags}",
   "## app/settings/remove-certificate **Syscap:** app **Package:** container **Type:** Command",
   "## cmr/client/pair **Conditions:** !smips **Type:** Command",
@@ -182,6 +309,7 @@
   "### Back To Home {#back-to-home}",
   "### Backup",
   "### Brokers",
+  "### Brokers {#brokers}",
   "### CAPs",
   "### CAPs {#caps-1}",
   "### CAPs {#caps}",
@@ -191,8 +319,13 @@
   "### CRL {#crl}",
   "### CRS312-4C+8XG",
   "### CRS312-4C+8XG {#crs312-4c8xg}",
+  "### CRS518-16XS-2XQ {#crs518-16xs-2xq}",
   "### Claire",
+  "### Claire {#claire-1}",
+  "### Claire {#claire-2}",
+  "### Claire {#claire}",
   "### Connect",
+  "### Connect {#connect}",
   "### DDNS",
   "### DDNS {#ddns}",
   "### DELETE",
@@ -206,6 +339,8 @@
   "### Decode-ad {#decode-ad}",
   "### Disabled",
   "### Disconnect",
+  "### Disconnect {#disconnect}",
+  "### DynaDish 5 (RBDynaDishG-5HacDr3) {#dynadish-5-rbdynadishg-5hacdr3}",
   "### EUI-64",
   "### EUI-64 {#eui-64}",
   "### Elastic",
@@ -218,9 +353,15 @@
   "### FTP {#ftp}",
   "### FactoryReset RPC",
   "### FactoryReset RPC {#factoryreset-rpc}",
+  "### FiberBox (CRS105-5S-FB) {#fiberbox-crs105-5s-fb}",
+  "### FiberBox Plus (CRS305-1G-4S+OUT) {#fiberbox-plus-crs305-1g-4sout}",
   "### Flat-snoop {#flat-snoop}",
   "### GET",
   "### GET {#get}",
+  "### GPERx6 (CSS606-1G-2Gi-3S+OUT) {#gperx6-css606-1g-2gi-3sout}",
+  "### GSM / WCDMA / LTE / WLAN / LR {#gsm--wcdma--lte--wlan--lr}",
+  "### GSM / WCDMA / LTE / {#gsm--wcdma--lte-}",
+  "### GSM / WCDMA / LTE {#gsm--wcdma--lte}",
   "### HTTP",
   "### HTTP {#http}",
   "### HomeAP",
@@ -255,6 +396,7 @@
   "### LNS",
   "### LNS {#lns}",
   "### LR",
+  "### LR {#lr}",
   "### LoRaWAN",
   "### LoRaWAN {#lorawan}",
   "### MAC Ping",
@@ -309,6 +451,7 @@
   "### Proxmox VE (KVM/QEMU)",
   "### Proxmox VE (KVM/QEMU) {#proxmox-ve-kvmqemu}",
   "### Publish",
+  "### Publish {#publish}",
   "### QCA8337, Atheros8327, Atheros8316",
   "### QCA8337, Atheros8327, Atheros8316 {#qca8337-atheros8327-atheros8316}",
   "### QSFP+",
@@ -333,6 +476,7 @@
   "### RAID 6",
   "### RAID 6 {#raid-6}",
   "### RAID 6 {#raid-linear}",
+  "### RDS2216-2XG-4S+4XS-2XQ {#rds2216-2xg-4s4xs-2xq}",
   "### REST API",
   "### REST API {#rest-api}",
   "### RPS",
@@ -349,10 +493,13 @@
   "### SNMP trap {#snmp-trap}",
   "### SNMP {#snmp}",
   "### Subscribe",
+  "### Subscribe {#subscribe}",
   "### Subscriptions",
+  "### Subscriptions {#subscriptions}",
   "### SwOS",
   "### SwOS {#swos}",
   "### Unsubscribe",
+  "### Unsubscribe {#unsubscribe}",
   "### User Manager",
   "### User Manager {#pim-sm}",
   "### User Manager {#user-manager}",
@@ -364,7 +511,16 @@
   "### VPN {#vpn}",
   "### VRF",
   "### VRF {#vrf}",
+  "### WCDMA / LTE / 5G {#wcdma--lte--5g}",
   "### WLAN",
+  "### WLAN / 2G / 3G / LTE {#wlan--2g--3g--lte}",
+  "### WLAN / Bluetooth / LTE {#wlan--bluetooth--lte}",
+  "### WLAN / LR {#wlan--lr}",
+  "### WLAN / WCDMA / LTE / 5G {#wlan--wcdma--lte--5g}",
+  "### WLAN {#wlan}",
+  "### WLAN/ GSM / WCDMA / LTE / {#wlan-gsm--wcdma--lte-}",
+  "### WLAN/LTE {#wlanlte}",
+  "### WLAN/WCDMA/LTE {#wlanwcdmalte}",
   "### WPS",
   "### WPS {#sniffer-1}",
   "### WPS {#wps-1}",
@@ -372,10 +528,17 @@
   "### WebFig",
   "### WebFig {#webfig}",
   "### WiGig",
+  "### WiGig {#wigig}",
   "### WinBox",
   "### WinBox {#winbox}",
   "### Windows",
   "### Windows {#windows}",
+  "### [CME Gateway](LINK) (CME22-2n-BG77) {#cme-gateway-cme22-2n-bg77}",
+  "### [KNOT LR8 kit](LINK) (RB924iR-2nD-BT5&BG77&R11e-LR8) {#knot-lr8-kit-rb924ir-2nd-bt5bg77r11e-lr8}",
+  "### [KNOT LR9 套件](LINK) (RB924iR-2nD-BT5&BG77&R11e-LR9) {#knot-lr9-kit-rb924ir-2nd-bt5bg77r11e-lr9}",
+  "### [KNOT](LINK) (RB924i-2nD-BT5&BG77) {#knot-rb924i-2nd-bt5bg77}",
+  "### [LtAP LR8 LTE kit](LINK) (RBLtAP-2HnD&R11e-LTE&LR8) {#ltap-lr8-lte-kit-rbltap-2hndr11e-ltelr8}",
+  "### [wAP LR9 kit](LINK) (RBwAPR-2nD&R11e-LR9) {#wap-lr9-kit-rbwapr-2ndr11e-lr9}",
   "### \\<REASON\\>",
   "### \\<REASON\\> {#reason}",
   "### \\<REASON\\> {#}",
@@ -417,8 +580,13 @@
   "### iOS",
   "### iOS {#ios}",
   "### iPhone",
+  "### iPhone {#iphone}",
   "### memory-high {#memory-high}",
   "### memory-max {#memory-max}",
+  "### netPower 15FR (CRS318-1Fi-15Fr-2S-OUT) {#netpower-15fr-crs318-1fi-15fr-2s-out}",
+  "### netPower 16P (CRS318-16P-2S+OUT) {#netpower-16p-crs318-16p-2sout}",
+  "### netPower Lite 7R (CSS610-1Gi-7R-2S+OUT) {#netpower-lite-7r-css610-1gi-7r-2sout}",
+  "### netPower Lite 8P (CSS610-8P-2S+OUT) {#netpower-lite-8p-css610-8p-2sout}",
   "### scan-list {#scan-list}",
   "### swap-max {#swap-max}",
   "#### ![](ASSET) {#imgpacket-flow-in-routeros-12webp}",
@@ -497,8 +665,11 @@
   "#### VPN",
   "#### VPN {#vpn}",
   "#### WLAN",
+  "#### WLAN / WCDMA / LTE {#wlan--wcdma--lte}",
+  "#### WLAN {#wlan}",
   "#### Windows",
   "#### Windows {#windows}",
+  "#### [视频教程：我们的官方 YT 频道，MikroTips 系列](LINK) {#video-tutorial-our-official-yt-channel-mikrotips-series}",
   "#### `VLAN Map`",
   "#### `VLAN Map` {#vlan-map}",
   "#### app factory-reset",
@@ -1050,12 +1221,15 @@
   ", weight: [ num [ .. 255]]",
   "- **Queue01** limit-at=0Mbps max-limit=10Mbps - **Queue02** limit-at=4Mbps max-limit=10Mbps - **Queue03** limit-at=2Mbps max-limit=10Mbps priority=3 - **Queue04** limit-at=2Mbps max-limit=10Mbps priority=1 - **Queue05** limit-at=2Mbps max-limit=10Mbps priority=5",
   "- **Queue01** limit-at=0Mbps max-limit=10Mbps - **Queue02** limit-at=4Mbps max-limit=10Mbps - **Queue03** limit-at=6Mbps max-limit=10Mbps priority=1 - **Queue04** limit-at=2Mbps max-limit=10Mbps priority=3 - **Queue05** limit-at=2Mbps max-limit=10Mbps priority=5",
+  "- **queue-type** - [队列](LINK) - **queue-size** - [队列大小](LINK)",
+  "- Amazon Web Services (AWS) - Google Cloud Platform (GCP) - [CHR：Hetzner Cloud 安装](LINK) - Linode - Microsoft Azure - [Vultr](LINK)",
   "- Amazon Web Services (AWS) - Google Cloud Platform (GCP) - [Hetzner Cloud](LINK) - Linode - Microsoft Azure - [Vultr](LINK)",
   "- Bluetooth-headset - Bluetooth-stereo - cordless-phone - microwave-oven - CWA - video-bridge - wifi",
   "- CCR1016-12S-1S+ - CRS212-1G-10S-1S+",
   "- Cloudflare - Google - NextDNS - OpenDNS",
   "- IDE - SCSI",
   "- IDE - VMware Paravirtual SCSI - LSI Logic SAS - LSI Logic Parallel",
+  "- LDF 5 - [https://mikrotik.com/product/rbldf_5nd](LINK) - LDF 5 ac - [https://mikrotik.com/product/ldf_5_ac](LINK)",
   "- MIKROTIK-MIB - MIB-2 - HOST-RESOURCES-MIB - IF-MIB - IP-MIB - IP-FORWARD-MIB - IPV6-MIB - BRIDGE-MIB - DHCP-SERVER-MIB - CISCO-AAA-SESSION-MIB - ENTITY-MIB - UPS-MIB - SQUID-MIB",
   "- Mullvad - Yandex - UncensoredDNS - Quad9",
   "- OFPAT\\_SET\\_NW\\_SRC - OFPAT\\_SET\\_NW\\_DST - OFPAT\\_SET\\_NW\\_TOS - OFPAT\\_SET\\_TP\\_SRC - OFPAT\\_SET\\_TP\\_DST - OFPAT\\_ENQUEUE - OFPAT\\_VENDOR",
@@ -1067,6 +1241,7 @@
   "- Wireless Wire Dish",
   "- Wireless Wire kit - wAP 60G - SXTsq60 Lite60 - wAP 60G AP",
   "- XS+31LC10D - XS+2733LC15D",
+  "- [CHR：VMware ESXi 安装](LINK) - VMware Fusion - [Proxmox VE (KVM/QEMU)](LINK) - [CHR：Hyper-V 安装](LINK) - [VirtualBox](LINK) - Xen Server",
   "- [VMware ESXi](LINK) - VMware Fusion - [Proxmox VE (KVM/QEMU)](LINK) - [Hyper-V](LINK) - [VirtualBox](LINK) - Xen Server",
   "- `:put` - `/ip route get` - `find gateway=1.1.1.1`",
   "- `AA:BB:CC:DD:*:*` - `AA:BB:CC:DD:EE:*` - `AA:*:*:*:*:*`",
@@ -1142,6 +1317,38 @@
   ":::info ### RouterMode {#routermode} \\* WAN 端口受防火墙保护，并启用了 DHCP 客户端 \\* 无线和以太网接口（WAN 端口除外）属于 LAN 网桥 ### LAN 配置： {#lan-configuration-1} - 在网桥（LAN 端口）上设置 IP 地址 192.168.88.1/24 - DHCP Server: enabled; - DNS: enabled; ### wlan1 配置： {#wlan1-configuration} - mode: ap-bridge; - band: 2ghz-b/g/n; - tx-chains: 0;1; - rx-chains: 0;1; - installation: indoor; - wpa2: no; - ht-extension: 20/40mhz-XX; ### WAN（网关）配置： {#wan-gateway-configuration-1} - ip4 firewall: enabled; - ip6 firewall: enabled; - NAT: enabled; - DHCP Client: enabled; ### 登录 {#login-2} - admin 用户受密码保护 ### 配置**预览** {#configuration-preview} [RouterMode.txt](LINK) :::",
   ":::info CPE 路由器模式： - \\* 无线接口连接到提供商的网络（WAN 端口）； - \\* WAN 端口受防火墙保护，并启用 DHCP 客户端 wlan1 配置： - mode: station; - band: 2ghz-b/g/n; - tx-chains: 0;1; - rx-chains: 0;1; - installation: outdoor; - wpa2: no; - ht-extension: 20/40mhz-XX; LAN 配置： - 在 ether1（LAN 端口）上设置 IP 地址 192.168.88.1/24 - DHCP Server: enabled; - DNS: enabled; WAN（网关）配置： - gateway:wlan1 ; - ip4 firewall: enabled; - ip6 firewall: enabled; - NAT: enabled; - DHCP Client: enabled; ## 登录 - admin 用户受密码保护 配置**预览**： [CPE_Router.txt](LINK)。 :::",
   ":::info CPE 路由器模式： - \\* 无线接口连接到提供商的网络（WAN 端口）； - \\* WAN 端口受防火墙保护，并启用 DHCP 客户端 wlan1 配置： - mode: station; - band: 2ghz-b/g/n; - tx-chains: 0;1; - rx-chains: 0;1; - installation: outdoor; - wpa2: no; - ht-extension: 20/40mhz-XX; LAN 配置： - 在 ether1（LAN 端口）上设置 IP 地址 192.168.88.1/24 - DHCP Server: enabled; - DNS: enabled; WAN（网关）配置： - gateway:wlan1 ; - ip4 firewall: enabled; - ip6 firewall: enabled; - NAT: enabled; - DHCP Client: enabled; ## 登录 {#login} - admin 用户受密码保护 配置**预览**： [CPE_Router.txt](LINK)。 :::",
+  ":::info WISP 网桥： \\* 无线和 LAN 接口已桥接； ### wlan1 配置： {#wlan1-configuration-1} - mode: ap-bridge; - band: 2ghz-b/g/n; - tx-chains: 0;1; - rx-chains: 0;1; - installation: outdoor; - wpa2: no; - ht-extension: 20/40mhz-XX; ### wlan2 配置： {#wlan2-configuration} - mode: ap-bridge; - band: 5ghz-a/n/ac; - tx-chains: 0;1; - rx-chains: 0;1; - installation: outdoor; - wpa2: no; - ht-extension: 20/40/80mhz-XXXX; ### LAN 配置： {#lan-configuration-3} - DHCP 客户端：在网桥（LAN 口）上启用； ### 登录 {#login-5} - admin 用户受密码保护 配置**预览**： [WISP_Bridge.txt](LINK) :::",
+  ":::info [KNOT](LINK)、[KNOT Embedded LTE4](LINK) 和 [RBM33G](LINK) 支持 GPIO 功能。 - [KNOT 引脚定义可在此处找到](LINK)。 - [KNOT Embedded LTE4 引脚定义，见此处。](LINK) - [RBM33G 引脚定义，见此处](LINK)。 :::",
+  ":::info 本文涵盖 - **911 Lite5** - **911 Lite5 Dual** - **911 Lite5 ac** - **RB911G-2HPnD** - **[RB911G-5HPnD](LINK)** - **RB911G-5HPacD** :::",
+  ":::info 本文涵盖 - **CRS109-8G-1S-2HnD-IN** - **CRS112-8G-4S-IN** - **CRS210-8G-2S+IN** - **CRS212-1G-10S-1S+IN** :::",
+  ":::info 本文涵盖 - **CRS125-24G-1S-IN** - **CRS125-24G-1S-2HnD-IN** :::",
+  ":::info 本文涵盖 - **LHG LTE6 kit** (RBLHGR&R11e-LTE6) - **LHG LTE kit** (RBLHGR&R11e-LTE) - **LHG LTE kit-US** (RBLHGR&R11e-LTE-US) :::",
+  ":::info 本文涵盖 - **LtAP LTE kit** - **LtAP 4G kit** - **LtAP LTE6 kit** :::",
+  ":::info 本文涵盖 - **R11e-LTE-US** - **R11e-LTE** - **R11e-4G** - **R11e-LTE6** :::",
+  ":::info 本文涵盖 - **SXT 4G kit** - **SXT LTE6 kit** - **SXT LTE kit-US** - **SXT LTE kit** - **SXT LTE6 kit**（2023） :::",
+  ":::info 本文涵盖 - **[BaseBox 2](LINK)** (RB912UAG-2HPnD-OUT) - **[BaseBox 5](LINK)** (RB912UAG-5HPnD-OUT) - **[BaseBox 6](LINK)** (RB912UAG-6HPnD-OUT) :::",
+  ":::info 本文涵盖 - **[CCR1036-12G-4S-EM](LINK)** - **[CCR1036-12G-4S](LINK)** :::",
+  ":::info 本文涵盖 - **[CCR1036-8G-2S+](LINK)** - **[CCR1036-8G-2S+EM](LINK)** :::",
+  ":::info 本文涵盖 - **[Groove 52](LINK)** - **[GrooveA 52](LINK)** (RBGrooveA-52HPn) - **[GrooveA 52 ac](LINK)** (RBGrooveGA-52HPacn) :::",
+  ":::info 本文涵盖 - **[LHG 2](LINK)** (RBLHG-2nD) - **[LHG 5](LINK)** (RBLHG-5nD) - **[LHG HP5](LINK)** (RBLHG-5HPnD) - **[LHG 5 ac](LINK)** (RBLHGG-5acD) :::",
+  ":::info 本文涵盖 - **[LtAP mini LTE kit](LINK)**（RB912R-2nD-LTm&R11e-LTE） - **LtAP mini LTE kit-US**（RB912R-2nD-LTm&R11e-LTE-US） - **LtAP mini 4G kit**（RB912R-2nD-LTm&R11e-4G） :::",
+  ":::info 本文涵盖 - **[MTP250-53V47-OD](LINK)** - **[MTP250-26V94-OD](LINK)** :::",
+  ":::info 本文涵盖 - **[NetMetal 5](LINK)** - **[NetMetal 5SHP](LINK)** - **[NetMetal 5 triple](LINK)** - **[NetMetal 5SHP triple](LINK)** :::",
+  ":::info 本文涵盖 - **[OmniTIK 5 ac](LINK)** (RBOmniTikG-5HacD) - **[OmniTIK 5 PoE ac](LINK)** (RBOmniTikPG-5HacD) - **[OmniTIK 5 PoE](LINK)** (RBOmniTikUPA-5HnD) - **[OmniTIK 5](LINK)** (RBOmniTikU-5HnD) :::",
+  ":::info 本文涵盖 - **[RB1100AHx4](LINK)** - **[RB1100AHx4 Dude Edition](LINK)** :::",
+  ":::info 本文涵盖 - **[RB260GS](LINK)** - **[RB260GSP](LINK)** :::",
+  ":::info 本文涵盖 - **[RB912UAG-5HPnD](LINK)** - **[RB912UAG-2HPnD](LINK)** :::",
+  ":::info 本文涵盖 - **[RB951Ui-2HnD](LINK)** - **RB951G-2HnD** :::",
+  ":::info 本文涵盖 - **[Wireless Wire Cube Pro](LINK)** (CubeG-5ac60aypair) - **[Cube 60Pro ac](LINK)** (CubeG-5ac60ay) :::",
+  ":::info 本文涵盖 - **[Wireless Wire](LINK)** (RBwAPG-60adkit) - **[wAP 60G](LINK)** (RBwAPG-60ad) - **[wAP 60G AP](LINK)** (RBwAPG-60ad-A) - **wAP 60Gx3 AP** (RBwAPG-60ad-SA) :::",
+  ":::info 本文涵盖 - **[mANTBox 15s](LINK)** (RB921GS-5HPacD-15S) - **[mANTBox 2 12s](LINK)** (RB911G-2HPnD-12S) - **[mANTBox 19s](LINK)** (RB921GS-5HPacD-19S) :::",
+  ":::info 本文涵盖 - **[wAP LTE kit](LINK)** - **wAP LTE kit US** - **wAP 4G kit** :::",
+  ":::info 本文涵盖 - **mANT 19S** (MTAS-5G-19D120) - **mANT 15s** (MTAS-5G-15D120) :::",
+  ":::info 本文涵盖 - **wAP ac LTE kit** - **wAP ac 4G kit** - **wAP ac LTE6 kit** :::",
+  ":::info 本文涵盖 - **wAP ac** (RBwAPG-5HacD2HnD) - **wAP ac BE** (RBwAPG-5HacD2HnD-BE) :::",
+  ":::info 本文涵盖 - **wAP** - **wAP BE** :::",
+  ":::info 本文涵盖 - hAP ax lite LTE6 - L41G-2axD&FG621-EA :::",
+  ":::tip[使用 Flashfig 进行批量配置] 要大规模部署多台设备，请使用 Flashfig 工具： - [使用 flashfig 批量配置 MikroTik](LINK)（Windows） - [在 Linux 上使用 flashfig 批量配置 MikroTik](LINK)（Linux） :::",
   ":::warning 从 v5.0beta2 开始，SSTP 无需证书即可运行，并且可以使用任何可用的认证类型。此功能仅在两个 MikroTik 路由器之间有效，因为它不符合 Microsoft 标准。否则，要建立安全隧道，应使用 **mschap** 认证以及来自同一证书链的客户端/服务器证书。 **警告：** 从 7.15beta10 版本开始，已添加 TLS SNI 支持；如果勾选了“Add SNI”复选框或在 CLI 中设置，则会将扩展添加到 client hello 数据包中： `/interface/sstp-client/set` add-sni=yes :::",
   ":::warning 从 v5.0beta2 开始，SSTP 无需证书即可运行，并且可以使用任何可用的认证类型。此功能仅在两台 MikroTik 路由器之间有效，因为它不符合 Microsoft 标准。否则，要建立安全隧道，应使用 **mschap** 认证以及来自同一证书链的客户端/服务器证书。 **警告：** 从 7.15beta10 版本开始已添加 TLS SNI 支持；如果勾选 \"Add SNI\" 复选框或在 CLI 中设置，则扩展会被添加到 Client Hello 数据包中： `/interface/sstp-client/set` add-sni=yes :::",
   ":::warning 从 v5.0beta2 开始，SSTP 无需证书即可运行，并可使用任何可用的身份验证类型。此功能仅在两台 MikroTik 路由器之间有效，因为它不符合 Microsoft 标准。否则，要建立安全隧道，应使用 **mschap** 身份验证以及来自同一证书链的客户端/服务器证书。 **警告：** 从 7.15beta10 版本开始已添加 TLS SNI 支持；如果勾选了“Add SNI”复选框或在 CLI 中进行了设置，该扩展会被添加到 client hello 数据包中： `/interface/sstp-client/set` add-sni=yes :::",
@@ -7166,7 +7373,28 @@
   "> :local gwName \"KNOT\\_A\"",
   "> :local rssiThreshold \"-40\"",
   "> :local topic \"v1/gateway/telemetry\"",
+  "AT+QGPSCFG=\"gnssconfig\"[,&lt;GNSS_config&gt;]",
+  "CAN ICES-003 (A) / NMB-003 (A)",
+  "CAN ICES-003 (B) / NMB-003 (B)",
+  "CAN ICES-003 (B) / NMB-003 (B) <p><Img src=\"LINK\" alt=\"\" width={146} height={135} /></p>",
+  "CAN ICES-3 (A)/NMB-3(A)",
+  "CSS610-8G-2S+IN",
+  "FCC ID: TV7LHGG60AD",
+  "FCC ID: TV7MAPL2ND",
+  "FCC ID: TV7RAY60",
+  "FCC ID: TV7RB2011-2HND",
+  "FCC ID: TV7RB912G-5HPNDM",
+  "FCC ID: TV7RB922-5HPACTM",
+  "FCC ID: TV7RBWAP5AC2D",
+  "FCC ID:TV7RB922-5HPACTM",
+  "FCC ID:TV7RB941-2ND",
+  "FCC ID:TV7RB962-5ACT2NT",
   "Flags: X - disabled; R - running 0 R name=\"sstp-out1\" max-mtu=1500 max-mru=1500 mrru=disabled connect-to=192.168.62.2:443 http-proxy=0.0.0.0:443 certificate=none verify-server-certificate=no verify-server-address-from-certificate=yes user=\"MT-User\" password=\"StrongPass\" profile=default-encryption keepalive-timeout=60 add-default-route=no dial-on-demand=no authentication=pap,chap,mschap1,mschap2 pfs=no tls-version=any",
+  "Flex-guide",
+  "IC: 7442A-911G2HPND",
+  "IC: 7442A-LHGG60AD",
+  "IC: 7442A-RAY60",
+  "IC: 7442A-RB20112HND",
   "Select the devices, by labels, that the alert rule applies to. Supports + and - signs as AND and AND NOT operators, respectively; if no sign is provided, the OR operator is used.",
   "The server creates a dynamic simple queue named `dhcp-ds<hostname/MAC>` for the address of the lease, with this limit as `limit-at` and `max-limit`.",
   "[0:a00:27ff:fe70::e88c%2]",
@@ -7286,6 +7514,9 @@
   "lora set-region &lt;region-code&gt;",
   "low-noise 0 no",
   "lp-mode 0..3",
+  "mANTBox 15s (RB921GS-5HPacD-15S)- 13 W",
+  "mANTBox 19s (RB921GS-5HPacD-19S)- 13 W",
+  "mANTBox 2 12s (RB911G-2HPnD-12S)- 11 W",
   "mag cfg [&lt;pin-timeout&gt;],[&lt;pin-protect&gt;],[&lt;blink-mode&gt;]",
   "mag svc &lt;new-state&gt;,&lt;key&gt;",
   "make-default 0 no",
@@ -8849,5 +9080,1397 @@
   "}\">",
   "}\"></ArgTableRow>",
   "}]"
+ ],
+ "titles": [
+  {
+   "key": "802.11 a/b/g/n",
+   "original": "802.11 a/b/g/n",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "APA-1",
+   "original": "APA-1",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "API",
+   "original": "API",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "ARP",
+   "original": "ARP",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "ATLGM&EG18-EA",
+   "original": "ATLGM&EG18-EA",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "BFD",
+   "original": "BFD",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "BGP",
+   "original": "BGP",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "Btrfs",
+   "original": "Btrfs",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "Btrfs RAID",
+   "original": "Btrfs RAID",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "CAKE",
+   "original": "CAKE",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "CAPsMAN",
+   "original": "CAPsMAN",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "CCR1009-7G-1C-1S+",
+   "original": "CCR1009-7G-1C-1S+",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "CCR1009-7G-1C-1S+PC",
+   "original": "CCR1009-7G-1C-1S+PC",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "CCR1009-7G-1C-PC",
+   "original": "CCR1009-7G-1C-PC",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "CCR1016-12G",
+   "original": "CCR1016-12G",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "CCR1016-12S-1S+",
+   "original": "CCR1016-12S-1S+",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "CCR1072-1G-8S+",
+   "original": "CCR1072-1G-8S+",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "CCR2004-16G-2S+",
+   "original": "CCR2004-16G-2S+",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "CCR2004-16G-2S+PC",
+   "original": "CCR2004-16G-2S+PC",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "CCR2004-1G-12S+2XS",
+   "original": "CCR2004-1G-12S+2XS",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "CCR2004-1G-2XS-PCIe",
+   "original": "CCR2004-1G-2XS-PCIe",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "CCR2116-12G-4S+",
+   "original": "CCR2116-12G-4S+",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "CCR2216-1G-12XS-2XQ",
+   "original": "CCR2216-1G-12XS-2XQ",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "CME22-2n-BG77",
+   "original": "CME22-2n-BG77",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "CMR",
+   "original": "CMR",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "CRS106-1C-5S",
+   "original": "CRS106-1C-5S",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "CRS112-8G-4S-IN",
+   "original": "CRS112-8G-4S-IN",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "CRS112-8P-4S-IN",
+   "original": "CRS112-8P-4S-IN",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "CRS304-4XG-IN",
+   "original": "CRS304-4XG-IN",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "CRS305-1G-4S+IN",
+   "original": "CRS305-1G-4S+IN",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "CRS309-1G-8S+IN",
+   "original": "CRS309-1G-8S+IN",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "CRS310-1G-5S-4S+IN",
+   "original": "CRS310-1G-5S-4S+IN",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "CRS310-8G+2S+IN",
+   "original": "CRS310-8G+2S+IN",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "CRS312-4C+8XG-RM",
+   "original": "CRS312-4C+8XG-RM",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "CRS317-1G-16S+RM",
+   "original": "CRS317-1G-16S+RM",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "CRS320-8P-8B-4S+RM",
+   "original": "CRS320-8P-8B-4S+RM",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "CRS326-24G-2S+IN",
+   "original": "CRS326-24G-2S+IN",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "CRS326-24G-2S+RM",
+   "original": "CRS326-24G-2S+RM",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "CRS326-24S+2Q+RM",
+   "original": "CRS326-24S+2Q+RM",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "CRS326-4C+20G+2Q+RM",
+   "original": "CRS326-4C+20G+2Q+RM",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "CRS328-24P-4S+RM",
+   "original": "CRS328-24P-4S+RM",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "CRS328-4C-20S-4S+RM",
+   "original": "CRS328-4C-20S-4S+RM",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "CRS354-48G-4S+2Q+RM",
+   "original": "CRS354-48G-4S+2Q+RM",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "CRS354-48P-4S+2Q+RM",
+   "original": "CRS354-48P-4S+2Q+RM",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "CRS418-8P-8G-2S+5axQ2axQ-RM",
+   "original": "CRS418-8P-8G-2S+5axQ2axQ-RM",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "CRS418-8P-8G-2S+RM",
+   "original": "CRS418-8P-8G-2S+RM",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "CRS504-4XQ-IN",
+   "original": "CRS504-4XQ-IN",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "CRS504-4XQ-OUT",
+   "original": "CRS504-4XQ-OUT",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "CRS510-8XS-2XQ-IN",
+   "original": "CRS510-8XS-2XQ-IN",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "CRS518-16XS-2XQ-RM",
+   "original": "CRS518-16XS-2XQ-RM",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "CRS520-4XS-16XQ-RM",
+   "original": "CRS520-4XS-16XQ-RM",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "CRS804-4DDQ-hRM",
+   "original": "CRS804-4DDQ-hRM",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "CRS812-8DS-2DQ-2DDQ-RM",
+   "original": "CRS812-8DS-2DQ-2DDQ-RM",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "CSS318-16G-2S+IN",
+   "original": "CSS318-16G-2S+IN",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "CSS326-24G-2S+RM",
+   "original": "CSS326-24G-2S+RM",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "CSS610-8G-2S+IN",
+   "original": "CSS610-8G-2S+IN",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "CSS610-8P-2S+IN",
+   "original": "CSS610-8P-2S+IN",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "Chateau 5G",
+   "original": "Chateau 5G",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "Chateau 5G R16",
+   "original": "Chateau 5G R16",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "Chateau 5G R17 ax",
+   "original": "Chateau 5G R17 ax",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "Chateau 5G ax",
+   "original": "Chateau 5G ax",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "Chateau LTE12",
+   "original": "Chateau LTE12",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "Chateau LTE18 ax",
+   "original": "Chateau LTE18 ax",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "Chateau LTE6",
+   "original": "Chateau LTE6",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "Chateau LTE6 ax",
+   "original": "Chateau LTE6 ax",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "Chateau LTE6-US",
+   "original": "Chateau LTE6-US",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "Chateau LTE7",
+   "original": "Chateau LTE7",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "Chateau LTE7 ax",
+   "original": "Chateau LTE7 ax",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "Chateau PRO ax",
+   "original": "Chateau PRO ax",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "ChirpStack",
+   "original": "ChirpStack",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "Cube 60G ac",
+   "original": "Cube 60G ac",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "Cube Lite60",
+   "original": "Cube Lite60",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "DHCP",
+   "original": "DHCP",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "DNS",
+   "original": "DNS",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "Disc Lite5",
+   "original": "Disc Lite5",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "Disc Lite5 ac",
+   "original": "Disc Lite5 ac",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "Dot1X",
+   "original": "Dot1X",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "Dude",
+   "original": "Dude",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "DynaDish 5",
+   "original": "DynaDish 5",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "DynaDish 6",
+   "original": "DynaDish 6",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "EVPN",
+   "original": "EVPN",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "EoIP",
+   "original": "EoIP",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "FTC11XG",
+   "original": "FTC11XG",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "FTC21",
+   "original": "FTC21",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "FTC21-ups",
+   "original": "FTC21-ups",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "FiberBox",
+   "original": "FiberBox",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "FiberBox Plus",
+   "original": "FiberBox Plus",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "FlashFig",
+   "original": "FlashFig",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "G1040A-60WN",
+   "original": "G1040A-60WN",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "GESP+POE-IN",
+   "original": "GESP+POE-IN",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "GPEN11",
+   "original": "GPEN11",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "GPEN21",
+   "original": "GPEN21",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "GPERx6",
+   "original": "GPERx6",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "GPIO",
+   "original": "GPIO",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "GPS",
+   "original": "GPS",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "GPeR",
+   "original": "GPeR",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "GPeRx4",
+   "original": "GPeRx4",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "GRE",
+   "original": "GRE",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "IPIP",
+   "original": "IPIP",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "IPsec",
+   "original": "IPsec",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "IS-IS",
+   "original": "IS-IS",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "Intercell",
+   "original": "Intercell",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "KNOT",
+   "original": "KNOT",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "L009UiGS-2HaxD-IN",
+   "original": "L009UiGS-2HaxD-IN",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "L009UiGS-RM",
+   "original": "L009UiGS-RM",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "L11UG-5HaxD",
+   "original": "L11UG-5HaxD",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "L14G-2ax-BT5-HL9&EG800Q（KNOT Gateway HL9）",
+   "original": "L14G-2ax-BT5-HL9&EG800Q（KNOT Gateway HL9）",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "L23UGSR-5HaxD2HaxD",
+   "original": "L23UGSR-5HaxD2HaxD",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "L2TP",
+   "original": "L2TP",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "LAMP 5G R16",
+   "original": "LAMP 5G R16",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "LDF 2",
+   "original": "LDF 2",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "LDP",
+   "original": "LDP",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "LHG 60G",
+   "original": "LHG 60G",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "LHG Lite60",
+   "original": "LHG Lite60",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "LHG R",
+   "original": "LHG R",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "LHG XL 2",
+   "original": "LHG XL 2",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "LHG XL 5 ac",
+   "original": "LHG XL 5 ac",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "LHG XL 5 ax",
+   "original": "LHG XL 5 ax",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "LHG XL 52 ac",
+   "original": "LHG XL 52 ac",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "LHG XL HP5",
+   "original": "LHG XL HP5",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "LHG-5axD",
+   "original": "LHG-5axD",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "LTE/5G",
+   "original": "LTE/5G",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "Layer7",
+   "original": "Layer7",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "LoRa",
+   "original": "LoRa",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "LtAP",
+   "original": "LtAP",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "LtAP mini",
+   "original": "LtAP mini",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "MACVLAN",
+   "original": "MACVLAN",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "MACsec",
+   "original": "MACsec",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "MANTBox 52 15s",
+   "original": "MANTBox 52 15s",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "MPLS",
+   "original": "MPLS",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "MQS",
+   "original": "MQS",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "MQTT",
+   "original": "MQTT",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "Mangle",
+   "original": "Mangle",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "Metal 52 ac",
+   "original": "Metal 52 ac",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "Modbus",
+   "original": "Modbus",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "NAT",
+   "original": "NAT",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "NAT-PMP",
+   "original": "NAT-PMP",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "NFS",
+   "original": "NFS",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "NTP",
+   "original": "NTP",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "NVMe over TCP",
+   "original": "NVMe over TCP",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "NetBox 5",
+   "original": "NetBox 5",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "NetBox 5 ax",
+   "original": "NetBox 5 ax",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "NetMetal ac²",
+   "original": "NetMetal ac²",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "NetMetal ax",
+   "original": "NetMetal ax",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "Nv2",
+   "original": "Nv2",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "OSPF",
+   "original": "OSPF",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "OpenFlow",
+   "original": "OpenFlow",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "OpenVPN",
+   "original": "OpenVPN",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "PIM-SM",
+   "original": "PIM-SM",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "PPP",
+   "original": "PPP",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "PPP AAA",
+   "original": "PPP AAA",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "PPPoE",
+   "original": "PPPoE",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "PPTP",
+   "original": "PPTP",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "PWR-LINE",
+   "original": "PWR-LINE",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "PWR-LINE AP",
+   "original": "PWR-LINE AP",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "PWR-LINE PRO",
+   "original": "PWR-LINE PRO",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "Ping",
+   "original": "Ping",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "PoE",
+   "original": "PoE",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "PowerBox",
+   "original": "PowerBox",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "PowerBox Pro",
+   "original": "PowerBox Pro",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "QRT 2",
+   "original": "QRT 2",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "QRT 5",
+   "original": "QRT 5",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "QRT 5 ac",
+   "original": "QRT 5 ac",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "R11e-LR2",
+   "original": "R11e-LR2",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "R11e-LR8",
+   "original": "R11e-LR8",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "R11e-LR8G",
+   "original": "R11e-LR8G",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "R11e-LR9",
+   "original": "R11e-LR9",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "R11e-LR9G",
+   "original": "R11e-LR9G",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "RADIUS",
+   "original": "RADIUS",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "RAID",
+   "original": "RAID",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "RB2011UiAS-2HnD-IN",
+   "original": "RB2011UiAS-2HnD-IN",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "RB2011UiAS-IN",
+   "original": "RB2011UiAS-IN",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "RB2011UiAS-RM",
+   "original": "RB2011UiAS-RM",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "RB2011iL-IN",
+   "original": "RB2011iL-IN",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "RB2011iL-RM",
+   "original": "RB2011iL-RM",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "RB2011iLS-IN",
+   "original": "RB2011iLS-IN",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "RB3011UiAS-RM",
+   "original": "RB3011UiAS-RM",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "RB4011iGS+5HacQ2HnD-IN",
+   "original": "RB4011iGS+5HacQ2HnD-IN",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "RB4011iGS+RM",
+   "original": "RB4011iGS+RM",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "RB450Gx4",
+   "original": "RB450Gx4",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "RB5009UG+S+IN",
+   "original": "RB5009UG+S+IN",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "RB5009UPr+S+IN",
+   "original": "RB5009UPr+S+IN",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "RB5009UPr+S+OUT",
+   "original": "RB5009UPr+S+OUT",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "RB922UAGS-5HPacD",
+   "original": "RB922UAGS-5HPacD",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "RBFTC11",
+   "original": "RBFTC11",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "RBM11G",
+   "original": "RBM11G",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "RBM33G",
+   "original": "RBM33G",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "REST API",
+   "original": "REST API",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "RIP",
+   "original": "RIP",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "RPKI",
+   "original": "RPKI",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "RoMON",
+   "original": "RoMON",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "RouterBOOT",
+   "original": "RouterBOOT",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "Rsync",
+   "original": "Rsync",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "S-3553LC20D",
+   "original": "S-3553LC20D",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "SEXTANT G",
+   "original": "SEXTANT G",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "SMB",
+   "original": "SMB",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "SNMP",
+   "original": "SNMP",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "SOCKS",
+   "original": "SOCKS",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "SSH",
+   "original": "SSH",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "SSHFS",
+   "original": "SSHFS",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "SSTP",
+   "original": "SSTP",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "SXT 2",
+   "original": "SXT 2",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "SXT 6",
+   "original": "SXT 6",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "SXT R",
+   "original": "SXT R",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "SXTsq-5axD",
+   "original": "SXTsq-5axD",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "Socksify",
+   "original": "Socksify",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "Supout.rif",
+   "original": "Supout.rif",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "SwOS",
+   "original": "SwOS",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "TFTP",
+   "original": "TFTP",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "TG-BT5-IN",
+   "original": "TG-BT5-IN",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "TG-BT5-OUT",
+   "original": "TG-BT5-OUT",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "TG-LR82",
+   "original": "TG-LR82",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "TG-LR92",
+   "original": "TG-LR92",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "TR-069",
+   "original": "TR-069",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "The Things Stack",
+   "original": "The Things Stack",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "Torch",
+   "original": "Torch",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "UP1302C-12",
+   "original": "UP1302C-12",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "UPS",
+   "original": "UPS",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "UPnP",
+   "original": "UPnP",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "VETH",
+   "original": "VETH",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "VLAN",
+   "original": "VLAN",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "VPLS",
+   "original": "VPLS",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "VRF",
+   "original": "VRF",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "VRRP",
+   "original": "VRRP",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "VXLAN",
+   "original": "VXLAN",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "W60G",
+   "original": "W60G",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "WebFig",
+   "original": "WebFig",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "Wi-Fi",
+   "original": "Wi-Fi",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "Wi-Fi 5（802.11ac）",
+   "original": "Wi-Fi 5（802.11ac）",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "Wi-Fi 6 / 7（802.11ax/be）",
+   "original": "Wi-Fi 6 / 7（802.11ax/be）",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "WiFi CAPsMAN",
+   "original": "WiFi CAPsMAN",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "WinBox",
+   "original": "WinBox",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "WireGuard",
+   "original": "WireGuard",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "Woobm-USB",
+   "original": "Woobm-USB",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "ZeroTier",
+   "original": "ZeroTier",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "cAP",
+   "original": "cAP",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "cAP LTE12 ax",
+   "original": "cAP LTE12 ax",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "cAP XL ac",
+   "original": "cAP XL ac",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "cAP ac",
+   "original": "cAP ac",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "cAP ax",
+   "original": "cAP ax",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "cAP lite",
+   "original": "cAP lite",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "hAP",
+   "original": "hAP",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "hAP ac",
+   "original": "hAP ac",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "hAP ac lite",
+   "original": "hAP ac lite",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "hAP ac lite TC",
+   "original": "hAP ac lite TC",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "hAP ac3",
+   "original": "hAP ac3",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "hAP ac²",
+   "original": "hAP ac²",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "hAP ax S",
+   "original": "hAP ax S",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "hAP ax lite",
+   "original": "hAP ax lite",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "hAP ax lite LTE6",
+   "original": "hAP ax lite LTE6",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "hAP ax²",
+   "original": "hAP ax²",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "hAP ax³",
+   "original": "hAP ax³",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "hAP be³ Media",
+   "original": "hAP be³ Media",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "hAP lite",
+   "original": "hAP lite",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "hAP lite TC",
+   "original": "hAP lite TC",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "hAP mini",
+   "original": "hAP mini",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "hEX",
+   "original": "hEX",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "hEX PoE",
+   "original": "hEX PoE",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "hEX PoE lite",
+   "original": "hEX PoE lite",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "hEX S",
+   "original": "hEX S",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "hEX S (2025)",
+   "original": "hEX S (2025)",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "hEX lite",
+   "original": "hEX lite",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "iSCSI",
+   "original": "iSCSI",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "mANTBox ax 15s",
+   "original": "mANTBox ax 15s",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "mAP",
+   "original": "mAP",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "mAP lite",
+   "original": "mAP lite",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "netFiber 9",
+   "original": "netFiber 9",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "netPower 15FR",
+   "original": "netPower 15FR",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "netPower 16P",
+   "original": "netPower 16P",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "netPower Lite 7R",
+   "original": "netPower Lite 7R",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "netPower Lite 8P",
+   "original": "netPower Lite 8P",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "wAP LR9G kit",
+   "original": "wAP LR9G kit",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "wAP LTE kit（2024）",
+   "original": "wAP LTE kit（2024）",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "wAP R",
+   "original": "wAP R",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "wAP R ac",
+   "original": "wAP R ac",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "wAP ac",
+   "original": "wAP ac",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "wAP ax",
+   "original": "wAP ax",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "wsAP ac lite",
+   "original": "wsAP ac lite",
+   "reason": "model-kept-proper-noun"
+  }
  ]
 }

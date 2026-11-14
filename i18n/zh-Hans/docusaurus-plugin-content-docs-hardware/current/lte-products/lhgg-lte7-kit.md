@@ -1,5 +1,5 @@
 ---
-title: "LHGG LTE7 kit"
+title: "LHGG LTE7 套件"
 slug: /lhgg-lte7-kit
 source: https://manual.mikrotik.com/hardware/lhgg-lte7-kit
 captured_at: '2026-11-04T09:55:24+08:00'

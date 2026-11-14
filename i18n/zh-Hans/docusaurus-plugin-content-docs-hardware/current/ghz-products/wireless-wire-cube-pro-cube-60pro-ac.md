@@ -1,5 +1,5 @@
 ---
-title: "Wireless Wire Cube Pro, Cube 60Pro ac"
+title: "Wireless Wire Cube Pro 和 Cube 60Pro ac"
 slug: /wireless-wire-cube-pro-cube-60pro-ac
 source: https://manual.mikrotik.com/hardware/wireless-wire-cube-pro-cube-60pro-ac
 captured_at: '2026-11-04T10:08:19+08:00'
@@ -18,7 +18,6 @@ translation_model: "deepseek-v4.1-flash"
 
 - **[Wireless Wire Cube Pro](https://mikrotik.com/product/wireless_wire_cube_pro)** (CubeG-5ac60aypair)
 - **[Cube 60Pro ac](https://mikrotik.com/product/cube_60pro_ac)** (CubeG-5ac60ay)
-
 :::
 
 客户有责任遵守当地国家的法规，包括在合法频率信道内运行、输出功率、布线要求以及动态频率选择 (DFS) 要求。所有 MikroTik 无线设备都必须由专业人员安装。

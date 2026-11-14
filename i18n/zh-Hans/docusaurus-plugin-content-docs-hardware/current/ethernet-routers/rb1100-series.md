@@ -12,7 +12,6 @@ translation_model: "deepseek-v4.1-flash"
 
 - **[RB1100AHx4](https://mikrotik.com/product/rb1100ahx4)**
 - **[RB1100AHx4 Dude Edition](https://mikrotik.com/product/RB1100Dx4)**
-
 :::
 
 <p><Img src="/img/4053195db135534a.jpg" alt="" width={799} height={551} /></p>

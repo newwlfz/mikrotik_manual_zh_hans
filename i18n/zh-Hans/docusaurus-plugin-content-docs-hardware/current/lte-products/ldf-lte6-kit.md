@@ -1,5 +1,5 @@
 ---
-title: "LDF LTE6 kit"
+title: "LDF LTE6 套件"
 slug: /ldf-lte6-kit
 source: https://manual.mikrotik.com/hardware/ldf-lte6-kit
 captured_at: '2026-11-04T09:53:34+08:00'
@@ -191,7 +191,7 @@ CAN ICES-003 (B) / NMB-003 (B)
 
 ![](/img/984ad54320693690.webp)
 
-## Norma Oficial Mexicana {#norma-oficial-mexicana}
+## 墨西哥官方标准 {#norma-oficial-mexicana}
 
 能源效率符合 NOM-029-ENER-2017。
 

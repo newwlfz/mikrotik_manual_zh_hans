@@ -90,7 +90,7 @@ CMR 客户端通过 TCP 端口 `54321` 连接到服务器。在服务器的防�
 
 目前，更改 `packages-directory`、`upgrade-check-interval` 或 `pairing-requirement` 会重启服务器上的 CMR：每个客户端都会重新连接，仍然匹配的状态警报会再次运行其操作。
 
-## Pairing {#pairing}
+## 配对 {#pairing}
 
 只有双方设备都同意，配对才会建立。每台设备都有自己的 `pairing-requirement` 设置，它定义了在本地设备接受配对之前，远程设备必须做什么。由于每一方都有自己的要求，只有在双方设备的要求都得到满足后，配对才会成功。
 
@@ -234,7 +234,7 @@ CMR 在客户端上所做的更改会记录在客户端日志中。消息的 `by
 system,info device added by cmr:admin@192.168.1.2 (*E = /interface bridge add comment=cmr-perm name=cmrperm-br)
 ```
 
-## Dashboard {#dashboard}
+## 仪表板 {#dashboard}
 
 [`/cmr/device/dashboard`](../cli-reference/cmr/device/dashboard.md) 命令会打开所选设备的实时视图：有多少台已连接、CPU、内存和磁盘使用率、接口状态、流量吞吐量，以及接入点及其站点。该视图每隔几秒重复一次，直到你停止它。按 `m`、`l`、`a`、`p`、`w` 或 `s` 可在主视图、警报、设备、端口、WiFi 和资源视图之间切换，按 `D` 可将当前视图写入 `console-dump.txt` 文件，按 <kbd>Control</kbd>+<kbd>Z</kbd> 暂停它，按 `Q` 退出。在设备视图中，`m` 返回主视图：
 
@@ -465,7 +465,7 @@ CMR 通过 [`/cmr/upgrade`](../cli-reference/cmr/upgrade.md) 菜单中的升级�
 
 `devices` 值统计由规则的 `labels` 选中的设备数量。`devices-on` 值统计具有活动状态告警的设备数量，`fired` 统计规则已触发的次数。此示例在设备开始满足 CPU 条件时记录一次日志。当条件持续成立时，该设备仍会计入 `devices-on`，但不会重复记录日志消息。
 
-### Conditions {#conditions}
+### 条件 {#conditions}
 
 规则通过 `labels` 选择其适用的设备，这些 labels 与 CMR 中使用的相同。[`/cmr/alert`](../cli-reference/cmr/alert.md) CLI 参考列出了每个条件和参数。
 

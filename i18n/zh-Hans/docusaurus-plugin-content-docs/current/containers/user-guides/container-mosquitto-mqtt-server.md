@@ -98,7 +98,7 @@ RouterOS 支持 [MQTT 发布、订阅](../../internet-of-things/mqtt/index.md) �
 ```ros
 /container/config/set registry-url=https://registry-1.docker.io tmpdir=pull
 ```
-### Pull image {#pull-image}
+### 拉取镜像 {#pull-image}
 
 ```ros
 /container/add remote-image=library/eclipse-mosquitto:latest interface=veth2 root-dir=mosquitto mountlists=msqt_config logging=yes

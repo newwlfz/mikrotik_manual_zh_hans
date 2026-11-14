@@ -14,7 +14,6 @@ translation_model: "deepseek-v4.1-flash"
 - **[OmniTIK 5 PoE ac](https://mikrotik.com/product/rbomnitikpg_5hacd)** (RBOmniTikPG-5HacD)
 - **[OmniTIK 5 PoE](https://mikrotik.com/product/RBOmniTikUPA-5HnDr2)** (RBOmniTikUPA-5HnD)
 - **[OmniTIK 5](https://mikrotik.com/product/RBOmniTikU-5HnDr2)** (RBOmniTikU-5HnD)
-
 :::
 
 本设备需要升级到 RouterOS v7.11.2 或最新版本，以确保符合当地监管机构的规定。最终用户有责任遵守所在国家/地区的规定，包括在合法频率信道内运行、输出功率、布线要求以及动态频率选择（DFS）要求。所有 MikroTik 无线设备都必须由专业人员安装。

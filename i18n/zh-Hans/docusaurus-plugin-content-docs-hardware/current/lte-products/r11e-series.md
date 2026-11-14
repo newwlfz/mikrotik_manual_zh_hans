@@ -20,7 +20,6 @@ translation_model: "deepseek-v4.1-flash"
 - **R11e-LTE**
 - **R11e-4G**
 - **R11e-LTE6**
-
 :::
 
 ## 规格 {#specifications}

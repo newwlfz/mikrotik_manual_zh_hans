@@ -1,5 +1,5 @@
 ---
-title: "KNOT Embedded LTE4 EC25-EU&KNe"
+title: "KNOT 嵌入式 LTE4 EC25-EU 和 KNe"
 slug: /knot-embedded-lte4-ec25-eu-and-kne
 source: https://manual.mikrotik.com/hardware/knot-embedded-lte4-ec25-eu-and-kne
 captured_at: '2026-11-04T09:51:16+08:00'

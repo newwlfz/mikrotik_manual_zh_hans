@@ -1,5 +1,5 @@
 ---
-title: "hAP be lite"
+title: "hAP be 精简版"
 slug: /hap-be-lite
 source: https://manual.mikrotik.com/hardware/hap-be-lite
 captured_at: '2026-11-04T05:58:24+08:00'

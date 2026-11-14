@@ -130,7 +130,7 @@ CAN ICES-003 (B) / NMB-003 (B)
 
 <p><Img src="/img/984ad54320693690.webp" alt="" width={240} height={240} /></p>
 
-## Norma Oficial Mexicana {#norma-oficial-mexicana}
+## 墨西哥官方标准 {#norma-oficial-mexicana}
 
 频率范围（最大输出功率）：2400-2483.5 MHz (30 dBm)。可用频道可能因型号和产品认证而异。
 

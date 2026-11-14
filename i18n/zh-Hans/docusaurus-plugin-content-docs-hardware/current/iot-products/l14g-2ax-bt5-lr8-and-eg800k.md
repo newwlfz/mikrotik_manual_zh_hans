@@ -1,5 +1,5 @@
 ---
-title: "L14G-2ax-BT5-LR8&EG800K (KNOT Gateway LR8)"
+title: "L14G-2ax-BT5-LR8&EG800K（KNOT 网关 LR8）"
 slug: /l14g-2ax-bt5-lr8-and-eg800k
 source: https://manual.mikrotik.com/hardware/l14g-2ax-bt5-lr8-and-eg800k
 captured_at: '2026-11-04T09:53:06+08:00'

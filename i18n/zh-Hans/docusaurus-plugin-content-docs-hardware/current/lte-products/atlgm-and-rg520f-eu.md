@@ -1,5 +1,5 @@
 ---
-title: "ATLGM&RG520F-EU"
+title: "ATLGM 和 RG520F-EU"
 slug: /atlgm-and-rg520f-eu
 source: https://manual.mikrotik.com/hardware/atlgm-and-rg520f-eu
 captured_at: '2026-11-04T09:40:30+08:00'

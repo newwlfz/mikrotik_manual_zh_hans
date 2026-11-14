@@ -12,7 +12,6 @@ translation_model: "deepseek-v4.1-flash"
 
 - **[RB951Ui-2HnD](https://mikrotik.com/product/RB951Ui-2HnD)**
 - **RB951G-2HnD**
-
 :::
 
 ## 安全警告 {#safety-warnings}

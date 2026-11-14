@@ -14,7 +14,6 @@ translation_model: "deepseek-v4.1-flash"
 - **[LHG 5](https://mikrotik.com/product/RBLHG-5nD)** (RBLHG-5nD)
 - **[LHG HP5](https://mikrotik.com/product/RBLHG-5HPnD)** (RBLHG-5HPnD)
 - **[LHG 5 ac](https://mikrotik.com/product/lhg_5_ac)** (RBLHGG-5acD)
-
 :::
 
 ## 安全警告 {#safety-warnings}

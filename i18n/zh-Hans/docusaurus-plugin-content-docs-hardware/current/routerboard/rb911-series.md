@@ -16,7 +16,6 @@ translation_model: "deepseek-v4.1-flash"
 - **RB911G-2HPnD**
 - **[RB911G-5HPnD](https://mikrotik.com/product/RB911G-5HPnD)**
 - **RB911G-5HPacD**
-
 :::
 
 ## 安全警告 {#safety-warnings}

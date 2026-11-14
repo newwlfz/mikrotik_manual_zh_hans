@@ -20,7 +20,6 @@ wAP ac 是一款小型双频户外防水无线接入点，可安装在立杆、�
 
 - **wAP ac** (RBwAPG-5HacD2HnD)
 - **wAP ac BE** (RBwAPG-5HacD2HnD-BE)
-
 :::
 
 ## 安全警告 {#safety-warnings}

@@ -88,7 +88,7 @@ translation_model: "deepseek-v4.1-flash"
       queue3-byte-use:   3 072
 ```
 
-**Port PFC Stats (Previous Generations)**
+**Port PFC Stats（上一代）**
 ```ros
 [admin@crs317] /interface/ethernet/switch/qos/port> print pfc interval=1 where running
                  name:  sfp-sfpplus1 sfp-sfpplus2   ether1
@@ -100,7 +100,7 @@ pfc3-resume-threshold:        10 240
              pfc3-use:     1 075 200
 ```
 
-**Port PFC Stats (New Generations)**
+**Port PFC Stats（新一代）**
 ```routeros
 [admin@crs812] /interface/ethernet/switch/qos/port> print pfc interval=1 where pfc=roce
                  name:       sfp56-5 

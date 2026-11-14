@@ -16,7 +16,6 @@ translation_model: "deepseek-v4.1-flash"
 - **[wAP 60G](https://mikrotik.com/product/wap_60g)** (RBwAPG-60ad)
 - **[wAP 60G AP](https://mikrotik.com/product/wap_60g_ap)** (RBwAPG-60ad-A)
 - **wAP 60Gx3 AP** (RBwAPG-60ad-SA)
-
 :::
 
 wAP60G 设备工作在 60GHz 无线频段，这些设备的工作温度范围为 -40°C 至 +70°C。设备配有千兆以太网端口，可通过电源插孔或以太网供电。设备可以安全地安装在墙壁、天花板或立柱/桅杆上。

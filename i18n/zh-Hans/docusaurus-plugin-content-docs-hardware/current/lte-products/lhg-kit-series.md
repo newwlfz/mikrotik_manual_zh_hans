@@ -15,7 +15,6 @@ translation_model: "deepseek-v4.1-flash"
 - **LHG LTE6 kit** (RBLHGR&R11e-LTE6)
 - **LHG LTE kit** (RBLHGR&R11e-LTE)
 - **LHG LTE kit-US** (RBLHGR&R11e-LTE-US)
-
 :::
 
 ## 安全警告 {#safety-warnings}

@@ -56,5 +56,4 @@ MikroTik 设备出厂时带有默认配置，其中包含预设密码。每当�
 
 - [使用 flashfig 批量配置 MikroTik](https://www.youtube.com/watch?v=gticPeOdN54)（Windows）
 - [在 Linux 上使用 flashfig 批量配置 MikroTik](https://www.youtube.com/watch?v=xasM81Qc11g)（Linux）
-
 :::

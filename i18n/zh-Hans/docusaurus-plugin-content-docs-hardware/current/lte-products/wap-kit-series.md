@@ -13,7 +13,6 @@ translation_model: "deepseek-v4.1-flash"
 - **[wAP LTE kit](https://mikrotik.com/product/wap_lte_kit_2024)**
 - **wAP LTE kit US**
 - **wAP 4G kit**
-
 :::
 
 本设备需要升级至 RouterOS v6.44.6 或最新版本，以确保符合当地主管部门的法规要求。
@@ -267,7 +266,7 @@ CAN ICES-003 (A) / NMB-003 (A)
 
 ![](/img/984ad54320693690.webp)
 
-## Norma Oficial Mexicana {#norma-oficial-mexicana}
+## 墨西哥官方标准 {#norma-oficial-mexicana}
 
 频率范围（最大输出功率）：2400-2483.5 MHz (30 dBm)。可用频道可能因型号和产品认证而异。
 

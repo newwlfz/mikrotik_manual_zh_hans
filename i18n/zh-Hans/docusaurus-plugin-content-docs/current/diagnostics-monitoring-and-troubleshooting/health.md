@@ -50,7 +50,7 @@ Columns: NAME, VALUE, TYPE
 
 要查看特定 RouterBOARD 产品支持哪些健康数据，请查看 [mikrotik.com](https://mikrotik.com/products) 上的产品规格。
 
-## Readings {#readings}
+## 读数 {#readings}
 
 | 读数 | 单位 | 描述 |
 | :-- | :-- | :-- |

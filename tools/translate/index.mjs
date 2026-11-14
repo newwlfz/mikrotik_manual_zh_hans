@@ -241,6 +241,7 @@ function writeRunJournal({run, pending, client}) {
     translated_blocks: run.blocks,
     translated_titles: run.titles,
     pages: run.pages,
+    block_errors: run.blockErrors,
     pending,
     tokens: client
       ? {prompt: client.usage.prompt, completion: client.usage.completion, calls: client.usage.calls}
@@ -272,6 +273,7 @@ function emitTranslateSummary({run, pending, client, json}) {
     pending_titles: pending.titles,
     pages: run.pages,
     limit: run.limit,
+    block_errors: run.blockErrors,
     tokens: client ? {prompt: client.usage.prompt, completion: client.usage.completion} : null,
     error: run.error ? {code: run.error.code ?? null, message: run.error.message} : null,
   };
@@ -290,6 +292,26 @@ function emitTranslateSummary({run, pending, client, json}) {
 
 const ENGLISH_WORD = /[A-Za-z]{3,}/;
 const CODE_LINE = /^\s*(```+|~~~+)/;
+
+/**
+ * Does this block contain natural language a translator must render?
+ *
+ * Inline code, fenced code, link/image targets, HTML/MDX tags and bare URLs are
+ * removed first; a Latin word of three letters or more that survives is prose.
+ * An identity reply for such a block is a failed translation, not a proper-noun
+ * decision, so it is retried once and then reported as an error — it must not
+ * enter `keep-english.json`, or the page would silently ship English prose.
+ */
+function hasTranslatableProse(block) {
+  const stripped = String(block)
+    .replace(/```[\s\S]*?```/g, ' ')
+    .replace(/~~~[\s\S]*?~~~/g, ' ')
+    .replace(/`[^`]*`/g, ' ')
+    .replace(/!?\[([^\]]*)\]\([^)]*\)/g, '$1')
+    .replace(/<[^>]*>/g, ' ')
+    .replace(/https?:\/\/\S+/g, ' ');
+  return ENGLISH_WORD.test(stripped);
+}
 
 /**
  * Text segments of a body, with every complete admonition kept as one part.
@@ -389,6 +411,8 @@ let planTm = null;
  * would stay `partial` forever and `pending` could never reach zero.
  */
 let planLocks = new Set();
+/** Page titles the model answered with the English title (proper nouns). */
+let planTitleLocks = new Set();
 /** Where progress lines go: stdout, or stderr under `--json`. */
 let progress = process.stdout;
 
@@ -430,11 +454,13 @@ function preparePlan({locale, modelMemory = null} = {}) {
     : modelMemory || (fs.existsSync(path.join(WORK_DIR, 'model-memory.json'))
       ? loadModelMemory()
       : null);
-  planLocks = loadLocks({
+  const locks = loadLocks({
     seedFrom,
     warn: (message) => process.stderr.write(`note: ${message}\n`),
   });
-  return {tm: planTm, locks: planLocks};
+  planLocks = locks.blocks;
+  planTitleLocks = locks.titles;
+  return {tm: planTm, locks: planLocks, titleLocks: planTitleLocks};
 }
 
 /**
@@ -527,6 +553,7 @@ function planSection(
     const needsTitle = Boolean(
       kinds.title &&
         !(patch && patch.title) &&
+        !planTitleLocks.has(normalize(title || '')) &&
         !cliPage &&
         title &&
         !CJK.test(title) &&
@@ -764,7 +791,10 @@ function createRun({budgetMinutes = null, maxBlocks = null} = {}) {
     limit: null,
     error: null,
     locks: planLocks,
+    titleLocks: planTitleLocks,
     locked: false,
+    /** Blocks whose English came back unchanged although they carry prose. */
+    blockErrors: [],
     lastMemorySave: Date.now(),
   };
   run.room = () => {
@@ -796,6 +826,20 @@ function createRun({budgetMinutes = null, maxBlocks = null} = {}) {
     run.locks.add(key);
     run.locked = true;
   };
+  run.lockTitle = (title) => {
+    const key = normalize(title);
+    if (!key || run.titleLocks.has(key)) return;
+    run.titleLocks.add(key);
+    run.locked = true;
+  };
+  run.recordBlockError = ({file, block, reason}) => {
+    if (run.blockErrors.length >= 100) return;
+    run.blockErrors.push({
+      file,
+      reason,
+      sample: String(block).replace(/\s+/g, ' ').trim().slice(0, 80),
+    });
+  };
   run.stopError = (error) => {
     if (!run.error) run.error = error;
     run.stopped = 'error';
@@ -815,7 +859,7 @@ function createRun({budgetMinutes = null, maxBlocks = null} = {}) {
 function checkpoint(run, {state, modelMemory = null, force = false}) {
   writeState(state);
   if (run.locked) {
-    saveLocks(run.locks);
+    saveLocks({blocks: run.locks, titles: run.titleLocks});
     run.locked = false;
   }
   const now = Date.now();
@@ -874,7 +918,11 @@ async function processItem(section, item, client, state, modelMemory, commentMem
     // An identity reply is the model saying "this is notation, keep English".
     // Remembering it here is what stops the next batch (and CI, which has no
     // model memory) from paying for the same block again and never converging.
-    if (normalize(text) === normalize(block)) run.lock(normalize(block));
+    // A block that carries prose is *not* notation: it is a failed translation,
+    // reported by the caller and left pending, never locked.
+    if (normalize(text) === normalize(block) && !hasTranslatableProse(block)) {
+      run.lock(normalize(block));
+    }
     body = item.parts.map((part) => part.value).join('');
   };
 
@@ -945,8 +993,32 @@ async function processItem(section, item, client, state, modelMemory, commentMem
         // the `:::` markers are structure, only the title and body are language.
         for (let i = 0; i < batchPieces.length; i++) {
           const block = batch[i];
-          const kept = keepFences(block, batchPieces[i]);
-          applyBlock(start + i, splitAdmonitions(block) ? restoreAdmonition(block, kept) : kept);
+          let kept = keepFences(block, batchPieces[i]);
+          if (splitAdmonitions(block)) kept = restoreAdmonition(block, kept);
+          // An English sentence that came back unchanged is a failed translation,
+          // not a proper noun: ask once more with the prose rule spelled out, and
+          // report it if the model still refuses. The original stays in place and
+          // the block stays pending (it is not written to the keep-English ledger).
+          if (normalize(kept) === normalize(block) && hasTranslatableProse(block)) {
+            const retried = await client.chat(
+              'Translate this documentation paragraph into Simplified Chinese. ' +
+                'Keep only tool names, product names, commands, paths, code and other ' +
+                'technical identifiers in English; translate every ordinary English ' +
+                'sentence. Output only the translation:\n\n' +
+                block,
+            );
+            const retriedKept = keepFences(block, retried);
+            if (normalize(retriedKept) !== normalize(block)) {
+              kept = splitAdmonitions(block) ? restoreAdmonition(block, retriedKept) : retriedKept;
+            } else {
+              run.recordBlockError({
+                file: `${section.name}/${item.rel}`,
+                block,
+                reason: 'model-kept-english-after-retry',
+              });
+            }
+          }
+          applyBlock(start + i, kept);
         }
         run.countBlocks(batch.length);
       }
@@ -985,10 +1057,19 @@ async function processItem(section, item, client, state, modelMemory, commentMem
           '(RouterOS, MikroTik, OSPF, BGP, MPLS, IGMP, EXP, ROSv6/ROSv7, IPv4, VPN, CAPsMAN). ' +
           'Translate connectives and ordinary words: use 和 for "and" and 代理 for "Proxy".',
       );
-      fields.title = value.split('\n')[0].trim().replace(/^["']|["']$/g, '') || item.title;
-      if (modelMemory) modelMemory.set(`title:${item.title}`, fields.title);
-      const label = readField(item.overlayFm, 'sidebar_label');
-      if (label && label === item.title) fields.sidebar_label = fields.title;
+      const clean = value.split('\n')[0].trim().replace(/^["']|["']$/g, '') || item.title;
+      if (normalize(clean) === normalize(item.title)) {
+        // The model answered with the English title, so the title is a proper
+        // noun (`MACsec`, `VLAN`, `SXT-2`): remember that decision instead of
+        // buying the same answer on every batch forever, and do not touch the
+        // overlay (the title is already correct).
+        run.lockTitle(item.title);
+      } else {
+        fields.title = clean;
+        if (modelMemory) modelMemory.set(`title:${item.title}`, clean);
+        const label = readField(item.overlayFm, 'sidebar_label');
+        if (label && label === item.title) fields.sidebar_label = clean;
+      }
       titles += 1;
       run.countTitle();
     }

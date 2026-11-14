@@ -13,7 +13,6 @@ translation_model: "deepseek-v4.1-flash"
 - **LtAP LTE kit**
 - **LtAP 4G kit**
 - **LtAP LTE6 kit**
-
 :::
 
 LtAP 套件是一款无线接入点，带有三个用于蜂窝数据调制解调器的 SIM 卡槽。

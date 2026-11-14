@@ -151,7 +151,7 @@ CAN ICES-003 (A) / NMB-003 (A)
 
 <p><Img src="/img/984ad54320693690.webp" alt="" width={240} height={240} /></p>
 
-## Norma Oficial Mexicana {#norma-oficial-mexicana}
+## 墨西哥官方标准 {#norma-oficial-mexicana}
 
 能源效率符合 NOM-029-ENER-2017。
 

@@ -1,5 +1,5 @@
 ---
-title: "KNOT LR8G kit"
+title: "KNOT LR8G 套件"
 slug: /knot-lr8g-kit
 source: https://manual.mikrotik.com/hardware/knot-lr8g-kit
 captured_at: '2026-11-04T09:52:36+08:00'

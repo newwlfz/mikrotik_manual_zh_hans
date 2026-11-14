@@ -1,5 +1,5 @@
 ---
-title: "wAP LR9 kit"
+title: "wAP LR9 套件"
 slug: /wap-lr9-kit
 source: https://manual.mikrotik.com/hardware/wap-lr9-kit
 captured_at: '2026-11-04T10:07:31+08:00'
@@ -331,7 +331,7 @@ CAN ICES-003 (A) / NMB-003 (A)
 
 ![](/img/984ad54320693690.webp)
 
-## Norma Oficial Mexicana {#norma-oficial-mexicana}
+## 墨西哥官方标准 {#norma-oficial-mexicana}
 
 频率范围（最大输出功率）：2400-2483.5 MHz (30 dBm)。可用频道可能因型号和产品认证而异。
 

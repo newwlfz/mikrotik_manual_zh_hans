@@ -1,5 +1,5 @@
 ---
-title: "hEX refresh"
+title: "hEX 升级版"
 slug: /hex-refresh
 source: https://manual.mikrotik.com/hardware/hex-refresh
 captured_at: '2026-11-04T05:58:40+08:00'

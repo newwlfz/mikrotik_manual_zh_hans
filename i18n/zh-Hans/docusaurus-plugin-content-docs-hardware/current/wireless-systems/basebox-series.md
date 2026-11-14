@@ -17,7 +17,6 @@ translation_model: "deepseek-v4.1-flash"
 - **[BaseBox 2](https://mikrotik.com/product/RB912UAG-2HPnD-OUT)** (RB912UAG-2HPnD-OUT)
 - **[BaseBox 5](https://mikrotik.com/product/RB912UAG-5HPnD-OUT)** (RB912UAG-5HPnD-OUT)
 - **[BaseBox 6](https://mikrotik.com/product/basebox_6)** (RB912UAG-6HPnD-OUT)
-
 :::
 
 Basebox 是一款坚固且防风雨的户外设备，基于 RB912 无线路由器型号。它具备高功率无线和 一个支持 MDI-X 自动检测的千兆以太网接口。该设备有两个 RPSMA 接口，用于连接外置天线。设备包装内附带电源适配器、PoE 注入器和两个安装环。在这种情况下，设备上还提供了更多 RP-SMA 接口的备用位置。

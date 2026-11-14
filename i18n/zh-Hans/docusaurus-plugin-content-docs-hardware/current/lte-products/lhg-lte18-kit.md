@@ -1,5 +1,5 @@
 ---
-title: "LHG LTE18 kit"
+title: "LHG LTE18 套件"
 slug: /lhg-lte18-kit
 source: https://manual.mikrotik.com/hardware/lhg-lte18-kit
 captured_at: '2026-11-04T09:54:04+08:00'

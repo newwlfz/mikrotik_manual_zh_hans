@@ -12,7 +12,7 @@ QRT 是一款室外 CPE 设备，具有以下硬件规格：
 
 ![](/img/aba055f98926df06.webp)
 
-## [QRT 2](https://mikrotik.com/product/RBQRTG-2SHPnDr2) (RBQRTG-2SHPnD) {#qrt-2-rbqrtg-2shpnd}
+## [QRT 2](https://mikrotik.com/product/RBQRTG-2SHPnDr2)（RBQRTG-2SHPnD） {#qrt-2-rbqrtg-2shpnd}
 
 ## 快速开始 {#quickstart}
 
@@ -128,7 +128,7 @@ RouterOS 允许按用户意愿配置每个 LED 的活动。可以将 LED 配置�
 
 ## 美国联邦通信委员会干扰声明 {#federal-communication-commission-interference-statement}
 
-FCC ID: TV7RBQRTG2SHPND
+FCC ID：TV7RBQRTG2SHPND
 
 ![](/img/ce6fc3eb10b9a1e6.webp)
 
@@ -163,7 +163,7 @@ IC:7442A-QRTG2SHPND 本设备符合加拿大工业部免许可 RSS 标准。操�
 
 ![](/img/984ad54320693690.webp)
 
-## Norma Oficial Mexicana {#norma-oficial-mexicana}
+## 墨西哥官方标准 {#norma-oficial-mexicana}
 
 频率范围（最大输出功率）：2400-2483.5 MHz (30 dBm)。可用频道可能因型号和产品认证而异。
 

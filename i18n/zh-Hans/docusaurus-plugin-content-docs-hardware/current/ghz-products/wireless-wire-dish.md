@@ -1,5 +1,5 @@
 ---
-title: "Wireless Wire Dish"
+title: "无线有线 Dish"
 slug: /wireless-wire-dish
 source: https://manual.mikrotik.com/hardware/wireless-wire-dish
 captured_at: '2026-11-04T10:44:33+08:00'

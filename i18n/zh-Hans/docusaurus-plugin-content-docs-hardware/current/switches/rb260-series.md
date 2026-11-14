@@ -16,7 +16,6 @@ translation_model: "deepseek-v4.1-flash"
 
 - **[RB260GS](https://mikrotik.com/product/RB260GS)**
 - **[RB260GSP](https://mikrotik.com/product/RB260GSP)**
-
 :::
 
 CSS106 是一款带有五个以太网端口和一个 SFP 端口的网络交换机，由 SwOS 操作系统驱动。设备已完成配置，所有端口均已相互交换连接。我们建议您设置密码以保护您的设备。CSS106-1G-4P-1S 的四个以太网端口具备 PoE 输出能力。

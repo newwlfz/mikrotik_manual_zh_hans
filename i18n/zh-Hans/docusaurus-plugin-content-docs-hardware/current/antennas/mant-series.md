@@ -12,7 +12,6 @@ translation_model: "deepseek-v4.1-flash"
 
 - **mANT 19S** (MTAS-5G-19D120)
 - **mANT 15s** (MTAS-5G-15D120)
-
 :::
 
 ## 安全警告 {#safety-warnings}

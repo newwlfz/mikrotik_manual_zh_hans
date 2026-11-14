@@ -13,7 +13,6 @@ translation_model: "deepseek-v4.1-flash"
 - **[mANTBox 15s](https://mikrotik.com/product/RB921GS-5HPacD-15S)** (RB921GS-5HPacD-15S)
 - **[mANTBox 2 12s](https://mikrotik.com/product/mantbox_2_12s)** (RB911G-2HPnD-12S)
 - **[mANTBox 19s](https://mikrotik.com/product/RB921GS-5HPacD-19S)** (RB921GS-5HPacD-19S)
-
 :::
 
 ## 安全警告 {#safety-warnings}

@@ -1,5 +1,5 @@
 ---
-title: "KNOT LR9 kit"
+title: "KNOT LR9 套件"
 slug: /knot-lr9-kit
 source: https://manual.mikrotik.com/hardware/knot-lr9-kit
 captured_at: '2026-11-04T09:52:26+08:00'

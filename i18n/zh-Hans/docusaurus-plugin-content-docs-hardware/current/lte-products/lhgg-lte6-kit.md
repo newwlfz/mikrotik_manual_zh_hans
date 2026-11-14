@@ -1,5 +1,5 @@
 ---
-title: "LHGG LTE6 kit"
+title: "LHGG LTE6 套件"
 slug: /lhgg-lte6-kit
 source: https://manual.mikrotik.com/hardware/lhgg-lte6-kit
 captured_at: '2026-11-04T09:55:27+08:00'

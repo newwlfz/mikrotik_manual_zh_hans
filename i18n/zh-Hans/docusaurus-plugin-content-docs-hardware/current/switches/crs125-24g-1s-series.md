@@ -16,7 +16,6 @@ translation_model: "deepseek-v4.1-flash"
 
 - **CRS125-24G-1S-IN**
 - **CRS125-24G-1S-2HnD-IN**
-
 :::
 
 ## 首次使用 {#first-use}

@@ -1,5 +1,5 @@
 ---
-title: "hAP ac3 LTE6 kit"
+title: "hAP ac3 LTE6 套件"
 slug: /hap-ac3-lte6-kit
 source: https://manual.mikrotik.com/hardware/hap-ac3-lte6-kit
 captured_at: '2026-11-04T09:49:48+08:00'

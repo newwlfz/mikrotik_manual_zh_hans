@@ -1,5 +1,5 @@
 ---
-title: "IAQM-THC2PV-W and IAQM-THC2PV-G"
+title: "IAQM-THC2PV-W 和 IAQM-THC2PV-G"
 slug: /iaqm-thc2pv-w-and-iaqm-thc2pv-g
 source: https://manual.mikrotik.com/hardware/iaqm-thc2pv-w-and-iaqm-thc2pv-g
 captured_at: '2026-11-04T09:50:39+08:00'

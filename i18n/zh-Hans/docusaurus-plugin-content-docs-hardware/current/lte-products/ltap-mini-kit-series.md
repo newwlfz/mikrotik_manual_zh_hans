@@ -13,7 +13,6 @@ translation_model: "deepseek-v4.1-flash"
 - **[LtAP mini LTE kit](https://mikrotik.com/product/ltap_mini_lte_kit_2024)**（RB912R-2nD-LTm&R11e-LTE）
 - **LtAP mini LTE kit-US**（RB912R-2nD-LTm&R11e-LTE-US）
 - **LtAP mini 4G kit**（RB912R-2nD-LTm&R11e-4G）
-
 :::
 
 LtAP mini LTE kit 是一款带两个 SIM 卡槽的无线接入点。LtAP mini LTE、4G kit 出厂时已预装一张卡。

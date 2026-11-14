@@ -13,7 +13,6 @@ translation_model: "deepseek-v4.1-flash"
 - **wAP ac LTE kit**
 - **wAP ac 4G kit**
 - **wAP ac LTE6 kit**
-
 :::
 
 本设备需要升级到 RouterOS v6.46 或最新版本，以确保符合当地主管部门的规定。

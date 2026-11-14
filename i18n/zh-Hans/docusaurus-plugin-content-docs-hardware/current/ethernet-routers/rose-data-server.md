@@ -1,5 +1,5 @@
 ---
-title: "ROSE Data Server"
+title: "ROSE 数据服务器"
 slug: /rose-data-server
 source: https://manual.mikrotik.com/hardware/rose-data-server
 captured_at: '2026-11-04T06:05:18+08:00'

@@ -13,7 +13,6 @@ translation_model: "deepseek-v4.1-flash"
 - **[Groove 52](https://mikrotik.com/product/RBGroove52HPnr2)**
 - **[GrooveA 52](https://mikrotik.com/product/RBGrooveA-52HPnr2)** (RBGrooveA-52HPn)
 - **[GrooveA 52 ac](https://mikrotik.com/product/RBGrooveGA-52HPacn)** (RBGrooveGA-52HPacn)
-
 :::
 
 ![](/img/dd1382a945374619.jpg)
@@ -204,7 +203,7 @@ CAN ICES-003 (B) / NMB-003 (B)
 
 ![](/img/984ad54320693690.webp)
 
-## Norma Oficial Mexicana {#norma-oficial-mexicana}
+## 墨西哥官方标准 {#norma-oficial-mexicana}
 
 频率范围（最大输出功率）：2400-2483.5 MHz (30 dBm)，5725-5850 MHz (30 dBm)。可用信道可能因型号和产品认证而异。
 

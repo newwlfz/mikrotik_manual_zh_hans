@@ -1,5 +1,5 @@
 ---
-title: "SXTsq Embedded LTE4"
+title: "SXTsq 嵌入式 LTE4"
 slug: /sxtsq-embedded-lte4
 source: https://manual.mikrotik.com/hardware/sxtsq-embedded-lte4
 captured_at: '2026-11-04T10:05:20+08:00'

@@ -21,7 +21,7 @@ FlashFig 是一款基于 Windows 的实用工具，专为大批量配置 MikroTi
 
 FlashFig 实用工具可从 MikroTik [下载](https://mikrotik.com/download)页面下载。
 
-FlashFig mode is enabled by default on all RouterBOARD units manufactured since March 2010. For older models, FlashFig can be activated by setting the [`boot-device`](/docs/7.25/cli-reference/system/routerboard/settings#boot-device) to `flash‑boot` or `flash‑boot‑once‑then‑nand` in RouterBOARD settings:
+自 2010 年 3 月起生产的所有 RouterBOARD 设备默认启用 FlashFig 模式。对于较旧型号，可在 RouterBOARD 设置中将 [`boot-device`](/docs/cli-reference/system/routerboard/settings#boot-device) 设置为 `flash‑boot` 或 `flash‑boot‑once‑then‑nand` 来激活 FlashFig：
 ```ros
 /system/routerboard/settings/set boot-device=flash-boot-once-then-nand
 # or

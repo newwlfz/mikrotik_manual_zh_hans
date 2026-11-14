@@ -31,7 +31,7 @@ EasyMesh 是 Wi-Fi Alliance 的一项标准，用于将来自不同供应商的 
 
 [CAPsMAN](./capsman.md) 为 MikroTik 设备提供类似的集中管理，但它主要面向通过以太网连接到网络的接入点。它不提供标准化的无线 backhaul 和 WPS 引导。EasyMesh 认证允许控制器管理来自不同供应商的认证 agent。互操作性仍取决于设备，因此请在部署前测试控制器与 agent 的组合。
 
-## Topology {#topology}
+## 拓扑 {#topology}
 
 一个 EasyMesh 网络有一个控制器和一个或多个 agent。控制器和 agent 必须位于同一个二层网络中。Agent 通过有线以太网连接或无线 backhaul 链路连接到控制器。Backhaul（有线和无线）承载 EasyMesh 管理流量以及每个 agent 的客户端流量。
 
@@ -119,7 +119,7 @@ set enabled=yes role=agent bridge=bridge dpp-onboarding=no
 
 EasyMesh 会将其 Wi-Fi 接口添加到 `bridge` 设置中指定的网桥。不要在代理上设置 `bhaul-configuration` 或 `fhaul-configurations`。控制器会在入网过程中提供它们。
 
-## Onboarding {#onboarding}
+## 入网引导 {#onboarding}
 
 ### 有线回程 {#wired-backhaul}
 

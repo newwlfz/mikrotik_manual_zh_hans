@@ -10,7 +10,7 @@ translation_model: "deepseek-v4.1-flash"
 
 ![](/img/0d9b97cbb07a1832.webp)
 
-## [NetMetal ac²](https://mikrotik.com/product/netmetal_ac2) (RBD23UGS-5HPacD2HnD-NM) {#netmetal-ac-rbd23ugs-5hpacd2hnd-nm}
+## [NetMetal ac²](https://mikrotik.com/product/netmetal_ac2)（RBD23UGS-5HPacD2HnD-NM） {#netmetal-ac-rbd23ugs-5hpacd2hnd-nm}
 
 ## 安全警告 {#safety-warnings}
 

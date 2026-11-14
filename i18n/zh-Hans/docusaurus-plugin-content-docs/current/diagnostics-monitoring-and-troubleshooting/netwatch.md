@@ -183,7 +183,7 @@ WinBox 中的同一探测：
 
 ![DNS Netwatch probe for mikrotik.com in WinBox](/img/65b91b0c127c4543.webp)
 
-## Scripts {#scripts}
+## 脚本 {#scripts}
 
 Netwatch 会在探测状态变化时运行脚本，因此 RouterOS 可以自动做出反应：切换到备用路由、重启隧道、发送[电子邮件](../system-information-and-utilities/e-mail.md)或写入日志条目（请参阅[脚本编写文档](../developer-guides/scripting/index.md)）：
 

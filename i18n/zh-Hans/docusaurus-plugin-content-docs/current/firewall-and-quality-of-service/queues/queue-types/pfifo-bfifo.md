@@ -1,8 +1,8 @@
 ---
 sidebar_key: "firewall-and-quality-of-service/queues/queue-types/pfifo-bfifo"
 sidebar_position: 2
-title: "PFIFO、BFIFO"
-sidebar_label: "PFIFO、BFIFO"
+title: "PFIFO 和 BFIFO"
+sidebar_label: "PFIFO 和 BFIFO"
 description: "PFIFO 和 BFIFO 是遵循 FIFO 原则的 MikroTik RouterOS 队列管理策略，其中 PFIFO 按到达顺序对数据包进行优先级排序，而 BFIFO 管理基于字节的带宽分配。两者都能确保公平性，但缺乏流量优先级划分，区别在于队列大小的衡量方式和数据包丢弃行为。"
 tags:
   - 'pfifo'

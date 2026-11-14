@@ -16,7 +16,6 @@ translation_model: "deepseek-v4.1-flash"
 
 - **[CCR1036-12G-4S-EM](https://mikrotik.com/product/CCR1036-12G-4S-EM)**
 - **[CCR1036-12G-4S](https://mikrotik.com/product/CCR1036-12G-4S-149)**
-
 :::
 
 ## 安全警告 {#safety-warnings}

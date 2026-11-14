@@ -12,7 +12,6 @@ translation_model: "deepseek-v4.1-flash"
 
 - **[MTP250-53V47-OD](https://mikrotik.com/product/mtp250_53v47_od)**
 - **[MTP250-26V94-OD](https://mikrotik.com/product/mtp250_26v94_od)**
-
 :::
 
 ![](/img/2b4511965afb07cb.jpg)
@@ -131,7 +130,7 @@ CAN ICES-003 (A) / NMB-003 (A)
 
 ![](/img/984ad54320693690.webp)
 
-## Norma Oficial Mexicana {#norma-oficial-mexicana}
+## 墨西哥官方标准 {#norma-oficial-mexicana}
 
 能源效率符合 NOM-029-ENER-2017。
 

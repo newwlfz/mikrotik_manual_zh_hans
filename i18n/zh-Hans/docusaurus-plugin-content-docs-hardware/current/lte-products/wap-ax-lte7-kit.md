@@ -1,5 +1,5 @@
 ---
-title: "wAP ax LTE7 kit"
+title: "wAP ax LTE7 套件"
 slug: /wap-ax-lte7-kit
 source: https://manual.mikrotik.com/hardware/wap-ax-lte7-kit
 captured_at: '2026-11-04T10:07:27+08:00'

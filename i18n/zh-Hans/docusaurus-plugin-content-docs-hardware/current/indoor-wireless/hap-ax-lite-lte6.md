@@ -14,7 +14,6 @@ translation_model: "deepseek-v4.1-flash"
 
 - hAP ax lite LTE6
 - L41G-2axD&FG621-EA
-
 :::
 
 ## 安全警告 {#safety-warnings}

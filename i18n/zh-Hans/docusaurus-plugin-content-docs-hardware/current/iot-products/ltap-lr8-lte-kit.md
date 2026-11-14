@@ -1,5 +1,5 @@
 ---
-title: "LtAP LR8 LTE kit"
+title: "LtAP LR8 LTE 套件"
 slug: /ltap-lr8-lte-kit
 source: https://manual.mikrotik.com/hardware/ltap-lr8-lte-kit
 captured_at: '2026-11-04T09:55:47+08:00'

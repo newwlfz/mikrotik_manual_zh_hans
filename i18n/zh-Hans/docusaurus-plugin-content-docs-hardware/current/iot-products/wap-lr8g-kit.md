@@ -1,5 +1,5 @@
 ---
-title: "wAP LR8G kit"
+title: "wAP LR8G 套件"
 slug: /wap-lr8g-kit
 source: https://manual.mikrotik.com/hardware/wap-lr8g-kit
 captured_at: '2026-11-04T10:07:24+08:00'
@@ -12,7 +12,7 @@ translation_model: "deepseek-v4.1-flash"
 
 ![](/img/60cdc678c8e04a3d.jpg)
 
-### [wAP LR8G kit](https://mikrotik.com/product/wap_lr8g_kit) (RBwAPR-2nD&R11e-LR8G) {#wap-lr8g-kit-rbwapr-2ndr11e-lr8g}
+### [wAP LR8G kit](https://mikrotik.com/product/wap_lr8g_kit)（RBwAPR-2nD&R11e-LR8G） {#wap-lr8g-kit-rbwapr-2ndr11e-lr8g}
 
 wAP 是一款小巧的户外防水设备，内置 LR8 卡，可将 UDP 数据包转发到指定的服务器。
 
