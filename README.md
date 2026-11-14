@@ -13,9 +13,9 @@
 | **本仓库** | 译文覆盖层 `i18n/zh-Hans/**`（4,704 个文件，约 39 MB，唯一中文真源） | 入库 |
 | **本仓库** | 翻译策略：`config/translation.yml`、术语表 `config/glossary/`、`config/translation-patches/`、`config/english-only-blocks.yml`、`config/force-translate.yml` | 入库 |
 | **本仓库** | 翻译进度：`work/translate/{keep-english,run,comment-memory}.json` + `state/translation-state.json` | 入库 |
-| **本仓库** | 站点代码与站点级配置：`src/`、`tools/`、`sidebars*.ts`、`locales.json`、`docusaurus.config.ts`（后两者由总管仓逐字节推送） | 入库 |
-| 总管仓 `mikrotik_manual_i18n` | 英文内容 `docs/`、`locales.json`（`publish-content` job 用 git 推送进来） | 由总管仓提交 |
-| 总管仓 `mikrotik_manual_i18n` | 资源 `static/`（图片、PDF、视频、CLI 数据）与 `versioned_docs/`、`hardware/`、`blog/`、`changelog/`、`data/` | **不在本仓库** |
+| **本仓库** | 站点代码与站点级配置：`src/`、`tools/`、`docusaurus.config.ts`（`sidebars*.ts`、`versions.json`、`versioned_sidebars/`、`locales.json` 由总管仓推送） | 入库 |
+| 总管仓 `mikrotik_manual_i18n` | 英文内容：`docs/`、`versioned_docs/`、`hardware/`、`blog/`、`changelog/`、`data/`、`sidebars.ts`、`sidebars-hardware.ts`、`versioned_sidebars/`、`versions.json`，以及 `locales.json`（`publish-content` job 用 git 推送进来） | **入库，由总管仓提交** |
+| 总管仓 `mikrotik_manual_i18n` | 资源 `static/`（图片、PDF、视频） | **不在本仓库**（构建时引用英文站） |
 | 两者共享 | 构建期把站内资源引用改写到 `ASSET_ORIGIN`（英文站基址） | — |
 
 中文站的**翻译流水线**（分批翻译 → 全部译完才构建发布）见
@@ -44,11 +44,27 @@ npm run translate:batch -- --budget-minutes=5 --json   # 本地跑一小批
 npm run translate:verify                     # 覆盖层结构校验
 ```
 
+## 手动跳过翻译（`skip_translate`）
+
+手动触发（Actions → **Translate, build and deploy** → `Run workflow`）勾选
+`skip_translate` 后，`translate` job 整块跳过，`build` 直接用已提交的
+`i18n/zh-Hans/` 覆盖层构建并部署。
+
+- **用途**：只改了站点代码 / 配置 / 样式，或刚在本地验证过覆盖层、想立刻上线，
+  不想再花一轮翻译预算和 1–2 小时等待。
+- **不会被跳过的校验**：`build` 仍断言全部内容根，并跑
+  `npm run translate:verify`（文件对齐、代码围栏、图片、front matter、MDX
+  结构校验）；任何一项坏了都不会发布，所以不会上线结构损坏的站。
+- **风险**：跳过翻译意味着**本次不推进 `pending`**。未译的块仍保持英文，站点会
+  带着英文段落上线；而正常（未勾选）的流水线在 `pending > 0` 时依旧不会构建。
+  不要用它绕过 `pending` 门禁去“发布半翻译站”——它只适合内容已齐备、只是不想
+  再跑翻译的场景，且跳过期间不会有新的译文入库。
+
 ## 快速开始
 
 ```bash
 npm ci                        # 或本地复用英文仓的依赖：ln -s ../repo_en/node_modules node_modules
-npm run content:fetch         # 本地预览用：从 ../repo_en 取内容（CI 用总管仓 git 推送的 docs/）
+npm run content:fetch         # 本地预览用：从 ../repo_en 取内容（CI 直接用总管仓推送的内容根）
 SITE_URL=http://127.0.0.1:3013 BASE_URL=/mikrotik_manual_zh_hans/ SITE_LOCALE=zh-Hans \
 LOCALE_EN_URL=http://127.0.0.1:3013 LOCALE_EN_BASE_URL=/mikrotik_manual_i18n/ \
 LOCALE_ZH_URL=http://127.0.0.1:3013 LOCALE_ZH_BASE_URL=/mikrotik_manual_zh_hans/ \
@@ -62,15 +78,22 @@ zh-Hans --out-dir build` → `pagefind` → `tools/build/llms.mjs`。
 
 ## 内容获取
 
-内容（英文正文）**不在这里维护**，来源有两层：
+内容（英文正文与构建数据）**不在这里维护**，由总管仓 `mikrotik_manual_i18n`
+的 `publish-content` job 用 **git 推送**进来：
 
-| 内容根 | 来源 | 说明 |
+| 来源 | 内容根 | 本仓库怎么处理 |
 |---|---|---|
-| `docs/`、`locales.json` | 总管仓 `mikrotik_manual_i18n` 的 `publish-content` job **git 推送** | 本仓库跟踪它们，`.gitignore` **不能**忽略 `docs/` |
-| `versioned_docs/`、`hardware/`、`blog/`、`changelog/`、`data/` | 仍是仓库本地内容（总管仓今天只 publish `docs/`） | `.gitignore` 忽略；CI 的 `build` job 断言它们存在，缺了就明确失败（不发布半个站） |
+| 总管仓 git 推送 | `docs/`、`versioned_docs/`、`hardware/`、`blog/`、`changelog/`、`data/`、`versioned_sidebars/` | 目录整体替换（总管仓删掉的页面这里也会消失） |
+| 总管仓 git 推送 | `sidebars.ts`、`sidebars-hardware.ts`、`versions.json`、`locales.json` | 文件覆盖写 |
+| 英文站（`ASSET_ORIGIN`） | `static/`（图片、PDF、视频） | **不在本仓库**；构建时把资源引用改写到英文站 |
 
-本地预览时用 `npm run content:fetch` 从兄弟仓 `../repo_en` 复制（这是**本地替身**，
-CI 不调用）：
+这些路径都**必须被 git 跟踪**：`.gitignore` 忽略任一根时，总管仓的 publish 会在
+**提交前**直接失败（`git check-ignore -v` 会指出具体规则），`pages.yml` 也会在
+translate / build 前断言。清单的唯一真源是总管仓 `tools/content/publish.mjs`
+的 `CONTENT_ROOTS`。
+
+本地预览还可以用 `npm run content:fetch` 从兄弟仓 `../repo_en` 复制（这是
+**本地替身**，CI 不调用）：
 
 ```bash
 node tools/content/fetch-local.mjs                 # 从 ../repo_en 复制
@@ -151,8 +174,9 @@ repo_zh_hans/
 │  ├─ ci/read-translate-summary.mjs   # 把 --json 摘要读成 workflow outputs
 │  ├─ content/{locales.js,fetch-local.mjs}
 │  └─ build/{index,slim,llms}.mjs
-├─ docs/                    # 英文内容，总管仓 git 推送 → 必须跟踪（不能忽略）
-├─ versioned_docs/ hardware/ blog/ changelog/ data/   # 内容，git-ignored
+├─ docs/ versioned_docs/ hardware/ blog/ changelog/ data/ versioned_sidebars/
+│                          # 内容，总管仓 git 推送 → 必须跟踪（不能忽略）
+├─ sidebars.ts sidebars-hardware.ts versions.json   # 同理，由总管仓推送
 │                          # （static/ 不在此列：资源在英文站，见 ASSET_ORIGIN）
 ├─ work/translate/          # 翻译状态：keep-english.json / run.json / comment-memory.json 入库，
 │                          # 大块 TM 与模型记忆仍 git-ignored
@@ -184,11 +208,12 @@ node work/verify/multisite-local.mjs --json
   `model-memory.json`、`translation-memory.json`、`tm-global.*.json`
   （约 79 MB 的重建脚手架）仍不入库 —— 每个批次都会重写它们，入库等于每次
   往仓库里塞几十 MB。断点续跑不依赖它们：覆盖层 + keep-English 锁足够。
-- **内容根缺口**：总管仓的 `publish-content` 今天只推送 `docs/` 与
-  `locales.json`；`versioned_docs/`、`hardware/`、`blog/`、`changelog/`、
-  `data/` 还没有推送通道，因此 CI 的 `build` job 会在「内容根断言」明确失败
-  （不会发布半个站）。要么总管扩展 `CONTENT_ROOTS`，要么在本仓 workflow 里保留
-  只解压非 `docs` 根的内容包步骤（`tar --exclude=docs`）。
+- **内容根已覆盖，站点级配置仍各自维护**：总管仓 `publish-content` 现在推送
+  `CONTENT_ROOTS` 的十个根 + `locales.json`，`build` 的内容根断言不会再缺板块。
+  `config/`（翻译策略、术语表、patches）、`docusaurus.config.ts`、`tools/`、
+  `src/` 属于**语种仓自有**，不随内容发布，两边需要**人工同步**；如果将来要把
+  语种专属配置也交给总管统一管理，需要单独设计（例如只发布 `config/` 的公共
+  子集，保留语种覆盖层）。
 - **pagefind 的 1 个英文页**：`assets/295239801_index2.html` 是抓取下来的
   WebFig 示例（自带 `lang="en"`），pagefind 因此报告 1 个英文页；如需
   严格“只索引中文”，在 `pagefind` 参数里加 `--exclude "assets/*.html"`。

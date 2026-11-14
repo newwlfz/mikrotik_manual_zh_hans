@@ -3,11 +3,13 @@
  * Fetch the **content** half of the Chinese mirror from a local English
  * checkout — a stand-in for downloading a content release from the hub.
  *
- * This repository tracks only code and configuration. Everything a reader
- * browses (`docs/`, `versioned_docs/`, `hardware/`, `blog/`, `changelog/`)
- * plus the build-time manifests and CLI data (`data/`) is content: it is
- * produced upstream, versioned by the hub, and downloaded at build time.
- * They are git-ignored here and `npm run content:fetch` materialises them.
+ * This repository tracks code, configuration and the *published* content:
+ * everything a reader browses (`docs/`, `versioned_docs/`, `hardware/`,
+ * `blog/`, `changelog/`) plus the build-time manifests and CLI data (`data/`)
+ * is produced upstream and committed here by the hub's `publish-content` job
+ * (git push), so a normal checkout already has it. `npm run content:fetch`
+ * remains a local-preview fallback that re-materialises those roots, and a
+ * replay path for an older content release.
  *
  * **`static/` is not content of this repository.** Images, PDFs, videos and the
  * CLI data live on the English site (the asset host); this site references them
@@ -19,12 +21,12 @@
  *
  * **CI does not call this tool any more.** The hub
  * (`newwlfz/mikrotik_manual_i18n`) publishes its English source by git push —
- * its `publish-content` job commits `docs/` and `locales.json` into this
- * repository, and `pages.yml` builds from that checkout. This script is the
- * **local preview** fallback: it materialises the content roots a build needs
- * when you do not want to wait for the hub, and it accepts the old release URL
- * (`--url=` / `CONTENT_URL`) so a developer can reproduce a published content
- * package offline.
+ * its `publish-content` job commits every `CONTENT_ROOTS` root plus
+ * `locales.json` into this repository, and `pages.yml` builds from that
+ * checkout. This script is the **local preview** fallback: it materialises the
+ * content roots a build needs when you do not want to wait for the hub, and it
+ * accepts the old release URL (`--url=` / `CONTENT_URL`) so a developer can
+ * reproduce a published content package offline.
  *
  * In the release form the archive is downloaded with
  * `curl -L --fail --retry 3`, extracted with `tar` into the repository root, and

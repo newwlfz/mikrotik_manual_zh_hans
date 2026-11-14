@@ -63,20 +63,35 @@ data/nav/
 state/update-run.json
 
 # Content: not authored here. The hub (`mikrotik_manual_i18n`) owns the English
-# source and publishes it by **git push**: `docs/` and `locales.json` are
-# committed into this repository by its `publish-content` job, so `docs/` must
-# stay tracked — ignoring it makes the translation plan see zero blocks and the
-# build produce an empty site (the hub's publish fails on an ignored `docs/`, and
-# `pages.yml` asserts it too).
+# source and publishes it by **git push**: every root in its
+# `tools/content/publish.mjs` CONTENT_ROOTS is committed into this repository by
+# the `publish-content` job, together with `locales.json` — `docs/`,
+# `versioned_docs/`, `hardware/`, `blog/`, `changelog/`, `data/`,
+# `sidebars.ts`, `sidebars-hardware.ts`, `versioned_sidebars/` and
+# `versions.json`.
 #
-# The other content roots below are still repository-local (the hub's
-# CONTENT_ROOTS publishes `docs/` only) and are ignored here.
+# None of them may be ignored here: an ignored root makes the hub's publish fail
+# before it commits, and the translation plan / build would silently see fewer
+# pages than the site actually has. The explicit `!` rules below document the
+# contract and keep it true if an ignore pattern is added above later.
+#
 # Leading `/`: only the repository roots are content. An unanchored `hardware/`
 # would also swallow `i18n/.../hardware/` and `docs/.../hardware/` overlays.
-/versioned_docs/
+!/docs/
+!/versioned_docs/
+!/hardware/
+!/blog/
+!/changelog/
+!/data/
+!/sidebars.ts
+!/sidebars-hardware.ts
+!/versioned_sidebars/
+!/versions.json
+!/locales.json
+
+# Assets are not content here: they are served from the English site
+# (`ASSET_ORIGIN`), so a local `static/` must stay out of git.
 /static/
-/hardware/
-/blog/
-/changelog/
-/data/
+
+# Local crawl staging (`npm run content:fetch` writes `.content/fetch.json`).
 /.content/

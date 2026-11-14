@@ -5,27 +5,30 @@
 
 | 工作流 | 触发 | 作用 |
 |---|---|---|
-| `pages.yml` | push 到 `main`（`paths` 含 `docs/**`、`locales.json`、`config/**`、`i18n/**`、`work/translate/**` 等）/ 手动 | `translate` job 跑一批翻译并提交进度 → `build` job（仅 `pending == 0`）构建 + 部署门禁 → `deploy` job 部署 |
+| `pages.yml` | push 到 `main`（`paths` 含内容根、`locales.json`、`config/**`、`i18n/**`、`work/translate/**` 等）/ 手动（可勾 `skip_translate`） | `translate` job 跑一批翻译并提交进度 → `build` job（`pending == 0`，或 translate 被 `skip_translate` 跳过）构建 + 部署门禁 → `deploy` job 部署 |
 
 总管仓 `newwlfz/mikrotik_manual_i18n` 另有 `build`/`deploy` 与 `publish-content`
-两个 job：它把 `docs/` 与 `locales.json` **用 git 推送**进本仓库，本仓库不再下载
-content release。见 [内容从哪来](#内容从哪来总管仓-git-推送)。
+两个 job：它把 `CONTENT_ROOTS` 的十个内容根与 `locales.json` **用 git 推送**进
+本仓库，本仓库不再下载 content release。见
+[内容从哪来](#内容从哪来总管仓-git-推送)。
 
 ## 一条流水线，三道关
 
 ```text
-push docs/** / locales.json / i18n/** …  ──┐
-Actions → Run workflow（可传预算）      ──┴─► translate（≤120 分钟）
+push 内容根 / locales.json / i18n/** …  ──┐
+Actions → Run workflow（可传预算 / 勾 skip_translate）
+                                        ──┴─► translate（≤120 分钟；勾 skip_translate 时整块跳过）
                                                ├─ 有进度 → 提交 i18n/ + work/translate/ + state/
                                                └─ 输出 pending
                                                      │
-                     pending == 0 ───────────────────┴─── pending > 0 ──► 跳过 build（线上保持旧版）
+        pending == 0（或 translate 被跳过）──────────┴─── pending > 0 ──► 跳过 build（线上保持旧版）
                           │
                           ▼
-                        build（≤45 分钟）：内容根断言 → npm run build → npm run verify:deploy → 上传制品
+                        build（≤45 分钟）：内容根断言 →（skip_translate 时）translate:verify
+                          → npm run build → npm run verify:deploy → 上传制品
                           │
                           ▼
-                        deploy：仅 build 成功（`if: success()`，永不 `always()`）
+                        deploy：仅 build 成功（`!cancelled() && needs.build.result == 'success'`，永不 `always()`）
 ```
 
 `translate` job 的 `timeout-minutes` 是 120，而 `--budget-minutes` 默认 90：预算到点
@@ -121,30 +124,72 @@ npm run translate:pending -- --json
 | `state.files[].pendingBlocks` | `state/translation-state.json` | 单页里仍是英文的块数（含被判为「有意保留英文」的块），只作参考，可能不归零 |
 | `untranslatedBlocks` | `npm run translate:verify`（`lib/verify.mjs`） | 覆盖层里实际还是英文的**正文段落与警告**；它跳过以 `#`/`<`/`|` 开头的行（标题、组件、表格），所以**比计划少**，不能当门禁 —— 本仓库它现在报 0，而计划里还有 475 块（多为标题/表格）待译 |
 
-`verify` 报的是结构性问题（文件对齐、围栏、图片、front matter、MDX），它在 CI 的
-`build` 之后由 `verify:deploy` 覆盖；翻译完整性由 `pending` 把关。
+`verify` 报的是结构性问题（文件对齐、围栏、图片、front matter、MDX），正常翻译
+路径由 `build` 之后的 `verify:deploy` 覆盖；勾选 `skip_translate` 时 `build` 会在
+`npm run build` **之前**显式跑一遍 `npm run translate:verify`。翻译完整性由
+`pending` 把关。
 
 ### 内容从哪来（总管仓 git 推送）
 
-`docs/` 与 `locales.json` 由总管仓的 `publish-content` job **直接提交**进本仓库
-（跨仓 fine-grained PAT `CROSS_REPO_TOKEN`），所以：
+总管仓的 `publish-content` job 把它的 `CONTENT_ROOTS` **直接提交**进本仓库
+（跨仓 fine-grained PAT `CROSS_REPO_TOKEN`）：
 
-- `.gitignore` **不能**忽略 `/docs/`。忽略它时翻译计划看到 0 个待译块、构建产出空站，
-  属于「静默成功」，比失败更贵；总管仓的 publish 也会因此直接失败。
-- `translate`/`build` 两个 job 各有一道断言：`docs/` 被忽略或缺失就直接 `exit 1`；
-  `build` 还要求 `versioned_docs/`、`hardware/`、`blog/`、`changelog/`、`data/`
-  一个都不少（少了它们不会报错，只会少整块页面）。
-- **已知缺口**：总管仓今天只 publish `docs/` 与 `locales.json`
-  （`tools/content/publish.mjs` 的 `CONTENT_ROOTS`）。其余内容根还没有推送，
-  所以 `build` 会在「内容根断言」明确失败并指向这个缺口，而**不会**发布半个站。
-  要么总管扩展 `CONTENT_ROOTS`，要么在本 workflow 里保留只解压非 `docs` 根的内容包
-  步骤（`tar --exclude=docs`）。
+| 内容根 | 同步方式 |
+|---|---|
+| `docs/`、`versioned_docs/`、`hardware/`、`blog/`、`changelog/`、`data/`、`versioned_sidebars/` | 目录整体替换（总管仓删掉的页面这里也会消失） |
+| `sidebars.ts`、`sidebars-hardware.ts`、`versions.json`、`locales.json` | 文件覆盖写 |
+
+所以：
+
+- `.gitignore` **不能**忽略其中任何一个。忽略 `docs/` 时翻译计划看到 0 个待译块、
+  构建产出空站，属于「静默成功」，比失败更贵；忽略其它根会让对应板块整体消失。
+  总管仓的 publish 会在**提交前**失败，并用 `git check-ignore -v` 打印具体规则。
+- `translate` job 断言这些根不被忽略（缺根只告警，`docs/` 与 `locales.json` 缺失
+  直接失败）；`build` job 的硬断言要求十个根 + `locales.json` **一个都不少**，缺失
+  时打印「缺少 X；应由总管 publish 推送」。
+- `static/` 不在清单里：资源来自 `ASSET_ORIGIN`（英文站），本仓库不取。
+
+清单的唯一真源是总管仓 `tools/content/publish.mjs` 的 `CONTENT_ROOTS`。
+
+## 跳过翻译（`skip_translate`）
+
+`workflow_dispatch` 增加布尔输入 `skip_translate`（默认 `false`）：
+
+```yaml
+skip_translate:
+  description: '跳过本轮翻译，直接用已提交的覆盖层构建（内容根断言与 translate:verify 仍会跑）'
+  type: boolean
+  default: false
+```
+
+- `translate` job 的 `if` 是 `${{ !inputs.skip_translate }}`；push 触发时 `inputs`
+  为空，`!inputs.skip_translate` 为 true，照常翻译。
+- `build` 的 `if` 接受两种放行：translate 正常跑完且 `pending == '0'`，或 translate
+  被跳过（`needs.translate.result == 'skipped'`）；翻译失败
+  （`result == 'failure'`）永不构建。表达式里带 `!cancelled()`：GitHub 在 `if`
+  没有状态函数时会隐式套 `success()`，而它对**被跳过**的依赖 job 为 false，不加就
+  进不了 skip 分支。
+- 勾选后 `build` **仍然**做内容根断言，并显式跑 `npm run translate:verify`，所以
+  文件不对齐、围栏/图片/front matter/MDX 坏掉的覆盖层不会被发布。
+
+**用途**：只改站点代码 / 配置 / 样式；刚在本地验证过覆盖层、想立刻上线；或 LLM
+接口暂时不可用但内容已经齐备。
+
+**风险**：
+
+1. 本次**不推进 `pending`**：未译块仍是英文，站点会带着英文段落上线；
+2. 长期勾选会让翻译停摆，`pending` 永远不降；
+3. 它只跳过「翻译」这一步，不跳过任何结构校验。不要用它绕过 `pending` 门禁去发布
+   半翻译站 —— 正常（未勾选）流水线在 `pending > 0` 时依然不会构建。
+
+只在需要“马上上线”时手动勾选一次，用完取消。
 
 ## 手动触发与恢复
 
 | 场景 | 做法 |
 |---|---|
 | 想立刻跑一批 | Actions → **Translate, build and deploy** → `Run workflow`。`budget-minutes` 默认 90；只想试水就填 `max-blocks`（例如 `20`） |
+| 只想上线代码、不想跑翻译 | 同一个手动触发里勾选 `skip_translate`。translate 被跳过，但 `build` 仍断言内容根并跑 `translate:verify`；风险见[上一节](#跳过翻译skip_translate) |
 | 预算用完还有 pending | 正常现象：job 成功、`pending>0`、跳过构建。再触发一次（或等下一次 push）继续，已翻的块不会重翻 |
 | LLM 402/401/429 | 翻译 job 失败，但**已完成的块先提交**（提交步骤 `if: always()`），`build` 不跑；充值/换 key 后重跑即可 |
 | 想从头看还剩多少 | `npm run translate:pending -- --json`，或看最近一次提交的 `work/translate/run.json` |

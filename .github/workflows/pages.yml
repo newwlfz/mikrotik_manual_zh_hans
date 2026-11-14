@@ -7,16 +7,24 @@ name: Translate, build and deploy
 #   2. `build` job：`pending == 0` 才跑。构建 → 部署门禁 → 上传制品。
 #   3. `deploy` job：`build` 成功才部署；否则线上保持上一个成功版本。
 #
+# 手动开关 `skip_translate`（默认 false）：勾选后跳过 `translate` job，直接用已提交
+# 的覆盖层构建。它**不会**跳过校验：build 仍断言全部内容根，并跑
+# `npm run translate:verify`（覆盖层结构校验），所以结构损坏的站不会被发布。
+# 用途与风险见 `guides/CI.md`「跳过翻译（skip_translate）」。
+#
 # 为什么进度要提交：翻译是**可续跑**的。每次批次结束把 `i18n/`、`work/translate/`
 # 的小状态和 `state/translation-state.json` 提交回 `main`，下一批（下一次 push 或
 # 手动触发）从断点继续，不重复翻译已完成的块。提交信息带 `[skip ci]`，避免自己
 # 再触发一轮翻译。
 #
 # **内容从哪来：总管仓 git 推送**。`newwlfz/mikrotik_manual_i18n` 的
-# `publish-content` job 把 `docs/` 与 `locales.json` 直接提交进本仓库（跨仓 PAT），
-# 本 workflow 不再下载 content release，也**不要**在 `.gitignore` 里忽略 `docs/`：
-# 忽略它会让每次构建都基于空内容，翻译计划也会少算待译块。见
-# `guides/CI.md` 与总管仓的 `guides/ARCHITECTURE-MULTISITE.md`。
+# `publish-content` job 把它的 `CONTENT_ROOTS`（`docs/`、`versioned_docs/`、
+# `hardware/`、`blog/`、`changelog/`、`data/`、`sidebars.ts`、
+# `sidebars-hardware.ts`、`versioned_sidebars/`、`versions.json`）与
+# `locales.json` 直接提交进本仓库（跨仓 PAT）。本 workflow 不再下载 content
+# release，也**不要**在 `.gitignore` 里忽略任何内容根：忽略会让每次构建都基于空
+# 内容、翻译计划少算待译块，总管仓的 publish 也会直接失败。见 `guides/CI.md` 与
+# 总管仓的 `guides/ARCHITECTURE-MULTISITE.md`。
 #
 # **`static/` 不下载、不发布。** 图片/PDF/视频等资源由英文站（资源宿主）提供，
 # 构建时把站内资源引用改写到 `ASSET_ORIGIN`。
@@ -29,6 +37,15 @@ on:
     branches: [main]
     paths:
       - 'docs/**'
+      - 'versioned_docs/**'
+      - 'hardware/**'
+      - 'blog/**'
+      - 'changelog/**'
+      - 'data/**'
+      - 'sidebars.ts'
+      - 'sidebars-hardware.ts'
+      - 'versioned_sidebars/**'
+      - 'versions.json'
       - 'locales.json'
       - 'config/**'
       - 'i18n/**'
@@ -49,6 +66,11 @@ on:
         description: '本次最多处理的翻译单位数（留空 = 不限，调试用）'
         required: false
         default: ''
+      skip_translate:
+        description: '跳过本轮翻译，直接用已提交的覆盖层构建（内容根断言与 translate:verify 仍会跑）'
+        required: false
+        type: boolean
+        default: false
 
 permissions:
   # 翻译 job 要提交进度；`contents: write` 也是 checkout 之后 push 的前提。
@@ -85,6 +107,9 @@ jobs:
   # 1) 一批翻译
   # ---------------------------------------------------------------------------
   translate:
+    # 手动触发勾选 `skip_translate` 时整块跳过；push 触发时 `inputs` 为空，
+    # `!inputs.skip_translate` 为 true，照常翻译。
+    if: ${{ !inputs.skip_translate }}
     runs-on: ubuntu-latest
     # 90 分钟预算 + 计划/落盘/提交余量。`--budget-minutes` 到点会优雅停止并落盘，
     # 这个 timeout 只是兜底：真被杀掉时，已经写盘的批次仍然在磁盘上。
@@ -98,26 +123,36 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: ${{ github.ref_name }}
-      # 内容契约的第一道断言：`docs/` 由总管仓 git 推送，必须被 git 跟踪。
-      # 它被 `.gitignore` 忽略时，翻译计划会看到 0 个待译块并让 `pending`
+      # 内容契约的第一道断言：内容根由总管仓 git 推送，必须被 git 跟踪。
+      # 任一内容根被 `.gitignore` 忽略时，翻译计划会少算待译块并让 `pending`
       # 提前归零 —— 那种“成功”比失败更贵。
       - name: Verify published content is tracked
         run: |
           set -euo pipefail
-          if git check-ignore -q docs; then
-            echo "::error title=docs/ 被本仓 .gitignore 忽略::总管仓用 git push 推送 docs/ + locales.json。请从 .gitignore 删除 /docs/，否则每次构建都基于空内容（总管仓的 publish 也会因此直接失败）。"
-            exit 1
-          fi
-          test -d docs || { echo "::error title=缺少 docs/::总管仓的 publish-content 没有跑过，或它失败了。"; exit 1; }
-          test -f locales.json || { echo "::error title=缺少 locales.json::总管仓的 publish-content 会逐字节推送 locales.json；缺它时 docusaurus.config.ts 无法生成 localeConfigs。"; exit 1; }
-          # 其余内容根（versioned_docs/hardware/blog/changelog/data）今天仍由总管仓
-          # 自己持有、**还没有** publish；缺它们不影响 docs 的翻译，但会让本次计划
-          # 少算这些板块的待译块。build job 有同样的硬断言，绝不会带着半个站发布。
-          for root in versioned_docs hardware blog changelog data; do
-            if [ ! -e "$root" ]; then
-              echo "::warning title=内容根 $root 不在本仓库::$root 还没有被总管仓 publish，本次翻译计划不包含该板块（build job 不会因此发布半个站）。"
+          content_roots=(docs versioned_docs hardware blog changelog data versioned_sidebars)
+          content_files=(locales.json sidebars.ts sidebars-hardware.ts versions.json)
+          ignored=0
+          for root in "${content_roots[@]}"; do
+            if git check-ignore -q "$root/"; then
+              echo "::error title=$root/ 被本仓 .gitignore 忽略::总管仓的 publish 推送该内容根；被忽略时它进不了仓库。请删除对应的 .gitignore 规则。"
+              ignored=1
             fi
           done
+          for file in "${content_files[@]}"; do
+            if git check-ignore -q "$file"; then
+              echo "::error title=$file 被本仓 .gitignore 忽略::总管仓的 publish 推送该文件；请删除对应的 .gitignore 规则。"
+              ignored=1
+            fi
+          done
+          test "$ignored" -eq 0
+          # 缺根时只告警：翻译仍能处理已到达的板块；build 的硬断言会拦住半站发布。
+          for root in docs locales.json versioned_docs hardware blog changelog data sidebars.ts sidebars-hardware.ts versioned_sidebars versions.json; do
+            if [ ! -e "$root" ]; then
+              echo "::warning title=缺少 $root::缺少 $root；应由总管 publish 推送。"
+            fi
+          done
+          test -d docs || { echo "::error title=缺少 docs/::缺少 docs/；应由总管 publish 推送。"; exit 1; }
+          test -f locales.json || { echo "::error title=缺少 locales.json::缺少 locales.json；应由总管 publish 推送。"; exit 1; }
       - name: Prepare npm cache directory
         env:
           NPM_CONFIG_CACHE: ${{ runner.temp }}/npm-cache
@@ -190,9 +225,16 @@ jobs:
   # ---------------------------------------------------------------------------
   build:
     needs: translate
-    # 唯一的发布门禁：`pending` 是翻译计划的剩余单位数（块 + 英文标题）。
-    # 非 0 就不构建 —— 线上保持旧版，而不是发布一个半翻译的站。
-    if: needs.translate.outputs.pending == '0'
+    # 发布门禁：
+    #   - translate 正常跑完且 `pending == 0`；或
+    #   - 手动勾选 `skip_translate` 让 translate 被跳过（result == 'skipped'）；
+    # 翻译失败（result == 'failure'）永不构建 —— 线上保持旧版，而不是发布一个
+    # 半翻译/坏掉的站。
+    #
+    # `!cancelled()` 不能省：GitHub 在 `if` 里没有状态函数时会隐式套一个
+    # `success()`，而 `success()` 对**被跳过**的依赖 job 为 false，那样
+    # `skip_translate` 分支永远进不来。
+    if: ${{ !cancelled() && needs.translate.result != 'failure' && (needs.translate.result == 'skipped' || needs.translate.outputs.pending == '0') }}
     runs-on: ubuntu-latest
     timeout-minutes: 45
     steps:
@@ -202,24 +244,35 @@ jobs:
           ref: ${{ github.ref_name }}
       # 构建前的硬断言：内容根一个都不能少。少了 `versioned_docs/` 就没有归档
       # 版本，少了 `hardware/` 就少一整个板块——这些页面不会报错，只会消失。
-      # `static/` 不在名单里：资源来自 `ASSET_ORIGIN`。
+      # 内容根由总管仓的 `publish-content` 推送，所以缺失只有一个含义：publish
+      # 没跑或失败了。`static/` 不在名单里：资源来自 `ASSET_ORIGIN`。
       - name: Verify content roots
         run: |
           set -euo pipefail
-          if git check-ignore -q docs; then
-            echo "::error title=docs/ 被本仓 .gitignore 忽略::请从 .gitignore 删除 /docs/；总管仓的 publish 也会因此失败。"
-            exit 1
-          fi
+          content_roots=(docs versioned_docs hardware blog changelog data versioned_sidebars)
+          content_files=(locales.json sidebars.ts sidebars-hardware.ts versions.json)
           missing=0
-          for root in docs locales.json versioned_docs hardware blog changelog data; do
+          for root in "${content_roots[@]}"; do
+            if git check-ignore -q "$root/"; then
+              echo "::error title=$root/ 被本仓 .gitignore 忽略::请删除对应的 .gitignore 规则；总管仓的 publish 也会因此失败。"
+              missing=1
+            fi
+          done
+          for file in "${content_files[@]}"; do
+            if git check-ignore -q "$file"; then
+              echo "::error title=$file 被本仓 .gitignore 忽略::请删除对应的 .gitignore 规则；总管仓的 publish 也会因此失败。"
+              missing=1
+            fi
+          done
+          for root in docs locales.json versioned_docs hardware blog changelog data sidebars.ts sidebars-hardware.ts versioned_sidebars versions.json; do
             if [ ! -e "$root" ]; then
-              echo "::error title=缺少内容根 $root::$root 既不在仓库里，也没有别的来源。总管仓今天只 publish docs/ 与 locales.json（tools/content/publish.mjs 的 CONTENT_ROOTS）；其余根需要总管扩展 CONTENT_ROOTS 后再触发本流程。"
+              echo "::error title=缺少 $root::缺少 $root；应由总管 publish 推送。"
               missing=1
             fi
           done
           test "$missing" -eq 0
           test ! -e static || { echo "::error title=static/ 不该存在::语种仓的资源来自 ASSET_ORIGIN（英文站），static/ 会被构建忽略并推高体积。"; exit 1; }
-          echo "content roots present: docs locales.json versioned_docs hardware blog changelog data"
+          echo "content roots present: docs locales.json versioned_docs hardware blog changelog data sidebars.ts sidebars-hardware.ts versioned_sidebars versions.json"
       - name: Prepare npm cache directory
         env:
           NPM_CONFIG_CACHE: ${{ runner.temp }}/npm-cache
@@ -234,6 +287,12 @@ jobs:
       - run: npm ci
         env:
           NPM_CONFIG_CACHE: ${{ runner.temp }}/npm-cache
+      # `skip_translate` 时没有翻译 job 兜底，覆盖层的**结构校验**必须在这里跑：
+      # 文件对齐、代码围栏、图片、front matter、MDX 任一项坏了都不发布。正常翻译
+      # 路径不重复跑（`--apply` 落盘时已经校验过这一批写入）。
+      - name: Verify translation overlays
+        if: ${{ inputs.skip_translate == true }}
+        run: npm run translate:verify
       # 单语种构建：i18n/zh-Hans 覆盖层 + 已提交的内容 → Docusaurus
       # （--locale zh-Hans）→ Pagefind → llms.txt。
       - name: Build site
@@ -255,9 +314,11 @@ jobs:
   # ---------------------------------------------------------------------------
   deploy:
     needs: build
-    # `success()` 而不是 `always()`：构建失败、或 build 被跳过（pending>0）时
-    # 都不部署，线上保持上一个成功版本。
-    if: success()
+    # 只认 build 的成功结果：构建失败、`pending > 0` 导致 build 被跳过、或
+    # translate 被 skip_translate 跳过时，都不部署，线上保持上一个成功版本。
+    # 用 `needs.build.result` 而不是 `success()`：依赖链里出现被跳过的 job 时，
+    # 显式比较结果最不容易误解。
+    if: ${{ !cancelled() && needs.build.result == 'success' }}
     runs-on: ubuntu-latest
     environment:
       name: github-pages
