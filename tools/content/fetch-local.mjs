@@ -17,18 +17,21 @@
  * `static/` would be ignored by the build (`staticDirectories: []`) but would
  * still waste time and disk here.
  *
- * In production the same contract is served by
+ * **CI does not call this tool any more.** The hub
+ * (`newwlfz/mikrotik_manual_i18n`) publishes its English source by git push —
+ * its `publish-content` job commits `docs/` and `locales.json` into this
+ * repository, and `pages.yml` builds from that checkout. This script is the
+ * **local preview** fallback: it materialises the content roots a build needs
+ * when you do not want to wait for the hub, and it accepts the old release URL
+ * (`--url=` / `CONTENT_URL`) so a developer can reproduce a published content
+ * package offline.
  *
- *   gh release download <content-tag> --dir .content --repo <hub>
- *   tar -xzf .content/content.tar.gz
- *
- * or by the content workflow that writes the same paths. **`CONTENT_URL`**
- * (or `--url=`) selects that production path here too: the archive is
- * downloaded with `curl -L --fail --retry 3`, extracted with `tar` into the
- * repository root, and every section is checked before the build starts. The
- * Pages workflow spells out the same two commands; the URL mode exists so a
- * developer (or a CI smoke test) can reproduce the deployed content without a
- * sibling checkout.
+ * In the release form the archive is downloaded with
+ * `curl -L --fail --retry 3`, extracted with `tar` into the repository root, and
+ * every section is checked before the build starts. Mind that the extraction
+ * also writes `docs/`; that tree now comes from git, so a stale archive would
+ * silently roll it back — use the sibling-checkout mode when you only need the
+ * other content roots.
  *
  * Without `CONTENT_URL` the local path stays offline-only: it copies from a
  * sibling `repo_en` checkout (override with `CONTENT_SOURCE` or `--source=`).

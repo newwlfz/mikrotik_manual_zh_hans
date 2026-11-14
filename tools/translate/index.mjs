@@ -53,6 +53,7 @@ import {
   walkMarkdown,
   relative,
   ensureDir,
+  writeFileAtomic,
 } from './lib/paths.mjs';
 import {buildLegacy, buildTitleIndex, CJK} from './lib/legacy.mjs';
 import {applySection, cleanupOverlay, alignImages, rewriteLinks, rebaseImages} from './lib/apply.mjs';
@@ -82,6 +83,8 @@ import {loadModelMemory, saveModelMemory} from './lib/model-memory.mjs';
 import {loadCommentMemory, saveCommentMemory} from './lib/comment-memory.mjs';
 import {buildGlobalTm, createGlobalTm, lookupBlock, lookupTitle, serializeTm, saveTm} from './lib/tm.mjs';
 import {isLegal} from './lib/legal.mjs';
+import {LLMRequestError} from './lib/llm-config.mjs';
+import {LOCKS_FILE, loadLocks, saveLocks} from './lib/keep-english.mjs';
 import {
   commentLines,
   classifyComment,
@@ -90,6 +93,8 @@ import {
 } from './lib/code-comments.mjs';
 
 const STATE_FILE = path.join(REPO, 'state/translation-state.json');
+/** Journal of the last batch run: what it did, how it stopped, what is left. */
+const RUN_FILE = path.join(WORK_DIR, 'run.json');
 
 /** True for the versioned RouterOS docs sections (`docs`, `docs-7.24`, ...). */
 function isDocsSection(section) {
@@ -105,6 +110,8 @@ const VALUE_OPTIONS = new Set([
   'files',
   'kinds',
   'concurrency',
+  'budget-minutes',
+  'max-blocks',
   'locale',
 ]);
 
@@ -117,14 +124,17 @@ const LOCALE_COMMANDS = new Set([
   'comments',
   'admonitions',
   'tm',
+  'pending',
 ]);
 
 const USAGE =
-  'usage: node tools/translate/index.mjs <import-legacy|apply|verify|translate|descriptions|comments|tm|admonitions|status> [options]\n' +
+  'usage: node tools/translate/index.mjs <import-legacy|apply|verify|translate|pending|descriptions|comments|tm|admonitions|status> [options]\n' +
   '       [--section=NAME] [--locale=NAME] [--all-locales] [--dry-run] [--adopt] [--allow-cjk-loss] [--limit=N] ...\n' +
+  '       translate: [--apply] [--budget-minutes=0.5] [--max-blocks=N] [--json]\n' +
   'note: an option value must be attached with "=" (--section=hardware); a space is not accepted.\n' +
   'note: --locale defaults to zh-Hans and must not be the source locale (en).\n' +
-  'note: verify --all-locales and verify --locale are mutually exclusive.';
+  'note: verify --all-locales and verify --locale are mutually exclusive.\n' +
+  'note: `translate --json` writes progress to stderr so stdout carries exactly one JSON summary.';
 
 function parseArgs(argv) {
   const args = {_: []};
@@ -165,8 +175,89 @@ function readState() {
 
 function writeState(state) {
   state.generated_at = new Date().toISOString().replace(/\.\d+Z$/, '+00:00');
-  fs.mkdirSync(path.dirname(STATE_FILE), {recursive: true});
-  fs.writeFileSync(STATE_FILE, `${JSON.stringify(state, null, 1)}\n`);
+  writeFileAtomic(STATE_FILE, `${JSON.stringify(state, null, 1)}\n`);
+}
+
+/**
+ * Parse a numeric option that may be absent.
+ *
+ * `--budget-minutes=0` is a legitimate request ("check the plan, translate
+ * nothing"), so zero is accepted; a negative or non-numeric value is a user
+ * error and stops the command before any request is sent.
+ */
+function optionalNumber(raw, name) {
+  if (raw === undefined || raw === true) return null;
+  const value = Number(raw);
+  if (String(raw).trim() === '' || !Number.isFinite(value) || value < 0) {
+    throw new Error(`--${name} must be a non-negative number (got "${raw}")\n${USAGE}`);
+  }
+  return value;
+}
+
+/**
+ * What the last batch did, next to the state it changed.
+ *
+ * `work/translate/run.json` is committed by the workflow, so the next run (and a
+ * human reading the repository) can see whether the previous batch stopped on
+ * the time budget, on `--max-blocks`, or on an error — instead of guessing from
+ * a commit message.
+ */
+function writeRunJournal({run, pending, client}) {
+  const journal = {
+    schema: 1,
+    started_at: run.startedAt.toISOString(),
+    finished_at: new Date().toISOString(),
+    stopped: run.error ? 'error' : run.stopped ? 'budget' : 'done',
+    limit: run.limit,
+    budget_minutes: run.budgetMinutes,
+    max_blocks: run.maxBlocks,
+    translated_blocks: run.blocks,
+    translated_titles: run.titles,
+    pages: run.pages,
+    pending,
+    tokens: client
+      ? {prompt: client.usage.prompt, completion: client.usage.completion, calls: client.usage.calls}
+      : null,
+    model: client?.config?.model ?? null,
+    error: run.error ? {code: run.error.code ?? null, message: run.error.message} : null,
+  };
+  writeFileAtomic(RUN_FILE, `${JSON.stringify(journal, null, 1)}\n`);
+  return journal;
+}
+
+/**
+ * The machine-readable batch summary.
+ *
+ * The first three keys are the CI contract — `translated` blocks written,
+ * `pending` units left, and `stopped` one of `budget|done|error`; the rest is
+ * additive context. `limit` names which cap produced `budget`
+ * (`budget-minutes`, `max-blocks` or `signal`), because "stopped for the time
+ * budget" and "stopped after two test blocks" are very different runs.
+ */
+function emitTranslateSummary({run, pending, client, json}) {
+  const stopped = run.error ? 'error' : run.stopped ? 'budget' : 'done';
+  const payload = {
+    translated: run.blocks,
+    pending: pending.units,
+    stopped,
+    titles: run.titles,
+    pending_blocks: pending.blocks,
+    pending_titles: pending.titles,
+    pages: run.pages,
+    limit: run.limit,
+    tokens: client ? {prompt: client.usage.prompt, completion: client.usage.completion} : null,
+    error: run.error ? {code: run.error.code ?? null, message: run.error.message} : null,
+  };
+  if (json) {
+    process.stdout.write(`${JSON.stringify(payload)}\n`);
+    return payload;
+  }
+  progress.write(
+    `translated blocks=${payload.translated} titles=${payload.titles} pages=${payload.pages} ` +
+      `pending=${payload.pending} stopped=${stopped}${run.limit ? ` limit=${run.limit}` : ''}` +
+      `${payload.tokens ? ` tokens(prompt/completion)=${payload.tokens.prompt}/${payload.tokens.completion}` : ''}\n`,
+  );
+  return payload;
 }
 
 
@@ -262,6 +353,17 @@ function pendingSegments(body) {
 }
 
 let planTm = null;
+/**
+ * Blocks that stay English on purpose, shared with CI through
+ * `work/translate/keep-english.json` (see `lib/keep-english.mjs`).
+ *
+ * Without this ledger a standalone checkout (no 26 MB model memory, no 19 MB
+ * legacy TM) would re-send every identity block on every batch, so those pages
+ * would stay `partial` forever and `pending` could never reach zero.
+ */
+let planLocks = new Set();
+/** Where progress lines go: stdout, or stderr under `--json`. */
+let progress = process.stdout;
 
 /** Blocks listed in config/force-translate.yml are never skipped as identity. */
 function forcedBlocks() {
@@ -269,6 +371,66 @@ function forcedBlocks() {
   if (!fs.existsSync(file)) return new Set();
   const parsed = YAML.parse(fs.readFileSync(file, 'utf8')) || {};
   return new Set((parsed.blocks || []).map((block) => normalize(String(block))));
+}
+
+let forcedCache = null;
+function forcedSet() {
+  forcedCache = forcedCache || forcedBlocks();
+  return forcedCache;
+}
+
+/**
+ * Load what the planner needs to decide "is this block still work?".
+ *
+ * The legacy TM is optional: a fresh CI checkout commits only the small state
+ * (locks, run journal, comment memory, `state/translation-state.json`) and keeps
+ * the 26 MB model memory and 19 MB legacy TM out of the repository, because the
+ * overlays under `i18n/` are the source of truth. A missing TM is therefore a
+ * warning, never a failure.
+ */
+function preparePlan({locale, modelMemory = null} = {}) {
+  const legacyFile = path.join(WORK_DIR, 'translation-memory.json');
+  planTm = fs.existsSync(legacyFile) ? createGlobalTm({workDir: WORK_DIR, locale}) : null;
+  if (!planTm) {
+    process.stderr.write(
+      `note: ${relative(WORKSPACE, legacyFile)} is absent; planning from the overlays and ` +
+        `${relative(WORKSPACE, LOCKS_FILE)} only\n`,
+    );
+  }
+  // Only pay for the 26 MB model memory when the small ledger has to be seeded.
+  const seedFrom = fs.existsSync(LOCKS_FILE)
+    ? null
+    : modelMemory || (fs.existsSync(path.join(WORK_DIR, 'model-memory.json'))
+      ? loadModelMemory()
+      : null);
+  planLocks = loadLocks({
+    seedFrom,
+    warn: (message) => process.stderr.write(`note: ${message}\n`),
+  });
+  return {tm: planTm, locks: planLocks};
+}
+
+/**
+ * Is this block deliberately English?
+ *
+ * `config/force-translate.yml` can force a block back into the queue; a page
+ * patch can pin its wording; the keep-English ledger and the TM identity entries
+ * say the model has nothing better to offer.
+ */
+function keepEnglishBlock(block, patch) {
+  const key = normalize(block);
+  if (forcedSet().has(key)) return false;
+  // An identity memory entry means "technical notation, keep English". A warning
+  // that carries prose and a command sample is not notation: the entry is a
+  // failed earlier attempt (or the same English block remembered under another
+  // version), and skipping it is how 7.25 stayed English after `docs` had
+  // already been translated.
+  if (isFencedAdmonition(block)) return false;
+  if (patch && patch.keepEnglish.has(key)) return true;
+  if (planLocks.has(key)) return true;
+  if (!planTm) return false;
+  const value = lookupBlock(planTm, block);
+  return value !== null && normalize(value) === normalize(block);
 }
 
 /**
@@ -300,7 +462,6 @@ function planSection(
     locale = section.locale || DEFAULT_TARGET_LOCALE,
   },
 ) {
-  const forced = forcedBlocks();
   const sourceBase = path.join(REPO, section.source);
   const overlayBase = path.join(REPO, section.overlay);
   const items = [];
@@ -319,22 +480,7 @@ function planSection(
     const planned = pendingSegments(overlayBody);
     const parts = planned.parts;
     const indices = planned.indices;
-    // A block the memory "translates" to itself is technical notation (grammar,
-    // identifiers) that must stay English; sending it again every run would burn
-    // a request and come back unchanged.
-    const skip = (block) => {
-      if (forced.has(normalize(block))) return false;
-      // An identity memory entry means "technical notation, keep English". A
-      // warning that carries prose and a command sample is not notation: the
-      // entry is a failed earlier attempt (or the same English block remembered
-      // under another version), and skipping it is how 7.25 stayed English after
-      // `docs` had already been translated.
-      if (isFencedAdmonition(block)) return false;
-      if (patch && patch.keepEnglish.has(normalize(block))) return true;
-      if (!planTm) return false;
-      const value = lookupBlock(planTm, block);
-      return value !== null && normalize(value) === normalize(block);
-    };
+    const skip = (block) => keepEnglishBlock(block, patch);
     const blocks = kinds.blocks ? planned.blocks.filter((block) => !skip(block)) : [];
     const admonitionBlocks = blocks.filter((block) => isTranslatableAdmonition(block));
     // Reported apart: these are the warnings that used to be invisible because
@@ -378,6 +524,41 @@ function planSection(
     if (limit && items.length >= limit) break;
   }
   return items;
+}
+
+/**
+ * How much translation work is left, over every section of one locale.
+ *
+ * This is the number the deploy gate reads, and it is deliberately the *same*
+ * plan `translate` would execute: pending blocks (`item.blocks`, already
+ * filtered by the keep-English locks and the TM) plus pages whose title is still
+ * English. `verify` answers a different question — it reports
+ * `untranslatedBlocks` / `untranslatedAdmonitions` over *prose paragraphs and
+ * admonitions* only, skipping lines that start with `#`, `<` or `|` — so it
+ * under-counts (headings and tables never appear) and must not be used as a
+ * gate: today it reports 0 while this plan still has 475 blocks queued.
+ */
+function countPending(sections) {
+  const bySection = {};
+  let blocks = 0;
+  let titles = 0;
+  let pages = 0;
+  for (const section of sections) {
+    const items = planSection(section, {limit: 0, kinds: {blocks: true, title: true}});
+    let sectionBlocks = 0;
+    let sectionTitles = 0;
+    for (const item of items) {
+      sectionBlocks += item.blocks.length;
+      if (item.needsTitle) sectionTitles += 1;
+      if (item.blocks.length > 0 || item.needsTitle) pages += 1;
+    }
+    blocks += sectionBlocks;
+    titles += sectionTitles;
+    if (sectionBlocks > 0 || sectionTitles > 0) {
+      bySection[section.name] = {blocks: sectionBlocks, titles: sectionTitles};
+    }
+  }
+  return {blocks, titles, pages, units: blocks + titles, bySection};
 }
 
 /**
@@ -516,145 +697,290 @@ async function translateFencedAdmonition(block, client) {
   return renderAdmonition(parts, (unit) => translations.get(unit) ?? null);
 }
 
-async function processItem(section, item, client, state, modelMemory, commentMemory) {
+/** Provider failures that must fail the run instead of skipping one page. */
+const FATAL_PROVIDER_CODES = new Set([
+  // No key, no money, no permission, or a quota/rate limit that survived the
+  // retry budget: retrying the next page cannot help, and a batch that quietly
+  // skips every page would look like a run with nothing to do.
+  'unauthorized',
+  'payment_required',
+  'forbidden',
+  'rate_limited',
+]);
+
+function isFatalProviderError(error) {
+  return error instanceof LLMRequestError && FATAL_PROVIDER_CODES.has(error.code);
+}
+
+/**
+ * One `translate` invocation: its caps and what it actually finished.
+ *
+ * `room()` is the single place that decides "may I send another unit?": it
+ * reports 0 once the time budget or the unit cap is exhausted, so every loop in
+ * `processItem` stops before the next request rather than after it. A page that
+ * was already partly translated keeps what it has — the caller writes it.
+ *
+ * `stopped` is the internal reason (`budget`, `error`, or null for "the plan was
+ * exhausted"); the JSON summary collapses the two cap kinds into `"budget"` and
+ * names the exact cap in `limit`.
+ */
+function createRun({budgetMinutes = null, maxBlocks = null} = {}) {
+  const run = {
+    startedAt: new Date(),
+    budgetMinutes,
+    maxBlocks,
+    deadline: budgetMinutes === null ? Infinity : Date.now() + budgetMinutes * 60000,
+    blocks: 0,
+    titles: 0,
+    pages: 0,
+    stopped: null,
+    limit: null,
+    error: null,
+    locks: planLocks,
+    locked: false,
+    lastMemorySave: Date.now(),
+  };
+  run.room = () => {
+    if (run.stopped) return 0;
+    if (Date.now() >= run.deadline) {
+      run.stopped = 'budget';
+      run.limit = 'budget-minutes';
+      return 0;
+    }
+    if (run.maxBlocks !== null) {
+      const left = run.maxBlocks - (run.blocks + run.titles);
+      if (left <= 0) {
+        run.stopped = 'budget';
+        run.limit = 'max-blocks';
+        return 0;
+      }
+      return left;
+    }
+    return Infinity;
+  };
+  run.countBlocks = (count) => {
+    run.blocks += count;
+  };
+  run.countTitle = () => {
+    run.titles += 1;
+  };
+  run.lock = (key) => {
+    if (run.locks.has(key)) return;
+    run.locks.add(key);
+    run.locked = true;
+  };
+  run.stopError = (error) => {
+    if (!run.error) run.error = error;
+    run.stopped = 'error';
+  };
+  return run;
+}
+
+/**
+ * Flush the three places a batch is remembered.
+ *
+ * The overlay page itself is written by `processItem` (atomically); this keeps
+ * `state/translation-state.json`, the keep-English ledger and — at most every
+ * two minutes, because it is 26 MB locally — the model memory in step with it.
+ * A runner killed between two checkpoints loses at most one page of memory, not
+ * the work already on disk.
+ */
+function checkpoint(run, {state, modelMemory = null, force = false}) {
+  writeState(state);
+  if (run.locked) {
+    saveLocks(run.locks);
+    run.locked = false;
+  }
+  const now = Date.now();
+  if (modelMemory && (force || now - run.lastMemorySave >= 120000)) {
+    saveModelMemory(modelMemory);
+    run.lastMemorySave = now;
+  }
+}
+
+async function processItem(section, item, client, state, modelMemory, commentMemory, run) {
   let body = item.overlayBody;
-  const sent = item.blocks.length;
-
-  if (item.blocks.length > 0) {
-    // One request per batch: a page with a huge table exceeds what the endpoint
-    // accepts if every block is sent at once ("fetch failed").
-    const batchSize = Math.max(1, client.config?.batchSize || 8);
-    let pieces = [];
-    for (let cursor = 0; cursor < item.blocks.length; ) {
-      // A warning with a code sample is translated by unit, never as one block:
-      // the sample must stay byte-identical, and the model would rewrite it.
-      if (isFencedAdmonition(item.blocks[cursor])) {
-        pieces.push(await translateFencedAdmonition(item.blocks[cursor], client));
-        cursor += 1;
-        continue;
-      }
-      const batch = [];
-      while (
-        cursor < item.blocks.length &&
-        batch.length < batchSize &&
-        !isFencedAdmonition(item.blocks[cursor])
-      ) {
-        batch.push(item.blocks[cursor]);
-        cursor += 1;
-      }
-      const prompt = batch.join('\n\n');
-      let batchPieces = [];
-      for (let attempt = 0; attempt < 3; attempt++) {
-        const translated = await client.chat(prompt);
-        batchPieces = translated.split(/\r?\n[ \t]*\r?\n/).filter((piece) => piece.trim() !== '');
-        if (batchPieces.length !== batch.length) {
-          // An admonition carries blank lines inside its own container, so the
-          // plain separator split over-counts. Block structure is authoritative
-          // and keeps the `:::type … :::` span together.
-          const structured = splitBlocks(translated);
-          if (structured.length === batch.length) batchPieces = structured;
-        }
-        if (batchPieces.length === batch.length) break;
-        process.stderr.write(
-          `retry ${section.name}/${item.rel}: ${batch.length} blocks -> ${batchPieces.length}\n`,
-        );
-      }
-      if (batchPieces.length !== batch.length) {
-        // A single oversized block (usually a wide table) can come back as many
-        // pieces. Re-join them with single newlines: that restores the table
-        // without inventing new blank-line blocks.
-        if (batch.length === 1 && batchPieces.length > 1) {
-          batchPieces = [batchPieces.join('\n')];
-        } else {
-          throw new Error(`block count ${batch.length} -> ${batchPieces.length}`);
-        }
-      }
-      // A fenced block is copied verbatim. The model happily translates the
-      // labels inside an ASCII diagram, which breaks the "code is byte-identical"
-      // rule; restore every fence from the English source here, before writing.
-      // An admonition is rebuilt around the English container for the same reason:
-      // the `:::` markers are structure, only the title and body are language.
-      pieces.push(
-        ...batchPieces.map((piece, index) => {
-          const block = batch[index];
-          const kept = keepFences(block, piece);
-          return splitAdmonitions(block) ? restoreAdmonition(block, kept) : kept;
-        }),
-      );
-    }
-    if (pieces.length !== item.blocks.length) {
-      throw new Error(`block count ${item.blocks.length} -> ${pieces.length}`);
-    }
-    // The memory key must be the *English source* block, not the overlay text:
-    // an overlay that still carries a half-translated warning would otherwise
-    // store a key no rebuild can match, and the warning would flip back to
-    // English on the next `apply`.
-    // The memory key must be the English *source* block. A warning that is half
-    // translated in the overlay cannot be matched by its own text: `apply` and
-    // `derive` only ever look up the English block, so a key built from the
-    // mixed overlay text is dead on arrival and the English paragraph comes
-    // back on the next rebuild. Admonitions keep their source order, so pair
-    // them by ordinal and accept the pair only when type and paragraph count
-    // agree — a capture that dropped a container can shift the list.
-    const sourceAdmonitions = splitBlocks(item.sourceBody).filter((block) => splitAdmonitions(block));
-    const overlayAdmonitions = splitBlocks(item.overlayBody).filter((block) => splitAdmonitions(block));
-    const sourceForKey = (block) => {
-      const parts = splitAdmonitions(block);
-      if (!parts) return null;
-      const ordinal = overlayAdmonitions.findIndex((candidate) => normalize(candidate) === normalize(block));
-      const source = ordinal === -1 ? null : sourceAdmonitions[ordinal];
-      const sourceParts = splitAdmonitions(source || '');
-      if (!sourceParts || sourceParts.type !== parts.type) return null;
-      if (bodyParagraphs(sourceParts.body).length !== bodyParagraphs(parts.body).length) return null;
-      return source;
-    };
-    for (let i = 0; i < item.indices.length; i++) {
-      item.parts[item.indices[i]].value = pieces[i];
-      if (!modelMemory) continue;
-      const block = item.blocks[i];
-      modelMemory.set(`${section.name}\u0000${normalize(block)}`, pieces[i].trim());
-      const source = sourceForKey(block);
-      if (source) modelMemory.set(`${section.name}\u0000${normalize(source)}`, pieces[i].trim());
-    }
-    body = item.parts.map((part) => part.value).join('');
-  }
-
+  let sent = 0;
+  let titles = 0;
+  let stopped = false;
+  let failure = null;
+  /** Translated front-matter values, filled inside the try and used below. */
   const fields = {};
-  // The front-matter `description` feeds `<meta name="description">` and the
-  // tag pages (`/tags/<tag>`), so it is translated like the title.
-  const sourceDescription = readField(item.sourceFm, 'description');
-  if (sourceDescription) {
-    const cached = modelMemory?.get(`description:${sourceDescription}`);
-    if (cached) {
-      fields.description = cached;
-    } else {
-      const value = await client.chat(
-        `Translate this documentation description to Simplified Chinese. Output only the translation: "${sourceDescription}"`,
-      );
-      const clean = value.split('\n')[0].trim().replace(/^["']|["']$/g, '');
-      if (clean && clean !== sourceDescription) {
-        fields.description = clean;
-        if (modelMemory) modelMemory.set(`description:${sourceDescription}`, clean);
+
+  // The memory key must be the English *source* block. A warning that is half
+  // translated in the overlay cannot be matched by its own text: `apply` and
+  // `derive` only ever look up the English block, so a key built from the mixed
+  // overlay text is dead on arrival and the English paragraph comes back on the
+  // next rebuild. Admonitions keep their source order, so pair them by ordinal
+  // and accept the pair only when type and paragraph count agree — a capture
+  // that dropped a container can shift the list.
+  const sourceAdmonitions = splitBlocks(item.sourceBody).filter((block) => splitAdmonitions(block));
+  const overlayAdmonitions = splitBlocks(item.overlayBody).filter((block) => splitAdmonitions(block));
+  const sourceForKey = (block) => {
+    const parts = splitAdmonitions(block);
+    if (!parts) return null;
+    const ordinal = overlayAdmonitions.findIndex((candidate) => normalize(candidate) === normalize(block));
+    const source = ordinal === -1 ? null : sourceAdmonitions[ordinal];
+    const sourceParts = splitAdmonitions(source || '');
+    if (!sourceParts || sourceParts.type !== parts.type) return null;
+    if (bodyParagraphs(sourceParts.body).length !== bodyParagraphs(parts.body).length) return null;
+    return source;
+  };
+
+  /**
+   * Put one finished block back into the page, in place.
+   *
+   * `item.parts` is the page split into separators and blocks, so assigning the
+   * block's own part and re-joining reproduces every other byte. That is what
+   * lets a stop in the middle of a page persist the blocks already paid for
+   * without rewriting the rest of the page from scratch.
+   */
+  const applyBlock = (offset, text) => {
+    item.parts[item.indices[offset]].value = text;
+    sent += 1;
+    const block = item.blocks[offset];
+    if (modelMemory) {
+      modelMemory.set(`${section.name}\u0000${normalize(block)}`, text.trim());
+      const source = sourceForKey(block);
+      if (source) modelMemory.set(`${section.name}\u0000${normalize(source)}`, text.trim());
+    }
+    // An identity reply is the model saying "this is notation, keep English".
+    // Remembering it here is what stops the next batch (and CI, which has no
+    // model memory) from paying for the same block again and never converging.
+    if (normalize(text) === normalize(block)) run.lock(normalize(block));
+    body = item.parts.map((part) => part.value).join('');
+  };
+
+  // Everything that talks to the provider is inside one `try`: a 402 halfway
+  // through a page must still write the blocks that page already paid for (the
+  // page write below is atomic), so the next batch continues instead of
+  // re-buying them.
+  try {
+    if (item.blocks.length > 0) {
+      // One request per batch: a page with a huge table exceeds what the endpoint
+      // accepts if every block is sent at once ("fetch failed").
+      const batchSize = Math.max(1, client.config?.batchSize || 8);
+      while (sent < item.blocks.length) {
+        const room = run.room();
+        if (room <= 0) {
+          stopped = true;
+          break;
+        }
+        // A warning with a code sample is translated by unit, never as one block:
+        // the sample must stay byte-identical, and the model would rewrite it.
+        if (isFencedAdmonition(item.blocks[sent])) {
+          const translated = await translateFencedAdmonition(item.blocks[sent], client);
+          applyBlock(sent, translated);
+          run.countBlocks(1);
+          continue;
+        }
+        const start = sent;
+        const batch = [];
+        const limit = Number.isFinite(room) ? Math.min(batchSize, room) : batchSize;
+        while (
+          start + batch.length < item.blocks.length &&
+          batch.length < limit &&
+          !isFencedAdmonition(item.blocks[start + batch.length])
+        ) {
+          batch.push(item.blocks[start + batch.length]);
+        }
+        const prompt = batch.join('\n\n');
+        let batchPieces = [];
+        for (let attempt = 0; attempt < 3; attempt++) {
+          const translated = await client.chat(prompt);
+          batchPieces = translated.split(/\r?\n[ \t]*\r?\n/).filter((piece) => piece.trim() !== '');
+          if (batchPieces.length !== batch.length) {
+            // An admonition carries blank lines inside its own container, so the
+            // plain separator split over-counts. Block structure is authoritative
+            // and keeps the `:::type … :::` span together.
+            const structured = splitBlocks(translated);
+            if (structured.length === batch.length) batchPieces = structured;
+          }
+          if (batchPieces.length === batch.length) break;
+          process.stderr.write(
+            `retry ${section.name}/${item.rel}: ${batch.length} blocks -> ${batchPieces.length}\n`,
+          );
+        }
+        if (batchPieces.length !== batch.length) {
+          // A single oversized block (usually a wide table) can come back as many
+          // pieces. Re-join them with single newlines: that restores the table
+          // without inventing new blank-line blocks.
+          if (batch.length === 1 && batchPieces.length > 1) {
+            batchPieces = [batchPieces.join('\n')];
+          } else {
+            throw new Error(`block count ${batch.length} -> ${batchPieces.length}`);
+          }
+        }
+        // A fenced block is copied verbatim. The model happily translates the
+        // labels inside an ASCII diagram, which breaks the "code is byte-identical"
+        // rule; restore every fence from the English source here, before writing.
+        // An admonition is rebuilt around the English container for the same reason:
+        // the `:::` markers are structure, only the title and body are language.
+        for (let i = 0; i < batchPieces.length; i++) {
+          const block = batch[i];
+          const kept = keepFences(block, batchPieces[i]);
+          applyBlock(start + i, splitAdmonitions(block) ? restoreAdmonition(block, kept) : kept);
+        }
+        run.countBlocks(batch.length);
       }
     }
-  }
-  if (item.needsTitle) {
-    // Titles follow the page contract in `config/translation-rules.yml`
-    // (title-terminology): product and protocol names stay English, the words
-    // around them are Chinese. Without the rule the model translated `IGMP
-    // Proxy` to `IGMP 代理` but also `Routing Decision` to `路由决策` only by
-    // luck, and `EXP bit` came back as `EXP 位` on some runs.
-    const value = await client.chat(
-      `Translate this page title to Simplified Chinese. Output only the title: "${item.title}"\n` +
-        'Keep product names, protocol names and technical proper nouns in English ' +
-        '(RouterOS, MikroTik, OSPF, BGP, MPLS, IGMP, EXP, ROSv6/ROSv7, IPv4, VPN, CAPsMAN). ' +
-        'Translate connectives and ordinary words: use 和 for "and" and 代理 for "Proxy".',
+
+    // `description` and `title` are one request each; they are part of this page's
+    // work, so they are skipped when the run has to stop here.
+    const mayContinue = () => !stopped && run.room() > 0;
+    // The front-matter `description` feeds `<meta name="description">` and the
+    // tag pages (`/tags/<tag>`), so it is translated like the title.
+    const sourceDescription = readField(item.sourceFm, 'description');
+    if (sourceDescription && mayContinue()) {
+      const cached = modelMemory?.get(`description:${sourceDescription}`);
+      if (cached) {
+        fields.description = cached;
+      } else {
+        const value = await client.chat(
+          `Translate this documentation description to Simplified Chinese. Output only the translation: "${sourceDescription}"`,
+        );
+        const clean = value.split('\n')[0].trim().replace(/^["']|["']$/g, '');
+        if (clean && clean !== sourceDescription) {
+          fields.description = clean;
+          if (modelMemory) modelMemory.set(`description:${sourceDescription}`, clean);
+        }
+      }
+    }
+    if (item.needsTitle && mayContinue()) {
+      // Titles follow the page contract in `config/translation-rules.yml`
+      // (title-terminology): product and protocol names stay English, the words
+      // around them are Chinese. Without the rule the model translated `IGMP
+      // Proxy` to `IGMP 代理` but also `Routing Decision` to `路由决策` only by
+      // luck, and `EXP bit` came back as `EXP 位` on some runs.
+      const value = await client.chat(
+        `Translate this page title to Simplified Chinese. Output only the title: "${item.title}"\n` +
+          'Keep product names, protocol names and technical proper nouns in English ' +
+          '(RouterOS, MikroTik, OSPF, BGP, MPLS, IGMP, EXP, ROSv6/ROSv7, IPv4, VPN, CAPsMAN). ' +
+          'Translate connectives and ordinary words: use 和 for "and" and 代理 for "Proxy".',
+      );
+      fields.title = value.split('\n')[0].trim().replace(/^["']|["']$/g, '') || item.title;
+      if (modelMemory) modelMemory.set(`title:${item.title}`, fields.title);
+      const label = readField(item.overlayFm, 'sidebar_label');
+      if (label && label === item.title) fields.sidebar_label = fields.title;
+      titles += 1;
+      run.countTitle();
+    }
+  } catch (error) {
+    failure = error;
+    if (isFatalProviderError(failure)) {
+      run.stopError(failure);
+      stopped = true;
+    }
+    // Keep what was already paid for: the page is written below with the blocks
+    // that came back before the failure.
+    process.stderr.write(
+      `partial ${section.name}/${item.rel}: ${failure.message} ` +
+        `(keeping ${sent} block(s), ${titles} title(s))\n`,
     );
-    fields.title = value.split('\n')[0].trim().replace(/^["']|["']$/g, '') || item.title;
-    if (modelMemory) modelMemory.set(`title:${item.title}`, fields.title);
-    const label = readField(item.overlayFm, 'sidebar_label');
-    if (label && label === item.title) fields.sidebar_label = fields.title;
   }
+  // Nothing came back before the failure: there is nothing to write, and the
+  // caller's error handling (skip the page, or abort the run) should see it.
+  if (failure && sent === 0 && titles === 0) throw failure;
 
   const patch = loadPatch(section.locale || DEFAULT_TARGET_LOCALE, section.name, item.rel);
   const nextFm = withFields(item.overlayFm, {title: patch?.title || undefined, ...fields});
@@ -671,8 +997,9 @@ async function processItem(section, item, client, state, modelMemory, commentMem
   // `lib/term-annotate.mjs`); doing it here keeps a freshly translated page and
   // a rebuilt one identical.
   const annotated = annotateDocumentTerms(nextFm, body.trim());
-  ensureDir(path.dirname(item.overlayPath));
-  fs.writeFileSync(item.overlayPath, renderDocument(annotated.frontMatter, annotated.body));
+  // Atomic: a kill between "chunk written" and "renamed" leaves the previous
+  // translation, never a half page.
+  writeFileAtomic(item.overlayPath, renderDocument(annotated.frontMatter, annotated.body));
 
   const key = `${section.source}/${item.rel}`;
   const remaining = pendingSegments(body).blocks.length;
@@ -684,14 +1011,19 @@ async function processItem(section, item, client, state, modelMemory, commentMem
     status: remaining === 0 ? 'full' : 'partial',
     pendingBlocks: remaining,
   };
-  return {sent, remaining};
+  return {sent, titles, remaining, stopped};
 }
 
-async function translateSection(section, client, state, {limit, dryRun, only, files, kinds, modelMemory, commentMemory, concurrency = 4}) {
+async function translateSection(
+  section,
+  client,
+  state,
+  {limit, dryRun, only, files, kinds, modelMemory, commentMemory, concurrency = 4, run},
+) {
   const items = planSection(section, {limit, only, files, kinds});
   if (dryRun) {
     for (const item of items) {
-      process.stdout.write(
+      progress.write(
         `${section.name}/${item.rel}: blocks=${item.blocks.length} admonitions=${item.admonitions}` +
           ` fencedAdmonitions=${item.fencedAdmonitions} title=${item.needsTitle ? 'yes' : 'no'}\n`,
       );
@@ -704,23 +1036,52 @@ async function translateSection(section, client, state, {limit, dryRun, only, fi
   let sentBlocks = 0;
   async function worker() {
     for (;;) {
+      // Check the caps *before* taking a page: `--budget-minutes=0` (and a cap
+      // already used up by the previous page) must leave `i18n/` untouched,
+      // rather than rewriting one page per section with identical bytes.
+      if (run.room() <= 0) return;
       const index = cursor++;
       if (index >= items.length) return;
       const item = items[index];
       try {
-        const result = await processItem(section, item, client, state, modelMemory, commentMemory);
-        sentBlocks += result.sent;
-        done++;
-        process.stdout.write(
-          `${section.name}/${item.rel}: ${result.sent} blocks (${item.admonitions} admonitions, ` +
-            `${item.fencedAdmonitions} with code), ${result.remaining} left\n`,
+        const result = await processItem(
+          section,
+          item,
+          client,
+          state,
+          modelMemory,
+          commentMemory,
+          run,
         );
+        sentBlocks += result.sent;
+        if (!result.stopped) done++;
+        run.pages += 1;
+        checkpoint(run, {state, modelMemory});
+        progress.write(
+          `${section.name}/${item.rel}: ${result.sent} blocks ${result.titles} titles ` +
+            `(${item.admonitions} admonitions, ${item.fencedAdmonitions} with code), ` +
+            `${result.remaining} left${result.stopped ? ' [stopped]' : ''}\n`,
+        );
+        if (result.stopped) return;
       } catch (error) {
+        if (isFatalProviderError(error)) {
+          // Keep the pages already finished (they are on disk and in `state/`),
+          // then fail the job: the workflow commits that progress and does not
+          // build, so the published site stays on the previous version.
+          run.stopError(error);
+          process.stderr.write(`fatal ${section.name}/${item.rel}: ${error.message}\n`);
+          return;
+        }
         process.stderr.write(`skip ${section.name}/${item.rel}: ${error.message}\n`);
       }
     }
   }
-  const workers = Math.max(1, Math.min(concurrency, items.length || 1));
+  // A unit cap must be honoured exactly, so one page at a time: four workers
+  // would each see the same remaining budget and together overshoot it.
+  const workers = Math.max(
+    1,
+    Math.min(run.maxBlocks !== null ? 1 : concurrency, items.length || 1),
+  );
   await Promise.all(Array.from({length: workers}, worker));
   return {done, sentBlocks};
 }
@@ -1034,39 +1395,142 @@ async function main() {
     return;
   }
 
+  if (command === 'pending') {
+    progress = args.json ? process.stderr : process.stdout;
+    preparePlan({locale});
+    const pending = countPending(selected);
+    if (args.json) {
+      process.stdout.write(
+        `${JSON.stringify({
+          pending: pending.units,
+          blocks: pending.blocks,
+          titles: pending.titles,
+          pages: pending.pages,
+          sections: pending.bySection,
+        })}\n`,
+      );
+      return;
+    }
+    for (const [name, stat] of Object.entries(pending.bySection)) {
+      progress.write(`${name}: blocks=${stat.blocks} titles=${stat.titles}\n`);
+    }
+    progress.write(
+      `pending=${pending.units} blocks=${pending.blocks} titles=${pending.titles} ` +
+        `pages=${pending.pages}\n`,
+    );
+    return;
+  }
+
   if (command === 'translate') {
-    const config = loadConfig();
-    const client = new Client(config);
+    // `--json` promises exactly one JSON object on stdout, so progress moves to
+    // stderr; a `| tee` in CI then never has to filter npm banner lines out of a
+    // half-JSON stream.
+    progress = args.json ? process.stderr : process.stdout;
+    if (args['dry-run'] && args.apply) {
+      process.stderr.write('--apply and --dry-run are mutually exclusive\n');
+      process.exitCode = 2;
+      return;
+    }
+    const budgetMinutes = optionalNumber(args['budget-minutes'], 'budget-minutes');
+    const maxBlocks = optionalNumber(args['max-blocks'], 'max-blocks');
+    if (maxBlocks !== null && !Number.isInteger(maxBlocks)) {
+      process.stderr.write(`--max-blocks must be a whole number (got "${args['max-blocks']}")\n`);
+      process.exitCode = 2;
+      return;
+    }
+    // `--limit` used to default to 20 pages per section. That is a sensible cap
+    // for an unbounded repair run, but it silently caps a *budgeted* batch at 20
+    // pages per section — the budget is supposed to be the only bound there, so
+    // a budgeted/unit-capped run defaults to "no page limit". `--limit=N` still
+    // wins when it is given.
+    const limit = args.limit === undefined
+      ? budgetMinutes !== null || maxBlocks !== null
+        ? 0
+        : 20
+      : Number(args.limit);
+    const only = args.file;
+    const files = args.files
+      ? new Set(String(args.files).split(',').map((value) => value.trim()).filter(Boolean))
+      : null;
+    const kinds = parseKinds(args.kinds);
+    const concurrency = Number(args.concurrency || 4);
     const state = readState();
     const modelMemory = loadModelMemory();
     const commentMemory = loadCommentMemory();
-    planTm = createGlobalTm({workDir: WORK_DIR, locale});
-    const limit = Number(args.limit || 20);
-    let totalFiles = 0;
-    let totalBlocks = 0;
-    for (const section of selected) {
-      const result = await translateSection(section, client, state, {
-        limit,
-        dryRun: Boolean(args['dry-run']),
-        only: args.file,
-        files: args.files ? new Set(String(args.files).split(',').map((value) => value.trim()).filter(Boolean)) : null,
-        kinds: parseKinds(args.kinds),
-        modelMemory,
-        commentMemory,
-        concurrency: Number(args.concurrency || 4),
-      });
-      totalFiles += result.done;
-      totalBlocks += result.sentBlocks;
+    preparePlan({locale, modelMemory});
+    const run = createRun({budgetMinutes, maxBlocks});
+
+    if (args['dry-run']) {
+      let dryFiles = 0;
+      let dryBlocks = 0;
+      for (const section of selected) {
+        if (run.stopped) break;
+        const result = await translateSection(section, null, state, {
+          limit,
+          dryRun: true,
+          only,
+          files,
+          kinds,
+          modelMemory,
+          commentMemory,
+          concurrency,
+          run,
+        });
+        dryFiles += result.done;
+        dryBlocks += result.sentBlocks;
+      }
+      progress.write(
+        `dry-run files=${dryFiles} blocks=${dryBlocks} pending=${countPending(sections).units}\n`,
+      );
+      return;
     }
-    if (!args['dry-run']) {
-      writeState(state);
-      saveModelMemory(modelMemory);
-      client.log(USAGE_FILE);
+
+    let client = null;
+    try {
+      client = new Client(loadConfig());
+    } catch (error) {
+      // Missing/invalid LLM_* configuration still reports what is left, so CI
+      // can say "pending N, stopped error" instead of dying with a stack trace.
+      run.stopError(error);
+      process.stderr.write(`${error.message}\n`);
     }
-    process.stdout.write(
-      `translated files=${totalFiles} blocks=${totalBlocks} tokens(prompt/completion)=` +
-        `${client.usage.prompt}/${client.usage.completion}\n`,
-    );
+
+    if (!run.error) {
+      // A stop sign from the runner (job timeout, cancelled job) ends the batch
+      // between two requests: the page in flight finishes its current batch and
+      // is written, then the checkpoint and the JSON summary run as usual.
+      const onSignal = (signal) => {
+        process.stderr.write(`${signal}: stopping after the current batch\n`);
+        if (run.stopped) return;
+        run.stopped = 'budget';
+        run.limit = 'signal';
+      };
+      process.once('SIGTERM', onSignal);
+      process.once('SIGINT', onSignal);
+      for (const section of selected) {
+        if (run.stopped) break;
+        await translateSection(section, client, state, {
+          limit,
+          dryRun: false,
+          only,
+          files,
+          kinds,
+          modelMemory,
+          commentMemory,
+          concurrency,
+          run,
+        });
+      }
+    }
+
+    // Everything a later run reads back: the overlays are already on disk (one
+    // atomic write per page), this flushes the small state next to them.
+    checkpoint(run, {state, modelMemory, force: true});
+    if (client) client.log(USAGE_FILE);
+    const pending = countPending(sections);
+    writeRunJournal({run, pending, client});
+    emitTranslateSummary({run, pending, client, json: Boolean(args.json)});
+    if (run.error) process.exitCode = 1;
     return;
   }
 

@@ -72,7 +72,11 @@ tools are dry-run by default and take `--apply`.
    the rest are translated.
 4. `translate` sends exactly those misses to the provider, with the rule ledger's
    prompt rules, and stores the result in the model memory so a later `apply`
-   cannot discard it.
+   cannot discard it. In CI it runs as **one batch per job**
+   (`npm run translate:batch -- --budget-minutes=90 --json`): it stops when the
+   time budget or `--max-blocks` runs out, writes every finished block page by
+   page (atomic rename), and reports `{"translated":N,"pending":M,"stopped":…}`.
+   See [guides/CI.md](guides/CI.md) for the pipeline and the resume state.
 5. `verify` checks parity, code fences, images, front matter and MDX.
 
 Both npm chains (`translate:apply`, `translate:derive`) end with the post-passes

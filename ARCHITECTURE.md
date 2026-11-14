@@ -194,7 +194,8 @@ Rules:
 | Import the legacy translation memory (historical: the corpus is gone) | `translate:legacy` | no |
 | Build overlays and sidebar catalogues | `translate:apply` | no |
 | Structural verification | `translate:verify` | no |
-| Translate the remaining English blocks | `translate --limit=N` | yes |
+| How much is left (blocks + English titles) | `npm run translate:pending -- --json` | no |
+| Translate the remaining English blocks, one resumable batch | `npm run translate:batch -- --budget-minutes=90 --json` | yes |
 
 - The legacy corpus has been removed. `translate:harvest` recycles the existing
   overlays into the block memory before `apply`, and that overlay is the only

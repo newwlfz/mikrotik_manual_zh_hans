@@ -1,90 +1,271 @@
 # CI 与自动更新
 
-仓库已有四个工作流：
+本仓库只有**一个**工作流 `.github/workflows/pages.yml`，它把「翻译 → 构建 → 部署」
+串成一条流水线：**先分批翻译，全部译完才构建发布**。
 
 | 工作流 | 触发 | 作用 |
 |---|---|---|
-| `ci.yml` | PR / push 到 `main` / 手动 | 译文自测、结构校验、表格、CLI、标签、侧边栏、构建 |
-| `pages.yml` | push 到 `main` / 手动 | 构建、瘦身、**部署门禁**，通过后部署到 GitHub Pages |
-| `sync.yml` | 每日 03:17 / 手动 | 跟随官方站、剪枝、构建、提交（需 `ENABLE_SYNC=true`） |
-| `translate.yml` | 每周一 04:37 / 手动 | 翻译待处理块、校验、构建、提交（需 `ENABLE_TRANSLATION=true` + `LLM_*`，见 [LLM.md](LLM.md)） |
+| `pages.yml` | push 到 `main`（`paths` 含 `docs/**`、`locales.json`、`config/**`、`i18n/**`、`work/translate/**` 等）/ 手动 | `translate` job 跑一批翻译并提交进度 → `build` job（仅 `pending == 0`）构建 + 部署门禁 → `deploy` job 部署 |
 
-## 打开自动更新（仓库设置，两步）
+总管仓 `newwlfz/mikrotik_manual_i18n` 另有 `build`/`deploy` 与 `publish-content`
+两个 job：它把 `docs/` 与 `locales.json` **用 git 推送**进本仓库，本仓库不再下载
+content release。见 [内容从哪来](#内容从哪来总管仓-git-推送)。
 
-1. **Variables**（Settings → Secrets and variables → Actions → Variables）
-   - `ENABLE_SYNC` = `true`
-   - `ENABLE_TRANSLATION` = `true`
-   - `SITE_URL` / `BASE_URL`：部署地址（Pages 的域名）
-   - `LLM_BASE_URL` / `LLM_MODEL`：翻译接口与模型（见 [LLM.md](LLM.md)）
-2. **Secrets**（同一页面的 Secrets）
-   - `LLM_API_KEY`：翻译服务的 key（旧名 `OPENCODE_API_KEY` 已弃用，请改名）
-
-## 首次启用建议顺序
-
-1. Actions → **Sync official content** → `Run workflow`（不勾 force），确认能跑完并 commit；
-2. Actions → **Translate zh-Hans** → `Run workflow`，`limit` 先填 `50` 试水，通过后再让定时任务跑；
-3. 观察一两天：`sync.yml` 每日只应在官方有变化时产生提交；
-4. 若失败，先看 stage 名（日志里的 `=== <stage>`），本地用
-   `node tools/pipeline/sync.mjs --update --dry-run` 复现。
-
-## 本地等价命令
-
-```bash
-node tools/pipeline/sync.mjs --update --dry-run   # 预演，不改文件
-node tools/pipeline/translate.mjs                 # 重建译文
-node tools/pipeline/build.mjs                     # 构建：CLI → Docusaurus → Pagefind（10 GiB 堆）
-node tools/pipeline/verify.mjs --browser          # 全部断言（需先 build）
-npm run verify:deploy                             # 部署前门禁：先 build:slim，再 asset-refs / base-url / orphan-assets / llms-links
-```
-
-`verify:assets`（`tools/verify/asset-refs.mjs`）**必须在 `build:slim` 之后跑**：
-`slim` 删掉 `build/<locale>/{img,assets/images,assets/files}` 并把 URL 改回根副本，
-不先瘦身它只会报「产物里还有 locale 前缀」。`npm run verify:deploy` 已经把顺序固定好，
-单独跑断言时不要调换这两步。
-
-## 部署前置：仓库 Variables 必须设置
-
-`pages.yml` 的 `build` job 在 `npm ci` 之前有一步 `Validate site variables`（该 job
-的第一个 `run` 步骤，紧跟 checkout 与 setup-node），它检查
-`vars.SITE_URL` / `vars.BASE_URL`：任一个为空，或者 `SITE_URL` 还带着
-`mirror.invalid` 占位符，就直接 exit 1，CI 立刻失败。这比让构建跑十几分钟再产出一套
-URL 全错的产物要划算——`build` 会用 `SITE_URL` 生成 canonical / `og:url` / sitemap，
-缺值或占位值不会报错，只会把整站指向错域名。
-
-设置位置：仓库 **Settings → Secrets and variables → Actions → Variables**，两个都要
-Repository variable（不是 Environment variable）：
+## 一条流水线，三道关
 
 ```text
-SITE_URL = https://newwlfz.github.io
-BASE_URL = /mikrotik_manual_i18n/
+push docs/** / locales.json / i18n/** …  ──┐
+Actions → Run workflow（可传预算）      ──┴─► translate（≤120 分钟）
+                                               ├─ 有进度 → 提交 i18n/ + work/translate/ + state/
+                                               └─ 输出 pending
+                                                     │
+                     pending == 0 ───────────────────┴─── pending > 0 ──► 跳过 build（线上保持旧版）
+                          │
+                          ▼
+                        build（≤45 分钟）：内容根断言 → npm run build → npm run verify:deploy → 上传制品
+                          │
+                          ▼
+                        deploy：仅 build 成功（`if: success()`，永不 `always()`）
 ```
 
-`SITE_URL` 是 origin（不带尾斜杠、不带仓库路径），`BASE_URL` 是站点子路径（必须带
-首尾斜杠）。该 job 只在 push `main` 与 `workflow_dispatch` 时跑，本地和 PR 上变量为空
-不受影响。另外 `build` job 设了 `timeout-minutes: 45`（默认 360），`concurrency` 用
-`cancel-in-progress: false`，避免新 push 取消正在进行的部署。
+`translate` job 的 `timeout-minutes` 是 120，而 `--budget-minutes` 默认 90：预算到点
+**优雅停止并落盘**，多出来的 30 分钟是计划、写盘、提交的余量；真被 runner 杀掉时，
+已经原子写盘的页面仍然在磁盘上。
+
+## 分批翻译（`translate` job）
+
+### 命令与参数
+
+```bash
+# CI 里跑的就是这一条（package.json 的 translate:batch 已带 --apply）
+npm run translate:batch -- --budget-minutes=90 --json
+
+# 本地：先看还剩多少，再决定翻多少
+npm run translate:pending -- --json
+npm run translate:batch -- --budget-minutes=5 --max-blocks=20 --json
+```
+
+| 参数 | 含义 |
+|---|---|
+| `--budget-minutes=<n>` | 时间预算（分钟，可为小数）。到点**优雅停止**：当前这批已完成的块写盘，不再发新请求。`0` 表示「只检查、一块都不翻」 |
+| `--max-blocks=<n>` | 本次最多处理的**翻译单位**数：一个块算 1，一个页面标题也算 1。调试/试水用；设了它就顺序执行（并发 1），保证不超 |
+| `--json` | 进度写 stderr，**stdout 只有一行摘要**：`{"translated":N,"pending":M,"stopped":"budget\|done\|error",…}` |
+| `--apply` | 「写盘」的同义开关（写盘本来就是默认；与 `--dry-run` 互斥） |
+| `--dry-run` | 只列出本次计划（每页多少块、是否要翻标题），不请求、不写盘 |
+| `--section=` / `--file=` / `--kinds=` | 局部修：只跑某个板块、某一页、只翻块或只翻标题 |
+| `--limit=<n>` | 本次最多看多少**页**。默认：有预算/单位上限时**不限**（预算才是唯一的界），否则 20 页/板块 |
+
+> 旧的 `--limit=20` 默认值会给「带预算的批次」多套一个 20 页/板块的盖子，所以
+> 预算/`--max-blocks` 模式默认不再限制页数；要限制就显式传 `--limit`。
+
+摘要里的三个键是 CI 契约，其余是附加信息（`titles`、`pending_blocks`、
+`pending_titles`、`pages`、`limit`、`tokens`、`error`）：
+
+| 键 | 含义 |
+|---|---|
+| `translated` | 本次写盘的**块数**（标题另计 `titles`） |
+| `pending` | 跑完之后还剩多少**待译单位**（块 + 英文标题） |
+| `stopped` | `budget`（预算/上限没跑完）、`done`（计划跑空）、`error`（LLM 402/401/429 等） |
+| `limit` | 触发 `budget` 的具体上限：`budget-minutes`、`max-blocks` 或 `signal` |
+
+`tools/ci/read-translate-summary.mjs` 负责从 `npm run` 的噪声日志里取出这一行
+（取最后一条能解析的 JSON），并把 `pending/stopped/translated` 写成 step outputs；
+**取不到时 `pending` 为空**，于是 `build` 的 `== '0'` 不成立 —— 失败是安全的一侧。
+
+### 一次「增量翻译」到底做了什么
+
+1. **计划**：对每个板块读英文源（`docs/` 等）与覆盖层（`i18n/zh-Hans/…`），
+   找出覆盖层里仍是英文的块；被 `config/english-only-blocks.yml`、
+   `config/translation-patches/`、keep-English 锁或 TM 判为「有意保留英文」的块跳过。
+2. **请求**：按 `config/translation.yml` 的 `segmentation`（默认一次 8 块 / 8000 字符）
+   分批发给 OpenAI 兼容接口；围栏代码原样保留，admonition 只翻标题与正文段落。
+3. **落盘**：每完成一批就把这些块替换回页面当时的块位置，**整页原子写**
+   （临时文件 + `rename`）；随后更新 `state/translation-state.json`、
+   `work/translate/keep-english.json`（新发现的「保持英文」块），模型记忆最多每
+   2 分钟落一次盘，停止时强制落盘。
+4. **报告**：重新计划一遍得到 `pending`，写 `work/translate/run.json`，打印 JSON 摘要。
+5. **提交**（workflow，不在 CLI 里）：`git add i18n work/translate state` → 有变化就
+   `translate: batch (pending N) [skip ci]` 提交并 push。
+
+### 断点续跑靠什么
+
+| 状态 | 位置 | 作用 |
+|---|---|---|
+| 译文本身 | `i18n/zh-Hans/**` | **唯一真源**：已是中文的块不会被再次计划，所以「已翻过」天然续跑 |
+| 保持英文的块 | `work/translate/keep-english.json`（约 640 KB，入库） | 没有它，模型会把「译不动」的技术记号每批重发一次，`pending` 永远到不了 0 |
+| 页面级状态 | `state/translation-state.json`（入库） | 每页的 `status`/`pendingBlocks`；`npm run translate` 的 `status` 子命令可读 |
+| 上次批次日志 | `work/translate/run.json`（入库） | 停止原因、`limit`、成本、跑完后的 `pending` |
+| 代码围栏注释 | `work/translate/comment-memory.json`（入库） | 注释只翻一次 |
+| 模型记忆 / 旧 TM / 全局 TM | `work/translate/{model-memory,translation-memory,tm-global.*}.json`（**不入库**） | 约 60 MB 的重建脚手架；`apply` 用，`translate` 不依赖它 |
+
+**为什么大块 TM 不入库**：每次批次都会重写 `model-memory.json`（约 26 MB），入库等于
+每个批次往仓库里塞几十 MB。断点续跑不需要它 —— 覆盖层 + keep-English 锁已经足够；
+`keep-english.json` 首次是在本地从模型记忆播种的（`loadLocks({seedFrom})`），之后由
+批次增量维护。
+
+### `pending` 怎么算、怎么看
+
+`pending` = 翻译计划的剩余单位数：**块 + 仍为英文的页面标题**。它和 `translate`
+用的是同一个 `planSection`，因此它归零就意味着「下一批没有活可干」。
+
+```bash
+npm run translate:pending -- --json
+# {"pending":960,"blocks":478,"titles":482,"pages":536,"sections":{...}}
+```
+
+注意区分三个「待译」：
+
+| 口径 | 在哪 | 含义 |
+|---|---|---|
+| `pending`（门禁用） | `npm run translate:pending` / 批次摘要 | 计划里还剩多少单位（块 + 英文标题），**可以归零** |
+| `state.files[].pendingBlocks` | `state/translation-state.json` | 单页里仍是英文的块数（含被判为「有意保留英文」的块），只作参考，可能不归零 |
+| `untranslatedBlocks` | `npm run translate:verify`（`lib/verify.mjs`） | 覆盖层里实际还是英文的**正文段落与警告**；它跳过以 `#`/`<`/`|` 开头的行（标题、组件、表格），所以**比计划少**，不能当门禁 —— 本仓库它现在报 0，而计划里还有 475 块（多为标题/表格）待译 |
+
+`verify` 报的是结构性问题（文件对齐、围栏、图片、front matter、MDX），它在 CI 的
+`build` 之后由 `verify:deploy` 覆盖；翻译完整性由 `pending` 把关。
+
+### 内容从哪来（总管仓 git 推送）
+
+`docs/` 与 `locales.json` 由总管仓的 `publish-content` job **直接提交**进本仓库
+（跨仓 fine-grained PAT `CROSS_REPO_TOKEN`），所以：
+
+- `.gitignore` **不能**忽略 `/docs/`。忽略它时翻译计划看到 0 个待译块、构建产出空站，
+  属于「静默成功」，比失败更贵；总管仓的 publish 也会因此直接失败。
+- `translate`/`build` 两个 job 各有一道断言：`docs/` 被忽略或缺失就直接 `exit 1`；
+  `build` 还要求 `versioned_docs/`、`hardware/`、`blog/`、`changelog/`、`data/`
+  一个都不少（少了它们不会报错，只会少整块页面）。
+- **已知缺口**：总管仓今天只 publish `docs/` 与 `locales.json`
+  （`tools/content/publish.mjs` 的 `CONTENT_ROOTS`）。其余内容根还没有推送，
+  所以 `build` 会在「内容根断言」明确失败并指向这个缺口，而**不会**发布半个站。
+  要么总管扩展 `CONTENT_ROOTS`，要么在本 workflow 里保留只解压非 `docs` 根的内容包
+  步骤（`tar --exclude=docs`）。
+
+## 手动触发与恢复
+
+| 场景 | 做法 |
+|---|---|
+| 想立刻跑一批 | Actions → **Translate, build and deploy** → `Run workflow`。`budget-minutes` 默认 90；只想试水就填 `max-blocks`（例如 `20`） |
+| 预算用完还有 pending | 正常现象：job 成功、`pending>0`、跳过构建。再触发一次（或等下一次 push）继续，已翻的块不会重翻 |
+| LLM 402/401/429 | 翻译 job 失败，但**已完成的块先提交**（提交步骤 `if: always()`），`build` 不跑；充值/换 key 后重跑即可 |
+| 想从头看还剩多少 | `npm run translate:pending -- --json`，或看最近一次提交的 `work/translate/run.json` |
+| 某一页翻坏了 | `npm run translate:batch -- --section=docs --file=<rel> --max-blocks=50`，然后 `npm run translate:verify` |
+| 想让某个块强制重翻 | 把它加进 `config/force-translate.yml`（该文件里的块不会被 keep-English 跳过） |
+| 构建失败 | 不部署，线上保持旧版；本地用 `npm run verify:deploy` 复现 |
+
+本地等价命令：
+
+```bash
+node tools/translate/index.mjs pending --json          # 还剩多少（不请求、不写盘）
+node tools/translate/index.mjs translate --dry-run     # 本批会翻哪些块
+npm run translate:batch -- --budget-minutes=10 --json  # 真跑一小批
+npm run translate:verify                               # 结构校验（覆盖层）
+node tools/pipeline/translate.mjs                      # 旧的离线重建路径（apply/derive）
+npm run build && npm run verify:deploy                 # 构建 + 部署门禁
+```
+
+### 用假 LLM 验证分批与断点
+
+接口是 OpenAI 兼容的（`POST <LLM_BASE_URL>/chat/completions`），所以本地可以用一个
+几十行的 mock 端到端验证「分批 / 断点 / 预算」。mock 只要把每个输入块原样加上中文前缀
+（保持块结构），并把每个请求体写进日志：
+
+```js
+// mock.mjs —— node mock.mjs 8931 requests.jsonl
+import http from 'node:http';
+import fs from 'node:fs';
+const [port, log] = [Number(process.argv[2]), process.argv[3]];
+http.createServer((req, res) => {
+  let body = '';
+  req.on('data', (c) => (body += c));
+  req.on('end', () => {
+    const user = JSON.parse(body).messages.find((m) => m.role === 'user').content;
+    fs.appendFileSync(log, `${JSON.stringify({user})}\n`);
+    const han = (text) => `中译：${text}`;
+    const content = user.includes('page title')
+      ? '中译标题'
+      : user.includes('documentation description')
+        ? '中译描述'
+        : user.split(/\n[ \t]*\n/).map(han).join('\n\n');
+    res.writeHead(200, {'content-type': 'application/json'});
+    res.end(JSON.stringify({choices: [{message: {content}, finish_reason: 'stop'}]}));
+  });
+}).listen(port, '127.0.0.1');
+```
+
+```bash
+node mock.mjs 8931 /tmp/requests.jsonl &
+export LLM_BASE_URL=http://127.0.0.1:8931/v1 LLM_MODEL=mock LLM_API_KEY=test
+
+# 翻两块：只发一页的两块，pending 减 2，覆盖层出现两段「中译：」
+npm run translate:batch -- --section=docs --file=<rel> --max-blocks=2 --json
+# 再跑一次：请求日志里只有剩下的块，前两块不会再发（断点续跑）
+npm run translate:batch -- --section=docs --file=<rel> --max-blocks=2 --json
+# 预算 0：translated=0、pending 不变、exit 0、零请求
+npm run translate:batch -- --budget-minutes=0 --json
+```
+
+实测口径（2026-11-14，本仓库）：
+
+| 场景 | `translated` | `pending` | `stopped` | `limit` | exit |
+|---|---:|---:|---|---|---:|
+| 首次 `--max-blocks=2`（该页 3 块） | 2 | 960 → 958 | `budget` | `max-blocks` | 0 |
+| 续跑 `--max-blocks=2`（同页剩 1 块） | 1 | 958 → 957 | `done` | — | 0 |
+| `--budget-minutes=0` | 0 | 957（不变） | `budget` | `budget-minutes` | 0 |
+| LLM 402（首批标题成功后） | 0 | 957 → 956 | `error` | — | 1 |
+
+「未开始就停」还有一条：`--budget-minutes=0` 时连覆盖层都不碰（`pages=0`），
+不会为每个板块重写一个字节相同的文件。
+
 
 ## 部署门禁（`pages.yml`）
 
-`pages.yml` 在 `npm run build` → `npm run build:slim` 之后、`upload-pages-artifact`
-之前跑四个断言；任何一个非 0 就停在构建阶段，不产出 Pages 制品：
+`build` job 的顺序是 `npm run build` → `npm run verify:deploy` → `configure-pages`
+→ `upload-pages-artifact`。`verify:deploy` 先跑 `build:slim`，再跑四条断言；任何一个
+非 0 就停在构建阶段，不产出 Pages 制品，`deploy` 不会执行：
 
 | 步骤 | 断言内容 |
 |---|---|
 | `npm run verify:assets` | 产物与源 Markdown 里没有 locale 前缀资源引用、没有双哈希 PDF、没有指向不存在文件的引用 |
 | `npm run verify:base-url` | 资源型根绝对引用（`img`/`video`/`link`/`og:image` 等）都在 `baseUrl` 之下 |
-| `npm run verify:orphan-assets` | 站内 `/img/<file>` 引用都有对应文件 |
-| `npm run verify:llms` | 6 份 `llms.txt`（默认语种根、`zh-Hans/`、`docs/7.24` 与 `docs/7.25` 及其 `zh-Hans` 副本）里的 8,668 条站内链接都指向存在的产物文件；`llms-full.txt` 也按普通目标校验，被 `build:slim` 删掉就失败 |
+| `npm run verify:orphan-assets` | 站内 `/img/<file>` 引用都有对应文件（无 `static/` 时跳过本地存在性检查） |
+| `npm run verify:llms` | `llms.txt` / `llms-full.txt` 里的站内链接都指向存在的产物文件 |
 
-`verify:llms`（`tools/verify/llms-links.mjs`）补的是别的断言看不见的一类断链：`llms.txt` 里是
-绝对 URL 字符串而不是路由，`onBrokenLinks` 与浏览器检查都不会管，所以只能在瘦身后的产物上
-逐条比对（也必须排在 `build:slim` 之后）。
+顺序不能反：`slim` 会删掉 `build/<locale>/{img,assets/images,assets/files}` 并把 URL
+改回根副本，先断言只会报「产物里还有 locale 前缀」；`verify:deploy` 已经把顺序固定好
+（`slim && asset-refs && base-url-refs && orphan-assets && llms-links`）。
+`verify:llms`（`tools/verify/llms-links.mjs`）补的是别的断言看不见的一类断链：
+`llms.txt` 里是绝对 URL 字符串而不是路由，`onBrokenLinks` 与浏览器检查都不管。
 
-CI 里用这四条而不是 `npm run verify:deploy`，因为 `build:slim` 刚跑过，`verify:deploy`
-会在断言前再瘦一次（幂等，但多花一遍全量扫描）；本地没有瘦身产物时用 `verify:deploy`
-一步到位。门禁步骤与 `build` 步骤共用 `SITE_URL` / `BASE_URL`，否则 `base-url-refs`
-会用 `docusaurus.config.ts` 的默认前缀去校验另一套产物。`build:slim` 也吃 `BASE_URL`
-（它按这个前缀重写产物里的绝对 URL），所以这一步同样显式传入，不能只靠配置文件的默认值。
+门禁与 `build` 必须看到同一组 `SITE_URL` / `BASE_URL` / `ASSET_ORIGIN`：它们来自
+workflow 级 `env`（见下），`slim` 也按 `BASE_URL` 重写产物里的绝对 URL。
+
+## 站点身份（`locales.json` + 环境变量）
+
+站点地址的唯一事实源是仓库根的 **`locales.json`**（`docusaurus.config.ts` 由它生成
+`i18n.locales` 与 `localeConfigs`；`tools/lib/site-config.mjs` 也用同一份）。本仓库的
+`locales.json` 由总管仓逐字节推送，**不要在这里改**。
+
+`pages.yml` 的 workflow 级 `env` 再把本仓的部署地址显式写一遍（值必须与
+`locales.json` 的 `zh-Hans` 条目一致），并可用仓库 Variables 覆盖：
+
+| 变量 | 本仓库取值 | 说明 |
+|---|---|---|
+| `SITE_LOCALE` | `zh-Hans` | 本次构建的语种；`tools/build/index.mjs` 据此只构建一个语种 |
+| `SITE_URL` | `https://newwlfz.github.io` | origin（不带尾斜杠、不带仓库路径） |
+| `BASE_URL` | `/mikrotik_manual_zh_hans/` | 站点子路径（首尾都要有 `/`） |
+| `LOCALE_EN_*` / `LOCALE_ZH_*` | 两个站的 origin / 前缀 | 语言下拉与 `hreflang` 指到**另一个仓库的站点** |
+| `ASSET_ORIGIN` | `https://newwlfz.github.io/mikrotik_manual_i18n` | 共享资源源站，见下一节 |
+| `BUILD_HEAP_MB` | `6144` | 静态渲染峰值；本地 10 GiB 堆会 OOM |
+
+翻译凭据是另一组，缺任何一个都会让 `translate` job 明确失败（不会静默跳过）：
+
+| 变量 | 位置 | 含义 |
+|---|---|---|
+| `LLM_BASE_URL` / `LLM_MODEL` | Repository **Variable** | OpenAI 兼容接口与模型（见 [LLM.md](LLM.md)） |
+| `LLM_API_KEY` | Repository **Secret** | 接口 key（旧名 `OPENCODE_API_KEY` 已弃用） |
+
+`SITE_URL` / `BASE_URL` 写错不会报错，只会把整站 canonical / sitemap 指向错域名；
+`BASE_URL` 还决定 `slim` 重写绝对 URL 的前缀，所以它与 `locales.json` 必须一致。
 
 ## 共享资源（`ASSET_ORIGIN`）
 
@@ -163,7 +344,8 @@ ASSET_ORIGIN=http://127.0.0.1:3020/mikrotik_manual_i18n npm run verify:deploy
 
 ```bash
 # 全流程：构建 + 瘦身 + 门禁 + 打包 + URL 抽查 + browser-check
-SITE_URL=https://newwlfz.github.io BASE_URL=/mikrotik_manual_i18n/ \
+SITE_URL=https://newwlfz.github.io BASE_URL=/mikrotik_manual_zh_hans/ \
+ASSET_ORIGIN=https://newwlfz.github.io/mikrotik_manual_i18n SITE_LOCALE=zh-Hans \
   node tools/build/rehearse-pages.mjs
 
 # 复用现有 build：只重量 tar/gzip、抽查 URL、跑浏览器检查
@@ -191,20 +373,22 @@ tar 比 `du -sb` 大约 4,200 万字节，是 tar 的 512 字节块填充与目�
 
 ### 本地彩排不能替代真实部署
 
-- 本机用 `build:lowmem`（6 GiB 堆），`pages.yml` 用 `npm run build` +
-  `NODE_OPTIONS=--max-old-space-size=10240`。两者产物相同，**构建耗时不可直接类比**
-  （本机 15 GiB 内存，10 GiB 堆会 OOM）。
+- 本机若用 `build:lowmem`（6 GiB 堆），与 `pages.yml` 的 `BUILD_HEAP_MB=6144` 相同；
+  若直接 `npm run build` 而不设 `BUILD_HEAP_MB`，wrapper 会退到 10 GiB 堆，本机
+  15 GiB 内存会 OOM。产物相同，**构建耗时不可直接类比**。
 - 没有跑 `npm ci`：用的是工作区已有的 `node_modules`。依赖树是否与
   `package-lock.json` 完全一致，只有真实 CI 能确认。
+- 本地彩排**不会**跑 `translate` job：翻译进度是否完整只看 `pending`，而它由
+  翻译 job 的摘要决定，本地只能用 `npm run translate:pending -- --json` 近似。
 - 静态服务器只模拟 `baseUrl` 下的路径解析（`/`、`index.html`、`.html` 回退、404），
   不模拟 CDN、压缩、HTTP/2 与 Pages 的 404 回退细节。
 - **1 GB 的 “published site” 上限是否硬性拒绝，本地无法证明。** GitHub 文档把它写成
   发布站点的上限（[GitHub Pages 限制](https://docs.github.com/zh/pages/getting-started-with-github-pages/github-pages-limits)），
   但上传侧只受 10 GB artifact 限制；超限究竟是拒绝部署、部分 404，还是仅告警，
   只有一次真实部署能定论。
-- 仓库 Variables（`SITE_URL` / `BASE_URL`）是否已经设置，本地看不到。两者未设置时
-  构建会退回 `docusaurus.config.ts` 的 `https://mirror.invalid`，而四条门禁仍然全绿
-  ——门禁只校验内部一致性，不校验域名是不是真的。
+- 仓库 Variables（`LLM_BASE_URL` / `LLM_MODEL`）、Secret（`LLM_API_KEY`）与
+  总管仓的 `CROSS_REPO_TOKEN` 是否已经设置，本地看不到。缺 `LLM_*` 时翻译 job
+  明确失败；缺 `CROSS_REPO_TOKEN` 时总管仓的 publish 明确失败（不会静默跳过）。
 
 如果真实部署因为体积被拒，回退顺序（数字以彩排实测为准）：
 
