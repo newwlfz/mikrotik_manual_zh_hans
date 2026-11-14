@@ -15,10 +15,16 @@
  *   gh release download <content-tag> --dir .content --repo <hub>
  *   tar -xzf .content/content.tar.gz
  *
- * or by the content workflow that writes the same paths. Keeping the local
- * implementation in this repository means a developer can build the Chinese
- * site without network access; it copies from a sibling `repo_en` checkout
- * (override with `CONTENT_SOURCE` or `--source=`).
+ * or by the content workflow that writes the same paths. **`CONTENT_URL`**
+ * (or `--url=`) selects that production path here too: the archive is
+ * downloaded with `curl -L --fail --retry 3`, extracted with `tar` into the
+ * repository root, and every section is checked before the build starts. The
+ * Pages workflow spells out the same two commands; the URL mode exists so a
+ * developer (or a CI smoke test) can reproduce the deployed content without a
+ * sibling checkout.
+ *
+ * Without `CONTENT_URL` the local path stays offline-only: it copies from a
+ * sibling `repo_en` checkout (override with `CONTENT_SOURCE` or `--source=`).
  *
  * Behaviour:
  *   - sections are copied recursively into the same relative paths;
@@ -32,9 +38,11 @@
  * Usage:
  *   node tools/content/fetch-local.mjs
  *   node tools/content/fetch-local.mjs --source=../repo_en --only=docs,static
+ *   node tools/content/fetch-local.mjs --url=https://…/content-v1.tar.zst
  *   node tools/content/fetch-local.mjs --dry-run --json
  *
- * Exit codes: 0 = content present, 1 = source missing or a copy failed.
+ * Exit codes: 0 = content present, 1 = source missing, download/extract failed
+ * or the archive lacks a section.
  */
 
 import {execFileSync} from 'node:child_process';
@@ -51,6 +59,8 @@ const SECTIONS = ['docs', 'versioned_docs', 'static', 'hardware', 'blog', 'chang
 function parseArgs(argv) {
   const options = {
     source: process.env.CONTENT_SOURCE || path.join(REPO, '..', 'repo_en'),
+    url: process.env.CONTENT_URL || null,
+    keepArchive: false,
     only: null,
     force: false,
     dryRun: false,
@@ -61,10 +71,12 @@ function parseArgs(argv) {
       console.log(
         [
           'usage: node tools/content/fetch-local.mjs [--source=<dir>] [--only=<a,b>]',
+          '                                             [--url=<archive>] [--keep-archive]',
           '                                             [--force] [--dry-run] [--json]',
           '',
           `sections: ${SECTIONS.join(', ')}`,
-          'env: CONTENT_SOURCE (default ../repo_en)',
+          'env: CONTENT_URL (download+extract the hub content release instead of copying)',
+          '     CONTENT_SOURCE (default ../repo_en)',
         ].join('\n'),
       );
       process.exit(0);
@@ -72,6 +84,8 @@ function parseArgs(argv) {
     if (arg === '--force') options.force = true;
     else if (arg === '--dry-run') options.dryRun = true;
     else if (arg === '--json') options.json = true;
+    else if (arg === '--keep-archive') options.keepArchive = true;
+    else if (arg.startsWith('--url=')) options.url = arg.slice('--url='.length);
     else if (arg.startsWith('--source=')) options.source = arg.slice('--source='.length);
     else if (arg.startsWith('--only=')) {
       options.only = arg
@@ -124,6 +138,97 @@ function walk(dir, visit, relative = '') {
 function ensureDir(dir) {
   if (options.dryRun) return;
   fs.mkdirSync(dir, {recursive: true});
+}
+
+const mib = (bytes) => `${(bytes / 1024 / 1024).toFixed(1)} MiB`;
+
+/**
+ * Production path (`CONTENT_URL` / `--url=`): download the hub content release,
+ * extract it at the repository root, and inventory every section.
+ *
+ * The two shell commands match `Fetch content release` in `.github/workflows/
+ * pages.yml` on purpose: this mode is how the same package can be replayed
+ * locally without `gh`. `--dry-run` prints the download without touching disk.
+ */
+function materializeFromUrl(url) {
+  const archiveName = path.basename(new URL(url).pathname) || 'content.tar.zst';
+  const archivePath = path.join(REPO, '.content', archiveName);
+  const summary = {
+    source: {url, archive: archivePath, bytes: 0, downloadedAt: null},
+    sections: [],
+    copied: 0,
+    skipped: 0,
+    bytesCopied: 0,
+    bytesSkipped: 0,
+    bySection: {},
+  };
+  if (options.dryRun) {
+    console.log(`[content:fetch] would download ${url} -> ${archivePath} and extract with tar`);
+    return summary;
+  }
+
+  ensureDir(path.dirname(archivePath));
+  console.log(`[content:fetch] downloading ${url}`);
+  execFileSync(
+    'curl',
+    ['-L', '--fail', '--retry', '3', '--retry-delay', '5', '--silent', '--show-error', '-o', archivePath, url],
+    {stdio: ['ignore', 'inherit', 'inherit']},
+  );
+  const bytes = fs.statSync(archivePath).size;
+  summary.source.bytes = bytes;
+  summary.source.downloadedAt = new Date().toISOString();
+  console.log(`[content:fetch] downloaded ${mib(bytes)}`);
+
+  const tarArgs = [
+    ...(/\.zst$/i.test(archiveName) ? ['--zstd'] : /\.(?:tar\.)?gz$/i.test(archiveName) ? ['-z'] : []),
+    '-xf',
+    archivePath,
+    '-C',
+    REPO,
+  ];
+  execFileSync('tar', tarArgs, {stdio: 'inherit'});
+  if (!options.keepArchive) fs.rmSync(archivePath, {force: true});
+
+  const missing = sections.filter((section) => !fs.existsSync(path.join(REPO, section)));
+  if (missing.length > 0) {
+    throw new Error(`content archive is missing section(s): ${missing.join(', ')}`);
+  }
+  summary.sections = [...sections];
+  for (const section of sections) {
+    const stats = {files: 0, copied: 0, skipped: 0, bytes: 0, bytesCopied: 0, bytesSkipped: 0};
+    walk(path.join(REPO, section), (src, rel, kind) => {
+      stats.files += 1;
+      if (kind === 'file') stats.bytes += fs.statSync(src).size;
+    });
+    summary.bySection[section] = stats;
+    summary.copied += stats.files;
+    summary.bytesCopied += stats.bytes;
+  }
+
+  for (const [section, stats] of Object.entries(summary.bySection)) {
+    console.log(
+      `[content:fetch] ${`${section}/`.padEnd(18)} ${String(stats.files).padStart(6)} files  ` +
+        `${mib(stats.bytes).padStart(10)}`,
+    );
+  }
+  console.log(
+    `[content:fetch] extracted ${summary.copied} files (${mib(summary.bytesCopied)}) from ${archiveName}`,
+  );
+  return summary;
+}
+
+if (options.url) {
+  const urlSummary = materializeFromUrl(options.url);
+  if (!options.dryRun) {
+    const outFile = path.join(REPO, '.content', 'fetch.json');
+    fs.mkdirSync(path.dirname(outFile), {recursive: true});
+    fs.writeFileSync(
+      outFile,
+      `${JSON.stringify({...urlSummary, fetchedAt: new Date().toISOString(), dryRun: false}, null, 2)}\n`,
+    );
+  }
+  if (options.json) console.log(JSON.stringify(urlSummary, null, 2));
+  process.exit(0);
 }
 
 const summary = {
@@ -187,7 +292,6 @@ for (const section of sections) {
   summary.bytesSkipped += stats.bytesSkipped;
 }
 
-const mib = (bytes) => `${(bytes / 1024 / 1024).toFixed(1)} MiB`;
 if (!options.json) {
   console.log(`[content:fetch] source: ${options.source}`);
   if (summary.source.commit) console.log(`[content:fetch] source commit: ${summary.source.commit}`);

@@ -1,0 +1,85 @@
+name: Build and deploy site
+
+# 中文站：本仓库只跟踪代码、配置与 i18n 覆盖层（i18n/zh-Hans/…）。
+# 被翻译的英文内容（docs/versioned_docs/static/hardware/blog/changelog/data）
+# 不在本仓库里，构建前从英文仓的 `content-v1` release 下载内容包解压到仓库根。
+#
+# 部署到 https://newwlfz.github.io/mikrotik_manual_zh_hans/ ；
+# 英文站由 `mikrotik_manual_i18n` 用同一份 docusaurus.config.ts 构建。
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+env:
+  SITE_LOCALE: zh-Hans
+  SITE_URL: https://newwlfz.github.io
+  BASE_URL: /mikrotik_manual_zh_hans/
+  LOCALE_EN_URL: https://newwlfz.github.io
+  LOCALE_EN_BASE_URL: /mikrotik_manual_i18n/
+  LOCALE_ZH_URL: https://newwlfz.github.io
+  LOCALE_ZH_BASE_URL: /mikrotik_manual_zh_hans/
+  # 英文仓发布的内容包（英文三版本文档 + 资产 + 构建期 data/）。
+  CONTENT_URL: https://github.com/newwlfz/mikrotik_manual_i18n/releases/download/content-v1/content-v1.tar.zst
+  BUILD_HEAP_MB: '6144'
+  NPM_CONFIG_CACHE: ${{ runner.temp }}/npm-cache
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      # 内容包：解压后 docs/… 与 data/… 出现在仓库根（这些路径在 .gitignore 里，
+      # 不会被提交）。缺任何一个 section 就在这里失败，不带着半个站点去构建。
+      - name: Fetch content release
+        run: |
+          set -euo pipefail
+          curl -L --fail --retry 3 --retry-delay 5 -o content.tar.zst "$CONTENT_URL"
+          ls -lh content.tar.zst
+          tar --zstd -xf content.tar.zst
+          rm -f content.tar.zst
+          for section in docs versioned_docs static hardware blog changelog data; do
+            test -d "$section" || { echo "content package is missing $section/"; exit 1; }
+          done
+          echo "content package extracted:"
+          du -sh docs versioned_docs static hardware blog changelog data
+      - name: Prepare npm cache directory
+        run: mkdir -p "$NPM_CONFIG_CACHE"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: package-lock.json
+      - run: npm ci
+      # 单语种构建：i18n/zh-Hans 覆盖层 + 内容包 → Docusaurus（--locale zh-Hans）
+      # → Pagefind → llms.txt（中文站内的绝对链接）。
+      - name: Build site
+        run: npm run build
+      - name: Slim and verify deploy shape
+        run: npm run verify:deploy
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: build
+      - name: Report artifact size
+        run: du -sh build && find build -type f | wc -l
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
