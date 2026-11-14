@@ -4,11 +4,18 @@
  * checkout — a stand-in for downloading a content release from the hub.
  *
  * This repository tracks only code and configuration. Everything a reader
- * browses (`docs/`, `versioned_docs/`, `static/`, `hardware/`, `blog/`,
- * `changelog/`) plus the build-time manifests and CLI data (`data/`) is
- * content: it is produced upstream, versioned by the hub, and downloaded at
- * build time. `docs/`, `static/` and friends are therefore git-ignored here and
- * `npm run content:fetch` materialises them.
+ * browses (`docs/`, `versioned_docs/`, `hardware/`, `blog/`, `changelog/`)
+ * plus the build-time manifests and CLI data (`data/`) is content: it is
+ * produced upstream, versioned by the hub, and downloaded at build time.
+ * They are git-ignored here and `npm run content:fetch` materialises them.
+ *
+ * **`static/` is not content of this repository.** Images, PDFs, videos and the
+ * CLI data live on the English site (the asset host); this site references them
+ * through `ASSET_ORIGIN` (see `guides/CI.md`). The hub content release still
+ * carries `static/` for the English site, so the production path extracts the
+ * archive without it (`tar --exclude`) and removes any leftover copy: a stale
+ * `static/` would be ignored by the build (`staticDirectories: []`) but would
+ * still waste time and disk here.
  *
  * In production the same contract is served by
  *
@@ -32,12 +39,12 @@
  *     second run is cheap and does not touch mtimes (Docusaurus' MDX cache
  *     stays warm);
  *   - `--force` re-copies every file, `--dry-run` prints without writing,
- *     `--only=docs,static` restricts the sections;
+ *     `--only=docs,hardware` restricts the sections;
  *   - a machine-readable summary is written to `.content/fetch.json`.
  *
  * Usage:
  *   node tools/content/fetch-local.mjs
- *   node tools/content/fetch-local.mjs --source=../repo_en --only=docs,static
+ *   node tools/content/fetch-local.mjs --source=../repo_en --only=docs,hardware
  *   node tools/content/fetch-local.mjs --url=https://…/content-v1.tar.zst
  *   node tools/content/fetch-local.mjs --dry-run --json
  *
@@ -53,8 +60,13 @@ import {fileURLToPath} from 'node:url';
 const REPO = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 
 /** Sections a full build needs. `data/` is content too: the CLI data and the
- * version manifests are generated upstream, not maintained here. */
-const SECTIONS = ['docs', 'versioned_docs', 'static', 'hardware', 'blog', 'changelog', 'data'];
+ * version manifests are generated upstream, not maintained here.
+ *
+ * `static/` is deliberately absent: this site serves assets from the English
+ * site (`ASSET_ORIGIN`), so copying them here has no effect on the build. */
+const SECTIONS = ['docs', 'versioned_docs', 'hardware', 'blog', 'changelog', 'data'];
+/** Sections that exist in the hub archive but must not be materialized here. */
+const EXCLUDED_SECTIONS = ['static'];
 
 function parseArgs(argv) {
   const options = {
@@ -75,6 +87,7 @@ function parseArgs(argv) {
           '                                             [--force] [--dry-run] [--json]',
           '',
           `sections: ${SECTIONS.join(', ')}`,
+          `not fetched: ${EXCLUDED_SECTIONS.join(', ')} (served by ASSET_ORIGIN)`,
           'env: CONTENT_URL (download+extract the hub content release instead of copying)',
           '     CONTENT_SOURCE (default ../repo_en)',
         ].join('\n'),
@@ -181,6 +194,9 @@ function materializeFromUrl(url) {
 
   const tarArgs = [
     ...(/\.zst$/i.test(archiveName) ? ['--zstd'] : /\.(?:tar\.)?gz$/i.test(archiveName) ? ['-z'] : []),
+    // The hub archive carries `static/` for the English site; this repository
+    // does not keep it (assets are served from `ASSET_ORIGIN`).
+    ...EXCLUDED_SECTIONS.flatMap((section) => ['--exclude', `./${section}`, '--exclude', section]),
     '-xf',
     archivePath,
     '-C',
@@ -188,6 +204,15 @@ function materializeFromUrl(url) {
   ];
   execFileSync('tar', tarArgs, {stdio: 'inherit'});
   if (!options.keepArchive) fs.rmSync(archivePath, {force: true});
+
+  // `--exclude` is not honoured by every tar implementation (and an archive
+  // may store the entry with another prefix): make the contract explicit.
+  for (const section of EXCLUDED_SECTIONS) {
+    const target = path.join(REPO, section);
+    if (!fs.existsSync(target)) continue;
+    fs.rmSync(target, {recursive: true, force: true});
+    console.log(`[content:fetch] removed ${section}/ (assets are served by ASSET_ORIGIN)`);
+  }
 
   const missing = sections.filter((section) => !fs.existsSync(path.join(REPO, section)));
   if (missing.length > 0) {
@@ -239,6 +264,15 @@ const summary = {
   bytesSkipped: 0,
   bySection: {},
 };
+
+for (const section of EXCLUDED_SECTIONS) {
+  if (fs.existsSync(path.join(REPO, section))) {
+    console.warn(
+      `[content:fetch] WARN ${section}/ exists but is not part of this repository: ` +
+        'it is ignored by the build; remove it (assets are served by ASSET_ORIGIN).',
+    );
+  }
+}
 
 for (const section of sections) {
   const from = path.join(options.source, section);
@@ -306,6 +340,10 @@ if (!options.json) {
     `[content:fetch] total: copied ${summary.copied} files (${mib(summary.bytesCopied)}), ` +
       `skipped ${summary.skipped} (${mib(summary.bytesSkipped)})` +
       (options.dryRun ? ' [dry-run]' : ''),
+  );
+  console.log(
+    `[content:fetch] note: ${EXCLUDED_SECTIONS.join(', ')} not fetched; ` +
+      'assets are served by ASSET_ORIGIN (see guides/CI.md).',
   );
   console.log(
     '[content:fetch] note: this is a local stand-in for downloading the hub content release; ' +

@@ -86,6 +86,73 @@ CI 里用这四条而不是 `npm run verify:deploy`，因为 `build:slim` 刚跑
 会用 `docusaurus.config.ts` 的默认前缀去校验另一套产物。`build:slim` 也吃 `BASE_URL`
 （它按这个前缀重写产物里的绝对 URL），所以这一步同样显式传入，不能只靠配置文件的默认值。
 
+## 共享资源（`ASSET_ORIGIN`）
+
+英文站是**资源宿主**。中文站不再保存 `static/`：图片、PDF、视频、抓取页与
+CLI 数据都留在英文仓，构建时把资源引用改写到该源站。
+
+| `ASSET_ORIGIN` | 行为 |
+| --- | --- |
+| 未设置（英文站） | 站内绝对引用加本站 `baseUrl`，与旧行为完全一致 |
+| 设置（语种站） | `/img/`、`/assets/`、`/videos/`、`/official/`、`/cli/` 改写为 `${ASSET_ORIGIN}/…`；页面路由（`/docs/`、`/hardware/`、`/blog/`、`/changelog/`）仍走本站 |
+
+值是英文站的**基址**（含仓库路径前缀、不带尾斜杠）：
+`https://newwlfz.github.io/mikrotik_manual_i18n`。它只写在中文仓的
+`pages.yml` 里；英文站构建不设置。
+
+改写发生在（两个仓代码逐字节相同）：
+
+- `tools/build/remark-prefix-root-refs.mjs`：raw HTML/JSX 属性 **以及**
+  Markdown 图片/链接目标。它同时注册在 `beforeDefaultRemarkPlugins`，否则
+  `transformImage` 会把 `![](/img/…)` 当成本地文件 `require()`，而没有
+  `static/` 的语种仓会直接构建失败。
+- `customFields.assetBaseUrl = ASSET_ORIGIN || baseUrl`：`<Img>`、导航 Logo、
+  favicon 与 `og:image`。
+- `tools/build/llms.mjs`：`llms-full.txt` 与插件生成的每页 `.md` 副本。
+- `staticDirectories: []`：遗留的 `static/` 被**忽略**（构建会打印警告），
+  不会发布。
+- `tools/cli/build-all.mjs`：生成的 CLI 数据（约 7 MiB）写进 `work/cli/`
+  而不是 `static/cli/`，语种仓构建不会再重新造出 `static/` 树。但
+  `cli-compare.json` 仍发布在本站根：它由 `fetch()` 读取，需要 CORS，
+  而资源宿主不返回 `Access-Control-Allow-Origin`。
+- `tools/verify/asset-refs.mjs` 统计外链并跳过它们的本地存在性检查；
+  `tools/verify/orphan-assets.mjs` 在无 `static/img` 时跳过孤儿扫描；
+  `tools/build/slim.mjs` 只输出 `external assets: N refs`，不再剪枝。
+
+仍然发布在本站的：pagefind 索引（`customFields.localAssetBaseUrl`）、
+Webpack chunk/字体，以及每页 `docs/**/img` 目录里的图片。
+
+### 英文站必须保留完整的 `/img` 树（`ASSET_HOST`）
+
+英文站不只是给读者看的站点，它还是**语种站的资源宿主**，所以它的产物比
+普通站点多一条约束：英文仓 `pages.yml` 里的 `ASSET_HOST=true` 会让 slim
+保留完整的 `build/img`（约 99 MiB）。否则 slim 会按**英文页面**的引用剪枝，
+而英文的 Markdown 图片走 `assets/images`，几乎整个 `/img` 都会被删掉——中文
+页面要的正是这些 `/img/<name>`（404）。
+
+多出的约 88 MiB 就是共享的代价；目前 Pages 站点仍在 1 GB 预算内。以后资源
+迁到独立 CDN 时，托管完整 `static/` 树即可，这条约束自然消失。
+
+**失效风险**：`ASSET_ORIGIN` 把所有语种站绑在英文站地址上。英文仓改名、
+换域名或改路径前缀，会同时打断**所有**语种站的图片、PDF 与视频；任何这类
+变更必须在同一次改动里更新每个语种仓 `pages.yml` 的 `ASSET_ORIGIN`。以后
+换独立 CDN 不需要改代码：把 `ASSET_ORIGIN` 指向 CDN、把 `static/` 树同步
+过去即可。
+
+本地验证（英文资源在 3020 的 `/mikrotik_manual_i18n/` 下，中文站在 3021）：
+
+```bash
+# 英文仓：把 build/ 挂在 /mikrotik_manual_i18n/ 路径下提供静态服务
+# 中文仓：对着它构建，再跑部署门禁
+ASSET_ORIGIN=http://127.0.0.1:3020/mikrotik_manual_i18n \
+SITE_URL=http://127.0.0.1:3021 BASE_URL=/mikrotik_manual_zh_hans/ \
+SITE_LOCALE=zh-Hans npm run build
+ASSET_ORIGIN=http://127.0.0.1:3020/mikrotik_manual_i18n npm run verify:deploy
+```
+
+外链模式下 `verify:deploy` 必须 exit 0：外链只统计数量，不查 `build/` 里
+是否存在。
+
 ## 发布彩排（本地，不 push）
 
 `pages.yml` 只有 push 之后才会跑，但它的每一步都能在本地原样复现。

@@ -9,9 +9,12 @@
 - 文档源：<https://manual.mikrotik.com/> 的镜像内容（英文正文）+
   `i18n/zh-Hans/` 翻译覆盖层；
 - 翻译覆盖层：4,704 个文件，约 39 MB，是本仓库**唯一**的中文真源；
-- 内容（`docs/`、`versioned_docs/`、`static/`、`hardware/`、`blog/`、
-  `changelog/`、`data/`）由 hub 的内容发布提供，**不入库**；
-- 产物：约 712 MB（24,804 个文件，含 pagefind 索引），全部路由在
+- 内容（`docs/`、`versioned_docs/`、`hardware/`、`blog/`、`changelog/`、
+  `data/`）由 hub 的内容发布提供，**不入库**；
+- **`static/` 不是本仓库的内容**：图片、PDF、视频、抓取页与 CLI 数据留在
+  英文站（资源宿主），构建时把资源引用改写到 `ASSET_ORIGIN`（见
+  [guides/CI.md 的「共享资源」](guides/CI.md#共享资源asset_origin)）；
+- 产物：约 527 MB（23,249 个文件，含 pagefind 索引），全部路由在
   `build/` 根；`llms.txt`/`llms-full.txt` 只写中文，`pagefind` 索引
   6,079 个中文页（另有 1 个英文页是抓取下来的 WebFig 示例
   `assets/295239801_index2.html`，带 `lang="en"`）。
@@ -24,8 +27,9 @@ npm run content:fetch         # 从 ../repo_en 取内容（本地模拟 hub cont
 SITE_URL=http://127.0.0.1:3013 BASE_URL=/mikrotik_manual_zh_hans/ SITE_LOCALE=zh-Hans \
 LOCALE_EN_URL=http://127.0.0.1:3013 LOCALE_EN_BASE_URL=/mikrotik_manual_i18n/ \
 LOCALE_ZH_URL=http://127.0.0.1:3013 LOCALE_ZH_BASE_URL=/mikrotik_manual_zh_hans/ \
+ASSET_ORIGIN=http://127.0.0.1:3013/mikrotik_manual_i18n \
 BUILD_HEAP_MB=6144 npm run build
-npm run verify:deploy
+ASSET_ORIGIN=http://127.0.0.1:3013/mikrotik_manual_i18n npm run verify:deploy
 ```
 
 `npm run build` 依次执行：CLI 数据生成 → `docusaurus build --locale
@@ -33,13 +37,13 @@ zh-Hans --out-dir build` → `pagefind` → `tools/build/llms.mjs`。
 
 ## 内容获取
 
-`docs/`、`versioned_docs/`、`static/`、`hardware/`、`blog/`、`changelog/`、
-`data/` 是**内容**：由 hub 的内容发布（content release）产出，本仓库不
-维护它们，`.gitignore` 全部忽略。`npm run content:fetch` 是本地替身：
+`docs/`、`versioned_docs/`、`hardware/`、`blog/`、`changelog/`、`data/`
+是**内容**：由 hub 的内容发布（content release）产出，本仓库不维护它们，
+`.gitignore` 全部忽略。`npm run content:fetch` 是本地替身：
 
 ```bash
 node tools/content/fetch-local.mjs                 # 从 ../repo_en 复制
-node tools/content/fetch-local.mjs --source=../repo_en --only=docs,static
+node tools/content/fetch-local.mjs --source=../repo_en --only=docs,hardware
 node tools/content/fetch-local.mjs --dry-run
 ```
 
@@ -48,6 +52,11 @@ node tools/content/fetch-local.mjs --dry-run
 生产环境把这一步替换成从 hub 下载 release（例如
 `gh release download <content-tag> --dir .content`）即可，后续构建不感知
 来源。
+
+`static/` **不取**：内容包里虽然带着它（英文站需要），但中文站通过
+`ASSET_ORIGIN` 引用英文站的资源。`--url` 模式解压时用 `tar --exclude`
+跳过 `static/`，并删除可能残留的旧副本；本地复制模式发现遗留 `static/`
+只打印警告（构建会忽略它）。
 
 ## 部署变量
 
@@ -62,6 +71,7 @@ node tools/content/fetch-local.mjs --dry-run
 | `LOCALE_EN_BASE_URL` | 当前语种时等于 `BASE_URL`，否则 `/mikrotik_manual_i18n/` | 英文站路径前缀 |
 | `LOCALE_ZH_URL` | `SITE_URL` | 中文站绝对域名 |
 | `LOCALE_ZH_BASE_URL` | 当前语种时等于 `BASE_URL`，否则 `/mikrotik_manual_zh_hans/` | 中文站路径前缀 |
+| `ASSET_ORIGIN` | 空（本地资源） | 共享资源源站：英文站基址，含路径前缀、不带尾斜杠。中文站设为 `https://newwlfz.github.io/mikrotik_manual_i18n`，`/img/`、`/assets/`、`/videos/`、`/official/`、`/cli/` 全部改写到它 |
 | `BUILD_HEAP_MB` | `10240` | Node 堆上限（`build:lowmem` 用 6144） |
 
 `localeConfigs.en` / `localeConfigs['zh-Hans']` 都显式带
@@ -109,7 +119,8 @@ repo_zh_hans/
 ├─ tools/                   # 构建 / 校验 / 内容获取
 │  ├─ content/fetch-local.mjs
 │  └─ build/{index,slim,llms}.mjs
-├─ docs/ versioned_docs/ static/ hardware/ blog/ changelog/ data/   # 内容，git-ignored
+├─ docs/ versioned_docs/ hardware/ blog/ changelog/ data/   # 内容，git-ignored
+│                          # （static/ 不在此列：资源在英文站，见 ASSET_ORIGIN）
 ├─ work/translate/          # 翻译记忆（TM），原型阶段 git-ignored
 └─ work/verify/             # 本地双站点联调脚本与报告，git-ignored
 ```

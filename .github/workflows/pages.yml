@@ -1,8 +1,12 @@
 name: Build and deploy site
 
 # 中文站：本仓库只跟踪代码、配置与 i18n 覆盖层（i18n/zh-Hans/…）。
-# 被翻译的英文内容（docs/versioned_docs/static/hardware/blog/changelog/data）
+# 被翻译的英文内容（docs/versioned_docs/hardware/blog/changelog/data）
 # 不在本仓库里，构建前从英文仓的 `content-v1` release 下载内容包解压到仓库根。
+#
+# **`static/` 不下载、不发布。** 图片/PDF/视频等资源由英文站（资源宿主）
+# 提供，构建时把站内资源引用改写到 `ASSET_ORIGIN`；内容包里虽然带着
+# `static/`（英文站要用），这里解压时排除它，旧的残留也一并删掉。
 #
 # 部署到 https://newwlfz.github.io/mikrotik_manual_zh_hans/ ；
 # 英文站由 `mikrotik_manual_i18n` 用同一份 docusaurus.config.ts 构建。
@@ -28,8 +32,11 @@ env:
   LOCALE_EN_BASE_URL: /mikrotik_manual_i18n/
   LOCALE_ZH_URL: https://newwlfz.github.io
   LOCALE_ZH_BASE_URL: /mikrotik_manual_zh_hans/
-  # 英文仓发布的内容包（英文三版本文档 + 资产 + 构建期 data/）。
+  # 英文仓发布的内容包（英文三版本文档 + 构建期 data/；`static/` 解压时排除）。
   CONTENT_URL: https://github.com/newwlfz/mikrotik_manual_i18n/releases/download/content-v1/content-v1.tar.zst
+  # 共享资源源站 = 英文站的基址（不带尾斜杠）。改英文站域名/前缀时必须同步改这里，
+  # 否则所有语种站的图片、PDF、视频都会 404。见 guides/CI.md「共享资源」。
+  ASSET_ORIGIN: https://newwlfz.github.io/mikrotik_manual_i18n
   BUILD_HEAP_MB: '6144'
   # 注：`${{ runner.temp }}` 只在 job/step 级 env 可用，workflow 级 env 用了会
   # 让整个 workflow 变成 invalid（run 直接失败且没有 job）。npm 缓存目录在
@@ -43,18 +50,21 @@ jobs:
       - uses: actions/checkout@v4
       # 内容包：解压后 docs/… 与 data/… 出现在仓库根（这些路径在 .gitignore 里，
       # 不会被提交）。缺任何一个 section 就在这里失败，不带着半个站点去构建。
+      # `static/` 是英文站的资源树，本仓不保留：解压时排除，并删掉可能残留的旧副本。
       - name: Fetch content release
         run: |
           set -euo pipefail
           curl -L --fail --retry 3 --retry-delay 5 -o content.tar.zst "$CONTENT_URL"
           ls -lh content.tar.zst
-          tar --zstd -xf content.tar.zst
+          tar --zstd -xf content.tar.zst --exclude='./static' --exclude='static'
           rm -f content.tar.zst
-          for section in docs versioned_docs static hardware blog changelog data; do
+          rm -rf static
+          for section in docs versioned_docs hardware blog changelog data; do
             test -d "$section" || { echo "content package is missing $section/"; exit 1; }
           done
-          echo "content package extracted:"
-          du -sh docs versioned_docs static hardware blog changelog data
+          test ! -e static || { echo "static/ must not exist: assets come from ASSET_ORIGIN"; exit 1; }
+          echo "content package extracted (without static/):"
+          du -sh docs versioned_docs hardware blog changelog data
       - name: Prepare npm cache directory
         env:
           NPM_CONFIG_CACHE: ${{ runner.temp }}/npm-cache
@@ -73,6 +83,9 @@ jobs:
       # → Pagefind → llms.txt（中文站内的绝对链接）。
       - name: Build site
         run: npm run build
+      # `verify:deploy`：slim（外部资源模式下只统计并报告）→ asset-refs（外链
+      # 计数、不查本地存在性）→ base-url-refs → orphan-assets（无 static 时跳过）
+      # → llms-links。
       - name: Slim and verify deploy shape
         run: npm run verify:deploy
       - uses: actions/configure-pages@v5
