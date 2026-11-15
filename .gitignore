@@ -57,25 +57,33 @@ data/nav/
 #   comment-memory.json code-fence comments, so a comment is translated once
 #
 # The big files here are deliberately ignored:
-#   model-memory.json / table-memory.json
-#       rebuild from the overlays under `i18n/` (`translate:harvest` / the table
-#       pass); the overlays are the source of truth
+#   table-memory.json
+#       rebuild from the overlays under `i18n/` (the table pass); the overlays
+#       are the source of truth
 #   tm-global.*.json
 #       derived snapshot, only written by `translate tm`; `apply`, `translate`
 #       and `verify` never read it
 #   usage.jsonl         local cost log, not portable state
-#   translation-memory.json
-#       NOT rebuildable (its legacy corpus is gone). It is a local asset only:
-#       keep a gzipped backup (~6 MB) outside the repo; no release/tag is
-#       involved and CI never downloads it. See `work/translate/README.md`.
+#
+# Two big files *are* committed, as **baseline snapshots** (~7.4 MB packed for
+# both). `translation-memory.json` is the reviewed legacy memory and cannot be
+# rebuilt (its corpus is gone); `model-memory.json` is the wording the model has
+# produced so far. A CI checkout used to have neither, so `translate
+# --refresh-changed` had nothing to rebuild a changed page from and every batch
+# re-translated from scratch. From the baseline on, a batch only **appends**
+# small `shards/*.json` files (the baseline itself is not rewritten, see
+# `tools/translate/lib/model-memory.mjs`); loading merges baseline + shards.
+# Keep them in the repository, not as an out-of-repo backup.
 !/work/translate/README.md
 !/work/translate/keep-english.json
 !/work/translate/run.json
 !/work/translate/comment-memory.json
-# Incremental memory shards. `model-memory.json` is 26 MB and stays ignored, so
-# a CI batch can only get its new translations into git through these small
-# append-only files. `node tools/translate` writes them; the loading code merges
-# them over the big file (shards win). See `work/translate/README.md` § 七.
+!/work/translate/translation-memory.json
+!/work/translate/model-memory.json
+# Incremental memory shards. A batch gets its new translations into git through
+# these small append-only files; `node tools/translate` writes them and the
+# loading code merges them over the baseline (shards win). See
+# `work/translate/README.md` § 七.
 !/work/translate/shards/
 !/work/translate/shards/*.json
 

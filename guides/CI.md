@@ -119,13 +119,31 @@ npm run translate:batch -- --budget-minutes=5 --max-blocks=20 --json
 | 页面级状态 | `state/translation-state.json`（入库） | 每页的 `status`/`pendingBlocks`；`npm run translate` 的 `status` 子命令可读 |
 | 上次批次日志 | `work/translate/run.json`（入库） | 停止原因、`limit`、成本、跑完后的 `pending` |
 | 代码围栏注释 | `work/translate/comment-memory.json`（入库） | 注释只翻一次 |
-| 模型记忆 / 旧 TM / 全局 TM | `work/translate/{model-memory,translation-memory,tm-global.*}.json`（**不入库**） | 共约 60 MB，但**不是** CI 脚手架：`apply`/`derive` 在**运行时**把 `translation-memory.json` + `model-memory.json` + `comment-memory.json` 合并成**内存 TM**；`tm-global.<locale>.json` 只由 `npm run translate:tm` 手动生成，**不被 `apply`/`translate`/`verify` 读取**，只被非默认语种的 `derive` 读取 |
+| 模型记忆 / 旧 TM | `work/translate/{model-memory,translation-memory}.json`（**入库基线快照**） | 共 45 MB 原始、约 7.4 MB packed。`apply`/`derive` 在运行时把这两份 + `comment-memory.json` 合并成**内存 TM**；`translate --refresh-changed` 用同一份记忆重建被改动的页面。入库后它们**不再被批次重写**，新译文只追加到 `shards/*.json`（见 `work/translate/README.md` § 七） |
+| 页面指纹 | `state/translation-state.json` 的 `source_sha256` / `overlay_sha256` / `source_blocks` | 页面级 sha 判断「源是否变了」，块级指纹判断「哪几块变了」，刷新只重译变化的块 |
+| 全局 TM 快照 | `work/translate/tm-global.<locale>.json`（**不入库**） | 纯派生：只由 `npm run translate:tm` 手动生成，**不被 `apply`/`translate`/`verify` 读取**，只被非默认语种的 `derive` 读取 |
 
-**为什么大块 TM 不入库**：每次批次都会重写 `model-memory.json`（约 26 MB），入库等于
-每个批次往仓库里塞几十 MB。**CI 不依赖任何大记忆**：续跑靠覆盖层 +
-`work/translate/keep-english.json` + `state/translation-state.json`；
-`keep-english.json` 首次是在本地从模型记忆播种的（`loadLocks({seedFrom})`），之后由
-批次增量维护。大记忆只是本地加速器，缺了（或只剩覆盖层）照样能续跑。
+**为什么大 TM 改为入库**：以前 CI 的 checkout 里没有记忆，`translate` 只能从覆盖层
+的英文块重新计划，一个被官网改写的页面没有任何可复用的措辞，等于整页重翻。现在把
+45 MB 的两份记忆作为**一次性基线**提交（打包约 7.4 MB），刷新与翻译都能从它复用；
+批次不会重写基线（否则每批 commit 多 26 MB），新增记忆只走小分片。
+
+### 源页变化 → 只翻变化的块
+
+`translate:batch` 现在在规划之前先跑 `translate --refresh-changed`（可用
+`config/translation.yml#refresh_changed: false`、`TRANSLATE_REFRESH_CHANGED=0` 或
+`--no-refresh-changed` 关闭）：
+
+1. 逐页比较英文源的 `source_sha256`：没变 → 跳过；变了 → 标记 stale；
+2. 用**新源**重建骨架：TM 命中 → 填中文；块指纹显示英文未变 → 沿用旧覆盖层译文
+   （`reused_overlay`）；其余留英文进入正常翻译队列；
+3. 安全阀：重建后的中文低于「新源仍然保留的旧译文的 95%」时**不写回**、告警并保留
+   旧覆盖层；没有 TM 时整步跳过并告警（`zh-Hant` 目前没有 TM），绝不把整页打回英文；
+4. 重建页与原页走同一套收尾（链接、图片、锚点、颜色、代码注释、patch），所以刷新后
+   的页面与 `apply` 重建的页面结构一致。
+
+`npm run translate -- --refresh-changed --dry-run` 只报告会重建哪些页、保留多少旧译文、
+多少块待译，不写盘、不调模型。
 
 ### `pending` 怎么算、怎么看
 

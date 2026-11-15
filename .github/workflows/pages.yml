@@ -262,8 +262,9 @@ jobs:
         if: always() && steps.run.outputs.exit_code != ''
         run: |
           node tools/ci/read-translate-summary.mjs --file "$RUNNER_TEMP/translate.json" >> "$GITHUB_OUTPUT"
-      # 提交翻译进度：i18n 覆盖层 + 小型翻译状态 + 状态文件。大块 TM
-      # （model-memory/legacy TM/tm-global）不入库，见 guides/CI.md。
+      # 提交翻译进度：i18n 覆盖层 + 小型翻译状态 + 状态文件。大块 TM 是**入库
+      # 基线**（work/translate/{translation-memory,model-memory}.json），批次只追加
+      # shards/，不重写基线；见 guides/CI.md 与 work/translate/README.md。
       # 预检失败时这一批根本没跑，**不提交任何东西**。
       - name: Commit translation progress
         if: always() && steps.run.outputs.exit_code != ''
