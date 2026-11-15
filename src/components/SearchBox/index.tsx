@@ -17,6 +17,64 @@ type ResultData = {
 const PAGE_SIZE = 10;
 const INITIAL_MAIN = 7;
 const INITIAL_CLI = 3;
+
+/**
+ * UI copy, keyed by the locale this deployment renders.
+ *
+ * This is a project component, not a theme-classic one, so its labels stay in
+ * the component: a missing `code.json` key would silently fall back to English
+ * on the Chinese site. Same approach as `components/WideTable`. `en` is the
+ * fallback, so the English site keeps its wording even though this checkout
+ * only localizes `zh-Hans`/`zh-Hant` overlays.
+ */
+type Copy = {
+  placeholder: string;
+  ariaLabel: string;
+  unavailable: string;
+  searching: (query: string) => string;
+  noResults: (query: string) => string;
+  results: (count: number) => string;
+  showMore: string;
+  cliReference: string;
+};
+
+const COPY = {
+  en: {
+    placeholder: 'Search',
+    ariaLabel: 'Search',
+    unavailable: 'Search index is unavailable in this build.',
+    searching: (query: string) => `Searching for “${query}”…`,
+    noResults: (query: string) => `No results for “${query}”`,
+    results: (count: number) => `${count} result${count === 1 ? '' : 's'}`,
+    showMore: 'Show more results',
+    cliReference: 'CLI reference',
+  },
+  'zh-Hans': {
+    placeholder: '搜索',
+    ariaLabel: '搜索',
+    unavailable: '此构建中搜索索引不可用。',
+    searching: (query: string) => `正在搜索“${query}”…`,
+    noResults: (query: string) => `未找到“${query}”的结果`,
+    results: (count: number) => `${count} 条结果`,
+    showMore: '显示更多结果',
+    cliReference: 'CLI 参考',
+  },
+  'zh-Hant': {
+    placeholder: '搜尋',
+    ariaLabel: '搜尋',
+    unavailable: '此建置中搜尋索引無法使用。',
+    searching: (query: string) => `正在搜尋「${query}」…`,
+    noResults: (query: string) => `找不到「${query}」的結果`,
+    results: (count: number) => `${count} 筆結果`,
+    showMore: '顯示更多結果',
+    cliReference: 'CLI 參考',
+  },
+} satisfies Record<string, Copy>;
+
+function copyFor(locale: string | undefined): Copy {
+  return (COPY as Record<string, Copy>)[locale ?? 'en'] ?? COPY.en;
+}
+
 // The input stays instant (controlled), only the query is delayed so a burst of
 // keystrokes issues one search instead of one per letter.
 const SEARCH_DEBOUNCE_MS = 250;
@@ -48,6 +106,7 @@ export default function SearchBox() {
   // still read it, so rendering a CLI result threw `locale is not defined`.
   const {i18n} = useDocusaurusContext();
   const locale = i18n?.currentLocale;
+  const copy = copyFor(locale);
   const [query, setQuery] = useState('');
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -196,8 +255,8 @@ export default function SearchBox() {
       <input
         className="site-search__input"
         type="search"
-        placeholder="Search"
-        aria-label="Search"
+        placeholder={copy.placeholder}
+        aria-label={copy.ariaLabel}
         value={query}
         onFocus={() => {
           setOpen(true);
@@ -221,19 +280,19 @@ export default function SearchBox() {
         <div className="site-search__panel" role="listbox">
           <div className="site-search__status">
             {unavailable
-              ? 'Search index is unavailable in this build.'
+              ? copy.unavailable
               : loading
-                ? `Searching for “${query.trim()}”…`
+                ? copy.searching(query.trim())
                 : results.length === 0
-                  ? `No results for “${query.trim()}”`
-                  : `${results.length} result${results.length === 1 ? '' : 's'}`}
+                  ? copy.noResults(query.trim())
+                  : copy.results(results.length)}
           </div>
           <ul className="site-search__results">
             {shownMain.map((result, index) => renderResult(result, index))}
             {shownCli.length ? (
               <>
                 <li className="site-search__section">
-                  {locale === 'zh-Hans' ? 'CLI 参考' : 'CLI reference'}
+                  {copy.cliReference}
                 </li>
                 {shownCli.map((result, index) =>
                   renderResult(result, shownMain.length + index),
@@ -243,7 +302,7 @@ export default function SearchBox() {
           </ul>
           {hasMore ? (
             <button type="button" className="site-search__more" onClick={more}>
-              Show more results
+              {copy.showMore}
             </button>
           ) : null}
         </div>

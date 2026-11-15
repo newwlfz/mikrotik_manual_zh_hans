@@ -1,14 +1,14 @@
 {
   "title": {
-    "message": "Docs Changes",
+    "message": "文档变更",
     "description": "The title for the blog used in SEO"
   },
   "description": {
-    "message": "Documentation updates",
+    "message": "文档更新",
     "description": "The description for the blog used in SEO"
   },
   "sidebar.title": {
-    "message": "Recent posts",
+    "message": "最新文章",
     "description": "The label for the left sidebar"
   }
 }
