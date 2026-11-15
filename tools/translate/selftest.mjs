@@ -52,6 +52,7 @@ import {checkScript, feedbackFor} from './lib/script-check.mjs';
 import {commentRules, descriptionPrompt, titlePrompt} from './lib/prompts.mjs';
 import {guardScript} from './lib/script-guard.mjs';
 import {
+  DEFAULT_TARGET_LOCALE,
   REPO,
   localeHasResources,
   overlayRootFor,
@@ -915,20 +916,20 @@ try {
 // changed/new blocks reach the model. These fixtures use a throwaway repository
 // root so nothing here can touch the real `i18n/` tree.
 
+// The overlay root of *this* checkout's default target, not a hard-coded
+// `zh-Hans`: the same test file runs in the zh-Hant repository too.
+const refreshOverlayRoot = overlayRootFor(DEFAULT_TARGET_LOCALE, 'docs');
 const refreshSection = {
   name: 'docs',
   source: 'docs',
-  overlay: 'i18n/zh-Hans/docusaurus-plugin-content-docs/current',
+  overlay: refreshOverlayRoot,
   legacy: ['v7.24'],
   stripVersion: '7.25',
-  locale: 'zh-Hans',
+  locale: DEFAULT_TARGET_LOCALE,
 };
 const refreshRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'translate-refresh-'));
 const refreshDemo = path.join(refreshRoot, 'docs/demo.md');
-const refreshDemoOverlay = path.join(
-  refreshRoot,
-  'i18n/zh-Hans/docusaurus-plugin-content-docs/current/demo.md',
-);
+const refreshDemoOverlay = path.join(refreshRoot, refreshOverlayRoot, 'demo.md');
 const zhLine = (n) => `第${n}段译文说明这一部分的行为。`;
 const refreshDemoV1 =
   '---\ntitle: "Refresh demo"\n---\n\n' +
@@ -1053,10 +1054,7 @@ try {
   // The 95% guard: an overlay whose wording the memory cannot attribute (no
   // fingerprints, no reverse entries) must not be replaced by English.
   const guardSource = path.join(refreshRoot, 'docs/guard.md');
-  const guardOverlay = path.join(
-    refreshRoot,
-    'i18n/zh-Hans/docusaurus-plugin-content-docs/current/guard.md',
-  );
+  const guardOverlay = path.join(refreshRoot, refreshOverlayRoot, 'guard.md');
   const guardV1 =
     '---\ntitle: "Guard demo"\n---\n\n' +
     'The first guarded paragraph explains a behaviour.\n\n' +
@@ -1096,10 +1094,7 @@ try {
   const oldChinese = Array.from({length: 25}, (_, index) => `第${index + 1}段旧译文说明这一部分的内容。`);
   const legacy = Object.fromEntries(oldEnglish.map((english, index) => [english, oldChinese[index]]));
   const drift = path.join(refreshRoot, 'docs/drift.md');
-  const driftOverlay = path.join(
-    refreshRoot,
-    'i18n/zh-Hans/docusaurus-plugin-content-docs/current/drift.md',
-  );
+  const driftOverlay = path.join(refreshRoot, refreshOverlayRoot, 'drift.md');
   const driftEnglish = Array.from({length: 25}, (_, index) => `Fresh paragraph ${index + 1} describes the rewritten page.`);
   fs.writeFileSync(drift, `---\ntitle: "Drift demo"\n---\n\n${driftEnglish.join('\n\n')}\n`);
   fs.writeFileSync(driftOverlay, `---\ntitle: "漂移演示"\n---\n\n${oldChinese.join('\n\n')}\n`);
@@ -1135,7 +1130,7 @@ try {
 
 const cliRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'translate-refresh-cli-'));
 const cliPage = path.join(cliRoot, 'docs/demo.md');
-const cliOverlay = path.join(cliRoot, 'i18n/zh-Hans/docusaurus-plugin-content-docs/current/demo.md');
+const cliOverlay = path.join(cliRoot, refreshOverlayRoot, 'demo.md');
 const cliPageV1 =
   '---\ntitle: "Demo page"\n---\n\n' +
   'Block one explains the first behaviour.\n\n' +
@@ -1165,7 +1160,21 @@ try {
   fs.mkdirSync(path.dirname(cliOverlay), {recursive: true});
   fs.writeFileSync(cliPage, cliPageV1);
 
-  let requests = 0;
+  // The reply is derived from the *block text*, not from a request counter:
+  // a retry (or a title prompt) must not renumber the assertions, and a block
+  // that did not change must come back with the same wording.
+  const blockReply = (paragraph) => {
+    let hash = 0;
+    for (const char of paragraph) hash = (hash * 31 + char.codePointAt(0)) >>> 0;
+    return `中文段落${hash.toString(36)}`;
+  };
+  const cliParagraphs = {
+    one: 'Block one explains the first behaviour.',
+    two: 'Block two explains the second behaviour.',
+    twoChanged: 'Block two now explains a completely different behaviour of the router.',
+    three: 'Block three explains the third behaviour.',
+    four: 'Block four is new and explains the fourth behaviour.',
+  };
   cliServer = http.createServer((request, response) => {
     let body = '';
     request.on('data', (chunk) => (body += chunk));
@@ -1173,11 +1182,7 @@ try {
       const parsed = JSON.parse(body || '{}');
       const user = (parsed.messages || []).find((message) => message.role === 'user')?.content || '';
       const pieces = user.split(/\n{2,}/).map((piece) => piece.trim()).filter(Boolean);
-      requests += 1;
-      const reply = Array.from(
-        {length: Math.max(pieces.length, 1)},
-        (_, index) => `第${requests}批第${index + 1}段的中文译文`,
-      ).join('\n\n');
+      const reply = pieces.map(blockReply).join('\n\n');
       response.writeHead(200, {'content-type': 'application/json'});
       response.end(
         JSON.stringify({
@@ -1211,7 +1216,11 @@ try {
   check('refresh-cli-first-exit', first.status, 0);
   check('refresh-cli-first-no-locale-error', /locale is not defined/.test(first.stderr), false);
   const overlayV1 = fs.readFileSync(cliOverlay, 'utf8');
-  check('refresh-cli-first-translated', !/Block one explains/.test(overlayV1) && /第1批第1段/.test(overlayV1), true);
+  check(
+    'refresh-cli-first-translated',
+    overlayV1.includes(blockReply(cliParagraphs.one)) && !/Block one explains/.test(overlayV1),
+    true,
+  );
   const stateFile = path.join(cliRoot, 'state/translation-state.json');
   const stateV1 = JSON.parse(fs.readFileSync(stateFile, 'utf8'));
   check('refresh-cli-first-state-sha', stateV1.files['docs/demo.md']?.source_sha256, sha256Hex(cliPageV1));
@@ -1221,10 +1230,11 @@ try {
   check('refresh-cli-second-exit', second.status, 0);
   check('refresh-cli-second-refreshed', /refresh: .*rebuilt=1/.test(second.stdout), true);
   const overlayV2 = fs.readFileSync(cliOverlay, 'utf8');
-  check('refresh-cli-keeps-unchanged-1', overlayV2.includes('第1批第1段的中文译文'), true);
-  check('refresh-cli-keeps-unchanged-3', overlayV2.includes('第1批第3段的中文译文'), true);
-  check('refresh-cli-translates-changed', overlayV2.includes('第3批第1段的中文译文'), true);
-  check('refresh-cli-translates-new', overlayV2.includes('第3批第2段的中文译文'), true);
+  check('refresh-cli-keeps-unchanged-1', overlayV2.includes(blockReply(cliParagraphs.one)), true);
+  check('refresh-cli-keeps-unchanged-3', overlayV2.includes(blockReply(cliParagraphs.three)), true);
+  check('refresh-cli-drops-changed-wording', overlayV2.includes(blockReply(cliParagraphs.two)), false);
+  check('refresh-cli-translates-changed', overlayV2.includes(blockReply(cliParagraphs.twoChanged)), true);
+  check('refresh-cli-translates-new', overlayV2.includes(blockReply(cliParagraphs.four)), true);
   check('refresh-cli-no-english-left', /Block (one|two|three|four)[^\n]*/.test(overlayV2), false);
   const stateV2 = JSON.parse(fs.readFileSync(stateFile, 'utf8'));
   check('refresh-cli-second-state-sha', stateV2.files['docs/demo.md']?.source_sha256, sha256Hex(cliPageV2));

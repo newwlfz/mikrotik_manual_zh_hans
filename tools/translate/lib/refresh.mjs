@@ -141,7 +141,11 @@ export function loadRefreshTm(locale = DEFAULT_TARGET_LOCALE, {workDir = WORK_DI
   if (locale === DEFAULT_TARGET_LOCALE) {
     const legacy = path.join(workDir, 'translation-memory.json');
     if (!fs.existsSync(legacy)) {
-      return {tm: null, reason: `translation memory missing: ${legacy}`};
+      const shown = relative(REPO, legacy);
+      return {
+        tm: null,
+        reason: `translation memory missing: ${shown.startsWith('..') ? legacy : shown}`,
+      };
     }
     try {
       return {tm: createGlobalTm({workDir, locale}), reason: null};
