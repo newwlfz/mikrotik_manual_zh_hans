@@ -28,13 +28,13 @@ RouterOS 数据包流程图和流程示例将尝试回答这些问题。
 
 让我们先看总体图。乍一看很复杂，但在我们通过示例讲解之后，它会变得清晰得多。
 
-![](/img/54a08457cdf41791.svg)
+![](/img/689a8eb69f241285.svg#gh-light-mode-only)![Overall packet flow diagram: physical and logical interfaces, the bridging, MPLS and routing areas, and the local processes of the router](/img/543356c8bcc1a05d.svg#gh-dark-mode-only)
 
 图中央有 4 个框：桥接、路由、MPLS 决策和本地路由器进程。例如，如果数据包需要通过路由器进行路由，数据包将按下图所示流动。无需深入了解每个功能，数据包进入 in-interface，路由器判断它是 IP 流量且需要路由，数据包经过所有路由进程并从 out-interface 发出。
 
-![](/img/47875864c1d4173f.webp)让我们再看另一个示例，说明当数据包的目的地是路由器本身时会发生什么。例如，in-interface 收到一个 ICMP（ping）数据包，其目的地是路由器本身，因此数据包将进入 *local-in* 处理。数据包处理完毕后，路由器内部会生成一个 ICMP（ping）应答（*local-out* 处理），并通过 out-interface 发送出去。
+让我们再看另一个示例，说明当数据包的目的地是路由器本身时会发生什么。例如，in-interface 收到一个 ICMP（ping）数据包，其目的地是路由器本身，因此数据包将进入 *local-in* 处理。数据包处理完毕后，路由器内部会生成一个 ICMP（ping）应答（*local-out* 处理），并通过 out-interface 发送出去。
 
-![](/img/c6b18c0d99ad79af.webp)在继续举例之前，先简单解释每个框：
+在继续举例之前，先简单解释每个框：
 
 - **物理 in-interface** - 路由器接收数据包的起点。
 - **逻辑 in-interface** - 解封装后数据包（来自隧道、IPsec 等）的起点。
@@ -46,7 +46,7 @@ RouterOS 数据包流程图和流程示例将尝试回答这些问题。
 
 现在该深入了解桥接、MPLS 和路由流程内部发生了什么。
 
-![](/img/3d82c42594228f6f.webp)
+![](/img/732a056895e8c87d.svg#gh-light-mode-only)![Detailed diagram of the bridging, routing and MPLS areas with the firewall chains, the bridge chains, the IPsec steps and the MPLS label operations](/img/fb79756a608f53e8.svg#gh-dark-mode-only)
 
 在继续举例之前，先简单解释每个框：
 
@@ -68,7 +68,7 @@ RouterOS 包含几个默认链。这些链允许你在各个点过滤数据包�
 
 prerouting、input、forward、output 和 postrouting 每个块都包含更多功能，这些在数据包流程图的第三部分中说明：
 
-![](/img/0724b7c10ff614e8.webp)
+![](/img/e9cd7ff4d3689c88.svg#gh-light-mode-only)![Diagram of the facilities in the prerouting, routing decision, input, forward, output and postrouting stages, in processing order](/img/89a2301156fd0802.svg#gh-dark-mode-only)
 
 在继续举例之前，先简单解释每个框：
 
@@ -121,10 +121,6 @@ prerouting、input、forward、output 和 postrouting 每个块都包含更多�
    5. 通过 simple queues 处理数据包。
 5. 检查是否存在 IPsec，然后通过 IPsec 策略处理。
 
-![](/img/8dac7fe74227e99a.webp)
-
-![](/img/d45ef1f88a92f873.webp)
-
 #### 输入 {#input}
 
 我们已经了解到，数据包进入 in-interface，路由器判断它是 IP 数据包且需要路由，这里开始了复杂的过程：
@@ -142,10 +138,6 @@ prerouting、input、forward、output 和 postrouting 每个块都包含更多�
    3. - 通过队列树（HTB Global）处理数据包。
    4. - 通过 simple queues 处理数据包。
 4. 检查是否存在 IPsec，然后通过 IPsec 策略处理。
-
-![](/img/8d210a14ee931fdf.webp)
-
-![](/img/6b7549d10c390ae9.webp)
 
 #### 输出 {#output}
 
@@ -167,13 +159,9 @@ prerouting、input、forward、output 和 postrouting 每个块都包含更多�
    5. - 通过 simple queues 处理数据包。
 4. 检查是否存在 IPsec，然后通过 IPsec 策略处理。
 
-![](/img/d7ee665d35fc59eb.webp)![](/img/bbe918f99502e362.webp)
-
 ### 桥接数据包的流程 {#flow-of-bridged-packet}
 
 下面讨论 RouterOS 中的一般桥接过程。大多数数据包将始终遵循相同的处理路径，但在某些配置下（例如启用 VLAN 过滤、horizon、STP、DHCP 或 IGMP snooping 时），某些数据包可能会被区别对待。请访问桥接手册以获取更具体的信息。
-
-#### ![](/img/936d1582966e9a76.webp) {#}
 
 #### 桥接转发 {#bridge-forward}
 
@@ -186,8 +174,6 @@ Bridge forward 是数据包从一个网桥端口转发到另一个网桥端口�
 5. 检查网桥设置中是否启用了 use-ip-firewall 选项。
 6. 数据包通过网桥 NAT src-nat 链，其中可以更改 MAC 源和优先级，除此之外，数据包可以被简单地接受、丢弃或标记。
 7. 检查网桥设置中是否启用了 use-ip-firewall 选项。
-
-![](/img/19c0854c81bd23fd.webp)
 
 :::info
 **对于 RouterOS v6：**  
@@ -211,8 +197,6 @@ Bridge input 是数据包目的地为网桥接口时发生的过程。最常见�
 3. 让数据包通过网桥主机表以做出转发决策。目标 MAC 地址与网桥 MAC 地址匹配的数据包将被传递到网桥 input 链。最终被泛洪的数据包（例如广播、组播、未知单播流量）也会到达网桥 input 链，因为网桥接口本身也是众多目的地之一。
 4. 数据包通过网桥 filter input 链，其中可以更改优先级，或者数据包可以被简单地接受、丢弃或标记。
 
-![](/img/c086efd5882264c9.webp)
-
 #### 桥接输出 {#bridge-output}
 
 Bridge output 是数据包应通过一个或多个网桥端口离开设备时发生的过程。最常见的情况是网桥接口本身尝试访问连接到某个网桥端口的设备（例如，网桥接口上运行的 DHCP 服务器响应 DHCP 客户端时）。在数据包由其他更高级别的 RouterOS 进程处理完毕，并且设备最终判断出接口是网桥之后，数据包通过桥接过程：
@@ -221,8 +205,6 @@ Bridge output 是数据包应通过一个或多个网桥端口离开设备时发
 2. 数据包通过网桥 filter output 链，其中可以更改优先级，或者数据包可以被简单地接受、丢弃或标记。
 3. 数据包通过网桥 NAT src-nat 链，其中可以更改 MAC 源和优先级，除此之外，数据包可以被简单地接受、丢弃或标记。
 4. 检查网桥设置中是否启用了 use-ip-firewall 选项。
-
-![](/img/c29c9ee3aa3a635e.webp)
 
 #### 启用防火墙时的 Forward {#forward-with-firewall-enabled}
 
@@ -238,8 +220,6 @@ Bridge output 是数据包应通过一个或多个网桥端口离开设备时发
 8. 数据包通过网桥 NAT src-nat 链。
 9. 启用 use-ip-firewall 选项后，数据包将在 postrouting 链中进一步处理。
 10. 数据包进入 postrouting 处理。
-
-![](/img/ca8f80b20d2e4d28.webp)![](/img/f1ae5b79a33340c3.webp)
 
 ### 硬件卸载数据包的流程 {#flow-of-hardware-offloaded-packet}
 
@@ -309,19 +289,11 @@ Bridge output 是数据包应通过一个或多个网桥端口离开设备时发
 
 ### MPLS 数据包流程 {#flow-of-mpls-packet}
 
-![](/img/3dc66d654b4ce06e.webp)
-
 #### Pop 标签 {#pop-label}
-
-![](/img/7a74ba782936be6d.webp)
 
 #### Switch 标签 {#switch-label}
 
-![](/img/ea6fa4d9db09d154.webp)
-
 #### Push 标签 {#push-label}
-
-![](/img/87c77c70ffb17ec1.webp)
 
 ### MPLS IP VPN {#mpls-ip-vpn}
 
@@ -384,8 +356,6 @@ H - hw-offloaded; + - ecmp
 
 到目前为止，我们看到的示例中 in 或 out 接口都是实际的物理接口（以太网、无线），但如果路由器接收到隧道封装的数据包，数据包会如何流动呢？
 
-![](/img/91fe801fb891e2c4.webp)
-
 假设有一个 IPIP 数据包进入路由器。由于它是普通的 IPv4 数据包，因此会经过所有与路由相关的处理环节（直到图中的 "J"）。然后路由器会检查该数据包是否需要解封装。在本例中，它是 IPIP 数据包，所以“是”，将数据包送去解封装。之后，数据包会再次循环经过所有处理环节，但这一次是作为解封装后的 IPv4 数据包。
 
 这一点非常重要，因为数据包实际上会两次经过防火墙，所以如果配置了严格的防火墙，那么既需要为 IPIP 封装的数据包设置 "accept" 规则，也需要为解封装后的 IP 数据包设置 "accept" 规则。
@@ -400,11 +370,9 @@ H - hw-offloaded; + - ecmp
 
 数据包不是通过逻辑接口处理，而是通过 IPSec 策略处理。在完成路由决策 (2) 和 input 防火墙处理 (3) 之后，路由器会尝试将源和目的与 IPsec 策略进行匹配。当策略与数据包匹配时，数据包会被送去解密 (5)。解密之后，数据包再次进入 PREROUTING 处理 (6)，并开始另一轮处理循环，但此时处理的是解封装后的数据包。
 
-![](/img/4dea6a04e6bb6979.webp)
+![](/img/fb9ab813f5631fcb.svg#gh-light-mode-only)![Diagram of the chains that a packet received on a VRF port and a packet sent by the router into a VRF pass, with the in-interface or out-interface of each pass](/img/825d02eb23aec496.svg#gh-dark-mode-only)
 
 同样的过程也适用于封装，只是顺序相反。第一个 IP 数据包先经过各处理环节，然后与 IPsec 策略匹配 (5)，进行封装 (6)，然后在第二轮循环中送去处理 (7-10)。
-
-![](/img/4b030c78a10265d8.webp)
 
 ## 快速路径 {#fast-path}
 
@@ -414,7 +382,7 @@ H - hw-offloaded; + - ecmp
 
 FastPath 是一种接口驱动扩展，允许驱动直接与特定的 RouterOS 处理环节通信，并跳过其他所有环节。
 
-![](/img/be678c125b183720.svg)
+![](/img/f89c29d624bb584b.svg#gh-light-mode-only)![Diagram of the hardware offload, FastPath and slow path choices between the physical in-interface and the physical out-interface](/img/97ea0a5fe481261d.svg#gh-dark-mode-only)
 
 只有当至少源接口支持 fast path 时，数据包才能由 fast path 处理器转发。要实现完整的快速转发，还需要目的接口也支持。
 

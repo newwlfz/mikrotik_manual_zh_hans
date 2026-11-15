@@ -131,7 +131,7 @@ add name=wifi3 master-interface=wifi1 configuration.mode=ap .ssid=SSID-for-clien
 ```ros
 /interface/wifi
 set [find default-name=wifi1] channel.reselect-interval=02:00..03:00
-# or use a clock-time window instead:
+# 或改用时钟时间窗口：
 set [find default-name=wifi1] channel.reselect-time=03:00..04:00
 ```
 
