@@ -57,16 +57,17 @@ data/nav/
 #   comment-memory.json code-fence comments, so a comment is translated once
 #
 # The big files here are deliberately ignored:
-#   model-memory.json / tm-global.*.json / table-memory.json
-#       rebuild from the overlays under `i18n/` (`translate:harvest` / apply /
-#       the table pass); the overlays are the source of truth
+#   model-memory.json / table-memory.json
+#       rebuild from the overlays under `i18n/` (`translate:harvest` / the table
+#       pass); the overlays are the source of truth
+#   tm-global.*.json
+#       derived snapshot, only written by `translate tm`; `apply`, `translate`
+#       and `verify` never read it
 #   usage.jsonl         local cost log, not portable state
 #   translation-memory.json
-#       NOT rebuildable (its legacy corpus is gone). It is archived in release
-#       `memory-v1`:
-#       https://github.com/newwlfz/mikrotik_manual_zh_hans/releases/tag/memory-v1
-#       Restore with `gh release download memory-v1 -D work/translate`, or the
-#       curl commands in `work/translate/README.md`.
+#       NOT rebuildable (its legacy corpus is gone). It is a local asset only:
+#       keep a gzipped backup (~6 MB) outside the repo; no release/tag is
+#       involved and CI never downloads it. See `work/translate/README.md`.
 !/work/translate/README.md
 !/work/translate/keep-english.json
 !/work/translate/run.json

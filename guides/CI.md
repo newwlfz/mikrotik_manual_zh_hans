@@ -101,12 +101,13 @@ npm run translate:batch -- --budget-minutes=5 --max-blocks=20 --json
 | 页面级状态 | `state/translation-state.json`（入库） | 每页的 `status`/`pendingBlocks`；`npm run translate` 的 `status` 子命令可读 |
 | 上次批次日志 | `work/translate/run.json`（入库） | 停止原因、`limit`、成本、跑完后的 `pending` |
 | 代码围栏注释 | `work/translate/comment-memory.json`（入库） | 注释只翻一次 |
-| 模型记忆 / 旧 TM / 全局 TM | `work/translate/{model-memory,translation-memory,tm-global.*}.json`（**不入库**） | 约 60 MB 的重建脚手架；`apply` 用，`translate` 不依赖它 |
+| 模型记忆 / 旧 TM / 全局 TM | `work/translate/{model-memory,translation-memory,tm-global.*}.json`（**不入库**） | 共约 60 MB，但**不是** CI 脚手架：`apply`/`derive` 在**运行时**把 `translation-memory.json` + `model-memory.json` + `comment-memory.json` 合并成**内存 TM**；`tm-global.<locale>.json` 只由 `npm run translate:tm` 手动生成，**不被 `apply`/`translate`/`verify` 读取**，只被非默认语种的 `derive` 读取 |
 
 **为什么大块 TM 不入库**：每次批次都会重写 `model-memory.json`（约 26 MB），入库等于
-每个批次往仓库里塞几十 MB。断点续跑不需要它 —— 覆盖层 + keep-English 锁已经足够；
+每个批次往仓库里塞几十 MB。**CI 不依赖任何大记忆**：续跑靠覆盖层 +
+`work/translate/keep-english.json` + `state/translation-state.json`；
 `keep-english.json` 首次是在本地从模型记忆播种的（`loadLocks({seedFrom})`），之后由
-批次增量维护。
+批次增量维护。大记忆只是本地加速器，缺了（或只剩覆盖层）照样能续跑。
 
 ### `pending` 怎么算、怎么看
 
