@@ -1,0 +1,5 @@
+# 同 docs/diagnostics-monitoring-and-troubleshooting/flood-ping.md：7.25 的这句
+# 仍带着英文 “CLI reference”。补丁保证以后重建 7.25 页面时仍输出「CLI 参考」。
+replace:
+  - from: "有关所有参数，请参阅 [`/tool/flood-ping` CLI reference](../cli-reference/tool/flood-ping.md)。"
+    to: "有关所有参数，请参阅 [`/tool/flood-ping` CLI 参考](../cli-reference/tool/flood-ping.md)。"

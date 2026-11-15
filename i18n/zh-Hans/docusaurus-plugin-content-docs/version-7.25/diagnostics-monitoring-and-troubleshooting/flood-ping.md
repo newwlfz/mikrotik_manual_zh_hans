@@ -51,4 +51,4 @@ Flood ping 属于 [设备模式](../system-information-and-utilities/device-mode
 
 如需更多请求、更长的测试，或源地址、VRF 之类的选项，请使用带 `count` 和 `interval` 的 [ping](./ping.md)。
 
-有关所有参数，请参阅 [`/tool/flood-ping` CLI reference](../cli-reference/tool/flood-ping.md)。
+有关所有参数，请参阅 [`/tool/flood-ping` CLI 参考](../cli-reference/tool/flood-ping.md)。

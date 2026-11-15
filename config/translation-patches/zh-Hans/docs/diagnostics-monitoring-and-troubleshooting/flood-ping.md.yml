@@ -1,0 +1,6 @@
+# 正文最后一句的 “CLI reference” 是英文残留，其余术语已按全站惯例译为
+# 「CLI 参考」（见其它 docs 页面）。补丁在 apply/translate 写回后统这一句，
+# 保证以后从英文源重建本页时不会再漏出英文。
+replace:
+  - from: "有关所有参数，请参阅 [`/tool/flood-ping` CLI reference](../cli-reference/tool/flood-ping.md)。"
+    to: "有关所有参数，请参阅 [`/tool/flood-ping` CLI 参考](../cli-reference/tool/flood-ping.md)。"
