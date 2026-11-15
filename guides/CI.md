@@ -77,6 +77,24 @@ npm run translate:batch -- --budget-minutes=5 --max-blocks=20 --json
 （取最后一条能解析的 JSON），并把 `pending/stopped/translated` 写成 step outputs；
 **取不到时 `pending` 为空**，于是 `build` 的 `== '0'` 不成立 —— 失败是安全的一侧。
 
+### `script_warning`：字形与地区用词告警
+
+译文写盘前会按目标语种做一次文字系统校验（`tools/translate/lib/script-check.mjs`）：
+`zh-Hant` 不允许出现简体专用字或大陆用词（`软件`、`网络`、`设置`、`用户`、`队列`…），
+`zh-Hans` 反向检查繁体字与台湾用词（`軟體`、`網路`、`設定`、`使用者`、`佇列`…）。
+
+命中时**先带反馈重试一次**（把命中的词形回给模型）；仍然命中就保留这次译文，记为
+`script_warning`，不会静默通过：
+
+- `--json` 摘要多出 `script_warning`（数量）与 `script_warnings`（逐条 `file` /
+  `kind` / `forms` / `sample`）；
+- `work/translate/run.json` 同样记录，下一批能看到上一批留下的告警；
+- `tools/ci/read-translate-summary.mjs` 把它们列在 job summary 的「中文站翻译批次」
+  表格下面，一行一条，并写出 `script_warning=<数量>` 这个 step output。
+
+告警不是失败：页面照常写盘、照常提交，`pending` 也不受影响；它只是让人看见「这一版
+还有多少处简体/繁体用词没转干净」。
+
 ### 一次「增量翻译」到底做了什么
 
 1. **计划**：对每个板块读英文源（`docs/` 等）与覆盖层（`i18n/zh-Hans/…`），

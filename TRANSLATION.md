@@ -276,16 +276,20 @@ Current artefacts:
 
 1. Add the locale to `docusaurus.config.ts` and `config/mirror.yml`.
 2. Add `config/glossary/<locale>.yml` and `config/translation-patches/<locale>/`.
-3. The pipeline paths are already locale-shaped:
+3. Add `config/locale-profiles/<locale>.md` — writing system, register,
+   punctuation, preferred wording and bad/good examples (see section 8). Without
+   it the generic template is used and the prompt has no locale-specific
+   terminology.
+4. The pipeline paths are already locale-shaped:
    `i18n/<locale>/docusaurus-plugin-content-docs/...`.
-4. Run `import-legacy` (if a previous translation exists for that locale) or go
+5. Run `import-legacy` (if a previous translation exists for that locale) or go
    straight to `translate`.
-5. `write-translations --locale <locale>` for the theme and sidebar catalogues.
-6. `verify` and `build`.
+6. `write-translations --locale <locale>` for the theme and sidebar catalogues.
+7. `verify` and `build`.
 
 Rules do not need to be rewritten per language: they describe structure and
-preservation, which are language-independent. Only the glossary and the patch
-layer are per locale.
+preservation, which are language-independent. Only the glossary, the profile
+and the patch layer are per locale.
 
 ## 7. Commands
 
@@ -301,3 +305,53 @@ npm run translate:audit-comments   # classify `#` lines in code fences
 npm run translate:comments -- --dry-run --limit=40
 npm run build                      # CLI model + Docusaurus + Pagefind
 ```
+
+## 8. 语种档案与提示词
+
+语种档案是给模型的「本地化说明」：用哪种文字系统、什么语体、什么标点、哪些内容原样保留、
+这个语种习惯用什么词。它出现之前，所有请求都被要求输出“Simplified Chinese”，新语种只能
+靠转换现有译文派生——`zh-Hant` 最初就是 OpenCC `s2twp` 一次性转换的产物。有了档案，一个
+语种才是真正的翻译目标，而不是另一个语种的衍生物。
+
+### 文件位置
+
+`config/locale-profiles/<locale>.md`，一个语种一份，结构完全一致：
+
+````md
+# <语言名>
+- script: Hans|Hant|Latn
+- register: 技术文档，简洁，第二人称
+- punctuation: 全角（中文）/ ASCII（英文）
+- keep-verbatim: 代码、命令、路径、锚点、产品名
+- preferred terms: 术语A→译法；术语B→译法
+- examples:
+  - bad: ...
+    good: ...
+````
+
+`en.md` 是源语言参考，不作为翻译目标。
+
+### 怎么进入提示词
+
+- `tools/translate/lib/locale-profile.mjs` 读取并缓存档案（`profileFor(locale)`）。
+  文件缺失时只告警一次并回退到通用模板，不会因此拒绝翻译。
+- `tools/translate/lib/provider.mjs` 按「通用规则 + 语种档案 + 文字系统提醒 + 当前文本
+  命中的术语（最多 `glossary_limit` 条，默认 20）」拼 system prompt。`Client.system(text)`
+  是唯一的组装点，块、标题、描述、注释四条路径因此拿到同一份说明。
+- `tools/translate/lib/prompts.mjs` 用同一份档案生成标题、描述、段落重试和注释提示；
+  调用点不再出现任何语言名。
+- `tools/translate/lib/script-check.mjs` 校验输出：`zh-Hant` 不得出现简体专用字或大陆
+  用词，`zh-Hans` 反向检查。命中先带反馈重试一次（`lib/script-guard.mjs`）；仍不对就保留
+  译文并记为 `script_warning`——写进 `run.json`、`--json` 摘要和 CI job summary，不静默通过。
+
+### 新增一个语种
+
+1. 新增 `config/locale-profiles/<locale>.md`：复制同目录文件并逐项改写；`examples`
+   要具体——审阅时每发现一类错，就补一对 bad/good。
+2. 新增 `config/glossary/<locale>.yml`（档案覆盖不到的术语）和
+   `config/translation-patches/<locale>/`。
+3. 在 `docusaurus.config.ts` / `config/mirror.yml` 里注册该语种。
+4. 先 `translate --locale=<locale> --dry-run` 看计划，再 `translate --locale=<locale>`。
+5. `verify --locale=<locale>` 与 `npm run translate:selftest` 必须通过。selftest 用 mock
+   provider 捕获真实发出的 system prompt：档案少了 `script` 或 `preferred terms` 会在
+   花钱之前就失败。
