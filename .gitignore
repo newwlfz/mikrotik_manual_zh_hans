@@ -48,13 +48,26 @@ data/nav/
 /work/*
 !/work/translate/
 /work/translate/*
-# Committed translation state (kilobytes):
+# Committed translation state (kilobytes). The policy lives in
+# `work/translate/README.md`; keep the two in sync when it changes.
+#   README.md           what is tracked, what is rebuildable, where the rest is
 #   keep-english.json   blocks that stay English on purpose; without it every
 #                       batch would re-send them and `pending` never reaches 0
 #   run.json            the last batch's journal (stopped reason, pending, cost)
 #   comment-memory.json code-fence comments, so a comment is translated once
-# Everything else there (~60 MB of TM and model memory) is reconstruction
-# scaffolding: the overlays under `i18n/` are the source of truth.
+#
+# The big files here are deliberately ignored:
+#   model-memory.json / tm-global.*.json / table-memory.json
+#       rebuild from the overlays under `i18n/` (`translate:harvest` / apply /
+#       the table pass); the overlays are the source of truth
+#   usage.jsonl         local cost log, not portable state
+#   translation-memory.json
+#       NOT rebuildable (its legacy corpus is gone). It is archived in release
+#       `memory-v1`:
+#       https://github.com/newwlfz/mikrotik_manual_zh_hans/releases/tag/memory-v1
+#       Restore with `gh release download memory-v1 -D work/translate`, or the
+#       curl commands in `work/translate/README.md`.
+!/work/translate/README.md
 !/work/translate/keep-english.json
 !/work/translate/run.json
 !/work/translate/comment-memory.json
