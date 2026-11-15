@@ -120,7 +120,7 @@ npm run translate:batch -- --budget-minutes=5 --max-blocks=20 --json
 | 上次批次日志 | `work/translate/run.json`（入库） | 停止原因、`limit`、成本、跑完后的 `pending` |
 | 代码围栏注释 | `work/translate/comment-memory.json`（入库） | 注释只翻一次 |
 | 模型记忆 / 旧 TM | `work/translate/{model-memory,translation-memory}.json`（**入库基线快照**） | 共 45 MB 原始、约 7.4 MB packed。`apply`/`derive` 在运行时把这两份 + `comment-memory.json` 合并成**内存 TM**；`translate --refresh-changed` 用同一份记忆重建被改动的页面。入库后它们**不再被批次重写**，新译文只追加到 `shards/*.json`（见 `work/translate/README.md` § 七） |
-| 页面指纹 | `state/translation-state.json` 的 `source_sha256` / `overlay_sha256` / `source_blocks` | 页面级 sha 判断「源是否变了」，块级指纹判断「哪几块变了」，刷新只重译变化的块 |
+| 页面指纹 | `state/translation-state.json` 的 `source_sha256` / `overlay_sha256` / `source_blocks`（入库；首次基线后约 2.9 MiB） | 页面级 sha 判断「源是否变了」，块级指纹判断「哪几块变了」，刷新只重译变化的块 |
 | 全局 TM 快照 | `work/translate/tm-global.<locale>.json`（**不入库**） | 纯派生：只由 `npm run translate:tm` 手动生成，**不被 `apply`/`translate`/`verify` 读取**，只被非默认语种的 `derive` 读取 |
 
 **为什么大 TM 改为入库**：以前 CI 的 checkout 里没有记忆，`translate` 只能从覆盖层

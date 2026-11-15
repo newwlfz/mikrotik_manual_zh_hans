@@ -30,7 +30,7 @@
 | `keep-english.json` | 696 KiB | 故意保持英文的块。删了它，每批都会重新送翻，`pending` 永远归不了零。 |
 | `comment-memory.json` | 20 KiB | 代码围栏里行首注释的译文，保证一条注释只翻一次。 |
 | `run.json` | 523 B | 上一批的日志（停止原因、`pending`、token 成本），含 `refresh` 摘要。 |
-| `state/translation-state.json`（仓库根 `state/`） | 约 1.5 MiB（含块指纹） | 每页翻译进度 + `source_sha256`/`overlay_sha256`/`source_blocks`；`translate:verify` / `pending` 都读它。 |
+| `state/translation-state.json`（仓库根 `state/`） | 约 2.9 MiB（含每页块指纹，首次基线后） | 每页翻译进度 + `source_sha256`/`overlay_sha256`/`source_blocks`；`translate:verify` / `pending` 都读它。 |
 | `translation-memory.json` | 18.2 MiB（打包约 3.5 MB） | **基线快照**：审校过的旧版记忆，`refresh --changed` 与 `apply`/`derive` 的第一来源。之后**不再重写**。 |
 | `model-memory.json` | 25.3 MiB（打包约 4 MB） | **基线快照**：截至入库时模型产出的全部译文。之后**不再重写**，新增只走分片。 |
 | `shards/*.json` | 每批几十到几百 KiB | 增量译文分片（第七节）：基线之后新译文的唯一入库载体。 |
