@@ -21,6 +21,7 @@
 | `tm-global.<locale>.json` | 三源合并出的全局 TM 快照，只供检查 | 可删（派生，且 zh-Hans 那份无人读） | 只由 `translate tm` 手动写；`apply` / `translate` / `verify` 都不读它，仅非默认语种的 `derive` 读自己语种的那份。删了下次 `translate tm` 重新合并即可 |
 | `table-memory.json` | 表格行的翻译缓存 | 可删（派生） | 下次跑 `tools/translate/tables.mjs` 时按 overlay / 模型记忆补建，未命中的行重新调模型（变慢） |
 | `legacy-index.json`、迁移备份、`usage.jsonl` | 旧 legacy 索引 / 一次性快照 / 本机成本流水 | 可删，或移出本目录 | 都不参与流水线：`legacy-index` 已失效、迁移备份零引用、`usage.jsonl` 删了只丢历史成本 |
+| `shards/*.json` | 增量译文分片，**CI 里新译文唯一能进 git 的载体** | 合并后可删 | 删掉尚未并入 `model-memory.json` 的条目，下一批会重新翻译（花钱、措辞可能漂移）。见第七节 |
 
 ## 二、入库（提交到 git）
 
@@ -30,6 +31,7 @@
 | `comment-memory.json` | 20 KiB | 代码围栏里行首注释的译文，保证一条注释只翻一次。 |
 | `run.json` | 523 B | 上一批的日志（停止原因、`pending`、token 成本）。 |
 | `state/translation-state.json`（仓库根 `state/`） | 158 KiB | 每页翻译进度，`translate:verify` / `pending` 都读它。 |
+| `shards/*.json` | 每批几十到几百 KiB | 增量译文分片（第七节）。CI 没有 26 MB 的 `model-memory.json`，新译文只能靠它入库。 |
 
 这四份都在千字节级，是“接着上一批继续”的最小状态。**它们必须入库**：CI 的翻译
 job 从仓库恢复状态，不入库等于每批从零开始。
@@ -95,3 +97,88 @@ gunzip -c ../translate-archive/translation-memory.2026-11.json.gz > translation-
 | `usage.jsonl` | 519 B | 旧的成本流水。 |
 
 确认没用了就可以连同目录一起删。
+
+## 七、分片（shards）：新译文如何真正入库
+
+`model-memory.json` 有 26 MB，被 `.gitignore` 挡住，CI 的 checkout 里每次都是空
+的。`translate` 把新译文只写进这个大文件时，job 结束的 `git add` 拿不到任何东
+西——线上翻完即丢，下一批重新花钱翻同样的块。
+
+现在每次 `saveModelMemory()` 写完大文件后，会额外落一个**增量分片**：
+
+```
+work/translate/shards/20261115-055422-zh-Hans.json
+```
+
+```json
+{"schema":1,"locale":"zh-Hans","created_at":"2026-11-15T05:54:22.000Z","entries":{"docs-7.25\u0000The general menu is used to manage certificates.":"常规菜单用于管理证书。"}}
+```
+
+### 何时写
+
+- 保存模型记忆时，把内存里的每个键与「`model-memory.json` + 已提交分片」的合并
+  结果比较；**只写新增或值变了的键**，值没变的不写。
+- **没有新增/变更就不写文件**。纯加载、重跑同一批不会制造空分片。
+- 文件名是 UTC 时间戳 + 语种（`YYYYMMDD-HHMMSS-<locale>.json`）；同一秒内保存
+  两次会合并进同一个文件，后写覆盖。
+- 格式固定：紧凑 JSON（无缩进）、UTF-8、`entries` 按 key 升序。顶层键顺序是
+  `schema`、`locale`、`created_at`、`entries`。
+
+### 何时合并（加载）
+
+`createGlobalTm()` 与 `loadModelMemory()` 都先读 `work/translate/model-memory.json`
+（若存在），再按**文件名顺序**叠加 `work/translate/shards/*.json`：
+
+1. 分片优先于大文件；
+2. 后写的分片优先于先写的；
+3. 单个分片损坏只跳过该文件（丢掉它带来的条目，下一批重翻），不让整批失败。
+
+CI 里没有大文件，分片就是全部记忆，所以**分片必须入库**。`.gitignore` 已用
+`!/work/translate/shards/` 与 `!/work/translate/shards/*.json` 放行，`translate`
+job 现有的 `git add -A work/translate` 会自动带上它们。
+
+### 体积控制
+
+只告警、不拦截（是否压缩由人决定）：
+
+| 条件 | 行为 |
+| --- | --- |
+| 单次新增/变更 > 5,000 条 | stderr 告警，仍然写入 |
+| 单个分片 > 2 MB | stderr 告警，仍然写入 |
+
+告警文本会指回本节。分片变多不等于译文变多：同一批里同一英文块被改写、或后续
+批次修正旧译文，都会各写一条（后写覆盖）；真正要担心的是**目录总大小**和
+**加载时间**。
+
+### 如何压缩
+
+按文件名顺序合并成一个分片（后写覆盖），然后删掉被合并的文件。在仓库根执行：
+
+```bash
+node --input-type=module - <<'JS'
+import fs from 'node:fs';
+const dir = 'work/translate/shards';
+const files = fs.readdirSync(dir).filter((name) => name.endsWith('.json')).sort();
+const entries = new Map();
+for (const name of files) {
+  const payload = JSON.parse(fs.readFileSync(`${dir}/${name}`, 'utf8'));
+  for (const [key, value] of Object.entries(payload.entries || {})) entries.set(key, value);
+}
+const sorted = Object.fromEntries([...entries].sort(([a], [b]) => (a < b ? -1 : a > b ? 1 : 0)));
+const stamp = new Date().toISOString().replace(/[-:]/g, '').replace('T', '-').slice(0, 15);
+const out = `${dir}/${stamp}-zh-Hans.json`;
+fs.writeFileSync(out, `${JSON.stringify({
+  schema: 1,
+  locale: 'zh-Hans',
+  created_at: new Date().toISOString(),
+  entries: sorted,
+})}\n`);
+for (const name of files) fs.unlinkSync(`${dir}/${name}`);
+console.log(`merged ${files.length} shard(s) into ${out} (${entries.size} entries)`);
+JS
+```
+
+压缩是幂等的：合并后再跑 `translate`，已覆盖的键不会再产生分片。长期策略是**按
+月合并**（每月一个文件），而不是每批一个；单仓分片目录稳定超过几十 MB 时，说明
+该把它们并进 `model-memory.json` 的归档流程（`translate:harvest` + 仓库外备份），
+而不是继续堆分片。
