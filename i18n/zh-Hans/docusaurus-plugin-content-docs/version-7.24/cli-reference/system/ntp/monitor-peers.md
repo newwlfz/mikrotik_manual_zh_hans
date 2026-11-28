@@ -1,0 +1,29 @@
+---
+title: "monitor-peers"
+source: https://manual.mikrotik.com/docs/7.24/cli-reference/system/ntp/monitor-peers
+captured_at: '2026-11-28T10:19:39.818Z'
+translated_at: "2026-11-28T14:11:26.249Z"
+translation_provider: "opencode-go"
+translation_model: "hy4-flash-free"
+translation_source: "llm"
+---
+
+-----------
+
+## system/ntp/monitor-peers 
+**类型：** 命令
+
+<ArgTable c1="Read-only Argument" c2="Type" c3="Description">
+<ArgTableRow arg="type" typ="string"></ArgTableRow>
+<ArgTableRow arg="address" typ="address (flags=46)"></ArgTableRow>
+<ArgTableRow arg="refid" typ="string"></ArgTableRow>
+<ArgTableRow arg="stratum" typ="num"></ArgTableRow>
+<ArgTableRow arg="hpoll" typ="num"></ArgTableRow>
+<ArgTableRow arg="ppoll" typ="num"></ArgTableRow>
+<ArgTableRow arg="root-delay" typ="num"></ArgTableRow>
+<ArgTableRow arg="root-disp" typ="num"></ArgTableRow>
+<ArgTableRow arg="offset" typ="num"></ArgTableRow>
+<ArgTableRow arg="delay" typ="num"></ArgTableRow>
+<ArgTableRow arg="disp" typ="num"></ArgTableRow>
+<ArgTableRow arg="jitter" typ="num"></ArgTableRow>
+</ArgTable>

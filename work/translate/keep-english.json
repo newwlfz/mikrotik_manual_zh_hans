@@ -2,13 +2,124 @@
  "schema": 3,
  "note": "Units the model returned unchanged: technical notation, grammar, identifiers and proper-noun titles. The planner never queues them again; config/force-translate.yml overrides a block lock.",
  "blocks": [
+  "### `/user/active/listen`",
   "#### `VLAN Map`",
+  "- `:put` - `/ip route get` - `find gateway=1.1.1.1`",
+  "- `AA:BB:CC:DD:*:*` - `AA:BB:CC:DD:EE:*` - `AA:*:*:*:*:*`",
+  "- https://kb.vmware.com/kb/1004099",
+  "- https://technet.microsoft.com/en-us/library/cc816585(v=ws.10).aspx#Anchor_2",
+  "[0:a00:27ff:fe70::e88c%2]",
   "| | | | :-- | :-- | | <img decoding=\"async\" loading=\"lazy\" alt=\"CB Unicast 3\" src=\"LINK\" width=\"822\" height=\"613\"/><br/> | |"
  ],
  "titles": [
   {
+   "key": "API",
+   "original": "API",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "ARP",
+   "original": "ARP",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "Back To Home",
+   "original": "Back To Home",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "Bluetooth",
+   "original": "Bluetooth",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "Bonding",
+   "original": "Bonding",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "CAKE",
+   "original": "CAKE",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "ChirpStack",
+   "original": "ChirpStack",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "Container",
+   "original": "Container",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "Container - HAProxy",
+   "original": "Container - HAProxy",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "Container - HomeAssistant",
+   "original": "Container - HomeAssistant",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "Container - Matrix(Synapse)",
+   "original": "Container - Matrix(Synapse)",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "Container - Postgres",
+   "original": "Container - Postgres",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "DNS",
+   "original": "DNS",
+   "reason": "model-kept-proper-noun"
+  },
+  {
    "key": "Dot1X",
    "original": "Dot1X",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "Dude",
+   "original": "Dude",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "FlashFig",
+   "original": "FlashFig",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "GPIO",
+   "original": "GPIO",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "GPS",
+   "original": "GPS",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "HTB(Hierarchical Token Bucket)",
+   "original": "HTB(Hierarchical Token Bucket)",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "LTE/5G",
+   "original": "LTE/5G",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "Layer7",
+   "original": "Layer7",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "Lora",
+   "original": "Lora",
    "reason": "model-kept-proper-noun"
   },
   {
@@ -22,8 +133,68 @@
    "reason": "model-kept-proper-noun"
   },
   {
+   "key": "MQTT",
+   "original": "MQTT",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "Mangle",
+   "original": "Mangle",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "MikroTik Beacon Manager",
+   "original": "MikroTik Beacon Manager",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "Modbus",
+   "original": "Modbus",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "NAT",
+   "original": "NAT",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "NAT-PMP",
+   "original": "NAT-PMP",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "Netinstall",
+   "original": "Netinstall",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "Netwatch",
+   "original": "Netwatch",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "Openflow",
+   "original": "Openflow",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "PPP",
+   "original": "PPP",
+   "reason": "model-kept-proper-noun"
+  },
+  {
    "key": "PPP AAA",
    "original": "PPP AAA",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "Ping",
+   "original": "Ping",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "PoE",
+   "original": "PoE",
    "reason": "model-kept-proper-noun"
   },
   {
@@ -32,8 +203,88 @@
    "reason": "model-kept-proper-noun"
   },
   {
+   "key": "REST API",
+   "original": "REST API",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "RoMON",
+   "original": "RoMON",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "RouterBOARD",
+   "original": "RouterBOARD",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "RouterBOOT",
+   "original": "RouterBOOT",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "SMS",
+   "original": "SMS",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "SNMP",
+   "original": "SNMP",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "SOCKS",
+   "original": "SOCKS",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "SSH",
+   "original": "SSH",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "Socksify",
+   "original": "Socksify",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "Supout.rif",
+   "original": "Supout.rif",
+   "reason": "model-kept-proper-noun"
+  },
+  {
    "key": "SwOS",
    "original": "SwOS",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "TR-069",
+   "original": "TR-069",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "The Things Stack",
+   "original": "The Things Stack",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "Torch",
+   "original": "Torch",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "Traceroute",
+   "original": "Traceroute",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "UPnP",
+   "original": "UPnP",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "VETH",
+   "original": "VETH",
    "reason": "model-kept-proper-noun"
   },
   {
@@ -42,8 +293,28 @@
    "reason": "model-kept-proper-noun"
   },
   {
+   "key": "VRRP",
+   "original": "VRRP",
+   "reason": "model-kept-proper-noun"
+  },
+  {
    "key": "VXLAN",
    "original": "VXLAN",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "WebFig",
+   "original": "WebFig",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "Wiliot",
+   "original": "Wiliot",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "WinBox",
+   "original": "WinBox",
    "reason": "model-kept-proper-noun"
   }
  ],
