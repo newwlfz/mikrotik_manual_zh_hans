@@ -1,0 +1,15 @@
+---
+title: "reset-alert"
+source: https://manual.mikrotik.com/docs/7.24/cli-reference/ip/dhcp-server/alert/reset-alert
+captured_at: '2026-11-28T10:19:39.818Z'
+pagination_prev: "cli-reference/ip/dhcp-server/alert"
+translated_at: "2026-11-28T12:39:08.646Z"
+translation_provider: "opencode-go"
+translation_model: "hy4-flash-free"
+translation_source: "llm"
+---
+
+-----------
+
+## ip/dhcp-server/alert/reset-alert 
+**类型：** 命令

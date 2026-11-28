@@ -7,7 +7,7 @@ tags:
   - 'wireless'
 source: https://manual.mikrotik.com/docs/7.24/bridging-and-switching/user-guides/wireless-vlan-trunk
 captured_at: '2026-11-28T10:19:39.818Z'
-translated_at: "2026-11-28T11:05:14.673Z"
+translated_at: "2026-11-28T12:39:08.646Z"
 translation_provider: "opencode-go"
 translation_model: "hy4-flash-free"
 translation_source: "llm"
@@ -48,11 +48,11 @@ add bridge=bridge tagged=ether1,wlan1 vlan-ids=10
 add bridge=bridge tagged=ether1,wlan1,bridge vlan-ids=99
 ```
 
-:::info Interface Access Control
+:::info 接口访问控制
 可以按接口限制对设备的管理访问。如果希望阻止从特定接口（例如 `wlan1`）访问，只需从对应的网桥 VLAN 条目中移除该接口。
 :::
 
-:::warning Handling Wireless & HW-Offloaded VLANs
+:::warning 处理 Wireless 和硬件卸载 VLAN
 对于同时支持硬件卸载 VLAN 过滤和 Wireless 的设备（例如 RB4011、LtAP），请谨慎操作。如果未明确允许某个 VLAN 访问 CPU，则从硬件卸载端口流向无线接口的数据包可能会被丢弃。
 
 要允许特定 VLAN 访问 CPU：

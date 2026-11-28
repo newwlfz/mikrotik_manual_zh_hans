@@ -1,0 +1,28 @@
+---
+title: "monitor"
+source: https://manual.mikrotik.com/docs/7.24/cli-reference/ip/proxy/monitor
+captured_at: '2026-11-28T10:19:39.818Z'
+translated_at: "2026-11-28T12:39:08.646Z"
+translation_provider: "opencode-go"
+translation_model: "hy4-flash-free"
+translation_source: "llm"
+---
+
+-----------
+
+## ip/proxy/monitor
+**类型：** 命令
+
+<ArgTable c1="Read-only Argument" c2="Type" c3="Description">
+<ArgTableRow arg="status" typ="enum (stopped | running | invalid-address | building-cache | passthrough) { stopped:0, running:1, invalid-address:4, building-cache:5 }"></ArgTableRow>
+<ArgTableRow arg="uptime" typ="time"></ArgTableRow>
+<ArgTableRow arg="client-connections" typ="num"></ArgTableRow>
+<ArgTableRow arg="server-connections" typ="num"></ArgTableRow>
+<ArgTableRow arg="requests" typ="num"></ArgTableRow>
+<ArgTableRow arg="hits" typ="num"></ArgTableRow>
+<ArgTableRow arg="cache-used" typ="num"></ArgTableRow>
+<ArgTableRow arg="total-ram-used" typ="num"></ArgTableRow>
+<ArgTableRow arg="received-from-servers" typ="num"></ArgTableRow>
+<ArgTableRow arg="sent-to-clients" typ="num"></ArgTableRow>
+<ArgTableRow arg="hits-sent-to-clients" typ="num"></ArgTableRow>
+</ArgTable>
