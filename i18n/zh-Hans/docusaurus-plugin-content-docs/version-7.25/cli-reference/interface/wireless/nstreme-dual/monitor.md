@@ -1,0 +1,46 @@
+---
+title: "monitor"
+source: https://manual.mikrotik.com/docs/7.25/cli-reference/interface/wireless/nstreme-dual/monitor
+captured_at: '2026-11-28T10:17:19.424Z'
+pagination_prev: "cli-reference/interface/wireless/nstreme-dual"
+translated_at: "2026-11-28T17:14:44.363Z"
+translation_provider: "opencode-go"
+translation_model: "hy4-flash-free"
+translation_source: "tm"
+---
+
+-----------
+
+## interface/wireless/nstreme-dual/monitor 
+**包：** wireless-rep
+**类型：** Command
+
+<ArgTable c1="Read-only Argument" c2="Type" c3="Description">
+<ArgTableRow arg="rx-signal-strength" typ="num"></ArgTableRow>
+<ArgTableRow arg="tx-signal-strength" typ="num"></ArgTableRow>
+<ArgTableRow arg="rx-rate" typ="string"></ArgTableRow>
+<ArgTableRow arg="tx-rate" typ="string"></ArgTableRow>
+<ArgTableRow arg="connected" typ="bool"></ArgTableRow>
+<ArgTableRow arg="packets" typ="composite { tx: num
+, rx: num
+ }"></ArgTableRow>
+<ArgTableRow arg="bytes" typ="composite { tx: num
+, rx: num
+ }"></ArgTableRow>
+<ArgTableRow arg="frames" typ="composite { tx: num
+, rx: num
+ }"></ArgTableRow>
+<ArgTableRow arg="frame-bytes" typ="composite { tx: num
+, rx: num
+ }"></ArgTableRow>
+<ArgTableRow arg="hw-frames" typ="composite { tx: num
+, rx: num
+ }"></ArgTableRow>
+<ArgTableRow arg="hw-frame-bytes" typ="composite { tx: num
+, rx: num
+ }"></ArgTableRow>
+<ArgTableRow arg="tx-retries-timeout" typ="num"></ArgTableRow>
+<ArgTableRow arg="tx-retries-lost" typ="num"></ArgTableRow>
+<ArgTableRow arg="rx-bad-seqs" typ="num"></ArgTableRow>
+<ArgTableRow arg="rx-duplicates" typ="num"></ArgTableRow>
+</ArgTable>

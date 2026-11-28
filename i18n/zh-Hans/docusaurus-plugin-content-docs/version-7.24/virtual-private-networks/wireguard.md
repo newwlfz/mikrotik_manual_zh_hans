@@ -6,7 +6,7 @@ tags:
   - 'vpn'
 source: https://manual.mikrotik.com/docs/7.24/virtual-private-networks/wireguard
 captured_at: '2026-11-28T10:19:39.818Z'
-translated_at: "2026-11-28T15:42:55.558Z"
+translated_at: "2026-11-28T17:14:44.363Z"
 translation_provider: "opencode-go"
 translation_model: "hy4-flash-free"
 translation_source: "llm"
@@ -29,15 +29,15 @@ WireGuard 是一个极其简单但快速且现代的 VPN，采用先进的密码
 ### WireGuard 上下文中的 `The vrf` 参数 {#the-vrf-parameter-in-wireguard-context}
 
 :::info
-The `vrf` parameter does **not** apply to the WireGuard interface itself (e.g., `wg0`, `wg1`), but rather to the **UDP socket** used for transporting encrypted packets.
+`vrf` 参数**不**应用于 WireGuard 接口本身（例如 `wg0`、`wg1`），而是应用于用于传输加密数据包的 **UDP socket**。
 
-There are two distinct layers in WireGuard operation:
+WireGuard 运行中有两个不同的层：
 
-1. **WireGuard interface** — this is the virtual network device through which *plain* (unencrypted) packets flow. These packets are encrypted and sent out through the UDP socket, or decrypted when they come in from it.
-2. **UDP sockets** — these handle the *encrypted* traffic: receiving encrypted packets from the network and sending encrypted packets out.
+1. **WireGuard 接口** —— 这是 *明文*（未加密）数据包流经的虚拟网络设备。这些数据包会被加密并通过 UDP socket 发送出去，或在从 UDP socket 进入时解密。
+2. **UDP socket** —— 处理 *加密* 流量：从网络接收加密数据包，并发送加密数据包。
 
-The `vrf` parameter is relevant to **the UDP socket layer** (case 2). It specifies **which routing table (VRF)** the socket should use to determine how encrypted packets are sent or received.  
-This ensures that encrypted traffic follows the correct routing path and uses the proper source IP, preventing issues where packets might otherwise go out via the wrong interface or route.  
+`vrf` 参数与 **UDP socket 层**相关（情况 2）。它指定 socket 应使用哪个路由表（VRF）来确定加密数据包的发送或接收方式。  
+这可确保加密流量遵循正确的路由路径并使用正确的源 IP，避免数据包可能通过错误接口或路由发出的问题。  
 
 #### 示例> 假设接口 `eth1` 属于 VRF `foo`。 {#example}
 > 如果希望 WireGuard 通过 `eth1` 发送和接收加密数据包，应为 WireGuard 配置 `vrf=foo`。  

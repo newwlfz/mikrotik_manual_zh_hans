@@ -2,7 +2,7 @@
 title: "port"
 source: https://manual.mikrotik.com/docs/7.25/cli-reference/interface/ethernet/switch/qos/port
 captured_at: '2026-11-28T10:17:19.424Z'
-translated_at: "2026-11-28T15:42:55.558Z"
+translated_at: "2026-11-28T17:14:44.363Z"
 translation_provider: "opencode-go"
 translation_model: "hy4-flash-free"
 translation_source: "llm"
@@ -87,7 +87,7 @@ translation_source: "llm"
       queue3-byte-use:   3 072
 ```
 
-**Port PFC Stats (Previous Generations)**
+**端口 PFC 统计（上一代）**
 ```ros
 [admin@crs317] /interface/ethernet/switch/qos/port> print pfc interval=1 where running
                  name:  sfp-sfpplus1 sfp-sfpplus2   ether1
@@ -99,7 +99,7 @@ pfc3-resume-threshold:        10 240
              pfc3-use:     1 075 200
 ```
 
-**Port PFC Stats (New Generations)**
+**端口 PFC 统计（新一代）**
 ```routeros
 [admin@crs812] /interface/ethernet/switch/qos/port> print pfc interval=1 where pfc=roce
                  name:       sfp56-5 

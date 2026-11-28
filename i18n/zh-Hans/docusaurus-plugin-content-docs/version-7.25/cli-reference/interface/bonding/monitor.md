@@ -3,10 +3,10 @@ title: "monitor"
 source: https://manual.mikrotik.com/docs/7.25/cli-reference/interface/bonding/monitor
 captured_at: '2026-11-28T10:17:19.424Z'
 pagination_next: "cli-reference/interface/bridge"
-translated_at: "2026-11-28T15:42:55.558Z"
+translated_at: "2026-11-28T17:14:44.363Z"
 translation_provider: "opencode-go"
 translation_model: "hy4-flash-free"
-translation_source: "tm"
+translation_source: "llm"
 ---
 
 -----------
@@ -14,7 +14,7 @@ translation_source: "tm"
 ## interface/bonding/monitor 
 **类型：** 命令
 
-Command is used to monitor the bonding interface and bonding ports.
+该命令用于监控 bonding 接口和 bonding 端口。
 
 <ArgTable c1="Read-only Argument" c2="Type" c3="Description">
 <ArgTableRow arg="mode" typ="enum (balance-rr | active-backup | balance-xor | broadcast | 802.3ad | balance-tlb | balance-alb) { balance-rr:0, active-backup:1, balance-xor:2, broadcast:3, 802.3ad:4, balance-tlb:5, balance-alb:6 }">Used bonding mode.</ArgTableRow>

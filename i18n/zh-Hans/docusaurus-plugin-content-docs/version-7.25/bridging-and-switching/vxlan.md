@@ -5,10 +5,10 @@ tags:
   - 'vxlan'
 source: https://manual.mikrotik.com/docs/7.25/bridging-and-switching/vxlan
 captured_at: '2026-11-28T10:17:19.424Z'
-translated_at: "2026-11-28T15:42:55.558Z"
+translated_at: "2026-11-28T17:14:44.363Z"
 translation_provider: "opencode-go"
 translation_model: "hy4-flash-free"
-translation_source: "tm"
+translation_source: "llm"
 ---
 
 ---
@@ -29,55 +29,55 @@ VXLAN 会为 IPv4 增加 50 字节开销，为 IPv6 增加 70 字节开销。配
 
 **子菜单：** `/interface/vxlan`
 
-| Property | Description |
+| 属性 | 说明 |
 | :-- | :-- |
-| **allow-fast-path** (*yes \| no*; Default: **yes**) | Whether to allow [Fast Path](/docs/firewall-and-quality-of-service/packet-flow-in-routeros#fast-path) processing. Fragmented and flooded packets over VXLAN are redirected via a slow path. Fast Path is disabled for VXLAN interface that uses VRF. The setting is available since RouterOS version 7.8. |
-| **arp** (*disabled \| enabled \| local-proxy-arp \| proxy-arp \| reply-only*; Default: **enabled**) | Address Resolution Protocol setting<ul><li><span className="ros-icon-success"><code>disabled</code></span> - the interface will not use ARP</li><li><span className="ros-icon-success"><code>enabled</code></span> - the interface will use ARP</li><li><span className="ros-icon-success"><code>local-proxy-arp</code></span> - the router performs proxy ARP on the interface and sends replies to the same interface</li><li><span className="ros-icon-success"><code>proxy-arp</code></span> - the router performs proxy ARP on the interface and sends replies to other interfaces</li><li><span className="ros-icon-success"><code>reply-only</code></span> - the interface will only reply to requests originating from matching IP address/MAC address combinations which are entered as static entries in the IP/ARP table. No dynamic entries will be automatically stored in the IP/ARP table. Therefore for communications to be successful, a valid static entry must already exist.</li></ul> |
-| **arp-timeout** (*auto \| integer*; Default: **auto**) | How long the ARP record is kept in the ARP table after no packets are received from IP. Value `auto` equals to the value of `arp-timeout` in IP/Settings, default is the 30s. |
-| **arp-accept** (*yes \| no*; Default: **no**) | Defines the behavior for accepting gratuitous ARP (GARP) frames received from devices that are not already present in the ARP table:<ul><li><span className="ros-icon-success"><code>no</code></span> - new entries are not created in the ARP table</li><li><span className="ros-icon-success"><code>yes</code></span> - new entries are created in the ARP table</li></ul> The setting is available since RouterOS version 7.25.1. |
-| **bridge** (*name*; Default: ) | Name of the [bridge](/docs/user-guides/routing-and-networking-protocols/unicast/bgp) interface to which VXLAN interface will be added as a slave port. |
-| **bridge-pvid** (*integer 1..4094;* Default: **1**) | Used to assign PVID parameter for dynamically bridge port. This property only has an effect when bridge vlan-filtering is set to yes. |
-| **checksum**(*yes \| no*; Default: **no**) | Setting controls whether a UDP checksum is calculated in the transmitted outer VXLAN packets: <br/><ul><li><span className="ros-icon-success"><code>no</code></span> – the UDP checksum is set to zero in transmitted outer packets. This also allows receiving VXLAN packets over IPv6 that have a zero UDP checksum.</li><li><span className="ros-icon-success"><code>yes</code></span> - the UDP checksum is calculated in transmitted outer packets.</li></ul> If hardware offloading is used for packet transmission, this setting is ignored, and the behavior defaults to sending packets with a zero UDP checksum. |
-| **comment** (*string*; Default: ) | Short description of the interface. |
-| **disabled** (*yes \| no*; Default: **no**) | Changes whether the interface is disabled. |
-| **dont-fragment**(*auto \| disabled \| enabled \| inherit*; Default: **auto**) | The Don't Fragment (DF) flag controls whether a packet can be broken into smaller packets, called fragments, before being sent over a network. When configuring VXLAN, this setting determines the presence of the DF flag on the outer IPv4 header and can control packet fragmentation if the encapsulated packet exceeds the outgoing interface MTU. This setting has three options: <br/><ul><li><span className="ros-icon-success"><code>auto</code></span> - if the device supports VXLAN offloading, the dont-fragment mode will operate as <span className="ros-icon-success"><code>enabled</code></span>. if VXLAN offloading is not supported, it will use the <span className="ros-background-accent-green-bolder"><code>inherit</code></span> mode.</li><li><span className="ros-icon-success"><code>disabled</code></span> - the DF flag is not set on the outer IPv4 header, which means that packets can be fragmented if they are too large to be sent over the outgoing interface. This also allows packet fragmentation when VXLAN uses IPv6 underlay. Disables hardware offloading on compatible devices.</li><li><span className="ros-icon-success"><code>enabled</code></span> - the DF flag is always set on the outer IPv4 header, which means that packets will not be fragmented and will be dropped if they exceed the outgoing interface's MTU. This also avoids packet fragmentation when VXLAN uses IPv6 underlay.</li><li><span className="ros-background-accent-green-bolder"><code>inherit</code></span> - The DF flag on the outer IPv4 header is based on the inner IPv4 DF flag. If the inner IPv4 header has the DF flag set, the outer IPv4 header will also have it set. If the packet exceeds the outgoing interface's MTU and DF is set, it will be dropped. If the inner packet is non-IP, the outer IPv4 header will not have the DF flag set and packets can be fragmented. If the inner packet is IPv6, the outer IPv4 header will always set the DF flag and packets cannot be fragmented. Note that when VXLAN uses IPv6 underlay, this setting does not have any effect and is treated the same as <span className="ros-icon-success"><code>disabled</code></span>.</li></ul> The setting is available since RouterOS version 7.8. |
-| **group** (*IPv4 \| IPv6*; Default: ) | When specified, a multicast group address can be used to forward broadcast, unknown-unicast, and multicast traffic between VTEPs. This property requires specifying the `interface` setting. The interface will use IGMP or MLD to join the specified multicast group, make sure to add the necessary PIM and IGMP/MLD configuration. When this property is set, the `vteps-ip-version` automatically gets updated to the used multicast IP version. Disables hardware offloading on compatible devices. |
-| **hw** (*yes \| no*; Default: **yes**) | Allows to disable hardware offloading, only applies to devices that support VXLAN offloading. |
-| **interface** (*name*; Default: ) | Interface name used for multicast forwarding. This property requires specifying the `group` setting. Disables hardware offloading on compatible devices. |
-| **learning**(*yes \| no*; Default: **yes**) | Setting controls whether inner source MAC addresses and remote VTEP IP/IPv6 addresses are learned dynamically from received packets. |
-| **local-address** (*IPv4 \| IPv6*; Default: ) | Specifies the local source address for the VXLAN interface. If not set, one IP address of the egress interface will be selected as a source address for VXLAN packets. When the property is set, the `vteps-ip-version` automatically gets updated to the used local IP version. The setting is available since RouterOS version 7.7. |
-| **mac-address** (*MAC*; Default: ) | Static MAC address of the interface. A randomly generated MAC address will be assigned when not specified. |
-| **max-fdb-size** (*integer: 1*..65535**; Default: **4096**) | Limits the maximum number of MAC addresses that VXLAN can store in the forwarding database (FDB). |
-| **mtu** (*integer*; Default: **1500**) | For the maximum transmission unit, the VXLAN interface will set MTU to 1500 by default. The `l2mtu` will be set automatically according to the associated `interface` (subtracting 50 bytes corresponding to the VXLAN header). If no interface is specified, the `l2mtu` value of 65535 is used. The `l2mtu` cannot be changed. |
-| **name** (*text*; Default: **vxlan1**) | Name of the interface. |
-| **port** (*integer: 1*..65535**; Default: **4789**) | Used UDP port number for listening and sending packets to remote VTEPs. |
-| **rem-csum** (*both \| none \| rx \| tx*; Default: **none**) | Changes the Remote Checksum Offload (RCO) settings for VXLAN interface. RCO is a technique for eliding the inner checksum of an encapsulated datagram, allowing the outer checksum to be offloaded by network driver. It does, however, involve a change to the encapsulation protocols, which the receiver must also support. For this reason, it is disabled by default and setting is available to ensure compatibility with systems that rely on this feature. <br/> RCO is detailed in the following Internet-Drafts: <br/> Remote checksum offload for VXLAN, draft-herbert-vxlan-rco-00. Remote checksum offload for encapsulation, draft-herbert-remotecsumoffload-00. <br/> If <a href="/docs/bridging-and-switching/vxlan#hardware-offloaded-vxlan">hardware offloading</a> is used, this setting is ignored, and the behavior defaults to none. |
-| **ttl** (*auto \| integer: 0*..255**; Default: **auto**) | Specifies the TTL value to use in outgoing packets. By default, the TTL is set to 64 when using the `auto` option. However, if VXLAN is using a multicast underlay network, the default TTL is set to 1. If the multicast network involves routing, you will need to increase the TTL to a higher value. |
-| **vni** (*integer: 1..16777215*; Default: ) | VXLAN Network Identifier (VNI). |
-| **vtep-vrf** (*name*; Default: **main**) | Set VRF for the VXLAN interface on which the VTEPs listen and make connections. VRF is not supported when using `interface` and multicast `group` settings. The same UDP `port` cannot be used in multiple routing tables at the same time. When using a VRF that is not set as the "main", hardware offloading is disabled on compatible devices. The setting is available since RouterOS version 7.7. |
-| **vteps-ip-version** (*ipv4 \| ipv6*; Default: **ipv4**) | Used IP protocol version for statically configured VTEPs. The RouterOS VXLAN interface does not support dual-stack, any configured remote VTEPs with the opposite IP version will be ignored. When multicast `group` or `local-address` properties are set, the `vteps-ip-version` automatically gets updated to the used IP version. Using IPv6 disables hardware offloading on compatible devices. The setting is available since RouterOS version 7.6. |
+| **allow-fast-path** (*yes \| no*；默认值：**yes**) | 是否允许 [Fast Path](/docs/firewall-and-quality-of-service/packet-flow-in-routeros#fast-path) 处理。通过 VXLAN 传输的分片数据包和泛洪数据包会经由慢速路径重定向。对于使用 VRF 的 VXLAN 接口，Fast Path 会被禁用。该设置自 RouterOS 7.8 版本起可用。 |
+| **arp** (*disabled \| enabled \| local-proxy-arp \| proxy-arp \| reply-only*；默认值：**enabled**) | 地址解析协议设置<ul><li><span className="ros-icon-success"><code>disabled</code></span> - 接口将不使用 ARP</li><li><span className="ros-icon-success"><code>enabled</code></span> - 接口将使用 ARP</li><li><span className="ros-icon-success"><code>local-proxy-arp</code></span> - 路由器在接口上执行代理 ARP，并将回复发送到同一接口</li><li><span className="ros-icon-success"><code>proxy-arp</code></span> - 路由器在接口上执行代理 ARP，并将回复发送到其他接口</li><li><span className="ros-icon-success"><code>reply-only</code></span> - 接口仅回复来自 IP 地址/MAC 地址组合匹配且已在 IP/ARP 表中作为静态条目输入的请求。不会自动在 IP/ARP 表中存储动态条目。因此，要使通信成功，必须已存在有效的静态条目。</li></ul> |
+| **arp-timeout** (*auto \| integer*；默认值：**auto**) | 在不再从 IP 收到数据包后，ARP 记录在 ARP 表中保留多长时间。值 `auto` 等于 IP/Settings 中的 `arp-timeout` 值，默认值为 30 秒。 |
+| **arp-accept** (*yes \| no*；默认值：**no**) | 定义接受从尚未存在于 ARP 表中的设备收到的无偿 ARP（GARP）帧的行为：<ul><li><span className="ros-icon-success"><code>no</code></span> - 不在 ARP 表中创建新条目</li><li><span className="ros-icon-success"><code>yes</code></span> - 在 ARP 表中创建新条目</li></ul> 该设置自 RouterOS 7.25.1 版本起可用。 |
+| **bridge** (*name*；默认值：) | VXLAN 接口将作为从属端口添加到的 [bridge](/docs/user-guides/routing-and-networking-protocols/unicast/bgp) 接口名称。 |
+| **bridge-pvid** (*integer 1..4094;* 默认值：**1**) | 用于为动态网桥端口分配 PVID 参数。仅当 bridge vlan-filtering 设置为 yes 时，该属性才生效。 |
+| **checksum**(*yes \| no*；默认值：**no**) | 该设置控制是否在发送的外部 VXLAN 数据包中计算 UDP 校验和： <br/><ul><li><span className="ros-icon-success"><code>no</code></span> – 在发送的外部数据包中将 UDP 校验和设置为零。这也允许接收 UDP 校验和为零的 IPv6 VXLAN 数据包。</li><li><span className="ros-icon-success"><code>yes</code></span> - 在发送的外部数据包中计算 UDP 校验和。</li></ul> 如果使用硬件卸载进行数据包传输，则该设置会被忽略，行为默认为发送 UDP 校验和为零的数据包。 |
+| **comment** (*string*；默认值：) | 接口的简短描述。 |
+| **disabled** (*yes \| no*；默认值：**no**) | 更改接口是否禁用。 |
+| **dont-fragment**(*auto \| disabled \| enabled \| inherit*；默认值：**auto**) | Don't Fragment（DF）标志控制数据包在通过网络发送之前是否可以拆分为称为分片的较小数据包。配置 VXLAN 时，该设置决定外部 IPv4 报头中是否存在 DF 标志，并可在封装数据包超过出接口 MTU 时控制数据包分片。该设置有三个选项： <br/><ul><li><span className="ros-icon-success"><code>auto</code></span> - 如果设备支持 VXLAN 卸载，dont-fragment 模式将按 <span className="ros-icon-success"><code>enabled</code></span> 运行。如果不支持 VXLAN 卸载，则将使用 <span className="ros-background-accent-green-bolder"><code>inherit</code></span> 模式。</li><li><span className="ros-icon-success"><code>disabled</code></span> - 外部 IPv4 报头中未设置 DF 标志，这意味着如果数据包过大而无法通过出接口发送，则可以对其进行分片。当 VXLAN 使用 IPv6 underlay 时，这也允许数据包分片。在兼容设备上会禁用硬件卸载。</li><li><span className="ros-icon-success"><code>enabled</code></span> - 外部 IPv4 报头中始终设置 DF 标志，这意味着数据包不会被分片，如果超过出接口的 MTU，则会被丢弃。当 VXLAN 使用 IPv6 underlay 时，这也避免了数据包分片。</li><li><span className="ros-background-accent-green-bolder"><code>inherit</code></span> - 外部 IPv4 报头上的 DF 标志基于内部 IPv4 DF 标志。如果内部 IPv4 报头设置了 DF 标志，则外部 IPv4 报头也会设置该标志。如果数据包超过出接口的 MTU 且设置了 DF，则会被丢弃。如果内部数据包为非 IP 数据包，则外部 IPv4 报头不会设置 DF 标志，数据包可以被分片。如果内部数据包为 IPv6，则外部 IPv4 报头将始终设置 DF 标志，数据包无法被分片。请注意，当 VXLAN 使用 IPv6 underlay 时，该设置不起作用，并按与 <span className="ros-icon-success"><code>disabled</code></span> 相同的方式处理。</li></ul> 该设置自 RouterOS 7.8 版本起可用。 |
+| **group** (*IPv4 \| IPv6*；默认值：) | 指定后，可使用组播组地址在 VTEP 之间转发广播、未知单播和组播流量。该属性需要指定 `interface` 设置。接口将使用 IGMP 或 MLD 加入指定的组播组，请确保添加必要的 PIM 和 IGMP/MLD 配置。设置该属性时，`vteps-ip-version` 会自动更新为所使用的 IP 版本。在兼容设备上会禁用硬件卸载。 |
+| **hw** (*yes \| no*；默认值：**yes**) | 允许禁用硬件卸载，仅适用于支持 VXLAN 卸载的设备。 |
+| **interface** (*name*；默认值：) | 用于组播转发的接口名称。该属性需要指定 `group` 设置。在兼容设备上会禁用硬件卸载。 |
+| **learning**(*yes \| no*；默认值：**yes**) | 该设置控制是否从收到的数据包中动态学习内部源 MAC 地址和远端 VTEP IP/IPv6 地址。 |
+| **local-address** (*IPv4 \| IPv6*；默认值：) | 指定 VXLAN 接口的本地源地址。如果未设置，将选择出接口的一个 IP 地址作为 VXLAN 数据包的源地址。设置该属性时，`vteps-ip-version` 会自动更新为所使用的本地 IP 版本。该设置自 RouterOS 7.7 版本起可用。 |
+| **mac-address** (*MAC*；默认值：) | 接口的静态 MAC 地址。未指定时，将分配一个随机生成的 MAC 地址。 |
+| **max-fdb-size** (*integer: 1*..65535**；默认值：**4096**) | 限制 VXLAN 可在转发表（FDB）中存储的 MAC 地址最大数量。 |
+| **mtu** (*integer*；默认值：**1500**) | 对于最大传输单元，VXLAN 接口默认将 MTU 设置为 1500。`l2mtu` 将根据关联的 `interface` 自动设置（减去与 VXLAN 报头对应的 50 字节）。如果未指定接口，则使用 `l2mtu` 值 65535。`l2mtu` 无法更改。 |
+| **name** (*text*；默认值：**vxlan1**) | 接口名称。 |
+| **port** (*integer: 1*..65535**；默认值：**4789**) | 用于监听和向远端 VTEP 发送数据包的 UDP 端口号。 |
+| **rem-csum** (*both \| none \| rx \| tx*；默认值：**none**) | 更改 VXLAN 接口的 Remote Checksum Offload（RCO）设置。RCO 是一种省略封装数据报内部校验和的技术，使外部校验和可由网络驱动程序卸载。不过，它确实涉及对封装协议的更改，接收方也必须支持该更改。因此，该选项默认禁用；提供该设置是为了确保与依赖此功能的系统兼容。 <br/> RCO 在以下 Internet-Draft 中有详细说明： <br/> Remote checksum offload for VXLAN，draft-herbert-vxlan-rco-00。Remote checksum offload for encapsulation，draft-herbert-remotecsumoffload-00。 <br/> 如果使用 <a href="/docs/bridging-and-switching/vxlan#hardware-offloaded-vxlan">硬件卸载</a>，则该设置会被忽略，行为默认为 none。 |
+| **ttl** (*auto \| integer: 0*..255**；默认值：**auto**) | 指定外出数据包中使用的 TTL 值。默认情况下，使用 `auto` 选项时 TTL 设置为 64。但是，如果 VXLAN 使用组播 underlay 网络，则默认 TTL 设置为 1。如果组播网络涉及路由，则需要将 TTL 增大到更高的值。 |
+| **vni** (*integer: 1..16777215*；默认值：) | VXLAN 网络标识符（VNI）。 |
+| **vtep-vrf** (*name*；默认值：**main**) | 为 VXLAN 接口设置 VRF，VTEP 在该 VRF 中监听并建立连接。使用 `interface` 和组播 `group` 设置时不支持 VRF。同一 UDP `port` 不能同时在多个路由表中使用。使用未设置为“main”的 VRF 时，兼容设备上的硬件卸载会被禁用。该设置自 RouterOS 7.7 版本起可用。 |
+| **vteps-ip-version** (*ipv4 \| ipv6*；默认值：**ipv4**) | 静态配置 VTEP 所使用的 IP 协议版本。RouterOS VXLAN 接口不支持双栈，任何使用相反 IP 版本配置的远端 VTEP 都将被忽略。设置组播 `group` 或 `local-address` 属性时，`vteps-ip-version` 会自动更新为所使用的 IP 版本。使用 IPv6 会在兼容设备上禁用硬件卸载。该设置自 RouterOS 7.6 版本起可用。 |
 
-**Sub-menu:** `/interface/vxlan/vteps`
+**子菜单：** `/interface/vxlan/vteps`
 
-| Property | Description |
+| 属性 | 说明 |
 | :-- | :-- |
-| **comment** (*string*; Default: ) | Short description of the configured VTEP. |
-| **interface** (*name*; Default: ) | Name of the VXLAN interface. |
-| **remote-ip** (*IPv4 \| IPv6*; Default: ) | Defines the VTEP endpoint IPv4 or IPv6 address which is used when the VXLAN interface needs to send BUM (broadcast, unknown-unicast, multicast) traffic. It is not used as access control. |
+| **comment** (*string*; Default: ) | 已配置 VTEP 的简短说明。 |
+| **interface** (*name*; Default: ) | VXLAN 接口的名称。 |
+| **remote-ip** (*IPv4 \| IPv6*; Default: ) | 定义 VTEP 端点的 IPv4 或 IPv6 地址，当 VXLAN 接口需要发送 BUM（广播、未知单播、组播）流量时使用该地址。它不用于访问控制。 |
 
-## Forwarding table
+## 转发表 {#forwarding-table}
 
 ---
 
-Since RouterOS version 7.9, it is possible to monitor the learned MAC addresses from remote VTEPs.
+自 RouterOS 7.9 起，可以监控从远端 VTEP 学习到的 MAC 地址。
 
-**Sub-menu:** `/interface/vxlan/fdb`
+**子菜单：** `/interface/vxlan/fdb`
 
-| Property | Description |
+| 属性 | 说明 |
 | :-- | :-- |
-| **interface** (*read-only: *name**) | Name of the VXLAN interface. |
-| **mac-address** (*read-only: MAC address*) | MAC address. |
-| **remote-ip** (*read-only: IPv4 \| IPv6 address*) | The IPv4 or IPv6 destination address of the remote VTEP. |
+| **interface** (*read-only: *name**) | VXLAN 接口的名称。 |
+| **mac-address** (*read-only: MAC address*) | MAC 地址。 |
+| **remote-ip** (*read-only: IPv4 \| IPv6 address*) | 远端 VTEP 的 IPv4 或 IPv6 目的地址。 |
 
 ```ros
 [admin@MikroTik] > /interface/vxlan/fdb/print          
@@ -88,20 +88,20 @@ Since RouterOS version 7.9, it is possible to monitor the learned MAC addresses 
  2 remote-ip=192.168.10.20 mac-address=FE:AF:58:31:A7:B6 interface=vxlan2
 ```
 
-## Configuration example
+## 配置示例 {#configuration-example}
 
 ---
 
-This configuration example creates a single VXLAN tunnel between two statically configured VTEP endpoints.
+该配置示例在两个静态配置的 VTEP 端点之间创建一条 VXLAN 隧道。
 
-First, create VXLAN interfaces on both routers.
+首先，在两台路由器上创建 VXLAN 接口。
 
 ```ros
 /interface/vxlan
 add name=vxlan1 port=4789 vni=10
 ```
 
-Then configure VTEPs on both routers with respective IPv4 destination addresses. Both devices should have an active route toward the destination address.
+然后在两台路由器上配置 VTEP，并分别指定 IPv4 目的地址。两台设备都应有通往目的地址的活动路由。
 
 ```ros
 # Router1
@@ -113,29 +113,29 @@ add interface=vxlan1 remote-ip=192.168.10.10
 add interface=vxlan1 remote-ip=192.168.20.20
 ```
 
-The configuration is complete. It is possible to include the VXLAN interface into a bridge with other Ethernet interfaces.
+配置完成。可以将 VXLAN 接口加入包含其他以太网接口的网桥。
 
-## Hardware offloaded VXLAN
+## 硬件卸载 VXLAN {#hardware-offloaded-vxlan}
 
 ---
 
-Starting from RouterOS version 7.18, initial support for hardware-offloaded VXLAN was introduced. This makes the offloaded VXLAN data plane possible, supporting encapsulation and decapsulation, and allowing for static one-to-one VLAN-to-VXLAN mappings within a vlan-filtering bridge. Refer to the [L3HW Device Support](/docs/bridging-and-switching/l3-hardware-offloading#l3hw-device-support) documentation for a list of compatible devices.
+从 RouterOS 7.18 版本开始，引入了对硬件卸载 VXLAN 的初步支持。这使得卸载的 VXLAN 数据平面成为可能，支持封装和解封装，并允许在启用 vlan-filtering 的网桥中进行静态一对一 VLAN 到 VXLAN 映射。兼容设备列表请参阅 [L3HW Device Support](/docs/7.24/bridging-and-switching/l3-hardware-offloading#l3hw-device-support) 文档。
 
-At this point, some known features are not yet implemented.
+目前，部分已知功能尚未实现。
 
-### Underlay (routing encapsulated VXLAN packets)
+### Underlay（路由封装的 VXLAN 数据包） {#underlay-routing-encapsulated-vxlan-packets}
 
-1. VTEPs are not supported over ECMP.
+1. 不支持通过 ECMP 使用 VTEP。
 
-2. VTEPs are not supported over bond, bridge, VLAN interfaces (only stand-alone routed Ethernet interfaces are supported).
+2. 不支持通过 bond、网桥、VLAN 接口使用 VTEP（仅支持独立路由的以太网接口）。
 
-3. VTEPs are not supported over multicast.
+3. 不支持通过组播运行 VTEP。
 
-4. VTEPs cannot operate within VRFs.
+4. VTEP 无法在 VRF 内运行。
 
-5. VTEPs are not supported with IPv6.
+5. 不支持将 VTEP 与 IPv6 配合使用。
 
-### Overlay (forwarding between Ethernet and VXLAN)
+### Overlay（Ethernet 和 VXLAN 之间的转发） {#overlay-forwarding-between-ethernet-and-vxlan}
 
 1. Routing between different VXLAN VNIs is not supported.
 

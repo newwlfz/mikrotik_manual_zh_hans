@@ -1,443 +1,477 @@
 {
  "schema": 1,
  "locale": "zh-Hans",
- "run_id": "20261128T154255Z-eebe25",
- "started_at": "2026-11-28T15:42:55.952Z",
- "started_ms": 1795880575952,
+ "run_id": "20261128T171444Z-4bfbea",
+ "started_at": "2026-11-28T17:14:44.889Z",
+ "started_ms": 1795886084889,
  "budget_minutes": 90,
  "max_blocks": null,
- "deadline_ms": 1795885975952,
- "deadline": "2026-11-28T17:12:55.952Z",
+ "deadline_ms": 1795891484889,
+ "deadline": "2026-11-28T18:44:44.889Z",
  "stopped": "budget",
  "limit": "budget-minutes",
- "finished_at": "2026-11-28T17:11:57.888Z",
- "stopped_ms": 1795885917888,
- "elapsed_ms": 5341936,
- "headroom_ms": 58064,
+ "finished_at": "2026-11-28T18:43:45.495Z",
+ "stopped_ms": 1795891425495,
+ "elapsed_ms": 5340606,
+ "headroom_ms": 59394,
  "cursor": {
   "section": "docs-7.25",
-  "file_rel": "cli-reference/interface/ethernet/switch/qos/port.md",
-  "page_index": 394
+  "file_rel": "cli-reference/ipv6/dhcp-client/renew.md",
+  "page_index": 428
  },
  "completed": [
-  "docs-7.24/cli-reference/system/ntp/client.md",
-  "docs-7.24/cli-reference/system/history.md",
-  "docs-7.24/cli-reference/tool/profile.md",
-  "docs-7.24/cli-reference/tool/speed-test.md",
-  "docs-7.24/developer-guides/api.md",
-  "docs-7.24/firewall-and-quality-of-service/queues/queue-types/pfifo-bfifo.md",
-  "docs-7.24/getting-started/configuration-management/default-configuration-passwords.md",
-  "docs-7.24/firewall-and-quality-of-service/queues/htb-hierarchical-token-bucket.md",
-  "docs-7.24/getting-started/routeros-licensing/chr/chr-licensing.md",
-  "docs-7.24/getting-started/supout-rif.md",
-  "docs-7.24/hardware/routerboard.md",
-  "docs-7.24/internet-of-things/gpio.md",
-  "docs-7.24/network-management/cloud.md",
-  "docs-7.24/storage/btrfs/maintenance.md",
-  "docs-7.24/network-management/proxy.md",
-  "docs-7.24/getting-started/configuration-management/default-configurations.md",
-  "docs-7.24/storage/btrfs.md",
-  "docs-7.24/storage/btrfs/raid.md",
-  "docs-7.24/storage/dlna.md",
-  "docs-7.24/storage/btrfs/snapshots.md",
-  "docs-7.24/storage/encrypted-storage.md",
-  "docs-7.24/storage/iscsi.md",
-  "docs-7.24/storage/raid/hot-spare.md",
-  "docs-7.24/storage/nfs.md",
-  "docs-7.24/storage/raid/moving-array.md",
-  "docs-7.24/network-management/dhcp.md",
-  "docs-7.24/storage/nvme-over-tcp.md",
-  "docs-7.24/storage/self-encrypting-drives.md",
-  "docs-7.24/storage/rsync.md",
-  "docs-7.24/storage/ramdisk.md",
-  "docs-7.24/storage/raid.md",
-  "docs-7.24/storage/tmpfs.md",
-  "docs-7.24/storage.md",
-  "docs-7.24/system-information-and-utilities/clock.md",
-  "docs-7.24/storage/smb.md",
-  "docs-7.24/system-information-and-utilities/device-mode.md",
-  "docs-7.24/system-information-and-utilities/e-mail.md",
-  "docs-7.24/system-information-and-utilities/fetch.md",
-  "docs-7.24/system-information-and-utilities/identity.md",
-  "docs-7.24/system-information-and-utilities/files.md",
-  "docs-7.24/system-information-and-utilities/interface-lists.md",
-  "docs-7.24/system-information-and-utilities/ip-packing.md",
-  "docs-7.24/system-information-and-utilities/note.md",
-  "docs-7.24/system-information-and-utilities/ntp.md",
-  "docs-7.24/system-information-and-utilities/neighbor-discovery.md",
-  "docs-7.24/system-information-and-utilities/scheduler.md",
-  "docs-7.24/system-information-and-utilities/partitions.md",
-  "docs-7.24/system-information-and-utilities/services.md",
-  "docs-7.24/system-information-and-utilities/wake-on-lan.md",
-  "docs-7.24/system-information-and-utilities/precision-time-protocol.md",
-  "docs-7.24/system-information-and-utilities/tftp.md",
-  "docs-7.24/system-information-and-utilities.md",
-  "docs-7.24/user-guides/routing-and-networking-protocols/mpls/exp-bit-and-mpls-queuing.md",
-  "docs-7.24/system-information-and-utilities/ups.md",
-  "docs-7.24/user-guides/routing-and-networking-protocols/mpls/traffic-eng.md",
-  "docs-7.24/user-guides/routing-and-networking-protocols/mpls/vpls/control-word.md",
-  "docs-7.24/user-guides/routing-and-networking-protocols/mpls/vpls.md",
-  "docs-7.24/user-guides/routing-and-networking-protocols/mpls/ldp.md",
-  "docs-7.24/user-guides/routing-and-networking-protocols/multicast/group-management-protocol.md",
-  "docs-7.24/user-guides/routing-and-networking-protocols/mpls.md",
-  "docs-7.24/user-guides/routing-and-networking-protocols/multicast/igmp-proxy.md",
-  "docs-7.24/user-guides/routing-and-networking-protocols/multicast/pim-sm.md",
-  "docs-7.24/user-guides/routing-and-networking-protocols/multicast.md",
-  "docs-7.24/user-guides/routing-and-networking-protocols/route-distinguisher-and-route-target.md",
-  "docs-7.24/user-guides/routing-and-networking-protocols/policy-routing.md",
-  "docs-7.24/user-guides/routing-and-networking-protocols/moving-from-rosv6-to-rosv7.md",
-  "docs-7.24/user-guides/routing-and-networking-protocols/unicast/bfd.md",
-  "docs-7.24/user-guides/routing-and-networking-protocols/routing-protocol-multi-core-support.md",
-  "docs-7.24/user-guides/routing-and-networking-protocols/route-selection-and-filtering.md",
-  "docs-7.24/user-guides/routing-and-networking-protocols/unicast/bgp/faq.md",
-  "docs-7.24/user-guides/routing-and-networking-protocols/unicast/bgp/nexthop-selection.md",
-  "docs-7.24/user-guides/routing-and-networking-protocols/unicast/bgp.md",
-  "docs-7.24/user-guides/routing-and-networking-protocols/routing-decision.md",
-  "docs-7.24/user-guides/routing-and-networking-protocols/unicast/bgp/peering-sessions.md",
-  "docs-7.24/user-guides/routing-and-networking-protocols/unicast/is-is.md",
-  "docs-7.24/user-guides/routing-and-networking-protocols/unicast/bgp/understanding-bgp.md",
-  "docs-7.24/user-guides/routing-and-networking-protocols/unicast/ospf/faq.md",
-  "docs-7.24/user-guides/routing-and-networking-protocols/unicast/evpn.md",
-  "docs-7.24/user-guides/routing-and-networking-protocols/unicast/ospf/neighbour-relationship.md",
-  "docs-7.24/user-guides/routing-and-networking-protocols/unicast/ospf.md",
-  "docs-7.24/user-guides/routing-and-networking-protocols/unicast/ospf/areas-and-virtual-links.md",
-  "docs-7.24/user-guides/routing-and-networking-protocols/unicast/ospf/understanding-ospf.md",
-  "docs-7.24/user-guides/routing-and-networking-protocols/unicast/rip.md",
-  "docs-7.24/user-guides/routing-and-networking-protocols/unicast.md",
-  "docs-7.24/user-guides/routing-and-networking-protocols/unicast/rpki.md",
-  "docs-7.24/user-guides/routing-and-networking-protocols.md",
-  "docs-7.24/user-guides/routing-and-networking-protocols/unicast/ospf/routing-calculation.md",
-  "docs-7.24/user-guides.md",
-  "docs-7.24/virtual-private-networks/6to4.md",
-  "docs-7.24/virtual-private-networks/eoip.md",
-  "docs-7.24/virtual-private-networks/gre.md",
-  "docs-7.24/virtual-private-networks/ipip.md",
-  "docs-7.24/virtual-private-networks/ipsec/ikev2-eap-between-nordvpn-and-routeros.md",
-  "docs-7.24/user-guides/routing-and-networking-protocols/vrf.md",
-  "docs-7.24/virtual-private-networks/ipsec/qkd-integration-in-routeros-ipsec-ppk.md",
-  "docs-7.24/virtual-private-networks/l2tp/lac-and-lns-setup-with-cisco-as-lac.md",
-  "docs-7.24/virtual-private-networks/pppoe/ipv6-pd-over-ppp.md",
-  "docs-7.24/virtual-private-networks/l2tp.md",
-  "docs-7.24/virtual-private-networks/openvpn.md",
-  "docs-7.24/virtual-private-networks/pppoe/mlppp-over-single-and-multiple-links.md",
-  "docs-7.24/virtual-private-networks/pptp.md",
-  "docs-7.24/virtual-private-networks/sstp.md",
-  "docs-7.24/virtual-private-networks/pppoe.md",
-  "docs-7.24/virtual-private-networks.md",
-  "docs-7.24/virtual-private-networks/zerotier.md",
   "docs-7.24/virtual-private-networks/wireguard.md",
-  "docs-7.24/wired-connections/pwr-line.md",
-  "docs-7.24/wired-connections/ethernet.md",
-  "docs-7.24/wired-connections.md",
-  "docs-7.24/wireless/abgn/capsman/capsman-with-vlans.md",
-  "docs-7.24/wired-connections/mikrotik-wired-interface-compatibility.md",
-  "docs-7.24/virtual-private-networks/ipsec.md",
-  "docs-7.24/wireless/abgn/hwmpplus-mesh.md",
-  "docs-7.24/wireless/abgn/capsman/ap-controller-capsman.md",
-  "docs-7.24/wireless/abgn/capsman.md",
-  "docs-7.24/wireless/abgn/interworking-profiles.md",
-  "docs-7.24/wireless/abgn/vlans-on-wireless.md",
-  "docs-7.24/wireless/abgn/spectral-scan.md",
-  "docs-7.24/wireless/abgn.md",
-  "docs-7.24/wireless/user-guides/enterprise-wireless-security-user.md",
-  "docs-7.24/wireless/abgn/nv2.md",
-  "docs-7.24/wireless/user-guides.md",
-  "docs-7.24/wireless/abgn/wireless-troubleshooting.md",
-  "docs-7.24/wireless/w60g/distance-guide.md",
-  "docs-7.24/wireless/user-guides/wireless-station-modes.md",
-  "docs-7.24/wireless/w60g/fail-over-ptmp-cli-example.md",
-  "docs-7.24/wireless/w60g/fail-over-ptp-cli-example.md",
-  "docs-7.24/wireless/w60g/ptp-cli-example.md",
-  "docs-7.24/wireless/w60g/ptp-gui-example.md",
-  "docs-7.24/wireless/w60g/fail-over-ptp-gui-example.md",
-  "docs-7.24/wireless/wifi/configuring-outdoor-cpe-to-ap-links.md",
-  "docs-7.24/wireless/w60g.md",
-  "docs-7.24/wireless/wifi/capsman.md",
-  "docs-7.24/wireless/wifi/configuring-repeater.md",
-  "docs-7.24/wireless/abgn/wireless-interface.md",
-  "docs-7.24/wireless/wifi-ac.md",
-  "docs-7.24/wireless/wifi/configuring-standalone-access-point.md",
-  "docs-7.24/wireless/wifi/interworking-for-wifi6.md",
-  "docs-7.24/wireless.md",
-  "docs-7.24/wireless/wifi.md",
-  "docs-7.25/authentication-authorization-accounting/dot1x.md",
-  "docs-7.25/authentication-authorization-accounting/ppp-aaa.md",
-  "docs-7.25/authentication-authorization-accounting/radius.md",
-  "docs-7.25/authentication-authorization-accounting/hotspot-captive-portal/hotspot-customisation.md",
-  "docs-7.25/authentication-authorization-accounting/user-manager.md",
-  "docs-7.25/authentication-authorization-accounting.md",
-  "docs-7.25/authentication-authorization-accounting/certificates.md",
-  "docs-7.25/bridging-and-switching/macsec.md",
-  "docs-7.25/authentication-authorization-accounting/user.md",
-  "docs-7.25/authentication-authorization-accounting/hotspot-captive-portal.md",
-  "docs-7.25/bridging-and-switching/macvlan.md",
-  "docs-7.25/bridging-and-switching/l3-hardware-offloading.md",
-  "docs-7.25/bridging-and-switching/quality-of-service.md",
-  "docs-7.25/bridging-and-switching/marvell-prestera-switch-chip-features.md",
-  "docs-7.25/bridging-and-switching/swos/crs3.md",
-  "docs-7.25/bridging-and-switching/swos/css106.md",
-  "docs-7.25/bridging-and-switching/swos/css610.md",
-  "docs-7.25/bridging-and-switching/swos.md",
-  "docs-7.25/bridging-and-switching/switch-chip-features.md",
-  "docs-7.25/bridging-and-switching/swos/gpen21.md",
-  "docs-7.25/bridging-and-switching/user-guides/basic-vlan-switching.md",
-  "docs-7.25/bridging-and-switching/swos/troubleshooting.md",
-  "docs-7.25/bridging-and-switching/user-guides/bridge-igmp-mld-snooping.md",
-  "docs-7.25/bridging-and-switching/user-guides/bridge-vlan-table.md",
-  "docs-7.25/bridging-and-switching/user-guides/spanning-tree-protocol.md",
-  "docs-7.25/bridging-and-switching/user-guides/loop-protect.md",
-  "docs-7.25/bridging-and-switching/user-guides/layer2-misconfiguration.md",
-  "docs-7.25/bridging-and-switching/user-guides/wireless-vlan-trunk.md",
-  "docs-7.25/bridging-and-switching/user-guides/wmm-and-vlan-priority.md",
-  "docs-7.25/bridging-and-switching/user-guides.md",
-  "docs-7.25/bridging-and-switching/vlan.md",
-  "docs-7.25/cli-reference/app/cleanup.md",
-  "docs-7.25/cli-reference/app/network.md",
-  "docs-7.25/cli-reference/app/remove.md",
-  "docs-7.25/cli-reference/app/restart.md",
-  "docs-7.25/cli-reference/app/settings.md",
-  "docs-7.25/cli-reference/app/setup.md",
-  "docs-7.25/cli-reference/app/update.md",
-  "docs-7.25/cli-reference/app.md",
-  "docs-7.25/cli-reference/beep.md",
-  "docs-7.25/cli-reference/blink.md",
-  "docs-7.25/cli-reference/caps-man/aaa.md",
-  "docs-7.25/cli-reference/caps-man/access-list.md",
-  "docs-7.25/cli-reference/caps-man/actual-interface-configuration.md",
-  "docs-7.25/cli-reference/caps-man/channel.md",
-  "docs-7.25/cli-reference/caps-man/configuration.md",
-  "docs-7.25/cli-reference/caps-man/datapath.md",
-  "docs-7.25/cli-reference/caps-man/interface/hw-info.md",
-  "docs-7.25/cli-reference/caps-man/interface/possible-channels.md",
-  "docs-7.25/cli-reference/caps-man/interface/reselect-channel.md",
-  "docs-7.25/cli-reference/caps-man/interface/scan.md",
-  "docs-7.25/cli-reference/caps-man/interface.md",
-  "docs-7.25/cli-reference/caps-man/manager/interface.md",
-  "docs-7.25/cli-reference/caps-man/manager.md",
-  "docs-7.25/cli-reference/caps-man/provisioning.md",
-  "docs-7.25/cli-reference/caps-man/radio/hw-info.md",
-  "docs-7.25/cli-reference/caps-man/radio/provision.md",
-  "docs-7.25/cli-reference/caps-man/radio.md",
-  "docs-7.25/cli-reference/caps-man/rates.md",
-  "docs-7.25/cli-reference/caps-man/registration-table.md",
-  "docs-7.25/cli-reference/caps-man/remote-cap/provision.md",
-  "docs-7.25/cli-reference/caps-man/remote-cap/set-identity.md",
-  "docs-7.25/cli-reference/caps-man/remote-cap/upgrade.md",
-  "docs-7.25/cli-reference/caps-man/remote-cap.md",
-  "docs-7.25/cli-reference/caps-man/security.md",
-  "docs-7.25/cli-reference/certificate/acme-renew.md",
-  "docs-7.25/cli-reference/certificate/add-acme.md",
-  "docs-7.25/cli-reference/certificate/add-scep.md",
-  "docs-7.25/cli-reference/certificate/builtin.md",
-  "docs-7.25/cli-reference/certificate/card-reinstall.md",
-  "docs-7.25/cli-reference/certificate/card-verify.md",
-  "docs-7.25/cli-reference/certificate/create-certificate-request.md",
-  "docs-7.25/cli-reference/certificate/crl/download.md",
-  "docs-7.25/cli-reference/certificate/crl/flush.md",
-  "docs-7.25/cli-reference/certificate/crl.md",
-  "docs-7.25/cli-reference/certificate/enable-ssl-certificate.md",
-  "docs-7.25/cli-reference/certificate/export-certificate.md",
-  "docs-7.25/cli-reference/certificate/import.md",
-  "docs-7.25/cli-reference/certificate/issued-revoke.md",
-  "docs-7.25/cli-reference/certificate/scep-renew.md",
-  "docs-7.25/cli-reference/certificate/scep-server/otp/generate.md",
-  "docs-7.25/cli-reference/certificate/scep-server/otp.md",
-  "docs-7.25/cli-reference/certificate/scep-server/ra/renew.md",
-  "docs-7.25/cli-reference/certificate/scep-server/ra.md",
-  "docs-7.25/cli-reference/certificate/scep-server/requests/grant.md",
-  "docs-7.25/cli-reference/certificate/scep-server/requests.md",
-  "docs-7.25/cli-reference/certificate/scep-server.md",
-  "docs-7.25/cli-reference/certificate/settings.md",
-  "docs-7.25/cli-reference/certificate/sign-certificate-request.md",
-  "docs-7.25/cli-reference/certificate/sign.md",
-  "docs-7.25/cli-reference/certificate.md",
-  "docs-7.25/cli-reference/console/inspect.md",
-  "docs-7.25/cli-reference/console/settings.md",
-  "docs-7.25/cli-reference/container/config.md",
-  "docs-7.25/cli-reference/container/envs.md",
-  "docs-7.25/cli-reference/container/kill.md",
-  "docs-7.25/cli-reference/container/layers.md",
-  "docs-7.25/cli-reference/container/log.md",
-  "docs-7.25/cli-reference/container/mounts.md",
-  "docs-7.25/cli-reference/container/repull.md",
-  "docs-7.25/cli-reference/container/restart.md",
-  "docs-7.25/cli-reference/container/save.md",
-  "docs-7.25/cli-reference/container/start.md",
-  "docs-7.25/cli-reference/container/stop.md",
-  "docs-7.25/cli-reference/container/update.md",
-  "docs-7.25/cli-reference/container.md",
-  "docs-7.25/cli-reference/disk/blink.md",
-  "docs-7.25/cli-reference/disk/btrfs/filesystem/add-device.md",
-  "docs-7.25/cli-reference/disk/btrfs/filesystem/balance-cancel.md",
-  "docs-7.25/cli-reference/disk/btrfs/filesystem/balance-start.md",
-  "docs-7.25/cli-reference/disk/btrfs/filesystem/remove-device.md",
-  "docs-7.25/cli-reference/disk/btrfs/filesystem/replace-cancel.md",
-  "docs-7.25/cli-reference/disk/btrfs/filesystem/replace-device.md",
-  "docs-7.25/cli-reference/disk/btrfs/filesystem/reset-counters.md",
-  "docs-7.25/cli-reference/disk/btrfs/filesystem/scrub-cancel.md",
-  "docs-7.25/cli-reference/disk/btrfs/filesystem/scrub-start.md",
-  "docs-7.25/cli-reference/disk/btrfs/filesystem.md",
-  "docs-7.25/cli-reference/disk/btrfs/subvolume.md",
-  "docs-7.25/cli-reference/disk/btrfs/transfer.md",
-  "docs-7.25/cli-reference/disk/btrfs.md",
-  "docs-7.25/cli-reference/disk/check.md",
-  "docs-7.25/cli-reference/disk/copy.md",
-  "docs-7.25/cli-reference/disk/eject.md",
-  "docs-7.25/cli-reference/disk/format.md",
-  "docs-7.25/cli-reference/disk/monitor-traffic.md",
-  "docs-7.25/cli-reference/disk/nvme-discover.md",
-  "docs-7.25/cli-reference/disk/raid-scrub-cancel.md",
-  "docs-7.25/cli-reference/disk/raid-scrub.md",
-  "docs-7.25/cli-reference/disk/repair.md",
-  "docs-7.25/cli-reference/disk/reset-counters.md",
-  "docs-7.25/cli-reference/disk/scan.md",
-  "docs-7.25/cli-reference/disk/settings.md",
-  "docs-7.25/cli-reference/disk/smart-info.md",
-  "docs-7.25/cli-reference/disk/test.md",
-  "docs-7.25/cli-reference/disk/trim.md",
-  "docs-7.25/cli-reference/disk.md",
-  "docs-7.25/cli-reference/dude/agent.md",
-  "docs-7.25/cli-reference/dude/device-type.md",
-  "docs-7.25/cli-reference/dude/device.md",
-  "docs-7.25/cli-reference/dude/export-db.md",
-  "docs-7.25/cli-reference/dude/import-db.md",
-  "docs-7.25/cli-reference/dude/notification.md",
-  "docs-7.25/cli-reference/dude/probe.md",
-  "docs-7.25/cli-reference/dude/ros/address.md",
-  "docs-7.25/cli-reference/dude/ros/arp.md",
-  "docs-7.25/cli-reference/dude/ros/health.md",
-  "docs-7.25/cli-reference/dude/ros/interface.md",
-  "docs-7.25/cli-reference/dude/ros/lease.md",
-  "docs-7.25/cli-reference/dude/ros/neighbor.md",
-  "docs-7.25/cli-reference/dude/ros/queue.md",
-  "docs-7.25/cli-reference/dude/ros/registration-table.md",
-  "docs-7.25/cli-reference/dude/ros/resource.md",
-  "docs-7.25/cli-reference/dude/ros/route.md",
-  "docs-7.25/cli-reference/dude/ros/routerboard.md",
-  "docs-7.25/cli-reference/dude/ros.md",
-  "docs-7.25/cli-reference/dude/service.md",
-  "docs-7.25/cli-reference/dude/settings.md",
-  "docs-7.25/cli-reference/dude/vacuum-db.md",
-  "docs-7.25/cli-reference/dude.md",
-  "docs-7.25/cli-reference/environment.md",
-  "docs-7.25/bridging-and-switching/user-guides/crs1xx-2xx-series-switches-examples.md",
-  "docs-7.25/cli-reference/file/copy.md",
-  "docs-7.25/cli-reference/file/head.md",
-  "docs-7.25/cli-reference/file/rsync-daemon.md",
-  "docs-7.25/cli-reference/file/sync/monitor.md",
-  "docs-7.25/cli-reference/file/sync.md",
-  "docs-7.25/bridging-and-switching.md",
-  "docs-7.25/cli-reference/file/read.md",
-  "docs-7.25/cli-reference/import.md",
-  "docs-7.25/cli-reference/file/tail.md",
-  "docs-7.25/cli-reference/interface/blink.md",
-  "docs-7.25/bridging-and-switching/vxlan.md",
-  "docs-7.25/cli-reference/interface/bonding/monitor-slaves.md",
-  "docs-7.25/cli-reference/interface/6to4.md",
-  "docs-7.25/cli-reference/interface/bridge/calea/reset-counters-all.md",
-  "docs-7.25/cli-reference/interface/bridge/calea/reset-counters.md",
-  "docs-7.25/cli-reference/interface/bridge/calea.md",
-  "docs-7.25/cli-reference/interface/bridge/filter/reset-counters-all.md",
-  "docs-7.25/cli-reference/interface/bridge/filter/reset-counters.md",
-  "docs-7.25/cli-reference/interface/bridge/filter.md",
-  "docs-7.25/cli-reference/interface/bridge/host.md",
-  "docs-7.25/cli-reference/interface/bridge/mdb.md",
-  "docs-7.25/cli-reference/interface/bridge/monitor.md",
-  "docs-7.25/cli-reference/interface/bridge/msti/monitor.md",
-  "docs-7.25/cli-reference/interface/bridge/msti.md",
-  "docs-7.25/cli-reference/interface/bridge/nat/reset-counters-all.md",
-  "docs-7.25/cli-reference/interface/bridge/nat/reset-counters.md",
-  "docs-7.25/cli-reference/interface/bridge/nat.md",
-  "docs-7.25/cli-reference/interface/bridge/port/monitor.md",
-  "docs-7.25/cli-reference/interface/bridge/port/mst-override/monitor.md",
-  "docs-7.25/cli-reference/interface/bridge/port/mst-override.md",
-  "docs-7.25/cli-reference/interface/bridge/port.md",
-  "docs-7.25/cli-reference/interface/bridge/settings.md",
-  "docs-7.25/cli-reference/interface/bridge/vlan/mvrp.md",
-  "docs-7.25/cli-reference/interface/bridge/vlan.md",
-  "docs-7.25/cli-reference/interface/bridge.md",
-  "docs-7.25/cli-reference/interface/detect-internet/state.md",
-  "docs-7.25/cli-reference/file.md",
-  "docs-7.25/cli-reference/interface/dot1x/client.md",
-  "docs-7.25/cli-reference/interface/dot1x/server/active.md",
-  "docs-7.25/cli-reference/interface/dot1x/server/state.md",
-  "docs-7.25/cli-reference/interface/dot1x/server.md",
-  "docs-7.25/cli-reference/interface/dot1x.md",
-  "docs-7.25/cli-reference/interface/detect-internet.md",
-  "docs-7.25/cli-reference/interface/eoip.md",
-  "docs-7.25/cli-reference/interface/ethernet/blink.md",
-  "docs-7.25/cli-reference/interface/ethernet/cable-test.md",
-  "docs-7.25/cli-reference/interface/ethernet/monitor.md",
-  "docs-7.25/cli-reference/interface/ethernet/poe/monitor.md",
-  "docs-7.25/cli-reference/interface/ethernet/poe/power-cycle.md",
-  "docs-7.25/cli-reference/interface/ethernet/poe/settings.md",
-  "docs-7.25/cli-reference/interface/ethernet/poe.md",
-  "docs-7.25/cli-reference/interface/eoipv6.md",
-  "docs-7.25/cli-reference/interface/ethernet/reset-counters.md",
-  "docs-7.25/cli-reference/interface/ethernet/reset-mac-address.md",
-  "docs-7.25/cli-reference/interface/ethernet/switch/acl/policer.md",
-  "docs-7.25/cli-reference/interface/ethernet/pon.md",
-  "docs-7.25/cli-reference/interface/ethernet/switch/dscp-qos-map.md",
-  "docs-7.25/cli-reference/interface/ethernet/switch/dscp-to-dscp.md",
-  "docs-7.25/cli-reference/interface/ethernet/switch/acl.md",
-  "docs-7.25/cli-reference/interface/ethernet/switch/egress-vlan-translation.md",
-  "docs-7.25/cli-reference/interface/ethernet/switch/host.md",
-  "docs-7.25/cli-reference/interface/ethernet/switch/ingress-port-policer.md",
-  "docs-7.25/cli-reference/interface/ethernet/switch/egress-vlan-tag.md",
-  "docs-7.25/cli-reference/interface/ethernet/switch/ingress-vlan-translation.md",
-  "docs-7.25/cli-reference/interface/ethernet/switch/l3hw-settings/advanced/monitor.md",
-  "docs-7.25/cli-reference/interface/bonding.md",
-  "docs-7.25/cli-reference/interface/ethernet/switch/l3hw-settings.md",
+  "docs-7.24/virtual-private-networks/sstp.md",
+  "docs-7.24/getting-started/configuration-management/default-configuration-passwords.md",
   "docs-7.25/cli-reference/interface/bonding/monitor.md",
-  "docs-7.25/cli-reference/interface/ethernet/switch/multicast-fdb.md",
-  "docs-7.25/cli-reference/interface/ethernet/switch/one2one-vlan-switching.md",
-  "docs-7.25/cli-reference/interface/ethernet/switch/policer-qos-map.md",
-  "docs-7.25/cli-reference/interface/ethernet/switch/port/reset-counters.md",
-  "docs-7.25/cli-reference/interface/ethernet/switch/port-isolation.md",
-  "docs-7.25/cli-reference/interface/ethernet/switch/port-leakage.md",
-  "docs-7.25/cli-reference/interface/ethernet/switch/port.md",
-  "docs-7.25/cli-reference/interface/ethernet/switch/protocol-based-vlan.md",
-  "docs-7.25/cli-reference/interface/ethernet/switch/qos/map/ip.md",
-  "docs-7.25/cli-reference/interface/ethernet/switch/qos/map/vlan.md",
-  "docs-7.25/cli-reference/interface/ethernet/switch/qos/map.md",
-  "docs-7.25/cli-reference/interface/ethernet/switch/qos/monitor.md",
-  "docs-7.25/cli-reference/interface/ethernet/switch/qos/port/reset-counters.md",
-  "docs-7.25/cli-reference/interface/ethernet/switch/mac-based-vlan.md",
-  "docs-7.25/cli-reference/interface/ethernet/switch/qos/priority-flow-control.md",
-  "docs-7.25/cli-reference/interface/ethernet/switch/qos/profile.md",
-  "docs-7.25/cli-reference/interface/ethernet/switch/qos/settings.md",
-  "docs-7.25/cli-reference/interface/ethernet/switch/qos/tx-manager/queue.md",
-  "docs-7.25/cli-reference/interface/ethernet/switch/qos/tx-manager.md",
-  "docs-7.25/cli-reference/interface/ethernet/switch/qos-group.md",
-  "docs-7.25/cli-reference/interface/ethernet/switch/qos.md",
-  "docs-7.25/cli-reference/interface/ethernet/switch/reserved-fdb.md",
-  "docs-7.25/cli-reference/interface/ethernet/switch/l3hw-settings/advanced.md",
-  "docs-7.25/cli-reference/interface/ethernet/switch/l3hw-settings/monitor.md",
-  "docs-7.25/cli-reference/interface/ethernet/switch/qos/port.md"
+  "docs-7.25/cli-reference/interface/bonding.md",
+  "docs-7.25/cli-reference/interface/ethernet/switch/reset-counters.md",
+  "docs-7.25/cli-reference/interface/ethernet/switch/qos/port.md",
+  "docs-7.25/cli-reference/interface/ethernet/switch/rule/reset-counters-all.md",
+  "docs-7.25/cli-reference/interface/ethernet/switch/rule.md",
+  "docs-7.25/cli-reference/interface/ethernet/switch/shaper.md",
+  "docs-7.25/cli-reference/interface/ethernet/switch/stats.md",
+  "docs-7.25/cli-reference/interface/ethernet/switch/trunk.md",
+  "docs-7.25/cli-reference/interface/ethernet/switch/unicast-fdb/flush.md",
+  "docs-7.25/cli-reference/interface/ethernet/switch/unicast-fdb.md",
+  "docs-7.25/cli-reference/interface/ethernet/switch/vlan.md",
+  "docs-7.25/cli-reference/interface/ethernet/switch/rule/reset-counters.md",
+  "docs-7.25/cli-reference/interface/ethernet.md",
+  "docs-7.25/cli-reference/interface/ethernet/switch.md",
+  "docs-7.25/cli-reference/interface/gre.md",
+  "docs-7.25/cli-reference/interface/gre6.md",
+  "docs-7.25/cli-reference/interface/ipip.md",
+  "docs-7.25/cli-reference/interface/l2tp-client/monitor.md",
+  "docs-7.25/cli-reference/interface/ipipv6.md",
+  "docs-7.25/cli-reference/interface/l2tp-ether/monitor.md",
+  "docs-7.25/cli-reference/interface/l2tp-client.md",
+  "docs-7.25/cli-reference/interface/l2tp-server/monitor.md",
+  "docs-7.25/cli-reference/interface/l2tp-server/server.md",
+  "docs-7.25/cli-reference/interface/l2tp-ether.md",
+  "docs-7.25/cli-reference/interface/l2tp-server.md",
+  "docs-7.25/cli-reference/interface/list/member.md",
+  "docs-7.25/cli-reference/interface/lte/apn.md",
+  "docs-7.25/cli-reference/interface/lte/at-chat.md",
+  "docs-7.25/cli-reference/interface/lte/cell-monitor.md",
+  "docs-7.25/cli-reference/interface/lte/esim/activate.md",
+  "docs-7.25/cli-reference/interface/lte/esim/deactivate.md",
+  "docs-7.25/cli-reference/interface/lte/esim/delete.md",
+  "docs-7.25/cli-reference/interface/lte/esim/esim-id.md",
+  "docs-7.25/cli-reference/interface/lte/esim/provision.md",
+  "docs-7.25/cli-reference/interface/lte/esim/refresh-profile-list.md",
+  "docs-7.25/cli-reference/interface/lte/esim/send-notifications.md",
+  "docs-7.25/cli-reference/interface/lte/esim/set-nickname.md",
+  "docs-7.25/cli-reference/interface/lte/esim.md",
+  "docs-7.25/cli-reference/interface/lte/firmware-upgrade.md",
+  "docs-7.25/cli-reference/interface/lte/monitor.md",
+  "docs-7.25/bridging-and-switching/vxlan.md",
+  "docs-7.25/cli-reference/interface/lte/scan.md",
+  "docs-7.25/cli-reference/interface/lte/settings.md",
+  "docs-7.25/cli-reference/interface/lte/show-capabilities.md",
+  "docs-7.25/cli-reference/interface/lte.md",
+  "docs-7.25/cli-reference/interface/macsec/monitor.md",
+  "docs-7.25/cli-reference/interface/macsec/profile.md",
+  "docs-7.25/cli-reference/interface/macsec.md",
+  "docs-7.25/cli-reference/interface/macvlan.md",
+  "docs-7.25/cli-reference/interface/mesh/fdb.md",
+  "docs-7.25/cli-reference/interface/mesh/port.md",
+  "docs-7.25/cli-reference/interface/mesh/traceroute.md",
+  "docs-7.25/cli-reference/interface/mesh.md",
+  "docs-7.25/cli-reference/interface/monitor-traffic.md",
+  "docs-7.25/cli-reference/interface/ovpn-client/import-ovpn-configuration.md",
+  "docs-7.25/cli-reference/interface/ovpn-client/monitor.md",
+  "docs-7.25/cli-reference/interface/ovpn-client.md",
+  "docs-7.25/cli-reference/interface/ovpn-server/monitor.md",
+  "docs-7.25/cli-reference/interface/ovpn-server/server/export-client-configuration.md",
+  "docs-7.25/cli-reference/interface/ovpn-server/server.md",
+  "docs-7.25/cli-reference/interface/list.md",
+  "docs-7.25/cli-reference/interface/ppp-client/at-chat.md",
+  "docs-7.25/cli-reference/interface/ppp-client/firmware-upgrade.md",
+  "docs-7.25/cli-reference/interface/ppp-client/info.md",
+  "docs-7.25/cli-reference/interface/ppp-client/monitor.md",
+  "docs-7.25/cli-reference/interface/ppp-client/scan.md",
+  "docs-7.25/cli-reference/interface/ppp-client.md",
+  "docs-7.25/cli-reference/interface/ppp-server/monitor.md",
+  "docs-7.25/cli-reference/interface/ppp-server.md",
+  "docs-7.25/cli-reference/interface/ovpn-server.md",
+  "docs-7.25/cli-reference/interface/lte/run-modem-update.md",
+  "docs-7.25/cli-reference/interface/pppoe-client.md",
+  "docs-7.25/cli-reference/interface/pppoe-server/monitor.md",
+  "docs-7.25/cli-reference/interface/pppoe-server.md",
+  "docs-7.25/cli-reference/interface/pptp-client/monitor.md",
+  "docs-7.25/cli-reference/interface/pptp-client.md",
+  "docs-7.25/cli-reference/interface/pptp-server/monitor.md",
+  "docs-7.25/cli-reference/interface/pptp-server/server.md",
+  "docs-7.25/cli-reference/interface/pptp-server.md",
+  "docs-7.25/cli-reference/interface/pwr-line/blink.md",
+  "docs-7.25/cli-reference/interface/pwr-line/configure.md",
+  "docs-7.25/cli-reference/interface/pwr-line/join.md",
+  "docs-7.25/cli-reference/interface/pwr-line/leave.md",
+  "docs-7.25/cli-reference/interface/pwr-line/monitor.md",
+  "docs-7.25/cli-reference/interface/pwr-line/reset-counters.md",
+  "docs-7.25/cli-reference/interface/pwr-line/reset-mac-address.md",
+  "docs-7.25/cli-reference/interface/pwr-line/upgrade-firmware.md",
+  "docs-7.25/cli-reference/interface/pwr-line.md",
+  "docs-7.25/cli-reference/interface/reset-counters.md",
+  "docs-7.25/cli-reference/interface/sstp-client/monitor.md",
+  "docs-7.25/cli-reference/interface/sstp-client.md",
+  "docs-7.25/cli-reference/interface/sstp-server/monitor.md",
+  "docs-7.25/cli-reference/interface/sstp-server/server.md",
+  "docs-7.25/cli-reference/interface/sstp-server.md",
+  "docs-7.25/cli-reference/interface/veth.md",
+  "docs-7.25/cli-reference/interface/vlan.md",
+  "docs-7.25/cli-reference/interface/vpls/monitor.md",
+  "docs-7.25/cli-reference/interface/vpls.md",
+  "docs-7.25/cli-reference/interface/pppoe-client/monitor.md",
+  "docs-7.25/cli-reference/interface/vxlan/fdb.md",
+  "docs-7.25/cli-reference/interface/vxlan/vteps.md",
+  "docs-7.25/cli-reference/interface/vxlan.md",
+  "docs-7.25/cli-reference/interface/w60g/align.md",
+  "docs-7.25/cli-reference/interface/w60g/monitor.md",
+  "docs-7.25/cli-reference/interface/w60g/reset-configuration.md",
+  "docs-7.25/cli-reference/interface/w60g/scan.md",
+  "docs-7.25/cli-reference/interface/w60g/station/monitor.md",
+  "docs-7.25/cli-reference/interface/w60g/station.md",
+  "docs-7.25/cli-reference/interface/w60g.md",
+  "docs-7.25/cli-reference/interface/wifi/aaa.md",
+  "docs-7.25/cli-reference/interface/wifi/access-list.md",
+  "docs-7.25/cli-reference/interface/wifi/cap.md",
+  "docs-7.25/cli-reference/interface/wifi/capsman/remote-cap/provision.md",
+  "docs-7.25/cli-reference/interface/wifi/capsman/remote-cap/set-identity.md",
+  "docs-7.25/cli-reference/interface/wifi/capsman/remote-cap/upgrade.md",
+  "docs-7.25/cli-reference/interface/wifi/capsman/remote-cap.md",
+  "docs-7.25/cli-reference/interface/wifi/capsman.md",
+  "docs-7.25/cli-reference/interface/wifi/channel.md",
+  "docs-7.25/cli-reference/interface/wifi/configuration.md",
+  "docs-7.25/cli-reference/interface/wifi/datapath.md",
+  "docs-7.25/cli-reference/interface/wifi/devel.md",
+  "docs-7.25/cli-reference/interface/wifi/flat-snoop.md",
+  "docs-7.25/cli-reference/interface/wifi/frequency-scan.md",
+  "docs-7.25/cli-reference/interface/wifi/interworking.md",
+  "docs-7.25/cli-reference/interface/wifi/liberate.md",
+  "docs-7.25/cli-reference/interface/wifi/monitor.md",
+  "docs-7.25/cli-reference/interface/wifi/network/radio.md",
+  "docs-7.25/cli-reference/interface/wifi/network.md",
+  "docs-7.25/cli-reference/interface/wifi/provisioning.md",
+  "docs-7.25/cli-reference/interface/wifi/radio/provision.md",
+  "docs-7.25/cli-reference/interface/wifi/radio/reg-info.md",
+  "docs-7.25/cli-reference/interface/wifi/radio/settings.md",
+  "docs-7.25/cli-reference/interface/wifi/radio.md",
+  "docs-7.25/cli-reference/interface/wifi/registration-table.md",
+  "docs-7.25/cli-reference/interface/wifi/reset-mac-address.md",
+  "docs-7.25/cli-reference/interface/wifi/roam.md",
+  "docs-7.25/cli-reference/interface/wifi/scan.md",
+  "docs-7.25/cli-reference/interface/wifi/security/multi-passphrase.md",
+  "docs-7.25/cli-reference/interface/wifi/security.md",
+  "docs-7.25/cli-reference/interface/wifi/sniffer.md",
+  "docs-7.25/cli-reference/interface/wifi/spectral-scan.md",
+  "docs-7.25/cli-reference/interface/wifi/steering/neighbor-group.md",
+  "docs-7.25/cli-reference/interface/wifi/steering.md",
+  "docs-7.25/cli-reference/interface/wifi/trigger-radar.md",
+  "docs-7.25/cli-reference/interface/wifi/wps-client.md",
+  "docs-7.25/cli-reference/interface/wifi/wps-push-button.md",
+  "docs-7.25/cli-reference/interface/wifi.md",
+  "docs-7.25/cli-reference/interface/wireguard/peers/show-client-config.md",
+  "docs-7.25/cli-reference/interface/wireguard/peers.md",
+  "docs-7.25/cli-reference/interface/pppoe-client/scan.md",
+  "docs-7.25/cli-reference/interface/wireguard/wg-import.md",
+  "docs-7.25/cli-reference/interface/pppoe-server/server.md",
+  "docs-7.25/cli-reference/interface/wireless/access-list.md",
+  "docs-7.25/cli-reference/interface/wireless/align/monitor.md",
+  "docs-7.25/cli-reference/interface/wireless/align/test-audio.md",
+  "docs-7.25/cli-reference/interface/wireless/align.md",
+  "docs-7.25/cli-reference/interface/wireless/cap.md",
+  "docs-7.25/cli-reference/interface/wireless/channels.md",
+  "docs-7.25/cli-reference/interface/wireless/connect-list.md",
+  "docs-7.25/cli-reference/interface/wireless/frequency-monitor.md",
+  "docs-7.25/cli-reference/interface/wireless/info/allowed-channels.md",
+  "docs-7.25/cli-reference/interface/wireless/info/country-info.md",
+  "docs-7.25/cli-reference/interface/wireless/info/country-list.md",
+  "docs-7.25/cli-reference/interface/wireless/info/default-scan-list.md",
+  "docs-7.25/cli-reference/interface/wireless/info/hw-info.md",
+  "docs-7.25/cli-reference/interface/wireless/info/scan-list.md",
+  "docs-7.25/cli-reference/interface/wireless/info.md",
+  "docs-7.25/cli-reference/interface/wireless/interworking-profiles.md",
+  "docs-7.25/cli-reference/interface/wireless/manual-tx-power-table.md",
+  "docs-7.25/cli-reference/interface/wireless/monitor.md",
+  "docs-7.25/cli-reference/interface/wireless/nstreme-dual/monitor.md",
+  "docs-7.25/cli-reference/interface/wireless/nstreme-dual/reset-counters.md",
+  "docs-7.25/cli-reference/interface/wireless/nstreme-dual.md",
+  "docs-7.25/cli-reference/interface/wireless/nstreme.md",
+  "docs-7.25/cli-reference/interface/wireless/registration-table/reset-counters.md",
+  "docs-7.25/cli-reference/interface/wireless/registration-table.md",
+  "docs-7.25/cli-reference/interface/wireless/reset-configuration.md",
+  "docs-7.25/cli-reference/interface/wireless/reset-mac-address.md",
+  "docs-7.25/cli-reference/interface/wireless/scan.md",
+  "docs-7.25/cli-reference/interface/wireless/security-profiles.md",
+  "docs-7.25/cli-reference/interface/wireless/setup-repeater.md",
+  "docs-7.25/cli-reference/interface/wireless/sniffer/packet.md",
+  "docs-7.25/cli-reference/interface/wireless/sniffer/save.md",
+  "docs-7.25/cli-reference/interface/wireless/sniffer/sniff.md",
+  "docs-7.25/cli-reference/interface/wireless/sniffer.md",
+  "docs-7.25/cli-reference/interface/wireless/snooper/flat-snoop.md",
+  "docs-7.25/cli-reference/interface/wireless/snooper/snoop.md",
+  "docs-7.25/cli-reference/interface/wireless/snooper.md",
+  "docs-7.25/cli-reference/interface/wireless/spectral-scan.md",
+  "docs-7.25/cli-reference/interface/wireless/wds/monitor.md",
+  "docs-7.25/cli-reference/interface/wireless/wds.md",
+  "docs-7.25/cli-reference/interface/wireless/wps-client.md",
+  "docs-7.25/cli-reference/interface/wireless/wps-push-button.md",
+  "docs-7.25/cli-reference/interface/wireless.md",
+  "docs-7.25/cli-reference/interface/wireguard.md",
+  "docs-7.25/cli-reference/interface.md",
+  "docs-7.25/cli-reference/iot/bluetooth/advertisers/ad-structures.md",
+  "docs-7.25/cli-reference/iot/bluetooth/advertisers.md",
+  "docs-7.25/cli-reference/iot/bluetooth/connections/async-data/clear.md",
+  "docs-7.25/cli-reference/iot/bluetooth/connections/async-data.md",
+  "docs-7.25/cli-reference/iot/bluetooth/connections/characteristics.md",
+  "docs-7.25/cli-reference/iot/bluetooth/connections/connect.md",
+  "docs-7.25/cli-reference/iot/bluetooth/connections/disconnect.md",
+  "docs-7.25/cli-reference/iot/bluetooth/connections/read.md",
+  "docs-7.25/cli-reference/iot/bluetooth/connections/subscribe.md",
+  "docs-7.25/cli-reference/iot/bluetooth/connections/unsubscribe.md",
+  "docs-7.25/cli-reference/iot/bluetooth/connections/write-no-resp.md",
+  "docs-7.25/cli-reference/iot/bluetooth/connections/write.md",
+  "docs-7.25/cli-reference/iot/bluetooth/connections.md",
+  "docs-7.25/cli-reference/iot/bluetooth/decode-ad.md",
+  "docs-7.25/cli-reference/iot/bluetooth/peripheral-devices.md",
+  "docs-7.25/cli-reference/iot/bluetooth/reset-counters.md",
+  "docs-7.25/cli-reference/iot/bluetooth/scanners/advertisements/clear.md",
+  "docs-7.25/cli-reference/iot/bluetooth/scanners/advertisements.md",
+  "docs-7.25/cli-reference/iot/bluetooth/scanners.md",
+  "docs-7.25/cli-reference/iot/bluetooth/whitelist.md",
+  "docs-7.25/cli-reference/iot/bluetooth.md",
+  "docs-7.25/cli-reference/iot/gpio/analog.md",
+  "docs-7.25/cli-reference/iot/gpio/digital.md",
+  "docs-7.25/cli-reference/iot/gpio.md",
+  "docs-7.25/cli-reference/iot/lora/channels.md",
+  "docs-7.25/cli-reference/iot/lora/joineui.md",
+  "docs-7.25/cli-reference/iot/lora/netid.md",
+  "docs-7.25/cli-reference/iot/lora/radios.md",
+  "docs-7.25/cli-reference/iot/lora/reset-devices.md",
+  "docs-7.25/cli-reference/iot/lora/send.md",
+  "docs-7.25/cli-reference/iot/lora/servers/reset-servers.md",
+  "docs-7.25/cli-reference/iot/lora/servers.md",
+  "docs-7.25/cli-reference/iot/lora/traffic/clear.md",
+  "docs-7.25/cli-reference/iot/lora/traffic/options.md",
+  "docs-7.25/cli-reference/iot/lora/traffic.md",
+  "docs-7.25/cli-reference/iot/lora.md",
+  "docs-7.25/cli-reference/iot/modbus/read-holding-registers.md",
+  "docs-7.25/cli-reference/iot/modbus/security-rules.md",
+  "docs-7.25/cli-reference/iot/modbus/transceive.md",
+  "docs-7.25/cli-reference/iot/modbus.md",
+  "docs-7.25/cli-reference/iot/mqtt/brokers.md",
+  "docs-7.25/cli-reference/iot/mqtt/connect.md",
+  "docs-7.25/cli-reference/iot/mqtt/disconnect.md",
+  "docs-7.25/cli-reference/iot/mqtt/publish.md",
+  "docs-7.25/cli-reference/iot/mqtt/subscribe.md",
+  "docs-7.25/cli-reference/iot/mqtt/subscriptions/monitor-data.md",
+  "docs-7.25/cli-reference/iot/mqtt/subscriptions/recv/clear.md",
+  "docs-7.25/cli-reference/iot/mqtt/subscriptions/recv.md",
+  "docs-7.25/cli-reference/iot/mqtt/subscriptions.md",
+  "docs-7.25/cli-reference/iot/mqtt/unsubscribe.md",
+  "docs-7.25/cli-reference/iot/mqtt.md",
+  "docs-7.25/cli-reference/iot/wiliot/bluetooth-traffic/clear.md",
+  "docs-7.25/cli-reference/iot/wiliot/bluetooth-traffic.md",
+  "docs-7.25/cli-reference/iot/wiliot/clear.md",
+  "docs-7.25/cli-reference/iot/wiliot/disable.md",
+  "docs-7.25/cli-reference/iot/wiliot/enable.md",
+  "docs-7.25/cli-reference/iot/wiliot/mqtt-traffic/clear.md",
+  "docs-7.25/cli-reference/iot/wiliot/mqtt-traffic.md",
+  "docs-7.25/cli-reference/iot/wiliot/options.md",
+  "docs-7.25/cli-reference/iot/wiliot/servers/defaults.md",
+  "docs-7.25/cli-reference/iot/wiliot/servers.md",
+  "docs-7.25/cli-reference/iot/wiliot.md",
+  "docs-7.25/cli-reference/ip/address.md",
+  "docs-7.25/cli-reference/ip/arp.md",
+  "docs-7.25/cli-reference/interface/wireguard/wg-export.md",
+  "docs-7.25/cli-reference/interface/xfrm.md",
+  "docs-7.25/cli-reference/interface/vrrp.md",
+  "docs-7.25/cli-reference/ip/cloud/advanced.md",
+  "docs-7.25/cli-reference/ip/cloud/back-to-home-file/settings.md",
+  "docs-7.25/cli-reference/ip/cloud/back-to-home-file/settings/remove-certificate.md",
+  "docs-7.25/cli-reference/ip/cloud/back-to-home-file.md",
+  "docs-7.25/cli-reference/ip/cloud/back-to-home-user.md",
+  "docs-7.25/cli-reference/ip/cloud/force-update.md",
+  "docs-7.25/cli-reference/ip/dhcp-client/option.md",
+  "docs-7.25/cli-reference/ip/dhcp-client/release.md",
+  "docs-7.25/cli-reference/ip/cloud.md",
+  "docs-7.25/cli-reference/ip/cloud/back-to-home-user/show-client-config.md",
+  "docs-7.25/cli-reference/ip/dhcp-client/renew.md",
+  "docs-7.25/cli-reference/ip/dhcp-relay/monitor.md",
+  "docs-7.25/cli-reference/ip/dhcp-relay/reset-counters.md",
+  "docs-7.25/cli-reference/ip/dhcp-client.md",
+  "docs-7.25/cli-reference/ip/dhcp-relay.md",
+  "docs-7.25/cli-reference/ip/dhcp-server/config.md",
+  "docs-7.25/cli-reference/ip/dhcp-server/alert.md",
+  "docs-7.25/cli-reference/ip/dhcp-server/alert/reset-alert.md",
+  "docs-7.25/cli-reference/ip/dhcp-server/lease/check-status.md",
+  "docs-7.25/cli-reference/ip/dhcp-server/lease/make-static.md",
+  "docs-7.25/cli-reference/ip/dhcp-server/lease/send-reconfigure.md",
+  "docs-7.25/cli-reference/ip/dhcp-server/lease.md",
+  "docs-7.25/cli-reference/ip/dhcp-server/matcher.md",
+  "docs-7.25/cli-reference/ip/dhcp-server/option/sets.md",
+  "docs-7.25/cli-reference/ip/dhcp-server/network.md",
+  "docs-7.25/cli-reference/ip/dhcp-server/setup.md",
+  "docs-7.25/cli-reference/ip/dns/adlist/reload.md",
+  "docs-7.25/cli-reference/ip/dns/adlist/pause.md",
+  "docs-7.25/cli-reference/ip/dhcp-server/option.md",
+  "docs-7.25/cli-reference/ip/dns/adlist.md",
+  "docs-7.25/cli-reference/ip/dns/cache/all.md",
+  "docs-7.25/cli-reference/ip/dhcp-server.md",
+  "docs-7.25/cli-reference/ip/dns/cache.md",
+  "docs-7.25/cli-reference/ip/dns/static.md",
+  "docs-7.25/cli-reference/ip/dns.md",
+  "docs-7.25/cli-reference/ip/firewall/calea/reset-counters-all.md",
+  "docs-7.25/cli-reference/ip/firewall/calea/reset-counters.md",
+  "docs-7.25/cli-reference/ip/firewall/calea.md",
+  "docs-7.25/cli-reference/ip/firewall/connection/tracking.md",
+  "docs-7.25/cli-reference/ip/firewall/connection.md",
+  "docs-7.25/cli-reference/ip/firewall/filter/reset-counters-all.md",
+  "docs-7.25/cli-reference/ip/firewall/filter/reset-counters.md",
+  "docs-7.25/cli-reference/ip/firewall/address-list.md",
+  "docs-7.25/cli-reference/ip/firewall/layer7-protocol.md",
+  "docs-7.25/cli-reference/ip/firewall/mangle/reset-counters-all.md",
+  "docs-7.25/cli-reference/ip/firewall/mangle/reset-counters.md",
+  "docs-7.25/cli-reference/ip/firewall/mangle.md",
+  "docs-7.25/cli-reference/ip/firewall/nat/reset-counters-all.md",
+  "docs-7.25/cli-reference/ip/firewall/nat/reset-counters.md",
+  "docs-7.25/cli-reference/ip/firewall/nat.md",
+  "docs-7.25/cli-reference/ip/firewall/raw/reset-counters-all.md",
+  "docs-7.25/cli-reference/ip/firewall/raw/reset-counters.md",
+  "docs-7.25/cli-reference/ip/firewall/raw.md",
+  "docs-7.25/cli-reference/ip/firewall/service-port.md",
+  "docs-7.25/cli-reference/ip/hotspot/active/login.md",
+  "docs-7.25/cli-reference/ip/hotspot/active.md",
+  "docs-7.25/cli-reference/ip/hotspot/cookie.md",
+  "docs-7.25/cli-reference/ip/hotspot/host/make-binding.md",
+  "docs-7.25/cli-reference/ip/hotspot/host.md",
+  "docs-7.25/cli-reference/ip/hotspot/ip-binding.md",
+  "docs-7.25/cli-reference/ip/hotspot/profile.md",
+  "docs-7.25/cli-reference/ip/hotspot/reset-html.md",
+  "docs-7.25/cli-reference/ip/hotspot/service-port.md",
+  "docs-7.25/cli-reference/ip/hotspot/setup.md",
+  "docs-7.25/cli-reference/ip/hotspot/user/profile.md",
+  "docs-7.25/cli-reference/ip/hotspot/user/reset-counters.md",
+  "docs-7.25/cli-reference/ip/hotspot/user.md",
+  "docs-7.25/cli-reference/ip/hotspot/walled-garden/ip.md",
+  "docs-7.25/cli-reference/ip/hotspot/walled-garden/reset-counters-all.md",
+  "docs-7.25/cli-reference/ip/hotspot/walled-garden/reset-counters.md",
+  "docs-7.25/cli-reference/ip/hotspot/walled-garden.md",
+  "docs-7.25/cli-reference/ip/hotspot.md",
+  "docs-7.25/cli-reference/ip/dns/cache/flush.md",
+  "docs-7.25/cli-reference/ip/ipsec/active-peers.md",
+  "docs-7.25/cli-reference/ip/ipsec/active-peers/kill-connections.md",
+  "docs-7.25/cli-reference/ip/ipsec/identity.md",
+  "docs-7.25/cli-reference/ip/ipsec/installed-sa.md",
+  "docs-7.25/cli-reference/ip/ipsec/key/psk/generate.md",
+  "docs-7.25/cli-reference/ip/ipsec/key/psk.md",
+  "docs-7.25/cli-reference/ip/firewall/filter.md",
+  "docs-7.25/cli-reference/ip/ipsec/installed-sa/flush.md",
+  "docs-7.25/cli-reference/ip/ipsec/key/rsa/export-pub-key.md",
+  "docs-7.25/cli-reference/ip/ipsec/key/rsa.md",
+  "docs-7.25/cli-reference/ip/ipsec/key/rsa/generate-key.md",
+  "docs-7.25/cli-reference/ip/dns/forwarders.md",
+  "docs-7.25/cli-reference/ip/ipsec/key.md",
+  "docs-7.25/cli-reference/ip/ipsec/key/rsa/import.md",
+  "docs-7.25/cli-reference/ip/ipsec/policy.md",
+  "docs-7.25/cli-reference/ip/ipsec/policy/group.md",
+  "docs-7.25/cli-reference/ip/ipsec/proposal.md",
+  "docs-7.25/cli-reference/ip/ipsec/settings.md",
+  "docs-7.25/cli-reference/ip/ipsec/statistics.md",
+  "docs-7.25/cli-reference/ip/kid-control/device/reset-counters.md",
+  "docs-7.25/cli-reference/ip/kid-control/device.md",
+  "docs-7.25/cli-reference/ip/kid-control/pause.md",
+  "docs-7.25/cli-reference/ip/kid-control/resume.md",
+  "docs-7.25/cli-reference/ip/kid-control.md",
+  "docs-7.25/cli-reference/ip/ipsec/mode-config.md",
+  "docs-7.25/cli-reference/ip/media.md",
+  "docs-7.25/cli-reference/ip/ipsec/profile.md",
+  "docs-7.25/cli-reference/ip/media/settings.md",
+  "docs-7.25/cli-reference/ip/neighbor/discovery-settings.md",
+  "docs-7.25/cli-reference/ip/ipsec/peer.md",
+  "docs-7.25/cli-reference/ip/nat-pmp/interfaces.md",
+  "docs-7.25/cli-reference/ip/nat-pmp.md",
+  "docs-7.25/cli-reference/ip/pool/used.md",
+  "docs-7.25/cli-reference/ip/pool.md",
+  "docs-7.25/cli-reference/ip/neighbor/lldp.md",
+  "docs-7.25/cli-reference/ip/packing.md",
+  "docs-7.25/cli-reference/ip/proxy/access/reset-counters.md",
+  "docs-7.25/cli-reference/ip/proxy/access/reset-counters-all.md",
+  "docs-7.25/cli-reference/ip/proxy/access.md",
+  "docs-7.25/cli-reference/ip/proxy/cache/reset-counters-all.md",
+  "docs-7.25/cli-reference/ip/proxy/cache/reset-counters.md",
+  "docs-7.25/cli-reference/ip/proxy/cache-contents.md",
+  "docs-7.25/cli-reference/ip/proxy/cache.md",
+  "docs-7.25/cli-reference/ip/proxy/connections.md",
+  "docs-7.25/cli-reference/ip/proxy/clear-cache.md",
+  "docs-7.25/cli-reference/ip/proxy/direct/reset-counters-all.md",
+  "docs-7.25/cli-reference/ip/proxy/direct.md",
+  "docs-7.25/cli-reference/ip/proxy/direct/reset-counters.md",
+  "docs-7.25/cli-reference/ip/proxy/inserts.md",
+  "docs-7.25/cli-reference/ip/neighbor.md",
+  "docs-7.25/cli-reference/ip/proxy/monitor.md",
+  "docs-7.25/cli-reference/ip/proxy/lookups.md",
+  "docs-7.25/cli-reference/ip/proxy/refreshes.md",
+  "docs-7.25/cli-reference/ip/route/check.md",
+  "docs-7.25/cli-reference/ip/route.md",
+  "docs-7.25/cli-reference/ip/reverse-proxy.md",
+  "docs-7.25/cli-reference/ip/service/webserver.md",
+  "docs-7.25/cli-reference/ip/settings.md",
+  "docs-7.25/cli-reference/ip/smb/shares.md",
+  "docs-7.25/cli-reference/ip/smb/users.md",
+  "docs-7.25/cli-reference/ip/smb.md",
+  "docs-7.25/cli-reference/ip/proxy/reset-html.md",
+  "docs-7.25/cli-reference/ip/proxy.md",
+  "docs-7.25/cli-reference/ip/service.md",
+  "docs-7.25/cli-reference/ip/socks/connections.md",
+  "docs-7.25/cli-reference/ip/socks/access.md",
+  "docs-7.25/cli-reference/ip/socks/users.md",
+  "docs-7.25/cli-reference/ip/socks.md",
+  "docs-7.25/cli-reference/ip/ssh/export-host-key.md",
+  "docs-7.25/cli-reference/ip/socksify.md",
+  "docs-7.25/cli-reference/ip/ssh/import-host-key.md",
+  "docs-7.25/cli-reference/ip/ssh/known-hosts.md",
+  "docs-7.25/cli-reference/ip/ssh/regenerate-host-key.md",
+  "docs-7.25/cli-reference/ip/traffic-flow/ipfix.md",
+  "docs-7.25/cli-reference/ip/traffic-flow/monitor.md",
+  "docs-7.25/cli-reference/ip/traffic-flow/target.md",
+  "docs-7.25/cli-reference/ip/traffic-flow.md",
+  "docs-7.25/cli-reference/ip/ssh.md",
+  "docs-7.25/cli-reference/ip/tftp/settings.md",
+  "docs-7.25/cli-reference/ip/vrf.md",
+  "docs-7.25/cli-reference/ipv6/address.md",
+  "docs-7.25/cli-reference/ip/tftp.md",
+  "docs-7.25/cli-reference/ipv6/dhcp-client/option.md",
+  "docs-7.25/cli-reference/ip/upnp/interfaces.md",
+  "docs-7.25/cli-reference/ip/upnp.md",
+  "docs-7.25/cli-reference/ipv6/dhcp-client/release.md",
+  "docs-7.25/cli-reference/ipv6/dhcp-client.md",
+  "docs-7.25/cli-reference/ipv6/dhcp-client/renew.md"
  ],
- "completed_pages": 394,
+ "completed_pages": 428,
  "pending": {
-  "blocks": 47648,
+  "blocks": 46872,
   "titles": 904,
   "labels": 239,
   "descriptions": 707,
-  "pages": 3102,
-  "units": 49498,
+  "pages": 2657,
+  "units": 48722,
   "bySection": {
    "docs": {
-    "blocks": 18634,
+    "blocks": 18586,
     "titles": 292,
     "sidebar_labels": 239,
     "descriptions": 381
    },
    "docs-7.25": {
-    "blocks": 14123,
+    "blocks": 13451,
     "titles": 239,
     "sidebar_labels": 0,
     "descriptions": 326
    },
    "docs-7.24": {
-    "blocks": 58,
+    "blocks": 2,
     "titles": 0,
     "sidebar_labels": 0,
     "descriptions": 0
@@ -11559,7 +11593,7 @@
    {
     "section": "docs",
     "path": "storage/raid.md",
-    "blocks": 41,
+    "blocks": 36,
     "title": false,
     "sidebar_label": false,
     "description": true
@@ -11871,7 +11905,7 @@
    {
     "section": "docs",
     "path": "user-guides/routing-and-networking-protocols/route-distinguisher-and-route-target.md",
-    "blocks": 8,
+    "blocks": 7,
     "title": true,
     "sidebar_label": true,
     "description": true
@@ -11927,7 +11961,7 @@
    {
     "section": "docs",
     "path": "user-guides/routing-and-networking-protocols/unicast/bgp/peering-sessions.md",
-    "blocks": 41,
+    "blocks": 40,
     "title": true,
     "sidebar_label": true,
     "description": true
@@ -11959,7 +11993,7 @@
    {
     "section": "docs",
     "path": "user-guides/routing-and-networking-protocols/unicast/evpn.md",
-    "blocks": 69,
+    "blocks": 58,
     "title": false,
     "sidebar_label": false,
     "description": true
@@ -11975,7 +12009,7 @@
    {
     "section": "docs",
     "path": "user-guides/routing-and-networking-protocols/unicast/ospf/areas-and-virtual-links.md",
-    "blocks": 67,
+    "blocks": 66,
     "title": true,
     "sidebar_label": true,
     "description": true
@@ -12047,7 +12081,7 @@
    {
     "section": "docs",
     "path": "user-guides/routing-and-networking-protocols/vrf.md",
-    "blocks": 92,
+    "blocks": 90,
     "title": false,
     "sidebar_label": false,
     "description": true
@@ -12167,7 +12201,7 @@
    {
     "section": "docs",
     "path": "virtual-private-networks/ipsec.md",
-    "blocks": 52,
+    "blocks": 51,
     "title": false,
     "sidebar_label": false,
     "description": true
@@ -12279,7 +12313,7 @@
    {
     "section": "docs",
     "path": "wired-connections/mikrotik-wired-interface-compatibility.md",
-    "blocks": 92,
+    "blocks": 83,
     "title": true,
     "sidebar_label": true,
     "description": true
@@ -12319,7 +12353,7 @@
    {
     "section": "docs",
     "path": "wireless/abgn/capsman.md",
-    "blocks": 71,
+    "blocks": 69,
     "title": false,
     "sidebar_label": false,
     "description": true
@@ -12327,7 +12361,7 @@
    {
     "section": "docs",
     "path": "wireless/abgn/hwmpplus-mesh.md",
-    "blocks": 85,
+    "blocks": 84,
     "title": true,
     "sidebar_label": true,
     "description": true
@@ -12335,7 +12369,7 @@
    {
     "section": "docs",
     "path": "wireless/abgn/interworking-profiles.md",
-    "blocks": 65,
+    "blocks": 64,
     "title": true,
     "sidebar_label": true,
     "description": true
@@ -12343,7 +12377,7 @@
    {
     "section": "docs",
     "path": "wireless/abgn/nv2.md",
-    "blocks": 67,
+    "blocks": 65,
     "title": false,
     "sidebar_label": false,
     "description": true
@@ -12351,7 +12385,7 @@
    {
     "section": "docs",
     "path": "wireless/abgn/spectral-scan.md",
-    "blocks": 18,
+    "blocks": 16,
     "title": true,
     "sidebar_label": true,
     "description": true
@@ -12367,7 +12401,7 @@
    {
     "section": "docs",
     "path": "wireless/abgn/wireless-interface.md",
-    "blocks": 251,
+    "blocks": 247,
     "title": true,
     "sidebar_label": true,
     "description": true
@@ -12399,7 +12433,7 @@
    {
     "section": "docs",
     "path": "wireless/user-guides/wireless-station-modes.md",
-    "blocks": 40,
+    "blocks": 39,
     "title": true,
     "sidebar_label": true,
     "description": true
@@ -12463,7 +12497,7 @@
    {
     "section": "docs",
     "path": "wireless/w60g.md",
-    "blocks": 78,
+    "blocks": 76,
     "title": false,
     "sidebar_label": false,
     "description": true
@@ -12543,7 +12577,7 @@
    {
     "section": "docs",
     "path": "wireless/wifi/interworking-for-wifi6.md",
-    "blocks": 49,
+    "blocks": 48,
     "title": true,
     "sidebar_label": true,
     "description": true
@@ -12559,7 +12593,7 @@
    {
     "section": "docs",
     "path": "wireless/wifi.md",
-    "blocks": 178,
+    "blocks": 177,
     "title": true,
     "sidebar_label": false,
     "description": true
@@ -12575,7 +12609,7 @@
    {
     "section": "docs-7.25",
     "path": "bridging-and-switching/vxlan.md",
-    "blocks": 29,
+    "blocks": 7,
     "title": false,
     "sidebar_label": false,
     "description": true
@@ -12590,2952 +12624,8 @@
    },
    {
     "section": "docs-7.25",
-    "path": "cli-reference/interface/bonding/monitor.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/bonding.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/ethernet/switch/qos/port.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/ethernet/switch/reset-counters.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/ethernet/switch/rule/reset-counters-all.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/ethernet/switch/rule/reset-counters.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/ethernet/switch/rule.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/ethernet/switch/shaper.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/ethernet/switch/stats.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/ethernet/switch/trunk.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/ethernet/switch/unicast-fdb/flush.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/ethernet/switch/unicast-fdb.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/ethernet/switch/vlan.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/ethernet/switch.md",
-    "blocks": 4,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/ethernet.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/gre.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/gre6.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/ipip.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/ipipv6.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/l2tp-client/monitor.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/l2tp-client.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/l2tp-ether/monitor.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/l2tp-ether.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/l2tp-server/monitor.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/l2tp-server/server.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/l2tp-server.md",
-    "blocks": 3,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/list/member.md",
-    "blocks": 3,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/list.md",
-    "blocks": 6,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/lte/apn.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/lte/at-chat.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/lte/cell-monitor.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/lte/esim/activate.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/lte/esim/deactivate.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/lte/esim/delete.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/lte/esim/esim-id.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/lte/esim/provision.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/lte/esim/refresh-profile-list.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/lte/esim/send-notifications.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/lte/esim/set-nickname.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/lte/esim.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/lte/firmware-upgrade.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/lte/monitor.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/lte/run-modem-update.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/lte/scan.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/lte/settings.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/lte/show-capabilities.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/lte.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/macsec/monitor.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/macsec/profile.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/macsec.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/macvlan.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/mesh/fdb.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/mesh/port.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/mesh/traceroute.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/mesh.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/monitor-traffic.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/ovpn-client/import-ovpn-configuration.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/ovpn-client/monitor.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/ovpn-client.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/ovpn-server/monitor.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/ovpn-server/server/export-client-configuration.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/ovpn-server/server.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/ovpn-server.md",
-    "blocks": 4,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/ppp-client/at-chat.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/ppp-client/firmware-upgrade.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/ppp-client/info.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/ppp-client/monitor.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/ppp-client/scan.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/ppp-client.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/ppp-server/monitor.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/ppp-server.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/pppoe-client/monitor.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/pppoe-client/scan.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/pppoe-client.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/pppoe-server/monitor.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/pppoe-server/server.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/pppoe-server.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/pptp-client/monitor.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/pptp-client.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/pptp-server/monitor.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/pptp-server/server.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/pptp-server.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/pwr-line/blink.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/pwr-line/configure.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/pwr-line/join.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/pwr-line/leave.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/pwr-line/monitor.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/pwr-line/reset-counters.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/pwr-line/reset-mac-address.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/pwr-line/upgrade-firmware.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/pwr-line.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/reset-counters.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/sstp-client/monitor.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/sstp-client.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/sstp-server/monitor.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/sstp-server/server.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/sstp-server.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/veth.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/vlan.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/vpls/monitor.md",
-    "blocks": 3,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/vpls.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/vrrp.md",
-    "blocks": 5,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/vxlan/fdb.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/vxlan/vteps.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/vxlan.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/w60g/align.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/w60g/monitor.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/w60g/reset-configuration.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/w60g/scan.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/w60g/station/monitor.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/w60g/station.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/w60g.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wifi/aaa.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wifi/access-list.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wifi/cap.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wifi/capsman/remote-cap/provision.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wifi/capsman/remote-cap/set-identity.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wifi/capsman/remote-cap/upgrade.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wifi/capsman/remote-cap.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wifi/capsman.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wifi/channel.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wifi/configuration.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wifi/datapath.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wifi/devel.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wifi/flat-snoop.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wifi/frequency-scan.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wifi/interworking.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wifi/liberate.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wifi/monitor.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wifi/network/radio.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wifi/network.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wifi/provisioning.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wifi/radio/provision.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wifi/radio/reg-info.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wifi/radio/settings.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wifi/radio.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wifi/registration-table.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wifi/reset-mac-address.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wifi/roam.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wifi/scan.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wifi/security/multi-passphrase.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wifi/security.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wifi/sniffer.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wifi/spectral-scan.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wifi/steering/neighbor-group.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wifi/steering.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wifi/trigger-radar.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wifi/wps-client.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wifi/wps-push-button.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wifi.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wireguard/peers/show-client-config.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wireguard/peers.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wireguard/wg-export.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wireguard/wg-import.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wireguard.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wireless/access-list.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wireless/align/monitor.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wireless/align/test-audio.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wireless/align.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wireless/cap.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wireless/channels.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wireless/connect-list.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wireless/frequency-monitor.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wireless/info/allowed-channels.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wireless/info/country-info.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wireless/info/country-list.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wireless/info/default-scan-list.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wireless/info/hw-info.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wireless/info/scan-list.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wireless/info.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wireless/interworking-profiles.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wireless/manual-tx-power-table.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wireless/monitor.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wireless/nstreme-dual/monitor.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wireless/nstreme-dual/reset-counters.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wireless/nstreme-dual.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wireless/nstreme.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wireless/registration-table/reset-counters.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wireless/registration-table.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wireless/reset-configuration.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wireless/reset-mac-address.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wireless/scan.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wireless/security-profiles.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wireless/setup-repeater.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wireless/sniffer/packet.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wireless/sniffer/save.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wireless/sniffer/sniff.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wireless/sniffer.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wireless/snooper/flat-snoop.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wireless/snooper/snoop.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wireless/snooper.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wireless/spectral-scan.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wireless/wds/monitor.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wireless/wds.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wireless/wps-client.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wireless/wps-push-button.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/wireless.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/xfrm.md",
-    "blocks": 3,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/iot/bluetooth/advertisers/ad-structures.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/iot/bluetooth/advertisers.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/iot/bluetooth/connections/async-data/clear.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/iot/bluetooth/connections/async-data.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/iot/bluetooth/connections/characteristics.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/iot/bluetooth/connections/connect.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/iot/bluetooth/connections/disconnect.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/iot/bluetooth/connections/read.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/iot/bluetooth/connections/subscribe.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/iot/bluetooth/connections/unsubscribe.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/iot/bluetooth/connections/write-no-resp.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/iot/bluetooth/connections/write.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/iot/bluetooth/connections.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/iot/bluetooth/decode-ad.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/iot/bluetooth/peripheral-devices.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/iot/bluetooth/reset-counters.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/iot/bluetooth/scanners/advertisements/clear.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/iot/bluetooth/scanners/advertisements.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/iot/bluetooth/scanners.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/iot/bluetooth/whitelist.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/iot/bluetooth.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/iot/gpio/analog.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/iot/gpio/digital.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/iot/gpio.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/iot/lora/channels.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/iot/lora/joineui.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/iot/lora/netid.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/iot/lora/radios.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/iot/lora/reset-devices.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/iot/lora/send.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/iot/lora/servers/reset-servers.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/iot/lora/servers.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/iot/lora/traffic/clear.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/iot/lora/traffic/options.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/iot/lora/traffic.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/iot/lora.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/iot/modbus/read-holding-registers.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/iot/modbus/security-rules.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/iot/modbus/transceive.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/iot/modbus.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/iot/mqtt/brokers.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/iot/mqtt/connect.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/iot/mqtt/disconnect.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/iot/mqtt/publish.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/iot/mqtt/subscribe.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/iot/mqtt/subscriptions/monitor-data.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/iot/mqtt/subscriptions/recv/clear.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/iot/mqtt/subscriptions/recv.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/iot/mqtt/subscriptions.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/iot/mqtt/unsubscribe.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/iot/mqtt.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/iot/wiliot/bluetooth-traffic/clear.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/iot/wiliot/bluetooth-traffic.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/iot/wiliot/clear.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/iot/wiliot/disable.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/iot/wiliot/enable.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/iot/wiliot/mqtt-traffic/clear.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/iot/wiliot/mqtt-traffic.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/iot/wiliot/options.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/iot/wiliot/servers/defaults.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/iot/wiliot/servers.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/iot/wiliot.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/address.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/arp.md",
-    "blocks": 3,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/cloud/advanced.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/cloud/back-to-home-file/settings/remove-certificate.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/cloud/back-to-home-file/settings.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/cloud/back-to-home-file.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/cloud/back-to-home-user/show-client-config.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/cloud/back-to-home-user.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/cloud/force-update.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/cloud.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/dhcp-client/option.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/dhcp-client/release.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/dhcp-client/renew.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/dhcp-client.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/dhcp-relay/monitor.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/dhcp-relay/reset-counters.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/dhcp-relay.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/dhcp-server/alert/reset-alert.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/dhcp-server/alert.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/dhcp-server/config.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/dhcp-server/lease/check-status.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/dhcp-server/lease/make-static.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/dhcp-server/lease/send-reconfigure.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/dhcp-server/lease.md",
-    "blocks": 3,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/dhcp-server/matcher.md",
-    "blocks": 3,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/dhcp-server/network.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/dhcp-server/option/sets.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/dhcp-server/option.md",
-    "blocks": 3,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/dhcp-server/setup.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/dhcp-server.md",
-    "blocks": 3,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/dns/adlist/pause.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/dns/adlist/reload.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/dns/adlist.md",
-    "blocks": 3,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/dns/cache/all.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/dns/cache/flush.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/dns/cache.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
     "path": "cli-reference/ip/dns/forwarders.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/dns/static.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/dns.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/firewall/address-list.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/firewall/calea/reset-counters-all.md",
     "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/firewall/calea/reset-counters.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/firewall/calea.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/firewall/connection/tracking.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/firewall/connection.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/firewall/filter/reset-counters-all.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/firewall/filter/reset-counters.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/firewall/filter.md",
-    "blocks": 5,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/firewall/layer7-protocol.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/firewall/mangle/reset-counters-all.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/firewall/mangle/reset-counters.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/firewall/mangle.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/firewall/nat/reset-counters-all.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/firewall/nat/reset-counters.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/firewall/nat.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/firewall/raw/reset-counters-all.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/firewall/raw/reset-counters.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/firewall/raw.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/firewall/service-port.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/hotspot/active/login.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/hotspot/active.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/hotspot/cookie.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/hotspot/host/make-binding.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/hotspot/host.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/hotspot/ip-binding.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/hotspot/profile.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/hotspot/reset-html.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/hotspot/service-port.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/hotspot/setup.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/hotspot/user/profile.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/hotspot/user/reset-counters.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/hotspot/user.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/hotspot/walled-garden/ip.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/hotspot/walled-garden/reset-counters-all.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/hotspot/walled-garden/reset-counters.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/hotspot/walled-garden.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/hotspot.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/ipsec/active-peers/kill-connections.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/ipsec/active-peers.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/ipsec/identity.md",
-    "blocks": 4,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/ipsec/installed-sa/flush.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/ipsec/installed-sa.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/ipsec/key/psk/generate.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/ipsec/key/psk.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/ipsec/key/rsa/export-pub-key.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/ipsec/key/rsa/generate-key.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/ipsec/key/rsa/import.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/ipsec/key/rsa.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/ipsec/key.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/ipsec/mode-config.md",
-    "blocks": 6,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/ipsec/peer.md",
-    "blocks": 3,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/ipsec/policy/group.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/ipsec/policy.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/ipsec/profile.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/ipsec/proposal.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/ipsec/settings.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/ipsec/statistics.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/kid-control/device/reset-counters.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/kid-control/device.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/kid-control/pause.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/kid-control/resume.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/kid-control.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/media/settings.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/media.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/nat-pmp/interfaces.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/nat-pmp.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/neighbor/discovery-settings.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/neighbor/lldp.md",
-    "blocks": 4,
     "title": false,
     "sidebar_label": false,
     "description": false
@@ -15543,438 +12633,6 @@
    {
     "section": "docs-7.25",
     "path": "cli-reference/ip/neighbor.md",
-    "blocks": 3,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/packing.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/pool/used.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/pool.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/proxy/access/reset-counters-all.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/proxy/access/reset-counters.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/proxy/access.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/proxy/cache/reset-counters-all.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/proxy/cache/reset-counters.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/proxy/cache-contents.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/proxy/cache.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/proxy/clear-cache.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/proxy/connections.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/proxy/direct/reset-counters-all.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/proxy/direct/reset-counters.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/proxy/direct.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/proxy/inserts.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/proxy/lookups.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/proxy/monitor.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/proxy/refreshes.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/proxy/reset-html.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/proxy.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/reverse-proxy.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/route/check.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/route.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/service/webserver.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/service.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/settings.md",
-    "blocks": 10,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/smb/shares.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/smb/users.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/smb.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/socks/access.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/socks/connections.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/socks/users.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/socks.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/socksify.md",
-    "blocks": 3,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/ssh/export-host-key.md",
-    "blocks": 3,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/ssh/import-host-key.md",
-    "blocks": 3,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/ssh/known-hosts.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/ssh/regenerate-host-key.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/ssh.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/tftp/settings.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/tftp.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/traffic-flow/ipfix.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/traffic-flow/monitor.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/traffic-flow/target.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/traffic-flow.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/upnp/interfaces.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/upnp.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ip/vrf.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ipv6/address.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ipv6/dhcp-client/option.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ipv6/dhcp-client/release.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ipv6/dhcp-client/renew.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/ipv6/dhcp-client.md",
     "blocks": 2,
     "title": false,
     "sidebar_label": false,
@@ -21079,7 +17737,7 @@
    {
     "section": "docs-7.25",
     "path": "storage/raid.md",
-    "blocks": 39,
+    "blocks": 34,
     "title": false,
     "sidebar_label": false,
     "description": true
@@ -21383,7 +18041,7 @@
    {
     "section": "docs-7.25",
     "path": "user-guides/routing-and-networking-protocols/route-distinguisher-and-route-target.md",
-    "blocks": 8,
+    "blocks": 7,
     "title": true,
     "sidebar_label": false,
     "description": true
@@ -21439,7 +18097,7 @@
    {
     "section": "docs-7.25",
     "path": "user-guides/routing-and-networking-protocols/unicast/bgp/peering-sessions.md",
-    "blocks": 41,
+    "blocks": 40,
     "title": true,
     "sidebar_label": false,
     "description": true
@@ -21471,7 +18129,7 @@
    {
     "section": "docs-7.25",
     "path": "user-guides/routing-and-networking-protocols/unicast/evpn.md",
-    "blocks": 69,
+    "blocks": 58,
     "title": false,
     "sidebar_label": false,
     "description": true
@@ -21487,7 +18145,7 @@
    {
     "section": "docs-7.25",
     "path": "user-guides/routing-and-networking-protocols/unicast/ospf/areas-and-virtual-links.md",
-    "blocks": 67,
+    "blocks": 66,
     "title": true,
     "sidebar_label": false,
     "description": true
@@ -21559,7 +18217,7 @@
    {
     "section": "docs-7.25",
     "path": "user-guides/routing-and-networking-protocols/vrf.md",
-    "blocks": 92,
+    "blocks": 90,
     "title": false,
     "sidebar_label": false,
     "description": true
@@ -21631,7 +18289,7 @@
    {
     "section": "docs-7.25",
     "path": "virtual-private-networks/ipsec.md",
-    "blocks": 311,
+    "blocks": 309,
     "title": false,
     "sidebar_label": false,
     "description": true
@@ -21735,7 +18393,7 @@
    {
     "section": "docs-7.25",
     "path": "wired-connections/mikrotik-wired-interface-compatibility.md",
-    "blocks": 90,
+    "blocks": 81,
     "title": true,
     "sidebar_label": false,
     "description": true
@@ -21775,7 +18433,7 @@
    {
     "section": "docs-7.25",
     "path": "wireless/abgn/capsman.md",
-    "blocks": 71,
+    "blocks": 69,
     "title": false,
     "sidebar_label": false,
     "description": true
@@ -21783,7 +18441,7 @@
    {
     "section": "docs-7.25",
     "path": "wireless/abgn/hwmpplus-mesh.md",
-    "blocks": 85,
+    "blocks": 84,
     "title": true,
     "sidebar_label": false,
     "description": true
@@ -21791,7 +18449,7 @@
    {
     "section": "docs-7.25",
     "path": "wireless/abgn/interworking-profiles.md",
-    "blocks": 65,
+    "blocks": 64,
     "title": true,
     "sidebar_label": false,
     "description": true
@@ -21799,7 +18457,7 @@
    {
     "section": "docs-7.25",
     "path": "wireless/abgn/nv2.md",
-    "blocks": 67,
+    "blocks": 65,
     "title": false,
     "sidebar_label": false,
     "description": true
@@ -21807,7 +18465,7 @@
    {
     "section": "docs-7.25",
     "path": "wireless/abgn/spectral-scan.md",
-    "blocks": 18,
+    "blocks": 16,
     "title": true,
     "sidebar_label": false,
     "description": true
@@ -21823,7 +18481,7 @@
    {
     "section": "docs-7.25",
     "path": "wireless/abgn/wireless-interface.md",
-    "blocks": 251,
+    "blocks": 247,
     "title": true,
     "sidebar_label": false,
     "description": true
@@ -21855,7 +18513,7 @@
    {
     "section": "docs-7.25",
     "path": "wireless/user-guides/wireless-station-modes.md",
-    "blocks": 40,
+    "blocks": 39,
     "title": true,
     "sidebar_label": false,
     "description": true
@@ -21919,7 +18577,7 @@
    {
     "section": "docs-7.25",
     "path": "wireless/w60g.md",
-    "blocks": 78,
+    "blocks": 76,
     "title": false,
     "sidebar_label": false,
     "description": true
@@ -21959,7 +18617,7 @@
    {
     "section": "docs-7.25",
     "path": "wireless/wifi/interworking-for-wifi6.md",
-    "blocks": 49,
+    "blocks": 48,
     "title": true,
     "sidebar_label": false,
     "description": true
@@ -21975,7 +18633,7 @@
    {
     "section": "docs-7.25",
     "path": "wireless/wifi.md",
-    "blocks": 163,
+    "blocks": 162,
     "title": false,
     "sidebar_label": false,
     "description": true
@@ -21990,14 +18648,6 @@
    },
    {
     "section": "docs-7.24",
-    "path": "firewall-and-quality-of-service/queues/htb-hierarchical-token-bucket.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.24",
     "path": "getting-started/configuration-management/default-configuration-passwords.md",
     "blocks": 1,
     "title": false,
@@ -22006,183 +18656,7 @@
    },
    {
     "section": "docs-7.24",
-    "path": "getting-started/configuration-management/default-configurations.md",
-    "blocks": 5,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.24",
-    "path": "getting-started/supout-rif.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.24",
-    "path": "internet-of-things/gpio.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.24",
-    "path": "network-management/cloud.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.24",
-    "path": "storage/raid.md",
-    "blocks": 5,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.24",
-    "path": "user-guides/routing-and-networking-protocols/route-distinguisher-and-route-target.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.24",
-    "path": "user-guides/routing-and-networking-protocols/unicast/bgp/peering-sessions.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.24",
-    "path": "user-guides/routing-and-networking-protocols/unicast/evpn.md",
-    "blocks": 11,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.24",
-    "path": "user-guides/routing-and-networking-protocols/unicast/ospf/areas-and-virtual-links.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.24",
-    "path": "virtual-private-networks/l2tp.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.24",
     "path": "virtual-private-networks/sstp.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.24",
-    "path": "virtual-private-networks/wireguard.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.24",
-    "path": "wired-connections/mikrotik-wired-interface-compatibility.md",
-    "blocks": 9,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.24",
-    "path": "wireless/abgn/capsman.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.24",
-    "path": "wireless/abgn/hwmpplus-mesh.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.24",
-    "path": "wireless/abgn/interworking-profiles.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.24",
-    "path": "wireless/abgn/nv2.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.24",
-    "path": "wireless/abgn/spectral-scan.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.24",
-    "path": "wireless/abgn/wireless-interface.md",
-    "blocks": 4,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.24",
-    "path": "wireless/user-guides/wireless-station-modes.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.24",
-    "path": "wireless/w60g.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.24",
-    "path": "wireless/wifi/interworking-for-wifi6.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.24",
-    "path": "wireless/wifi.md",
     "blocks": 1,
     "title": false,
     "sidebar_label": false,
@@ -25289,26 +21763,26 @@
  },
  "tm": {
   "baseline_entries": 0,
-  "shard_files": 170,
-  "shard_entries": 17795,
-  "merged_entries": 17707
+  "shard_files": 213,
+  "shard_entries": 18418,
+  "merged_entries": 18330
  },
  "counts": {
-  "translated": 6843,
-  "llm_translated": 4155,
-  "tm_reused": 2688,
-  "titles": 151,
+  "translated": 626,
+  "llm_translated": 152,
+  "tm_reused": 474,
+  "titles": 0,
   "labels": 0,
   "comments": 0
  },
  "previous_run": {
-  "run_id": "20261128T141126Z-262521",
+  "run_id": "20261128T154255Z-eebe25",
   "locale": "zh-Hans",
-  "started_at": "2026-11-28T14:11:26.422Z",
-  "finished_at": "2026-11-28T15:40:26.421Z",
+  "started_at": "2026-11-28T15:42:55.952Z",
+  "finished_at": "2026-11-28T17:11:57.888Z",
   "stopped": "budget",
   "limit": "budget-minutes",
-  "translated": 7959,
-  "tm_merged_entries": 11284
+  "translated": 6843,
+  "tm_merged_entries": 17707
  }
 }

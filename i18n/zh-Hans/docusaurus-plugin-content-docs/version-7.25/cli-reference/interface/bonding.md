@@ -2,10 +2,10 @@
 title: "bonding"
 source: https://manual.mikrotik.com/docs/7.25/cli-reference/interface/bonding
 captured_at: '2026-11-28T10:17:19.424Z'
-translated_at: "2026-11-28T15:42:55.558Z"
+translated_at: "2026-11-28T17:14:44.363Z"
 translation_provider: "opencode-go"
 translation_model: "hy4-flash-free"
-translation_source: "tm"
+translation_source: "llm"
 ---
 
 -----------
@@ -13,7 +13,7 @@ translation_source: "tm"
 ## interface/bonding 
 **类型：** 目录
 
-[Bonding](/docs/high-availability-solutions/bonding) is used in High Availability Solutions.
+[Bonding](/docs/high-availability-solutions/bonding) 用于高可用性解决方案。
 
 <ArgTable c1="Flag" c2="Name" c3="Description">
 <ArgTableRow arg="X" typ="disabled">disabled.</ArgTableRow>
@@ -40,41 +40,41 @@ Specifies one of the bonding policies.
 - `balance-xor` - static LAG, transmit based on `transmit-hash-policy`. This mode provides load balancing and fault tolerance.
 - `broadcast` - broadcasts the same data on all interfaces. This provides fault tolerance but slows down traffic throughput on some slow machines.
 
-MikroTik devices with Marvell Prestera switch and 88E6393X, 88E6191X, 88E6190 switch chips support bridge hardware offloading with bonding interfaces.  
-Only `802.3ad` (LACP), `balance-xor` (static LAG) and `active-backup` bonding modes are hardware offloaded, other bonding modes will use the CPU's resources.
+带有 Marvell Prestera 交换机以及 88E6393X、88E6191X、88E6190 交换芯片的 MikroTik 设备支持带 bonding 接口的网桥硬件卸载。  
+仅 `802.3ad`（LACP）、`balance-xor`（静态 LAG）和 `active-backup` bonding 模式支持硬件卸载，其他 bonding 模式将使用 CPU 资源。
 </ArgTableRow>
-<ArgTableRow arg="primary" typ="iface_enum { none:0 }">Controls the primary interface between active slave ports, works only for `active-backup`, `balance-tlb` and `balance-alb` modes. For `active-backup` mode, it controls which running interface is supposed to send and receive the traffic. For `balance-tlb` mode, it controls which running interface is supposed to receive all the traffic, but for `balance-alb` mode, it controls which interface is supposed to receive the unbalanced traffic (the non-IPv4 traffic). When none of the interfaces are selected as primary, device will automatically select the interface that is configured as the first one.</ArgTableRow>
+<ArgTableRow arg="primary" typ="iface_enum { none:0 }">控制活动 slave 端口之间的主接口，仅适用于 `active-backup`、`balance-tlb` 和 `balance-alb` 模式。对于 `active-backup` 模式，它控制哪个运行中的接口应发送和接收流量。对于 `balance-tlb` 模式，它控制哪个运行中的接口应接收所有流量；对于 `balance-alb` 模式，它控制哪个接口应接收非均衡流量（非 IPv4 流量）。当没有接口被选为主接口时，设备将自动选择配置为第一个的接口。</ArgTableRow>
 <ArgTableRow arg="link-monitoring" typ="enum (none | arp | mii) { none:0, arp:1, mii:2 }">
-Method to use for monitoring the link. Some bonding modes require specific link monitoring to work properly.
-- `arp` - uses ARP to determine whether the remote interface is reachable.
-- `mii` - uses Media Independent Interface to determine link status. Link status determination relies on the device driver.
-- `none` - no link monitoring.
+用于监控链路的方法。某些 bonding 模式需要特定的链路监控才能正常工作。
+- `arp` - 使用 ARP 判断远端接口是否可达。
+- `mii` - 使用 Media Independent Interface 判断链路状态。链路状态判断依赖设备驱动程序。
+- `none` - 不进行链路监控。
 </ArgTableRow>
-<ArgTableRow arg="arp-interval" typ="time">Time in milliseconds defines how often to monitor ARP requests.</ArgTableRow>
+<ArgTableRow arg="arp-interval" typ="time">以毫秒为单位的时间，定义监控 ARP 请求的频率。</ArgTableRow>
 <ArgTableRow arg="arp-ip-targets" typ="multi { array-id, arp-target: ipAddr
- }">IP target address which will be monitored if link-monitoring is set to arp. Multiple IP addresses can be specified, separated by a comma.</ArgTableRow>
-<ArgTableRow arg="mii-interval" typ="time">How often to monitor the link for failures (used only if link-monitoring is mii).</ArgTableRow>
-<ArgTableRow arg="down-delay" typ="time">If a link failure has been detected, the bonding interface is disabled for a down-delay time. Only has effect when link-monitoring is set to mii.</ArgTableRow>
-<ArgTableRow arg="up-delay" typ="time">If a link has been brought up, the bonding interface is disabled for up-delay time. Only has effect when link-monitoring is set to mii.</ArgTableRow>
-<ArgTableRow arg="lacp-rate" typ="enum (30secs | 1sec) { 30secs:0, 1sec:1 }">LACP rate specifies how often to exchange LACPDUs between bonding peers. `1sec` - short timeout. `30secs` - long timeout.</ArgTableRow>
+ }">当 link-monitoring 设置为 arp 时，将被监控的 IP 目标地址。可以指定多个 IP 地址，以逗号分隔。</ArgTableRow>
+<ArgTableRow arg="mii-interval" typ="time">监控链路故障的频率（仅在 link-monitoring 为 mii 时使用）。</ArgTableRow>
+<ArgTableRow arg="down-delay" typ="time">如果检测到链路故障，bonding 接口将在 down-delay 时间内被禁用。仅在 link-monitoring 设置为 mii 时生效。</ArgTableRow>
+<ArgTableRow arg="up-delay" typ="time">如果链路已恢复，bonding 接口将在 up-delay 时间内被禁用。仅在 link-monitoring 设置为 mii 时生效。</ArgTableRow>
+<ArgTableRow arg="lacp-rate" typ="enum (30secs | 1sec) { 30secs:0, 1sec:1 }">LACP rate 指定 bonding 对等体之间交换 LACPDU 的频率。`1sec` - 短超时。`30secs` - 长超时。</ArgTableRow>
 <ArgTableRow arg="transmit-hash-policy" typ="enum (layer-2 | layer-3-and-4 | layer-2-and-3 | encap-2-and-3 | encap-3-and-4) { layer-2:0, layer-3-and-4:1, layer-2-and-3:2, encap-2-and-3:3, encap-3-and-4:4 }">
-Selects the transmit hash policy for slave selection in balance-xor and 802.3ad modes.
-- `layer-2` - Uses XOR of hardware MAC addresses to generate the hash. This algorithm will place all traffic to a particular network peer on the same slave. This algorithm is 802.3ad compliant.
-- `layer-2-and-3` - This policy uses a combination of layer2 and layer3 protocol information to generate the hash. Uses XOR of hardware MAC addresses and IP addresses to generate the hash. This algorithm will place all traffic to a particular network peer on the same slave. For non-IP traffic, the formula is the same as for the layer2 transmit hash policy. This policy is intended to provide a more balanced distribution of traffic than layer2 alone, especially in environments where a layer3 gateway device is required to reach most destinations. This algorithm is 802.3ad compliant.
-- `layer-3-and-4` - This policy uses upper layer protocol information, when available, to generate the hash. This allows for traffic to a particular network peer to span multiple slaves, although a single connection will not span multiple slaves. For fragmented TCP or UDP packets and all other IP protocol traffic, the source and destination port information is omitted. For non-IP traffic, the formula is the same as for the layer2 transmit hash policy. This algorithm is not fully 802.3ad compliant.
-- `encap-2-and-3` - This policy works like the layer-2-and-3 method for distributing traffic, but uses a process to also analyze the encapsulated packet headers. If an encapsulation protocol (like tunneling) is used, it may select the inner headers instead of the outer ones. RouterOS can use this feature when tunnels like 6to4, GRE, GRE6, IPIP, IPIP6, PPPoE, or PPTP are run over a bonding interface.
-- `encap-3-and-4` - This policy works like the layer-3-and-4 method for distributing traffic, but uses a process to also analyze the encapsulated packet headers. If an encapsulation protocol (like tunneling) is used, it may select the inner headers instead of the outer ones. RouterOS can use this feature when tunnels like 6to4, GRE, GRE6, IPIP, IPIP6, PPPoE, or PPTP are run over a bonding interface.
+选择 balance-xor 和 802.3ad 模式下用于 slave 选择的传输哈希策略。
+- `layer-2` - 使用硬件 MAC 地址的 XOR 生成哈希。该算法会将发往特定网络对等体的所有流量放到同一个 slave 上。该算法符合 802.3ad。
+- `layer-2-and-3` - 该策略使用 layer2 和 layer3 协议信息的组合生成哈希。使用硬件 MAC 地址和 IP 地址的 XOR 生成哈希。该算法会将发往特定网络对等体的所有流量放到同一个 slave 上。对于非 IP 流量，公式与 layer2 传输哈希策略相同。该策略旨在提供比单独使用 layer2 更均衡的流量分布，尤其是在需要 layer3 网关设备才能到达大多数目的地的环境中。该算法符合 802.3ad。
+- `layer-3-and-4` - 该策略在可用时使用上层协议信息生成哈希。这允许发往特定网络对等体的流量跨越多个 slave，但单个连接不会跨越多个 slave。对于分片的 TCP 或 UDP 数据包以及所有其他 IP 协议流量，会省略源端口和目的端口信息。对于非 IP 流量，公式与 layer2 传输哈希策略相同。该算法不完全符合 802.3ad。
+- `encap-2-and-3` - 该策略的工作方式类似于 layer-2-and-3 流量分发方法，但会使用额外过程分析封装的数据包报头。如果使用封装协议（如隧道），它可能会选择内部报头而不是外部报头。当 6to4、GRE、GRE6、IPIP、IPIP6、PPPoE 或 PPTP 等隧道运行在 bonding 接口上时，RouterOS 可以使用此功能。
+- `encap-3-and-4` - 该策略的工作方式类似于 layer-3-and-4 流量分发方法，但会使用额外过程分析封装的数据包报头。如果使用封装协议（如隧道），它可能会选择内部报头而不是外部报头。当 6to4、GRE、GRE6、IPIP、IPIP6、PPPoE 或 PPTP 等隧道运行在 bonding 接口上时，RouterOS 可以使用此功能。
 </ArgTableRow>
-<ArgTableRow arg="min-links" typ="num">How many active slave links needed for bonding to become active.</ArgTableRow>
-<ArgTableRow arg="mlag-id" typ="num">Changes [MLAG](/docs/high-availability-solutions/multi-chassis-link-aggregation-group) ID for bonding interface. The same MLAG ID should be used on both peer devices to successfully create a single MLAG.  The [`mlag-peer-port`](/docs/cli-reference/interface/bridge#mlag-peer-port) should not be configured with the MLAG ID.</ArgTableRow>
-<ArgTableRow arg="lacp-user-key" typ="num">Specifies the upper 10 bits of the port key. The lower 6 bits are automatically assigned based on individual port link speed and duplex.</ArgTableRow>
+<ArgTableRow arg="min-links" typ="num">bonding 变为活动状态所需活动 slave 链路的数量。</ArgTableRow>
+<ArgTableRow arg="mlag-id" typ="num">更改 bonding 接口的 [MLAG](/docs/high-availability-solutions/multi-chassis-link-aggregation-group) ID。两个对等体设备上应使用相同的 MLAG ID，以成功创建单个 MLAG。[`mlag-peer-port`](/docs/cli-reference/interface/bridge#mlag-peer-port) 不应配置 MLAG ID。</ArgTableRow>
+<ArgTableRow arg="lacp-user-key" typ="num">指定端口 key 的高 10 位。低 6 位会根据各端口的链路速度和双工模式自动分配。</ArgTableRow>
 <ArgTableRow arg="lacp-mode" typ="enum (passive | active) { passive:0, active:1 }">
-Specifies whether ports actively or passively participates in the LACP.
-- `active` - ports actively initiate LACP communication.
-- `passive` - ports only respond to LACP messages.
+指定端口以主动方式还是被动方式参与 LACP。
+- `active` - 端口主动发起 LACP 通信。
+- `passive` - 端口仅响应 LACP 消息。
 </ArgTableRow>
-<ArgTableRow arg="lacp-system-id" typ="macAddr">Specifies the LACP system ID used for LACP negotiations.</ArgTableRow>
-<ArgTableRow arg="lacp-system-priority" typ="num">Specifies the LACP system priority used for LACP negotiations.</ArgTableRow>
+<ArgTableRow arg="lacp-system-id" typ="macAddr">指定用于 LACP 协商的 LACP system ID。</ArgTableRow>
+<ArgTableRow arg="lacp-system-priority" typ="num">指定用于 LACP 协商的 LACP system priority。</ArgTableRow>
 </ArgTable>
 
 <ArgTable c1="Read-only Argument" c2="Type" c3="Description">

@@ -3,7 +3,7 @@ title: "默认配置密码"
 description: "查找刚出厂或完全重置后的 MikroTik RouterOS 设备的默认登录凭据。"
 source: https://manual.mikrotik.com/docs/7.24/getting-started/configuration-management/default-configuration-passwords
 captured_at: '2026-11-28T10:19:39.818Z'
-translated_at: "2026-11-28T15:42:55.558Z"
+translated_at: "2026-11-28T17:14:44.363Z"
 translation_provider: "opencode-go"
 translation_model: "hy4-flash-free"
 translation_source: "llm"
