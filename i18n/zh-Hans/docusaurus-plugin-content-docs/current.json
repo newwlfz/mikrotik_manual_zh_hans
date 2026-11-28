@@ -36,7 +36,7 @@
     "description": "The label for category 'RouterOS Licensing' in sidebar 'docs'"
   },
   "sidebar.docs.category.getting-started/routeros-licensing/chr": {
-    "message": "Cloud Hosted Router，CHR",
+    "message": "云托管路由器，CHR",
     "description": "The label for category 'Cloud Hosted Router, CHR' in sidebar 'docs'"
   },
   "sidebar.docs.category.getting-started/software-specifications": {
@@ -1576,7 +1576,7 @@
     "description": "The label for the doc item 'SSH' in sidebar 'docs', linking to the doc management-tools/ssh"
   },
   "sidebar.docs.doc.management-tools/quick-set": {
-    "message": "Quick Set",
+    "message": "快速设置",
     "description": "The label for the doc item 'Quick Set' in sidebar 'docs', linking to the doc management-tools/quick-set"
   },
   "sidebar.docs.doc.management-tools/flashfig": {
@@ -1632,7 +1632,7 @@
     "description": "The label for the doc item 'Identity' in sidebar 'docs', linking to the doc system-information-and-utilities/identity"
   },
   "sidebar.docs.doc.system-information-and-utilities/ip-packing": {
-    "message": "IP Packing",
+    "message": "IP 打包",
     "description": "The label for the doc item 'IP Packing' in sidebar 'docs', linking to the doc system-information-and-utilities/ip-packing"
   },
   "sidebar.docs.doc.system-information-and-utilities/neighbor-discovery": {
@@ -1700,7 +1700,7 @@
     "description": "The label for the doc item 'Speed Test' in sidebar 'docs', linking to the doc diagnostics-monitoring-and-troubleshooting/speed-test"
   },
   "sidebar.docs.doc.diagnostics-monitoring-and-troubleshooting/flood-ping": {
-    "message": "Flood Ping",
+    "message": "泛洪 Ping",
     "description": "The label for the doc item 'Flood Ping' in sidebar 'docs', linking to the doc diagnostics-monitoring-and-troubleshooting/flood-ping"
   },
   "sidebar.docs.doc.diagnostics-monitoring-and-troubleshooting/interface-stats-and-monitor-traffic": {
@@ -1876,7 +1876,7 @@
     "description": "The label for the doc item 'Wi-Fi 5 (802.11ac)' in sidebar 'docs', linking to the doc wireless/wifi-ac"
   },
   "sidebar.docs.doc.wireless/abgn/capsman/ap-controller-capsman": {
-    "message": "AP Controller（CAPsMAN）",
+    "message": "AP 控制器（CAPsMAN）",
     "description": "The label for the doc item 'AP Controller (CAPsMAN)' in sidebar 'docs', linking to the doc wireless/abgn/capsman/ap-controller-capsman"
   },
   "sidebar.docs.doc.wireless/abgn/capsman/capsman-with-vlans": {
@@ -2324,7 +2324,7 @@
     "description": "The label for the doc item 'SFQ' in sidebar 'docs', linking to the doc firewall-and-quality-of-service/queues/queue-types/sfq"
   },
   "sidebar.docs.doc.firewall-and-quality-of-service/kid-control": {
-    "message": "Kid Control",
+    "message": "儿童控制",
     "description": "The label for the doc item 'Kid Control' in sidebar 'docs', linking to the doc firewall-and-quality-of-service/kid-control"
   },
   "sidebar.docs.doc.firewall-and-quality-of-service/nat-pmp": {
@@ -2460,7 +2460,7 @@
     "description": "The label for the doc item 'RADIUS' in sidebar 'docs', linking to the doc authentication-authorization-accounting/radius"
   },
   "sidebar.docs.doc.authentication-authorization-accounting/user-manager": {
-    "message": "User Manager",
+    "message": "用户管理器",
     "description": "The label for the doc item 'User Manager' in sidebar 'docs', linking to the doc authentication-authorization-accounting/user-manager"
   },
   "sidebar.docs.doc.authentication-authorization-accounting/user": {
@@ -2696,7 +2696,7 @@
     "description": "The label for the doc item 'REST API' in sidebar 'docs', linking to the doc developer-guides/rest-api"
   },
   "sidebar.docs.doc.developer-guides/scripting/console-inspect": {
-    "message": "Console inspect",
+    "message": "控制台检查",
     "description": "The label for the doc item 'Console inspect' in sidebar 'docs', linking to the doc developer-guides/scripting/console-inspect"
   },
   "sidebar.docs.doc.developer-guides/scripting/scripting-examples": {

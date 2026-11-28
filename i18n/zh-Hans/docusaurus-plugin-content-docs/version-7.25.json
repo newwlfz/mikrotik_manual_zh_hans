@@ -36,7 +36,7 @@
     "description": "The label for category 'RouterOS Licensing' in sidebar 'docs'"
   },
   "sidebar.docs.category.getting-started/routeros-licensing/chr": {
-    "message": "Cloud Hosted Router，CHR",
+    "message": "云托管路由器，CHR",
     "description": "The label for category 'Cloud Hosted Router, CHR' in sidebar 'docs'"
   },
   "sidebar.docs.category.getting-started/software-specifications": {
@@ -1508,7 +1508,7 @@
     "description": "The label for the doc item 'SSH' in sidebar 'docs', linking to the doc management-tools/ssh"
   },
   "sidebar.docs.doc.management-tools/quick-set": {
-    "message": "Quick Set",
+    "message": "快速设置",
     "description": "The label for the doc item 'Quick Set' in sidebar 'docs', linking to the doc management-tools/quick-set"
   },
   "sidebar.docs.doc.management-tools/flashfig": {
@@ -1956,7 +1956,7 @@
     "description": "The label for the doc item 'Layer2 misconfiguration' in sidebar 'docs', linking to the doc bridging-and-switching/user-guides/layer2-misconfiguration"
   },
   "sidebar.docs.doc.bridging-and-switching/user-guides/loop-protect": {
-    "message": "Loop Protect",
+    "message": "环路保护",
     "description": "The label for the doc item 'Loop Protect' in sidebar 'docs', linking to the doc bridging-and-switching/user-guides/loop-protect"
   },
   "sidebar.docs.doc.bridging-and-switching/user-guides/spanning-tree-protocol": {
@@ -2200,7 +2200,7 @@
     "description": "The label for the doc item 'PFIFO,BFIFO' in sidebar 'docs', linking to the doc firewall-and-quality-of-service/queues/queue-types/pfifo-bfifo"
   },
   "sidebar.docs.doc.firewall-and-quality-of-service/kid-control": {
-    "message": "Kid Control",
+    "message": "儿童控制",
     "description": "The label for the doc item 'Kid Control' in sidebar 'docs', linking to the doc firewall-and-quality-of-service/kid-control"
   },
   "sidebar.docs.doc.firewall-and-quality-of-service/nat-pmp": {
@@ -2308,7 +2308,7 @@
     "description": "The label for the doc item 'RADIUS' in sidebar 'docs', linking to the doc authentication-authorization-accounting/radius"
   },
   "sidebar.docs.doc.authentication-authorization-accounting/user-manager": {
-    "message": "User Manager",
+    "message": "用户管理器",
     "description": "The label for the doc item 'User Manager' in sidebar 'docs', linking to the doc authentication-authorization-accounting/user-manager"
   },
   "sidebar.docs.doc.authentication-authorization-accounting/user": {

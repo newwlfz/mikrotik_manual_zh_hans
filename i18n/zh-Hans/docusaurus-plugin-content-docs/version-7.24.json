@@ -36,7 +36,7 @@
     "description": "The label for category 'RouterOS Licensing' in sidebar 'docs'"
   },
   "sidebar.docs.category.getting-started/routeros-licensing/chr": {
-    "message": "Cloud Hosted Router，CHR",
+    "message": "云托管路由器，CHR",
     "description": "The label for category 'Cloud Hosted Router, CHR' in sidebar 'docs'"
   },
   "sidebar.docs.category.getting-started/software-specifications": {
@@ -1504,7 +1504,7 @@
     "description": "The label for the doc item 'SSH' in sidebar 'docs', linking to the doc management-tools/ssh"
   },
   "sidebar.docs.doc.management-tools/quick-set": {
-    "message": "Quick Set",
+    "message": "快速设置",
     "description": "The label for the doc item 'Quick Set' in sidebar 'docs', linking to the doc management-tools/quick-set"
   },
   "sidebar.docs.doc.management-tools/flashfig": {
