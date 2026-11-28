@@ -1,0 +1,30 @@
+---
+title: "SwOS"
+description: "SwOS 是专为管理 MikroTik 交换硬件而构建的轻量级操作系统。它在所有标准以太网帧上提供最大的线速 Layer 2 转发能力，无缝处理 IPv4、IPv6 和非 IP 流量。"
+source: https://manual.mikrotik.com/docs/7.24/bridging-and-switching/swos
+captured_at: '2026-11-28T10:19:39.818Z'
+translated_at: "2026-11-28T11:05:14.673Z"
+translation_provider: "opencode-go"
+translation_model: "hy4-flash-free"
+translation_source: "llm"
+---
+
+# SwOS 简介 {#introduction-to-swos}
+
+SwOS 是专为管理 MikroTik 交换硬件而构建的轻量级操作系统。它可在所有标准以太网帧上提供最大的线速 Layer 2 转发能力，无缝处理 IPv4、IPv6 和非 IP 流量。
+
+### 核心与高级功能 {#core--advanced-features}
+
+除标准可管理交换机功能外，SwOS 还提供一套强大的网络功能：
+
+* **VLAN 管理：** 完整支持复杂 VLAN 配置，包括 access 和 trunking 端口。
+* **流量控制：** 高级广播风暴控制、带宽限制和端口到端口转发设置。
+* **监控与镜像：** 入站/出站流量镜像以及实时端口级统计信息。
+* **安全与过滤：** 细粒度的 Access Control List（ACL）引擎，能够按 MAC、IP 和端口级规则匹配流量。
+* **硬件卸载：** 在受支持的设备型号上直接通过硬件处理特定 MAC 和 IP 报头字段。
+
+:::note 管理限制
+SwOS 仅通过 IPv4 上的标准 Web 浏览器（HTTP）进行配置。它不支持通过串行控制台/SSH 访问命令行界面（CLI）、API 访问、WinBox 或其他替代管理协议。
+:::
+
+<DocCardList />
