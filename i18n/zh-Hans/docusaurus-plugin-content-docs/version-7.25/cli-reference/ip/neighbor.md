@@ -2,10 +2,10 @@
 title: "neighbor"
 source: https://manual.mikrotik.com/docs/7.25/cli-reference/ip/neighbor
 captured_at: '2026-11-28T10:17:19.424Z'
-translated_at: "2026-11-28T17:14:44.363Z"
+translated_at: "2026-11-28T18:46:28.375Z"
 translation_provider: "opencode-go"
 translation_model: "hy4-flash-free"
-translation_source: "tm"
+translation_source: "llm"
 ---
 
 -----------
@@ -13,9 +13,9 @@ translation_source: "tm"
 ## ip/neighbor 
 **类型：** 目录
 
-The neighbor list shows all discovered neighbors in the Layer 2 broadcast domain. It shows to which interface the neighbor is connected, its IP/MAC addresses, and other related parameters.
+邻居列表显示第 2 层广播域中发现的所有邻居。它显示邻居连接的接口、其 IP/MAC 地址以及其他相关参数。
 
-The number of neighbor entries is limited to (total RAM in megabytes) * 16 per interface to avoid memory exhaustion.
+为避免内存耗尽，每个接口的邻居条目数限制为（总 RAM（以兆字节计））* 16。
 
 ```ros
 [admin@MikroTik] /ip/neighbor/print 

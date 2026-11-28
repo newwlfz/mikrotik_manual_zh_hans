@@ -1,0 +1,31 @@
+---
+title: "meter"
+source: https://manual.mikrotik.com/docs/7.25/cli-reference/openflow/meter
+captured_at: '2026-11-28T10:17:19.424Z'
+translated_at: "2026-11-28T18:46:28.375Z"
+translation_provider: "opencode-go"
+translation_model: "hy4-flash-free"
+translation_source: "llm"
+---
+
+-----------
+
+## openflow/meter 
+**包：** openflow
+**类型：** 目录
+
+子菜单列出控制器已安装的流量计量器。计量器用于在输出前进行速率监控并应用动作指令。
+
+<ArgTable c1="Flag" c2="Name" c3="Description">
+<ArgTableRow arg="I" typ="inactive"></ArgTableRow>
+</ArgTable>
+
+<ArgTable c1="Read-only Argument" c2="Type" c3="Description">
+<ArgTableRow arg="switch" typ="enum">Controller name that installed the meter.</ArgTableRow>
+<ArgTableRow arg="id" typ="num">Identifier of the meter.</ArgTableRow>
+<ArgTableRow arg="band-count" typ="num">Number of meter bands in the meter.</ArgTableRow>
+<ArgTableRow arg="bands" typ="string">List of meter bands that define the rate and how packets are processed.</ArgTableRow>
+<ArgTableRow arg="bytes" typ="num">Number of bytes processed by the meter.</ArgTableRow>
+<ArgTableRow arg="packets" typ="num">Number of packets processed by the meter.</ArgTableRow>
+<ArgTableRow arg="duration" typ="time">Time since the meter was installed.</ArgTableRow>
+</ArgTable>

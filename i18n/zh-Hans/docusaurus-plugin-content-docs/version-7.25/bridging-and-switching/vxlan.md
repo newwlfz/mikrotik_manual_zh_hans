@@ -1,11 +1,11 @@
 ---
 title: "VXLAN"
-description: 'This page documents MikroTik RouterOS''s VXLAN implementation, covering its purpose in expanding VLAN IDs, configuration options for VXLAN interfaces and VTEPs, and forwarding table monitoring. It details settings like MTU, VNI, ARP handling, and multicast group management for Layer 2 overlays over UDP.'
+description: "本页介绍 MikroTik RouterOS 的 VXLAN 实现，涵盖其扩展 VLAN ID 的用途、VXLAN 接口和 VTEP 的配置选项，以及转发表监控。文中详细说明 MTU、VNI、ARP 处理和组播组管理等设置，用于在 UDP 之上构建 Layer 2 overlay。"
 tags:
   - 'vxlan'
 source: https://manual.mikrotik.com/docs/7.25/bridging-and-switching/vxlan
 captured_at: '2026-11-28T10:17:19.424Z'
-translated_at: "2026-11-28T17:14:44.363Z"
+translated_at: "2026-11-28T18:46:28.375Z"
 translation_provider: "opencode-go"
 translation_model: "hy4-flash-free"
 translation_source: "llm"
@@ -137,23 +137,23 @@ add interface=vxlan1 remote-ip=192.168.20.20
 
 ### Overlay（Ethernet 和 VXLAN 之间的转发） {#overlay-forwarding-between-ethernet-and-vxlan}
 
-1. Routing between different VXLAN VNIs is not supported.
+1. 不支持在不同 VXLAN VNI 之间进行路由。
 
-2. VTEPs are isolated, and there is no mechanism to control "horizon" between them.
+2. VTEP 相互隔离，没有机制控制它们之间的“horizon”。
 
-3. Bridged VXLAN interfaces do not support IGMP snooping. When snooping is enabled, MDB entries on VXLAN are not offloaded, and multicast traffic gets restricted between Ethernet and VXLAN.
+3. 网桥中的 VXLAN 接口不支持 IGMP snooping。启用 snooping 时，VXLAN 上的 MDB 条目不会被卸载，组播流量在 Ethernet 和 VXLAN 之间会受到限制。
 
-4. Bridged VXLAN interfaces are not supported by MLAG.
+4. MLAG 不支持网桥中的 VXLAN 接口。
 
-### Basic configuration example
+### 基本配置示例 {#basic-configuration-example}
 
-In this example, static routing is used to reach remote VTEPs, but dynamic routing protocols like OSPF or BGP could also be used. The upstream interface has a higher MTU to support large packets and VXLAN encapsulation. Below is a network topology overview:
+在本示例中，使用静态路由访问远端 VTEP，但也可以使用 OSPF 或 BGP 等动态路由协议。上游接口使用较高的 MTU，以支持大数据包和 VXLAN 封装。以下是网络拓扑概述：
 
-**sfp-sfpplus1** - upstream (underlay) interface  
-**sfp-sfpplus3** - bridged port for untagged VLAN 10  
-**sfp-sfpplus4** - bridged port for untagged VLAN 20  
-**vxlan-10010** - overlay port for untagged VLAN 10  
-**vxlan-10020** - overlay port for untagged VLAN 20
+**sfp-sfpplus1** - 上游（underlay）接口  
+**sfp-sfpplus3** - 未标记 VLAN 10 的网桥端口  
+**sfp-sfpplus4** - 未标记 VLAN 20 的网桥端口  
+**vxlan-10010** - 未标记 VLAN 10 的 overlay 端口  
+**vxlan-10020** - 未标记 VLAN 20 的 overlay 端口
 
 ```routeros
 /interface/bridge

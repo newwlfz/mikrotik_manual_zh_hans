@@ -2,10 +2,10 @@
 title: "forwarders"
 source: https://manual.mikrotik.com/docs/7.25/cli-reference/ip/dns/forwarders
 captured_at: '2026-11-28T10:17:19.424Z'
-translated_at: "2026-11-28T17:14:44.363Z"
+translated_at: "2026-11-28T18:46:28.375Z"
 translation_provider: "opencode-go"
 translation_model: "hy4-flash-free"
-translation_source: "tm"
+translation_source: "llm"
 ---
 
 -----------
@@ -13,7 +13,7 @@ translation_source: "tm"
 ## ip/dns/forwarders 
 **类型：** 目录
 
-Named groups of upstream servers for static `FWD` entries: set `forward-to` of an entry in [`/ip/dns/static`](/docs/cli-reference/ip/dns/static) to the forwarder name. Every query takes the next server in turn across `dns-servers` and `doh-servers` (round robin). A server that does not answer is not skipped: the queries it gets fail with SERVFAIL after `query-total-timeout`, so list only servers that work. For examples, see [DNS](/docs/network-management/dns).
+用于静态 `FWD` 条目的上游服务器命名组：将 [`/ip/dns/static`](/docs/cli-reference/ip/dns/static) 中条目的 `forward-to` 设置为转发器名称。每个查询都会依次使用 `dns-servers` 和 `doh-servers` 中的下一个服务器（轮询）。不响应的服务器不会被跳过：分配给它的查询会在 `query-total-timeout` 后以 SERVFAIL 失败，因此仅列出可正常工作的服务器。示例请参阅 [DNS](/docs/network-management/dns)。
 
 <ArgTable c1="Flag" c2="Name" c3="Description">
 <ArgTableRow arg="X" typ="disabled">The forwarder is disabled.</ArgTableRow>

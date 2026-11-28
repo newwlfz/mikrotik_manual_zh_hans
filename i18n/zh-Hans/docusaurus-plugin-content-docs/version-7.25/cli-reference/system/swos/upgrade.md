@@ -1,0 +1,21 @@
+---
+title: "upgrade"
+source: https://manual.mikrotik.com/docs/7.25/cli-reference/system/swos/upgrade
+captured_at: '2026-11-28T10:17:19.424Z'
+translated_at: "2026-11-28T18:46:28.375Z"
+translation_provider: "opencode-go"
+translation_model: "hy4-flash-free"
+translation_source: "tm"
+---
+
+-----------
+
+## system/swos/upgrade 
+**条件：** !i386，!mmips，!powerpc，!tile，!smips
+**系统能力：** swos
+**类型：** Command
+
+<ArgTable c1="Read-only Argument" c2="Type" c3="Description">
+<ArgTableRow arg="version" typ="string"></ArgTableRow>
+<ArgTableRow arg="status" typ="string"></ArgTableRow>
+</ArgTable>

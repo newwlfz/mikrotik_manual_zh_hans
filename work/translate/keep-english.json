@@ -9,6 +9,7 @@
   "- XS+31LC10D - XS+2733LC15D",
   "- `:put` - `/ip route get` - `find gateway=1.1.1.1`",
   "- `AA:BB:CC:DD:*:*` - `AA:BB:CC:DD:EE:*` - `AA:*:*:*:*:*`",
+  "- `[slot]` - `[model]` - `[serial]` - `[fw-version]` - `[fs-label]` - `[fs-uuid]` - `[fs]`",
   "- https://kb.vmware.com/kb/1004099",
   "- https://technet.microsoft.com/en-us/library/cc816585(v=ws.10).aspx#Anchor_2",
   "[0:a00:27ff:fe70::e88c%2]",
@@ -78,6 +79,11 @@
   {
    "key": "ChirpStack",
    "original": "ChirpStack",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "Cloud",
+   "original": "Cloud",
    "reason": "model-kept-proper-noun"
   },
   {
@@ -333,6 +339,11 @@
   {
    "key": "PoE",
    "original": "PoE",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "Profiler",
+   "original": "Profiler",
    "reason": "model-kept-proper-noun"
   },
   {
