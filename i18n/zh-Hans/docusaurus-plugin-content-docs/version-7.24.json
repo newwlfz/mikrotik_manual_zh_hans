@@ -2500,7 +2500,7 @@
     "description": "The label for the doc item 'Container - mosquitto MQTT server' in sidebar 'docs', linking to the doc containers/user-guides/container-mosquitto-mqtt-server"
   },
   "sidebar.docs.doc.containers/user-guides/container-postgres": {
-    "message": "Container - Postgres",
+    "message": "容器 - Postgres",
     "description": "The label for the doc item 'Container - Postgres' in sidebar 'docs', linking to the doc containers/user-guides/container-postgres"
   },
   "sidebar.docs.doc.containers/user-guides/container-thingsboard-mqtt-http-server": {
