@@ -1,13 +1,13 @@
 ---
 title: "Btrfs RAID"
-description: 'This page provides step-by-step instructions for setting up a Btrfs RAID1 array using two disks in MikroTik RouterOS, covering disk preparation, formatting, adding devices, balancing data, and ensuring consistent RAID profiles.'
+description: "本页提供在 MikroTik RouterOS 中使用两块磁盘设置 Btrfs RAID1 阵列的分步说明，涵盖磁盘准备、格式化、添加设备、平衡数据以及确保 RAID 配置文件一致。"
 tags:
   - 'btrfs'
   - 'storage'
   - 'raid'
 source: https://manual.mikrotik.com/docs/7.24/storage/btrfs/raid
 captured_at: '2026-11-28T10:19:39.818Z'
-translated_at: "2026-11-28T14:11:26.249Z"
+translated_at: "2026-11-28T15:42:55.558Z"
 translation_provider: "opencode-go"
 translation_model: "hy4-flash-free"
 translation_source: "llm"
@@ -151,7 +151,7 @@ translation_source: "llm"
    /disk/btrfs/filesystem/set [find where present-devs=<disk-name-1>] label=BtrfsRAID
    ```
 
-4. Add other disks to an existing Btrfs disk:  
+4. 将其他磁盘添加到现有 Btrfs 磁盘：  
 
    ```routeros
    /disk/btrfs/filesystem/add-device [find where present-devs=<disk-name-1>] device=<disk-name-2>
@@ -159,24 +159,24 @@ translation_source: "llm"
    /disk/btrfs/filesystem/add-device [find where present-devs=<disk-name-1>] device=<disk-name-4>
    ```
 
-5. Start the Btrfs balance process to create a Btrfs-RAID with RAID1 configuration:  
+5. 启动 Btrfs balance 过程，以创建采用 RAID1 配置的 Btrfs-RAID：  
 
    ```routeros
    /disk/btrfs/filesystem/balance-start [find where label=BtrfsRAID] data-profile=raid10 metadata-profile=raid1c4 system-profile=raid1c4
    ```
 
    :::info
-   There are many possible configurations of `data-profile` , `metadata-profile` and `system-profile` . For a RAID10 array it is recommended to use either `raid1c3` or `raid1c4` for both `system-profile` and `metadata-profile. The raid1c4 profile is going to store 4 copies of the data on different disks. This makes the data more redundant, but uses more disk space.`
+   `data-profile`、`metadata-profile` 和 `system-profile` 有多种可能的配置。对于 RAID10 阵列，建议为 `system-profile` 和 `metadata-profile` 均使用 `raid1c3` 或 `raid1c4`。`raid1c4` profile 会将数据的 4 份副本存储在不同磁盘上。这可提高数据冗余性，但会占用更多磁盘空间。
    :::
 
    :::danger
-   Btrfs RAID5 and RAID6 is not supported. Use [regular RAID](/docs/storage/raid) if you need such RAID configurations. Be aware that when using [regular RAID](/docs/storage/raid) with Btrfs you will not have bit-rot protection.
+   不支持 Btrfs RAID5 和 RAID6。如果需要此类 RAID 配置，请使用[常规 RAID](/docs/storage/raid)。请注意，将[常规 RAID](/docs/storage/raid) 与 Btrfs 一起使用时，将不具备 bit-rot 保护。
    :::
 
    :::warning
-   For most use cases set `metadata-profile` to the same value as `system-profile` . Avoid using different values for both of these profiles.
+   对于大多数使用场景，将 `metadata-profile` 设置为与 `system-profile` 相同的值。避免为这两个 profile 使用不同的值。
    :::
-6. Set `mount-filesystem=no` for other disks to prevent the files from showing up twice:  
+6. 为其他磁盘设置 `mount-filesystem=no`，以防止文件重复显示：  
 
    ```routeros
    /disk/set <disk-name-2> mount-filesystem=no
@@ -184,33 +184,33 @@ translation_source: "llm"
    /disk/set <disk-name-4> mount-filesystem=no
    ```
 
-7. You can also change the mount point's name for simplicity:  
+7. 为简化操作，还可以更改挂载点名称：  
 
    ```routeros
    /disk/set <disk-name-1> mount-point-template=BtrfsRAID
    ```
 
-8. Your newly created Btrfs-RAID array is now accessible through the `/BtrfsRAID/` folder.
+8. 现在可以通过 `/BtrfsRAID/` 文件夹访问新创建的 Btrfs-RAID 阵列。
 
-## Replacing a disk in Btrfs RAID array
+## 更换 Btrfs RAID 阵列中的磁盘 {#replacing-a-disk-in-btrfs-raid-array}
 
-In case of a disk failure or you need to replace a disk in your existing Btrfs RAID array, then follow the procedure below:
+如果磁盘发生故障，或者需要更换现有 Btrfs RAID 阵列中的磁盘，请按以下过程操作：
 
-1. Make sure you determine the correct disk that needs replacing. Use `/disk/print detail` and `/disk/blink` to determine the correct disk. We will assume that the faulty disk is `disk2` .
-2. Eject the faulty disk:  
+1. 确保确定需要更换的正确磁盘。使用 `/disk/print detail` 和 `/disk/blink` 确定正确的磁盘。假设故障磁盘为 `disk2` 。
+2. 弹出故障磁盘：  
 
    ```routeros
    /disk/eject disk2
    ```
 
-3. Physically remove the faulty disk.
-4. Print out the current status of your Btrfs RAID array:  
+3. 物理移除故障磁盘。
+4. 打印当前 Btrfs RAID 阵列的状态：  
 
    ```routeros
    /disk/btrfs/filesystem/print
    ```
 
-5. Look for the `DEV-ID` in the command's output for the missing disk:  
+5. 在命令输出中查找缺失磁盘的 `DEV-ID`：  
 
    ```routeros
    [admin@MikroTik] /disk> /disk/btrfs/filesystem/print
@@ -227,28 +227,28 @@ In case of a disk failure or you need to replace a disk in your existing Btrfs R
    ```
 
    :::info
-   In this case the missing disk's `DEV-ID` is "2".
+   在本例中，缺失磁盘的 `DEV-ID` 为“2”。
    :::
-6. Insert a new disk.
-7. Determine the new disk's name:  
+6. 插入新磁盘。
+7. 确定新磁盘的名称：  
 
    ```routeros
    /disk/print
    ```
 
    :::info
-   In this case the new disk's name is `disk3`
+   在本例中，新磁盘的名称为 `disk3`
    :::
-8. Run the following command to replace the disk in the Btrfs RAID array:  
+8. 运行以下命令替换 Btrfs RAID 阵列中的磁盘：  
 
    ```routeros
    /disk/btrfs/filesystem/replace-device device-to-remove-id=2 device-to-add=disk3 BtrfsRAID
    ```
 
    :::warning
-   Make sure you set the correct `device-to-remove-id` to the `DEV-ID` that you determined previously!
+   确保将 `device-to-remove-id` 设置为此前确定的 `DEV-ID`！
    :::
-9. Check the replace status and make sure that `REPLACE-STATUS` is marked as `done` .  
+9. 检查替换状态，并确保 `REPLACE-STATUS` 标记为 `done`。  
 
    ```routeros
    > /disk/btrfs/filesystem/print
@@ -263,12 +263,12 @@ In case of a disk failure or you need to replace a disk in your existing Btrfs R
    ```
 
    :::info
-   Ensure that your Btrfs RAID array does not have inconsistent Btrfs profiles for `data` , `system`  or `meta` . The desired profiles will depend on your specific setup. For RAID1 setups you will most likely want these profiles to match, but in a RAID10 setup these values can be different. In any RAID setup there should not be a `single` profile for either `data` , `system`  or `meta` .
+   确保 Btrfs RAID 阵列中的 `data`、`system` 或 `meta` 没有不一致的 Btrfs 配置文件。所需的配置文件取决于具体设置。对于 RAID1 设置，这些配置文件很可能需要匹配；但在 RAID10 设置中，这些值可以不同。在任何 RAID 设置中，`data`、`system` 或 `meta` 都不应为 `single` 配置文件。
    :::
 
-## Creating Btrfs-RAID check
+## 创建 Btrfs-RAID 检查 {#creating-btrfs-raid-check}
 
-It is extremely important for you to monitor the Btrfs-RAID array's health. One way you can do this is by using the script below as a working example:
+监控 Btrfs-RAID 阵列的运行状况非常重要。一种方法是使用以下脚本作为工作示例：
 
 ```routeros
 /system/scheduler
@@ -416,7 +416,7 @@ add dont-require-permissions=no name=BraidHealthCheck owner=admin policy=ftp,rea
     \n"
 ```
 
-You also need to adjust e-mail server settings on your RouterOS device:
+还需要在 RouterOS 设备上调整电子邮件服务器设置：
 
 ```routeros
 /tool/e-mail
@@ -424,6 +424,5 @@ set from=<raidcheck@domain.tld> port=587 server=smtp.domain.com tls=starttls
 ```
 
 :::warning
-Make sure you adjust the e-mail settings with the required settings on your e-mail server. Remember to adjust the e-mail address in the script above.
-
+确保按照电子邮件服务器的要求调整电子邮件设置。记得调整上述脚本中的电子邮件地址。
 :::

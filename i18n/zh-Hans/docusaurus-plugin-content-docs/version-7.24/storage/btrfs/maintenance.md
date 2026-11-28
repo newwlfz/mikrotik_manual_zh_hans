@@ -1,5 +1,5 @@
 ---
-title: "Btrfs maintenance"
+title: "Btrfs 维护"
 description: "本页介绍 Btrfs 维护任务，包括定期 scrub 以检测和纠正 RAID 阵列中的数据损坏、平衡以优化存储空间使用率，以及创建快照以进行数据恢复。本页提供建议的间隔时间、示例命令，以及有关存储设备运行状况的警告。"
 tags:
   - 'btrfs'
@@ -8,7 +8,7 @@ tags:
 source: https://manual.mikrotik.com/docs/7.24/storage/btrfs/maintenance
 captured_at: '2026-11-28T10:19:39.818Z'
 pagination_prev: "storage/btrfs"
-translated_at: "2026-11-28T14:11:26.249Z"
+translated_at: "2026-11-28T15:42:55.558Z"
 translation_provider: "opencode-go"
 translation_model: "hy4-flash-free"
 translation_source: "llm"

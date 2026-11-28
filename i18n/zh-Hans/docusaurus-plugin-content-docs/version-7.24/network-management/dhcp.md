@@ -1,11 +1,11 @@
 ---
 title: "DHCP"
-description: 'The MikroTik RouterOS documentation page describes the DHCP client functionality, explaining how to configure and manage IP address assignment via DHCP. It covers client properties such as default route handling, DNS/NTP integration, and VLAN priority settings, along with read-only status indicators like assigned IP addresses and DHCP server details.'
+description: "MikroTik RouterOS 文档页面介绍 DHCP 客户端功能，说明如何配置和管理通过 DHCP 分配 IP 地址。该页面涵盖客户端属性，例如默认路由处理、DNS/NTP 集成和 VLAN 优先级设置，以及只读状态指示项，例如已分配的 IP 地址和 DHCP 服务器详细信息。"
 tags:
   - 'dhcp'
 source: https://manual.mikrotik.com/docs/7.24/network-management/dhcp
 captured_at: '2026-11-28T10:19:39.818Z'
-translated_at: "2026-11-28T14:11:26.249Z"
+translated_at: "2026-11-28T15:42:55.558Z"
 translation_provider: "opencode-go"
 translation_model: "hy4-flash-free"
 translation_source: "llm"
@@ -888,91 +888,91 @@ lease time: 10m
 
 ### 概述 {#summary-3}
 
-**Standards:** `RFC 3315, RFC 3633`
+**标准：** `RFC 3315, RFC 3633`
 
-A single DUID is used for client and server identification; only IAID will vary between clients corresponding to their assigned interface.
+单个 DUID 用于客户端和服务器标识；只有 IAID 会因客户端分配的接口不同而变化。
 
-Client binding creates a dynamic pool with a timeout set to binding's expiration time (note that now dynamic pools can have a timeout), which will be updated every time the binding gets renewed.
+客户端绑定会创建一个动态池，其超时时间设置为绑定的到期时间（注意，现在动态池可以设置超时时间），并且每次绑定续租时都会更新该时间。
 
-When a client is bound to a prefix, the DHCP server adds routing information to know how to reach the assigned prefix.
+当客户端绑定到某个前缀时，DHCP 服务器会添加路由信息，以确定如何到达所分配的前缀。
 
-### General
+### 常规 {#general}
 
-**Sub-menu:** `/ipv6/dhcp-server`
+**子菜单：** `/ipv6/dhcp-server`
 
-This sub-menu lists and allows configuring DHCP-PD servers.
+此子菜单列出并允许配置 DHCP-PD 服务器。
 
-### DHCPv6 Server Properties
+### DHCPv6 Server 属性 {#dhcpv6-server-properties}
 
-| Property | Description |
+| 属性 | 说明 |
 | :-- | :-- |
-| **address-pool** (*enum \| static-only*; Default: **static-only**) | [IPv6 pool](/docs/cli-reference/ipv6/pool), from which to take an IPv6 address for the clients, pool prefix-length must be specified as /128. |
-| **prefix-pool (*enum \| static-only*; Default: static-only)** | [IPv6 pool](/docs/cli-reference/ipv6/pool), from which to take IPv6 prefixes for the clients. |
-| ****allow-dual-stack-queue****(*yes \| no*; Default:****yes****) | Creates a single simple queue entry for both IPv4 and IPv6 addresses, and uses the MAC address and DUID for identification. Requires IPv6 DHCP Server to have this option enabled as well to work properly. |
-| **address-lists** (*string*; Default:) | Comma-separated list of address-lists. Address or prefix issued by the server will be added to these lists. |
-| **binding-script** (*string*; Default: ) | A script that will be executed after binding is assigned or de-assigned. Internal "global" variables that can be used in the script:<ul><li>bindingBound - set to "1" if bound, otherwise set to "0"</li><li>bindingServerName - dhcp server name</li><li>bindingDUID - DUID</li><li>bindingAddress - active address</li><li>bindingPrefix - active prefix</li></ul> |
-| **dhcp-option** (*string*; Default: **none**) | Adds additional DHCP options from [option list](/docs/network-management/dhcp#dhcp-options-1). |
-| **insert-queue-before** (*bottom \| first \| name*; Default: **first**) | Specifies where to place dynamic simple queue entries for static DHCP leases with a rate-limit parameter set. |
-| **parent-queue** (*string \| none*; Default: **none**) | A dynamically created queue for this lease will be configured as a child queue of the specified parent queue. |
-| **preference** (*integer [0..255]*; Default: 255) | Defines the server priority level in client selection when multiple servers respond. |
-| **disabled** (*yes \| no*; Default: **no**) | Whether the DHCP-PD server participates in the prefix assignment process. |
-| **interface** (*string*; Default: ) | The interface on which the server will be running. |
-| **lease-time** (*time*; Default: **3d**) | The time that a client may use the assigned address. The client will try to renew this address after half of this time and will request a new address after the time limit expires. |
-| **rapid-commit (**yes \| no; Default: **yes)** | Enables a two-message exchange (Solicit and Reply) for quicker client configuration by skipping the standard four-message process. |
-| ****route-distance****(*integer [0..255]*; Default:**1**) | Specifies the distance to set for dynamically installed routes towards DHCPv6 clients. |
-| **use-radius** (*yes \| no \| accounting*; Default: **no**) | Whether to use a RADIUS server:<ul><li>no - do not use RADIUS;</li><li>yes - use RADIUS for accounting and lease;</li><li>accounting - use RADIUS for accounting only.</li></ul> |
-| ****use-reconfigure****(*yes \| no*; Default: **no**) | Allows the server to send Reconfigure messages to clients, prompting them to renew or update their configuration without waiting for their lease to expire. |
-| **name** (*string*; Default: ) | Reference name |
-| **address-lists** (*string*; Default: **none**) | Address list to which the address will be added if the lease is bound. |
-| **ignore-ia-na-bindings** (*yes \| no*; Default: **no**) | Does not reply to DHCPv6 address requests and processes only prefixes. Without this setting, even if the server does not have address-pool configured, it has to respond to the client that there is no address available for the client. That can lead to the situation when DHCPv6 client requests address and prefix in a loop. |
+| **address-pool** (*enum \| static-only*；默认值：**static-only**) | [IPv6 pool](/docs/cli-reference/ipv6/pool)，用于为客户端分配 IPv6 地址，pool prefix-length 必须指定为 /128。 |
+| **prefix-pool (*enum \| static-only*；默认值：static-only)** | [IPv6 pool](/docs/cli-reference/ipv6/pool)，用于为客户端分配 IPv6 前缀。 |
+| ****allow-dual-stack-queue****(*yes \| no*；默认值：****yes****) | 为 IPv4 和 IPv6 地址创建单个 simple queue 条目，并使用 MAC 地址和 DUID 进行标识。IPv6 DHCP Server 也需启用该选项才能正常工作。 |
+| **address-lists** (*string*；默认值：) | 以逗号分隔的 address-lists 列表。服务器分配的地址或前缀将添加到这些列表中。 |
+| **binding-script** (*string*；默认值： ) | 在绑定被分配或取消分配后执行的脚本。脚本中可使用的内部“global”变量：<ul><li>bindingBound - 绑定时设置为“1”，否则设置为“0”</li><li>bindingServerName - dhcp server 名称</li><li>bindingDUID - DUID</li><li>bindingAddress - 活动地址</li><li>bindingPrefix - 活动前缀</li></ul> |
+| **dhcp-option** (*string*；默认值：**none**) | 从 [option list](/docs/network-management/dhcp#dhcp-options-1) 添加额外的 DHCP 选项。 |
+| **insert-queue-before** (*bottom \| first \| name*；默认值：**first**) | 指定为设置了 rate-limit 参数的静态 DHCP 租约放置动态 simple queue 条目的位置。 |
+| **parent-queue** (*string \| none*；默认值：**none**) | 为此租约动态创建的队列将配置为指定父队列的子队列。 |
+| **preference** (*integer [0..255]*；默认值：255) | 定义多个服务器响应时客户端选择中的服务器优先级。 |
+| **disabled** (*yes \| no*；默认值：**no**) | DHCP-PD 服务器是否参与前缀分配过程。 |
+| **interface** (*string*；默认值：) | 服务器运行所在的接口。 |
+| **lease-time** (*time*；默认值：**3d**) | 客户端可使用所分配地址的时间。客户端将在此时间过半时尝试续租该地址，并在时间限制到期后请求新地址。 |
+| **rapid-commit (**yes \| no；默认值： **yes)** | 通过跳过标准四消息过程，启用两消息交换（Solicit 和 Reply）以加快客户端配置。 |
+| ****route-distance****(*integer [0..255]*；默认值：**1**) | 指定为指向 DHCPv6 客户端的动态安装路由设置的 distance。 |
+| **use-radius** (*yes \| no \| accounting*；默认值：**no**) | 是否使用 RADIUS 服务器：<ul><li>no - 不使用 RADIUS；</li><li>yes - 使用 RADIUS 进行计费和租约；</li><li>accounting - 仅使用 RADIUS 进行计费。</li></ul> |
+| ****use-reconfigure****(*yes \| no*；默认值：**no**) | 允许服务器向客户端发送 Reconfigure 消息，提示客户端续租或更新配置，而无需等待租约到期。 |
+| **name** (*string*；默认值：) | 引用名称 |
+| **address-lists** (*string*；默认值：**none**) | 租约绑定时地址将添加到的地址列表。 |
+| **ignore-ia-na-bindings** (*yes \| no*；默认值：**no**) | 不回复 DHCPv6 地址请求，仅处理前缀。若无此设置，即使服务器未配置 address-pool，也必须回复客户端没有可供客户端使用的地址。这可能导致 DHCPv6 客户端循环请求地址和前缀。 |
 
-#### Read-only Properties {#read-only-properties-3}
+#### 只读属性 {#read-only-properties-3}
 
-| Property | Description |
+| 属性 | 说明 |
 | :-- | :-- |
 | **dynamic** (*yes \| no*) |  |
 | **invalid** (*yes \| no*) |  |
 
 ### Bindings
 
-**Sub-menu:** `/ipv6/dhcp-server/binding`
+**子菜单：** `/ipv6/dhcp-server/binding`
 
-DUID is used only for dynamic bindings, so if it changes then the client will receive a different prefix than previously.
+DUID 仅用于动态绑定，因此如果 DUID 发生变化，客户端将收到与之前不同的前缀。
 
-| Property | Description |
+| 属性 | 说明 |
 | :-- | :-- |
-| **address** (*IPv6 prefix*; Default: ) | IPv6 prefix that will be assigned to the client |
-| **allow-dual-stack-queue** (*yes \| no*; Default: **yes**) | Creates a single simple queue entry for both IPv4 and IPv6 addresses, uses the MAC address and DUID for identification. Requires IPv4 DHCP Server to have this option enabled as well to work properly. |
-| **comment** (*string*; Default: ) | Short description of an item. |
-| **disabled** (*yes \| no*; Default: **no**) | Whether an item is disabled |
-| **dhcp-option** (*string*; Default: ) | Adds additional DHCP options from the option list. |
-| **life-time** (*time*; Default: **3d**) | The time period after which binding expires. |
-| **duid** (*hex string*; Default: ) | DUID value. Should be specified only in hexadecimal format. |
-| **iaid** (*integer [0..4294967295]*; Default: ) | Identity Association Identifier, part of the Client ID. |
-| **prefix-pool** (*string*; Default: ) | Prefix pool that is being advertised to the DHCPv6 Client. |
-| **rate-limit** (*integer[/integer] [integer[/integer] [integer[/integer] [integer[/integer]]]]*; Default: ) | Adds a dynamic simple queue to limit IP's bandwidth to a specified rate. Requires the lease to be static. Format is: rx-rate[/tx-rate] [rx-burst-rate[/tx-burst-rate] [rx-burst-threshold[/tx-burst-threshold] [rx-burst-time[/tx-burst-time]]]]. All rates should be numbers with optional 'k' (1,000s) or 'M' (1,000,000s). If tx-rate is not specified, rx-rate is used as tx-rate too. Same goes for tx-burst-rate and tx-burst-threshold and tx-burst-time. If both rx-burst-threshold and tx-burst-threshold are not specified (but burst-rate is specified), rx-rate and tx-rate are used as burst thresholds. If both rx-burst-time and tx-burst-time are not specified, 1s is used as default. |
-| **server** (*string \| all*; Default: **all**) | Name of the server. If set to **all**, then binding applies to all created DHCP-PD servers. |
+| **address** (*IPv6 prefix*; Default: ) | 将分配给客户端的 IPv6 前缀 |
+| **allow-dual-stack-queue** (*yes \| no*; Default: **yes**) | 为 IPv4 和 IPv6 地址创建单个 simple queue 条目，使用 MAC 地址和 DUID 进行标识。要正常工作，IPv4 DHCP Server 也必须启用该选项。 |
+| **comment** (*string*; Default: ) | 条目的简短描述。 |
+| **disabled** (*yes \| no*; Default: **no**) | 条目是否禁用 |
+| **dhcp-option** (*string*; Default: ) | 从选项列表中添加额外的 DHCP 选项。 |
+| **life-time** (*time*; Default: **3d**) | 绑定到期前的时间段。 |
+| **duid** (*hex string*; Default: ) | DUID 值。只能以十六进制格式指定。 |
+| **iaid** (*integer [0..4294967295]*; Default: ) | Identity Association Identifier，Client ID 的一部分。 |
+| **prefix-pool** (*string*; Default: ) | 向 DHCPv6 Client 通告的前缀池。 |
+| **rate-limit** (*integer[/integer] [integer[/integer] [integer[/integer] [integer[/integer]]]]*; Default: ) | 添加动态 simple queue，以将 IP 的带宽限制为指定速率。要求租约是静态的。格式为：rx-rate[/tx-rate] [rx-burst-rate[/tx-burst-rate] [rx-burst-threshold[/tx-burst-threshold] [rx-burst-time[/tx-burst-time]]]]。所有速率都应为数字，并可带可选的 'k'（1,000s）或 'M'（1,000,000s）。如果未指定 tx-rate，则 rx-rate 也用作 tx-rate。tx-burst-rate、tx-burst-threshold 和 tx-burst-time 也是如此。如果未指定 rx-burst-threshold 和 tx-burst-threshold（但指定了 burst-rate），则 rx-rate 和 tx-rate 用作突发阈值。如果未指定 rx-burst-time 和 tx-burst-time，则默认使用 1s。 |
+| **server** (*string \| all*; Default: **all**) | 服务器名称。如果设置为 **all**，则绑定适用于所有已创建的 DHCP-PD 服务器。 |
 | ia-type  | |
 | address-lists  | |
 | insert-queue-before  | |
 | parent-queue  | |
 | queue-type  | |
 
-## Read-only properties {#read-only-properties-4}
+## 只读属性 {#read-only-properties-4}
 
-| Property | Description |
+| 属性 | 说明 |
 | :-- | :-- |
-| <strong>dynamic</strong> (<em>yes &#124; no</em>) | Whether an item is dynamically created. |
-| <strong>expires-after</strong> (<em>time</em>) | The time period after which binding expires. |
-| <strong>last-seen</strong> (<em>time</em>) | Time period since the client was last seen. |
-| <strong>status</strong> (<em>waiting &#124; offered &#124; bound</em>) | Three status values are possible:<ul><li><strong>waiting</strong> - Shown for static bindings if it is not used. For dynamic bindings this status is shown if it was used previously. The server will wait 10 minutes to allow an old client to get this binding, otherwise binding will be cleared and prefix will be offered to other clients.</li><li><strong>offered</strong> - if a <strong>solicit</strong> message was received, and the server responded with <strong>advertise</strong> a message, but the <strong>request</strong> was not received. During this state client has 2 minutes to get this binding, otherwise, it is freed or changes status to <strong>waiting</strong> for static bindings.</li><li><strong>bound</strong> - currently bound.</li></ul> |
-| <strong>reconfigure-key</strong> (string) | Reconfiguration authentication key |
-| <strong>reconfigure-last-sent</strong>(integer) | Count of sent Reconfigure (<em>forcerenew</em>) messages |
+| <strong>dynamic</strong> (<em>yes &#124; no</em>) | 项目是否为动态创建。 |
+| <strong>expires-after</strong> (<em>time</em>) | 绑定过期前的时间段。 |
+| <strong>last-seen</strong> (<em>time</em>) | 自上次看到客户端以来的时间段。 |
+| <strong>status</strong> (<em>waiting &#124; offered &#124; bound</em>) | 可能有以下三种状态值：<ul><li><strong>waiting</strong> - 静态绑定未被使用时显示。对于动态绑定，如果该绑定以前被使用过，则显示此状态。服务器将等待 10 分钟，以允许旧客户端获取该绑定；否则将清除绑定，并将前缀提供给其他客户端。</li><li><strong>offered</strong> - 已收到 <strong>solicit</strong> 消息，服务器已响应 <strong>advertise</strong> 消息，但未收到 <strong>request</strong>。在此状态下，客户端有 2 分钟时间获取该绑定；否则将释放该绑定，或将静态绑定的状态更改为 <strong>waiting</strong>。</li><li><strong>bound</strong> - 当前已绑定。</li></ul> |
+| <strong>reconfigure-key</strong> (string) | 重新配置身份验证密钥 |
+| <strong>reconfigure-last-sent</strong>(integer) | 已发送的 Reconfigure（<em>forcerenew</em>）消息数量 |
 | <strong>reconfigure-status</strong> |  |
 | active-server |  |
 | client-address |  |
-| For example, dynamically assigned /62 prefix |  |
-For example, dynamically assigned /62 prefix
+| 例如，动态分配的 /62 前缀 |  |
+例如，动态分配的 /62 前缀
 
 ```ros
 [admin@RB493G] /ipv6/dhcp-server/binding> print detail
@@ -985,23 +985,22 @@ server=local-dhcp life-time=3d status=bound expires-after=2d23h43m47s
 last-seen=16m13s
 ```
 
-## Menu specific commands {#menu-specific-commands-4}
+## 菜单专用命令 {#menu-specific-commands-4}
 
-| Property | Description |
+| 属性 | 说明 |
 | :-- | :-- |
-| **make-static** () | Set dynamic binding as static. |
-| **send-reconfigure** (*id*) | Send a Reconfigure (*forcerenew*) message |
+| **make-static** () | 将动态绑定设置为静态。 |
+| **send-reconfigure** (*id*) | 发送 Reconfigure（*forcerenew*）消息 |
 
-#### Rate limiting {#rate-limiting-1}
+#### 速率限制 {#rate-limiting-1}
 
-It is possible to set the bandwidth to a specific IPv6 address by using DHCPv6 bindings. This can be done by setting a rate limit on the DHCPv6 binding itself, by doing this, a dynamic simple queue rule will be added for the IPv6 address that corresponds to the DHCPv6 binding. By using the `rate-limit` parameter you can conveniently limit a user's bandwidth.
+可以通过 DHCPv6 绑定为指定 IPv6 地址设置带宽。为此，可在 DHCPv6 绑定上设置速率限制；这样，系统会为与该 DHCPv6 绑定对应的 IPv6 地址添加一条动态 simple queue 规则。使用 `rate-limit` 参数可方便地限制用户带宽。
 
 :::warning
-For any queues to work properly, the traffic must not be FastTracked, make sure your Firewall does not FastTrack traffic that you want to limit.
-
+要使任何队列正常工作，流量不得被 FastTrack。请确保 Firewall 不会对要限制的流量执行 FastTrack。
 :::
 
-First, make the DHCPv6 binding static; otherwise, it will not be possible to set a rate limit to a DHCPv6 binding:
+首先，将 DHCPv6 绑定设置为静态；否则，无法为 DHCPv6 绑定设置速率限制：
 
 ```ros
 [admin@MikroTik] > /ipv6/dhcp-server/binding/print 
@@ -1018,7 +1017,7 @@ Flags: X - disabled, D - dynamic
 
 ```
 
-Then you can set a rate to a DHCPv6 binding that will create a new dynamic simple queue entry:
+然后，你可以为 DHCPv6 绑定设置速率，这将创建一个新的动态 simple queue 条目：
 
 ```ros
 [admin@MikroTik] > /ipv6/dhcp-server/binding/set 0 rate-limit=10M/10 
@@ -1030,11 +1029,10 @@ burst-threshold=0/0 burst-time=0s/0s bucket-size=0.1/0.1
 ```
 
 :::warning
-By default `allow-dual-stack-queue` is enabled; this will add a single dynamic simple queue entry for both DHCPv6 binding and DHCPv4 lease. Without this option enabled, separate dynamic simple queue entries will be added for IPv6 and IPv4.
-
+默认情况下，`allow-dual-stack-queue` 已启用；这将为 DHCPv6 绑定和 DHCPv4 租约添加一个动态 simple queue 条目。未启用该选项时，将为 IPv6 和 IPv4 分别添加动态 simple queue 条目。
 :::
 
-If `allow-dual-stack-queue` is enabled, then a single dynamic simple queue entry will be created containing both IPv4 and IPv6 addresses:
+如果启用了 `allow-dual-stack-queue`，则将创建一个包含 IPv4 和 IPv6 地址的动态 simple queue 条目：
 
 ```ros
 [admin@MikroTik] > /queue/simple/print 
@@ -1044,9 +1042,9 @@ Flags: X - disabled, I - invalid, D - dynamic
 burst-limit=0/0 burst-threshold=0/0 burst-time=0s/0s bucket-size=0.1/0.1
 ```
 
-### RADIUS Support {#radius-support-1}
+### RADIUS 支持 {#radius-support-1}
 
-Since RouterOS v6.43 it is possible to use RADIUS to assign a rate-limit per DHCPv6 binding. To do so you need to pass the Mikrotik-Rate-Limit attribute from your RADIUS Server for your DHCPv6 binding. To achieve this you first need to set your DHCPv6 Server to use RADIUS for assigning bindings. Below is an example of how to set it up:
+自 RouterOS v6.43 起，可以使用 RADIUS 为 DHCPv6 绑定分配速率限制。为此，需要从 RADIUS Server 为 DHCPv6 绑定传递 Mikrotik-Rate-Limit 属性。要实现这一点，首先需要将 DHCPv6 Server 设置为使用 RADIUS 分配绑定。以下是配置示例：
 
 ```ros
 /radius 
@@ -1055,7 +1053,7 @@ add address=10.0.0.1 secret=VERYsecret123 service=dhcp
 set dhcp1 use-radius=yes
 ```
 
-After that, you need to tell your RADIUS Server to pass the Mikrotik-Rate-Limit attribute. In case you are using FreeRADIUS with MySQL, then you need to add appropriate entries into **radcheck** and **radreply** tables for a MAC address that is being used for your DHCPv6 Client. Below is an example for table entries:
+之后，需要让 RADIUS Server 传递 Mikrotik-Rate-Limit 属性。如果使用 FreeRADIUS 和 MySQL，则需要为 DHCPv6 Client 使用的 MAC 地址在 **radcheck** 和 **radreply** 表中添加相应条目。以下是表条目示例：
 
 ```ros
 INSERT INTO `radcheck` (`username`, `attribute`, `op`, `value`) VALUES 
@@ -1066,39 +1064,37 @@ INSERT INTO `radcheck` (`username`, `attribute`, `op`, `value`) VALUES
 ```
 
 :::warning
-By default allow-dual-stack-queue is enabled and will add a single dynamic queue entry if the MAC address from the IPv4 lease (or DUID, if the DHCPv4 Client supports `Node-specific Client Identifiers` from RFC4361), but DUID from DHCPv6 Client is not always based on the MAC address from the interface on which the DHCPv6 client is running, DUID is generated on a per-device basis. For this reason, a single dynamic queue entry might not be created, separate dynamic queue entries might be created instead.
-
+默认情况下，allow-dual-stack-queue 已启用，如果 IPv4 租约中的 MAC 地址（或 DUID，如果 DHCPv4 Client 支持 RFC4361 中的 `Node-specific Client Identifiers`），则会添加单个动态队列条目，但 DHCPv6 Client 的 DUID 并不总是基于运行 DHCPv6 客户端的接口上的 MAC 地址，DUID 是按设备生成的。因此，可能不会创建单个动态队列条目，而是创建多个独立的动态队列条目。
 :::
 
-### Configuration Example
+### 配置示例 {#configuration-example}
 
-#### Enabling IPv6 Prefix delegation
+#### 启用 IPv6 前缀委派 {#enabling-ipv6-prefix-delegation}
 
-Let's consider that we already have a running DHCP server.
+假设已经有一个正在运行的 DHCP 服务器。
 
-To enable IPv6 prefix delegation, first, we need to create an address pool:
+要启用 IPv6 前缀委派，首先需要创建一个地址池：
 
 ```ros
 /ipv6/pool/add name=myPool prefix=2001:db8:7501::/60 prefix-length=62
 
 ```
 
-Notice that prefix-length is 62 bits, which means that clients will receive /62 prefixes from the /60 pool.
+请注意，prefix-length 为 62 位，这意味着客户端将从 /60 地址池中获得 /62 前缀。
 
-The next step is to enable DHCP-PD:
+下一步是启用 DHCP-PD：
 
 ```ros
 /ipv6/dhcp-server/add name=myServer prefix-pool=myPool interface=local
 ```
 
-To test our server we will set up wide-dhcpv6 on an Ubuntu machine:
+要测试服务器，将在 Ubuntu 机器上设置 wide-dhcpv6：
 
-- Install wide-dhcpv6-client.
-- Edit "/etc/wide-dhcpv6/dhcp6c.conf" as above.
+- 安装 wide-dhcpv6-client。
+- 按上文编辑“/etc/wide-dhcpv6/dhcp6c.conf”。
 
 :::tip
-You can also use RouterOS as a DHCP-PD client.
-
+也可以将 RouterOS 用作 DHCP-PD 客户端。
 :::
 
 ```ros
@@ -1114,13 +1110,13 @@ sla-len 2;
 };
 ```
 
-- Run DHCP-PD client.
+- 运行 DHCP-PD 客户端。
 
 ```ros
 sudo dhcp6c -d -D -f eth2
 ```
 
-- Verify that the prefix was added to the:
+- 验证前缀是否已添加到：
 
 ```ros
 mrz@bumba:/media/aaa$ ip -6 addr
@@ -1132,7 +1128,7 @@ mrz@bumba:/media/aaa$ ip -6 addr
  valid_lft forever preferred_lft forever
 ```
 
-- You can make the binding to a specific client static so that it always receives the same prefix.
+- 可以将特定客户端的绑定设置为静态，以便该客户端始终接收相同的前缀。
 
 ```ros
 [admin@RB493G] /ipv6/dhcp-server/binding> print 
@@ -1141,7 +1137,7 @@ Flags: X - disabled, D - dynamic
 [admin@RB493G] /ipv6/dhcp-server/binding> make-static 0
 ```
 
-- DHCP-PD also installs a route to the assigned prefix into the IPv6 routing table:
+- DHCP-PD 还会将指向所分配前缀的路由安装到 IPv6 路由表中：
 
 ```ros
 [admin@RB493G] /ipv6/route> print
@@ -1151,9 +1147,9 @@ Flags: X - disabled, D - dynamic
 2 ADS 2001:db8:7501:1::/62 fe80::224:1dff:fe17:8... 1
 ```
 
-#### Enabling IPv6 Address delegation
+#### 启用 IPv6 地址委派 {#enabling-ipv6-address-delegation}
 
-Address delegation on the DHCPv6 server side works almost in the exact same way as when you configure a prefix server. The only difference is that you must specify in the configuration address-pool instead of prefix-pool and the pool used for this server must be defined to use /128 prefix-length. Of course, you can create a server which only assigns static addresses and skip using the pool.
+DHCPv6 服务器端的地址委派与配置前缀服务器的方式几乎完全相同。唯一的区别是，必须在配置中指定 address-pool 而不是 prefix-pool，并且该服务器使用的池必须定义为使用 /128 prefix-length。当然，也可以创建仅分配静态地址的服务器，而不使用池。
 
 ```ros
 [admin@MikroTik] > /ipv6/pool/print detail 
@@ -1167,7 +1163,7 @@ Flags: D - dynamic; X - disabled, I - invalid
       address-lists="" duid="0x00030001b813f4840556" 
 ```
 
-This configuration is already enough to work with DHCPv6 clients such as, for example, a RouterOS client.
+此配置已足以与 DHCPv6 客户端（例如 RouterOS 客户端）配合使用。
 
 ```ros
 [admin@MikroTik] > /ipv6/dhcp-client/print detail 
@@ -1180,7 +1176,7 @@ Flags: D - dynamic; X - disabled, I - invalid
       address=2001:db8:7501::, 2d23h59m51s
 ```
 
-However, usually end-devices such as computers do not know if their network is managed by a DHCP server or not. That is why DHCPv6 server configuration is combined with SLAAC functionality. You can even avoid using SLAAC in order to advertise a prefix for local network devices, all you need to do is advertise the "managed-address-configuration" option to your network devices.
+不过，通常计算机等终端设备并不知道其网络是否由 DHCP 服务器管理。因此，DHCPv6 服务器配置会与 SLAAC 功能结合使用。甚至可以不使用 SLAAC 来为本地网络设备通告前缀，只需向网络设备通告“managed-address-configuration”选项即可。
 
 ```ros
 [admin@MikroTik] > /ipv6/nd/print detail 
@@ -1196,9 +1192,9 @@ Flags: X - disabled, I - invalid; D - dynamic
       autonomous=yes valid-lifetime=4w2d preferred-lifetime=1w 
 ```
 
-Now, for example, your computer which will be connected to the router ether2 interface will receive an advertisement message from RouterOS ND configuration stating that this network is using "managed-address-configuration" which normally on end user devices will enable a DHCPv6 client requesting an IPv6 address.
+例如，连接到路由器 ether2 接口的计算机将收到来自 RouterOS ND 配置的通告消息，指出该网络使用“managed-address-configuration”，这通常会在终端用户设备上启用 DHCPv6 客户端以请求 IPv6 地址。
 
-Full configuration backup from the server with several comments is provided here.
+此处提供了服务器的完整配置备份，并带有若干注释。
 
 ```ros
 #Address pool to be used for 'bridge', must have prefix-length 128
@@ -1219,46 +1215,45 @@ add interface=bridge
 ```
 
 :::warning
-Server configuration might vary based on operating systems used by clients. For example, macOS will get an address on initialisation with such configuration but might not renew the lease after sleep, if the prefix is set to "none", since macOS does not use DHCPv6 client without a SLAAC address. Other clients might also need the "autonomous" option to be set to "no" in order to trigger DHCPv6 client usage. This is just a configuration example - settings might need adjustments depending on client devices.
-
+服务器配置可能因客户端使用的操作系统而异。例如，在此类配置下，macOS 会在初始化时获取地址，但如果前缀设置为“none”，则在休眠后可能不会续租，因为 macOS 在没有 SLAAC 地址时不会使用 DHCPv6 客户端。其他客户端可能还需要将“autonomous”选项设置为“no”，才能触发 DHCPv6 客户端的使用。这只是一个配置示例，设置可能需要根据客户端设备进行调整。
 :::
 
-## DHCP Relay
+## DHCP 中继 {#dhcp-relay}
 
-### Summary {#summary-4}
+### 概述 {#summary-4}
 
-**Sub-menu:** `/ip/dhcp-relay`
+**子菜单：** `/ip/dhcp-relay`
 
-The purpose of the DHCP relay is to act as a proxy between DHCP clients and the DHCP server. It is useful in networks where the DHCP server is not on the same broadcast domain as the DHCP client.
+DHCP relay 的作用是充当 DHCP 客户端和 DHCP 服务器之间的代理。它适用于 DHCP 服务器与 DHCP 客户端不在同一广播域中的网络。
 
-DHCP relay does not choose a particular DHCP server in the DHCP-server list; it just sends the incoming request to all the listed servers.
+DHCP relay 不会在 DHCP-server 列表中选择特定的 DHCP 服务器；它只会将传入请求发送给列表中的所有服务器。
 
-### Properties {#properties-5}
+### 属性 {#properties-5}
 
-| Property | Description |
+| 属性 | 说明 |
 | :-- | :-- |
-| **add-relay-info** (*yes \| no*; Default: **no**) | Adds DHCP relay agent information if enabled according to RFC 3046. Agent Circuit ID Sub-option contains mac address of an interface, Agent Remote ID Sub-option contains MAC address of the client from which the request was received. |
-| **delay-threshold** (*time \| none*; Default: **none**) | If the secs field in the DHCP packet is smaller than delay-threshold, then this packet is ignored |
-| **dhcp-server** (IPv4 address [IPv4]*; Default: ) | List of DHCP servers' IP addresses which the DHCP requests should be forwarded to |
-| **interface** (interface; Default: ) | Interface name the DHCP relay will be working on. |
-| **local-address** (*IP*; Default: **0.0.0.0**) | The unique IP address of this DHCP relay needed for the DHCP server to distinguish relays. If set to **0.0.0.0** - the IP address will be chosen automatically from addresses that are assigned to an interface a relay is running on |
-| **relay-info-remote-id** (*string*; Default: ) | The specified string will be used to construct Option 82 instead of client's MAC address. Option 82 consists of: interface from which packets were received + client mac address or **relay-info-remote-id** |
-| **name** (*string*; Default: ) | Descriptive name for the relay |
-| **local-address-as-src-ip(**yes \| no; Default: **no**) | Use local address as source address for Discover/Request packets sent to the DHCP server |
-| **disabled** (yes \| no; Default: no) | Whether the relay is disabled or not. By default, it is not disabled |
-| **dhcp-server-vrf**(vrf; Default: main) | Specifies the VRF on which the DHCP relay should operate. |
+| **add-relay-info**（*yes \| no*；默认：**no**） | 启用后，根据 RFC 3046 添加 DHCP relay 代理信息。Agent Circuit ID Sub-option 包含接口的 MAC 地址，Agent Remote ID Sub-option 包含从中接收到请求的客户端 MAC 地址。 |
+| **delay-threshold**（*time \| none*；默认：**none**） | 如果 DHCP 数据包中的 secs 字段小于 delay-threshold，则忽略该数据包。 |
+| **dhcp-server**（IPv4 address [IPv4]*；默认：） | DHCP 请求应转发到的 DHCP 服务器 IP 地址列表。 |
+| **interface**（interface；默认：） | DHCP relay 将工作的接口名称。 |
+| **local-address**（*IP*；默认：**0.0.0.0**） | 此 DHCP relay 的唯一 IP 地址，DHCP 服务器需要用它来区分 relay。如果设置为 **0.0.0.0**，将从运行 relay 的接口所分配的地址中自动选择 IP 地址。 |
+| **relay-info-remote-id**（*string*；默认：） | 指定的字符串将用于构造 Option 82，而不是使用客户端的 MAC 地址。Option 82 由以下部分组成：接收数据包的接口 + 客户端 MAC 地址或 **relay-info-remote-id**。 |
+| **name**（*string*；默认：） | relay 的描述性名称。 |
+| **local-address-as-src-ip(**yes \| no；默认：**no**） | 将本地地址用作发送到 DHCP 服务器的 Discover/Request 数据包的源地址。 |
+| **disabled**（yes \| no；默认：no） | relay 是否禁用。默认情况下未禁用。 |
+| **dhcp-server-vrf**(vrf；默认：main) | 指定 DHCP relay 应在其上运行的 VRF。 |
 
-### Configuration Example
+### 配置示例 {#configuration-example-1}
 
-Let us consider that you have several IP networks 'behind' other routers, but you want to keep all DHCP servers on a single router. To do this, you need a DHCP relay on your network which will relay DHCP requests from clients to the DHCP server.
+假设多个 IP 网络位于其他路由器“后面”，但希望将所有 DHCP 服务器保留在一台路由器上。为此，需要在网络中配置 DHCP 中继，将客户端的 DHCP 请求转发到 DHCP 服务器。
 
-This example will show you how to configure a DHCP server and a DHCP relay that serves 2 IP networks - 192.168.1.0/24 and 192.168.2.0/24 that are behind a router DHCP-Relay.
+本示例将说明如何配置 DHCP 服务器和 DHCP 中继，为位于 DHCP-Relay 路由器后面的 2 个 IP 网络提供服务：192.168.1.0/24 和 192.168.2.0/24。
 
 ![](/img/84cd8b761999e3b8.webp)
 
-## IP Address Configuration
+## IP 地址配置 {#ip-address-configuration}
 
-IP addresses of DHCP-Server:
+DHCP-Server 的 IP 地址：
 
 ```ros
 [admin@DHCP-Server] /ip/address> print
@@ -1269,7 +1264,7 @@ Flags: X - disabled, I - invalid, D - dynamic
 [admin@DHCP-Server] /ip/address>
 ```
 
-IP addresses of DHCP-Relay:
+DHCP-Relay 的 IP 地址：
 
 ```ros
 [admin@DHCP-Relay] /ip/address> print
@@ -1281,9 +1276,9 @@ Flags: X - disabled, I - invalid, D - dynamic
 [admin@DHCP-Relay] /ip/address>
 ```
 
-## DHCP Server Setup
+## DHCP 服务器设置 {#dhcp-server-setup}
 
-To set up 2 DHCP Servers on the DHCP-Server router add 2 pools. For networks 192.168.1.0/24 and 192.168.2.0:
+要在 DHCP-Server 路由器上设置 2 个 DHCP 服务器，请添加 2 个地址池。对应网络 192.168.1.0/24 和 192.168.2.0：
 
 ```ros
 /ip/pool/add name=Local1-Pool ranges=192.168.1.11-192.168.1.100
@@ -1295,7 +1290,7 @@ To set up 2 DHCP Servers on the DHCP-Server router add 2 pools. For networks 192
 [admin@DHCP-Server] /ip/pool>
 ```
 
-Create DHCP Servers:
+创建 DHCP 服务器：
 
 ```ros
 /ip/dhcp-server/add interface=To-DHCP-Relay relay=192.168.1.1 \
@@ -1310,7 +1305,7 @@ Flags: X - disabled, I - invalid
 [admin@DHCP-Server] /ip/dhcp-server>
 ```
 
-Configure respective networks:
+配置相应网络：
 
 ```ros
 /ip/dhcp-server/network/add address=192.168.1.0/24 gateway=192.168.1.1 \
@@ -1324,9 +1319,9 @@ Configure respective networks:
 [admin@DHCP-Server] /ip/dhcp-server/network>
 ```
 
-## DHCP Relay Config
+## DHCP Relay 配置 {#dhcp-relay-config}
 
-Configuration of DHCP-Server is done. Now let's configure DHCP-Relay:
+DHCP-Server 配置已完成。现在配置 DHCP-Relay：
 
 ```ros
 /ip/dhcp-relay/add name=Local1-Relay interface=Local1 \
@@ -1341,9 +1336,9 @@ Flags: X - disabled, I - invalid
 [admin@DHCP-Relay] /ip/dhcp-relay>
 ```
 
-### DHCP Relay with VRF (introduced in 7.15)
+### 使用 VRF 的 DHCP Relay（7.15 中引入） {#dhcp-relay-with-vrf-introduced-in-715}
 
-Let's take the previous setup but we'll consider that the interface to the DHCP server and interfaces to DHCP clients are added in a VRF:
+以前面的设置为例，假设连接 DHCP server 的接口和连接 DHCP 客户端的接口已添加到 VRF 中：
 
 ```ros
 /ip/vrf
@@ -1352,13 +1347,13 @@ add interfaces=Local2 name=vrf2
 add interfaces=Local1 name=vrf1
 ```
 
-In the DHCP-relay configuration dhcp-server-vrf should be added:
+在 DHCP-relay 配置中，应添加 dhcp-server-vrf：
 
 ```ros
 /ip/dhcp-relay/set dhcp-server-vrf=vrf_server numbers=0,1
 ```
 
-Due to VRF configuration there are several routing-tables - we should add additional routes:
+由于 VRF 配置存在多个 routing-table，应添加额外的路由：
 
 ```ros
 /ip/route
@@ -1371,7 +1366,7 @@ add disabled=no distance=1 dst-address=192.168.2.0/24 gateway=Local2@vrf2 pref-s
     target-scope=10
 ```
 
-To achieve successful DHCP-server - DHCP-relay communication we should add NAT rules:
+要实现 DHCP-server 与 DHCP-relay 之间的成功通信，应添加 NAT 规则：
 
 ```ros
 /ip/firewall/nat
@@ -1381,24 +1376,24 @@ add action=dst-nat chain=dstnat dst-address=192.168.1.1 dst-port=67 in-interface
     192.168.0.2
 ```
 
-## DHCPv6 Relay
+## DHCPv6 中继 {#dhcpv6-relay}
 
-### Summary {#summary-5}
+### 概述 {#summary-5}
 
-**Sub-menu:** `/ipv6/dhcp-relay`
+**子菜单：** `/ipv6/dhcp-relay`
 
-DHCPv6 Relay in RouterOS acts as an intermediary that forwards DHCPv6 client solicitations received on a local interface to a remote DHCPv6 server. The relay adds a Hop‑By‑Hop option containing its own link‑local address, enabling the server to know the client’s network location. Responses from the server are returned to the relay, which removes the Hop‑By‑Hop option and delivers the reply to the originating client. This allows a single DHCPv6 server to service multiple subnets without being directly connected to each, while preserving proper address assignment and prefix delegation. The relay requires IPv6 forwarding to be enabled and appropriate firewall allowances for UDP ports 546 (client) and 547 (server).
+RouterOS 中的 DHCPv6 Relay 充当中间设备，将本地接口收到的 DHCPv6 客户端请求转发到远程 DHCPv6 服务器。Relay 会添加包含自身链路本地地址的 Hop‑By‑Hop 选项，使服务器能够获知客户端所在的网络位置。服务器的响应返回到 Relay，Relay 移除 Hop‑By‑Hop 选项，并将回复发送给发起请求的客户端。这样，单个 DHCPv6 服务器即可为多个子网提供服务，而无需直接连接到每个子网，同时保持正确的地址分配和前缀委派。Relay 需要启用 IPv6 转发，并允许 UDP 端口 546（客户端）和 547（服务器）通过防火墙。
 
-### Properties {#properties-6}
+### 属性 {#properties-6}
 
-| Property | Description |
+| 属性 | 说明 |
 | :-- | :-- |
-| **comment** (*string*; Default: ) | Descriptive name of an item. |
-| **delay-threshold** (*time \| none*; Default: **none**) | If the secs field in the DHCP packet is smaller than delay-threshold, then this packet is ignored. |
-| **dhcp-server** (*IPv6 address [IPv6]%interface*; Default: ) | A list of DHCP server IP addresses to which DHCP requests should be forwarded (optionally, the interface can also be specified together with the IPv6 address). |
-| **interface** (*interface*; Default: ) | Interface name the DHCP relay will be working on. |
-| **name** (*string*; Default: ) | Descriptive name for the relay |
-| **dhcp-options**(*DHCPv6 option*; Default: **client\_mac**) | A list of DHCPv6 options to be inserted by the relay into forwarded DHCPv6 packets. By default, relay inserts option 79. |
-| **disabled** (*yes \| no*; Default: no) | Whether the relay is disabled or not. By default, it is not disabled. |
-| **link-address**(*IPv6 address [IPv6]*; Default: :: ) | An IPv6 address that may be used by the server to identify the link on which the client is located. |
-| **store-relayed-bindings**(*yes \| no*; Default: **no**) | Inspects relayed DHCP advertisements and stores assigned prefixes. Should be used, for example, to avoid loss of routing information on relay reboot. By default, it is disabled. |
+| **comment** (*string*; Default: ) | 项目的描述性名称。 |
+| **delay-threshold** (*time \| none*; Default: **none**) | 如果 DHCP 数据包中的 secs 字段小于 delay-threshold，则忽略该数据包。 |
+| **dhcp-server** (*IPv6 address [IPv6]%interface*; Default: ) | DHCP 请求应转发到的 DHCP 服务器 IP 地址列表（也可以与 IPv6 地址一起指定接口）。 |
+| **interface** (*interface*; Default: ) | DHCP 中继将工作的接口名称。 |
+| **name** (*string*; Default: ) | 中继的描述性名称 |
+| **dhcp-options**(*DHCPv6 option*; Default: **client\_mac**) | 中继插入到转发的 DHCPv6 数据包中的 DHCPv6 选项列表。默认情况下，中继插入 option 79。 |
+| **disabled** (*yes \| no*; Default: no) | 中继是否禁用。默认情况下，未禁用。 |
+| **link-address**(*IPv6 address [IPv6]*; Default: :: ) | 服务器可用于识别客户端所在链路的 IPv6 地址。 |
+| **store-relayed-bindings**(*yes \| no*; Default: **no**) | 检查中继的 DHCP 通告并存储已分配的前缀。例如，可用于避免中继重启时丢失路由信息。默认禁用。 |

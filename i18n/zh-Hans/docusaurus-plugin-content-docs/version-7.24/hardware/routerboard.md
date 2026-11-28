@@ -7,7 +7,7 @@ tags:
   - 'settings'
 source: https://manual.mikrotik.com/docs/7.24/hardware/routerboard
 captured_at: '2026-11-28T10:19:39.818Z'
-translated_at: "2026-11-28T14:11:26.249Z"
+translated_at: "2026-11-28T15:42:55.558Z"
 translation_provider: "opencode-go"
 translation_model: "hy4-flash-free"
 translation_source: "llm"
@@ -275,7 +275,7 @@ Protected RouterBOOT 功能通过禁用 Etherboot 并限制对引导加载程序
 
 所有现代 MikroTik 设备均支持 Protected RouterBOOT 功能。但是，如果使用出厂固件版本低于 **7.19.3** 的旧款设备，尝试启用该功能时可能会看到以下消息：
 
-> *“The 'protected routerboot' feature requires a backup-routerboot upgrade”*
+> *“‘protected routerboot’ 功能需要升级 backup-routerboot”*
 
 如果看到此消息，请按以下步骤操作。
 

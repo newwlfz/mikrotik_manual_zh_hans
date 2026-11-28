@@ -1,545 +1,446 @@
 {
  "schema": 1,
  "locale": "zh-Hans",
- "run_id": "20261128T141126Z-262521",
- "started_at": "2026-11-28T14:11:26.422Z",
- "started_ms": 1795875086422,
+ "run_id": "20261128T154255Z-eebe25",
+ "started_at": "2026-11-28T15:42:55.952Z",
+ "started_ms": 1795880575952,
  "budget_minutes": 90,
  "max_blocks": null,
- "deadline_ms": 1795880486422,
- "deadline": "2026-11-28T15:41:26.422Z",
+ "deadline_ms": 1795885975952,
+ "deadline": "2026-11-28T17:12:55.952Z",
  "stopped": "budget",
  "limit": "budget-minutes",
- "finished_at": "2026-11-28T15:40:26.421Z",
- "stopped_ms": 1795880426421,
- "elapsed_ms": 5339999,
- "headroom_ms": 60001,
+ "finished_at": "2026-11-28T17:11:57.888Z",
+ "stopped_ms": 1795885917888,
+ "elapsed_ms": 5341936,
+ "headroom_ms": 58064,
  "cursor": {
-  "section": "docs-7.24",
-  "file_rel": "storage/btrfs/maintenance.md",
-  "page_index": 493
+  "section": "docs-7.25",
+  "file_rel": "cli-reference/interface/ethernet/switch/qos/port.md",
+  "page_index": 394
  },
  "completed": [
-  "docs-7.24/cli-reference/routing/filter/filter-wizard.md",
-  "docs-7.24/cli-reference/routing/filter/num-list.md",
-  "docs-7.24/cli-reference/routing/filter/community-list.md",
-  "docs-7.24/cli-reference/ipv6/firewall/raw/reset-counters.md",
-  "docs-7.24/cli-reference/routing/filter/rule.md",
-  "docs-7.24/cli-reference/routing/filter/select-rule.md",
-  "docs-7.24/cli-reference/routing/filter/test-as-path-regexp.md",
-  "docs-7.24/cli-reference/routing/filter/sync.md",
-  "docs-7.24/cli-reference/routing/gmp.md",
-  "docs-7.24/cli-reference/routing/id.md",
-  "docs-7.24/cli-reference/routing/igmp-proxy/interface.md",
-  "docs-7.24/cli-reference/routing/igmp-proxy/mfc.md",
-  "docs-7.24/cli-reference/routing/igmp-proxy.md",
-  "docs-7.24/cli-reference/routing/isis/interface-template.md",
-  "docs-7.24/cli-reference/routing/isis/instance.md",
-  "docs-7.24/cli-reference/routing/isis/interface.md",
-  "docs-7.24/cli-reference/routing/isis/lsp.md",
-  "docs-7.24/cli-reference/routing/isis/neighbor.md",
-  "docs-7.24/cli-reference/routing/nexthop/dump-dot.md",
-  "docs-7.24/cli-reference/routing/nexthop.md",
-  "docs-7.24/cli-reference/routing/ospf/area/range.md",
-  "docs-7.24/cli-reference/routing/ospf/instance.md",
-  "docs-7.24/cli-reference/routing/ospf/area.md",
-  "docs-7.24/cli-reference/routing/ospf/interface-template.md",
-  "docs-7.24/cli-reference/routing/ospf/interface.md",
-  "docs-7.24/cli-reference/routing/ospf/neighbor.md",
-  "docs-7.24/cli-reference/routing/ospf/lsa.md",
-  "docs-7.24/cli-reference/routing/pimsm/bsr/candidate.md",
-  "docs-7.24/cli-reference/routing/pimsm/bsr.md",
-  "docs-7.24/cli-reference/routing/pimsm/bsr/rp-set.md",
-  "docs-7.24/cli-reference/routing/pimsm/bsr/rp-candidate.md",
-  "docs-7.24/cli-reference/routing/pimsm/igmp-interface-template.md",
-  "docs-7.24/cli-reference/routing/pimsm/instance.md",
-  "docs-7.24/cli-reference/routing/ospf/static-neighbor.md",
-  "docs-7.24/cli-reference/routing/pimsm/neighbor.md",
-  "docs-7.24/cli-reference/routing/pimsm/interface.md",
-  "docs-7.24/cli-reference/routing/pimsm/static-rp.md",
-  "docs-7.24/cli-reference/routing/pimsm/uib-sg.md",
-  "docs-7.24/cli-reference/routing/pimsm/interface-template.md",
-  "docs-7.24/cli-reference/routing/pimsm/uib-g.md",
-  "docs-7.24/cli-reference/routing/pimsm.md",
-  "docs-7.24/cli-reference/routing/rip/interface.md",
-  "docs-7.24/cli-reference/routing/rip/interface-template.md",
-  "docs-7.24/cli-reference/routing/rip/instance.md",
-  "docs-7.24/cli-reference/routing/rip/keys.md",
-  "docs-7.24/cli-reference/routing/rip/static-neighbor.md",
-  "docs-7.24/cli-reference/routing/route.md",
-  "docs-7.24/cli-reference/routing/rip/neighbor.md",
-  "docs-7.24/cli-reference/routing/rpki/rpki-check.md",
-  "docs-7.24/cli-reference/routing/rpki/session.md",
-  "docs-7.24/cli-reference/routing/rpki/rpki-query.md",
-  "docs-7.24/cli-reference/routing/rpki.md",
-  "docs-7.24/cli-reference/routing/rule.md",
-  "docs-7.24/cli-reference/routing/settings.md",
-  "docs-7.24/cli-reference/routing/stats/origin.md",
-  "docs-7.24/cli-reference/routing/stats/memory.md",
-  "docs-7.24/cli-reference/routing/stats/pcap.md",
-  "docs-7.24/cli-reference/routing/stats/process/kill.md",
-  "docs-7.24/cli-reference/routing/stats/step.md",
-  "docs-7.24/cli-reference/routing/stats/process.md",
-  "docs-7.24/cli-reference/routing/table.md",
-  "docs-7.24/cli-reference/snmp/send-trap.md",
-  "docs-7.24/cli-reference/safe-mode.md",
-  "docs-7.24/cli-reference/snmp/community.md",
-  "docs-7.24/cli-reference/snmp.md",
-  "docs-7.24/cli-reference/system/backup/cloud/download-file.md",
-  "docs-7.24/cli-reference/system/backup/cloud/remove-file.md",
-  "docs-7.24/cli-reference/special-login.md",
-  "docs-7.24/cli-reference/system/backup/cloud/upload-file.md",
-  "docs-7.24/cli-reference/system/backup/save.md",
-  "docs-7.24/cli-reference/system/backup/load.md",
-  "docs-7.24/cli-reference/system/backup/cloud.md",
-  "docs-7.24/cli-reference/system/check-disk.md",
-  "docs-7.24/cli-reference/system/clock/manual.md",
-  "docs-7.24/cli-reference/system/clock.md",
-  "docs-7.24/cli-reference/system/console/screen.md",
-  "docs-7.24/cli-reference/system/check-installation.md",
-  "docs-7.24/cli-reference/system/default-configuration/caps-mode-script.md",
-  "docs-7.24/cli-reference/system/console.md",
-  "docs-7.24/cli-reference/system/default-configuration/custom-script.md",
-  "docs-7.24/cli-reference/system/default-configuration.md",
-  "docs-7.24/cli-reference/system/default-configuration/script.md",
-  "docs-7.24/cli-reference/system/default-configuration/wps-sync-mode-script.md",
-  "docs-7.24/cli-reference/system/device-mode/update.md",
-  "docs-7.24/cli-reference/system/device-mode.md",
-  "docs-7.24/cli-reference/system/gps/monitor.md",
-  "docs-7.24/cli-reference/system/gps.md",
-  "docs-7.24/cli-reference/system/health/settings/detect-fans.md",
-  "docs-7.24/cli-reference/system/health.md",
-  "docs-7.24/cli-reference/system/health/settings.md",
-  "docs-7.24/cli-reference/system/identity.md",
-  "docs-7.24/cli-reference/system/keymat-provider/qkd-get-status.md",
-  "docs-7.24/cli-reference/system/keymat-provider/qkd-get-key-with-ids.md",
-  "docs-7.24/cli-reference/system/keymat-provider/qkd-get-key.md",
-  "docs-7.24/cli-reference/system/keymat-provider.md",
-  "docs-7.24/cli-reference/system/leds/settings.md",
-  "docs-7.24/cli-reference/system/leds.md",
-  "docs-7.24/cli-reference/system/license/generate-new-id.md",
-  "docs-7.24/cli-reference/system/license/renew.md",
-  "docs-7.24/cli-reference/system/license/output.md",
-  "docs-7.24/cli-reference/system/license.md",
-  "docs-7.24/cli-reference/system/logging/action.md",
-  "docs-7.24/cli-reference/system/logging/action/clear.md",
-  "docs-7.24/cli-reference/system/logging.md",
-  "docs-7.24/cli-reference/system/note.md",
-  "docs-7.24/cli-reference/system/ntp/client/reset-freq-drift.md",
-  "docs-7.24/cli-reference/system/ntp/client/servers.md",
-  "docs-7.24/cli-reference/system/ntp/monitor-peers.md",
-  "docs-7.24/cli-reference/system/ntp/key.md",
-  "docs-7.24/cli-reference/system/ntp/server.md",
-  "docs-7.24/cli-reference/system/package/disable.md",
-  "docs-7.24/cli-reference/system/package/downgrade.md",
-  "docs-7.24/cli-reference/system/package/enable.md",
-  "docs-7.24/cli-reference/system/package/apply-changes.md",
-  "docs-7.24/cli-reference/system/package/local-update/download-all.md",
-  "docs-7.24/cli-reference/system/package/local-update/download.md",
-  "docs-7.24/cli-reference/system/package/local-update/mirror/force-check.md",
-  "docs-7.24/cli-reference/system/package/local-update/mirror.md",
-  "docs-7.24/cli-reference/system/package/local-update/update-package-source.md",
-  "docs-7.24/cli-reference/system/package/local-update/refresh.md",
-  "docs-7.24/cli-reference/system/package/local-update.md",
-  "docs-7.24/cli-reference/system/package/uninstall.md",
-  "docs-7.24/cli-reference/system/package/unschedule.md",
-  "docs-7.24/cli-reference/system/package/update/cancel.md",
-  "docs-7.24/cli-reference/system/package/update/download.md",
-  "docs-7.24/cli-reference/system/package/update/install.md",
-  "docs-7.24/cli-reference/system/package/update/check-for-updates.md",
-  "docs-7.24/cli-reference/system/package/update.md",
-  "docs-7.24/cli-reference/system/package.md",
-  "docs-7.24/cli-reference/system/ptp/monitor.md",
-  "docs-7.24/cli-reference/system/ptp/status.md",
-  "docs-7.24/cli-reference/system/ptp/port.md",
-  "docs-7.24/cli-reference/system/ptp.md",
-  "docs-7.24/cli-reference/system/reset-configuration.md",
-  "docs-7.24/cli-reference/system/regulatory.md",
-  "docs-7.24/cli-reference/system/resource/hardware/usb-power-reset.md",
-  "docs-7.24/cli-reference/system/resource/cpu.md",
-  "docs-7.24/cli-reference/system/reboot.md",
-  "docs-7.24/cli-reference/system/resource/hardware/authorize.md",
-  "docs-7.24/cli-reference/system/resource/hardware/usb-settings.md",
-  "docs-7.24/cli-reference/system/resource/irq.md",
-  "docs-7.24/cli-reference/system/resource/hardware.md",
-  "docs-7.24/cli-reference/system/resource/irq/rps.md",
-  "docs-7.24/cli-reference/system/resource/monitor.md",
-  "docs-7.24/cli-reference/system/routerboard/mode-button.md",
-  "docs-7.24/cli-reference/system/resource.md",
-  "docs-7.24/cli-reference/system/routerboard/reset-button.md",
-  "docs-7.24/cli-reference/system/routerboard/settings.md",
-  "docs-7.24/cli-reference/system/routerboard/upgrade.md",
-  "docs-7.24/cli-reference/system/routerboard/usb.md",
-  "docs-7.24/cli-reference/system/routerboard/usb/power-reset.md",
-  "docs-7.24/cli-reference/system/routerboard/wps-button.md",
-  "docs-7.24/cli-reference/system/rtrace/stop.md",
-  "docs-7.24/cli-reference/system/rtrace/start.md",
-  "docs-7.24/cli-reference/system/routerboard.md",
-  "docs-7.24/cli-reference/system/rtrace.md",
-  "docs-7.24/cli-reference/system/scheduler.md",
-  "docs-7.24/cli-reference/system/script/environment.md",
-  "docs-7.24/cli-reference/system/script/job.md",
-  "docs-7.24/cli-reference/system/script.md",
-  "docs-7.24/cli-reference/system/ssh-exec.md",
-  "docs-7.24/cli-reference/system/serial-terminal.md",
-  "docs-7.24/cli-reference/system/shutdown.md",
-  "docs-7.24/cli-reference/system/ssh.md",
-  "docs-7.24/cli-reference/system/swos/password.md",
-  "docs-7.24/cli-reference/system/sup-output.md",
-  "docs-7.24/cli-reference/system/swos/load-config.md",
-  "docs-7.24/cli-reference/system/swos/reset-config.md",
-  "docs-7.24/cli-reference/system/swos/save-config.md",
-  "docs-7.24/cli-reference/system/swos/upgrade.md",
-  "docs-7.24/cli-reference/system/swos.md",
-  "docs-7.24/cli-reference/system/telnet.md",
-  "docs-7.24/cli-reference/system/ups/beep.md",
-  "docs-7.24/cli-reference/system/ups/rtc.md",
-  "docs-7.24/cli-reference/system/ups/self-test.md",
-  "docs-7.24/cli-reference/system/watchdog.md",
-  "docs-7.24/cli-reference/system/ups.md",
-  "docs-7.24/cli-reference/system/ups/monitor.md",
-  "docs-7.24/cli-reference/task/add.md",
-  "docs-7.24/cli-reference/task/next.md",
-  "docs-7.24/cli-reference/task.md",
-  "docs-7.24/cli-reference/task/terminate.md",
-  "docs-7.24/cli-reference/tool/bandwidth-server/session.md",
-  "docs-7.24/cli-reference/tool/bandwidth-server.md",
-  "docs-7.24/cli-reference/tool/calea.md",
-  "docs-7.24/cli-reference/tool/bandwidth-test.md",
-  "docs-7.24/cli-reference/tool/dns-update.md",
-  "docs-7.24/cli-reference/tool/fetch.md",
-  "docs-7.24/cli-reference/tool/e-mail/send.md",
-  "docs-7.24/cli-reference/tool/e-mail.md",
-  "docs-7.24/cli-reference/tool/flood-ping.md",
-  "docs-7.24/cli-reference/tool/graphing/resource.md",
-  "docs-7.24/cli-reference/tool/graphing/interface.md",
-  "docs-7.24/cli-reference/tool/graphing/queue.md",
-  "docs-7.24/cli-reference/tool/graphing.md",
-  "docs-7.24/cli-reference/tool/mac-scan.md",
-  "docs-7.24/cli-reference/tool/mac-server/mac-winbox.md",
-  "docs-7.24/cli-reference/tool/ip-scan.md",
-  "docs-7.24/cli-reference/tool/mac-server/ping.md",
-  "docs-7.24/cli-reference/tool/mac-telnet.md",
-  "docs-7.24/cli-reference/tool/mac-server/sessions.md",
-  "docs-7.24/cli-reference/tool/mac-server.md",
-  "docs-7.24/cli-reference/tool/netwatch.md",
-  "docs-7.24/cli-reference/tool/ping-speed.md",
-  "docs-7.24/cli-reference/tool/ping.md",
-  "docs-7.24/cli-reference/tool/romon/discover.md",
-  "docs-7.24/cli-reference/tool/romon/ping.md",
-  "docs-7.24/cli-reference/tool/romon/port.md",
-  "docs-7.24/cli-reference/tool/romon/ssh.md",
-  "docs-7.24/cli-reference/tool/romon.md",
-  "docs-7.24/cli-reference/tool/sms/inbox.md",
-  "docs-7.24/cli-reference/tool/sms/send.md",
-  "docs-7.24/cli-reference/tool/sms.md",
-  "docs-7.24/cli-reference/tool/sniffer/connection.md",
-  "docs-7.24/cli-reference/tool/sniffer/host.md",
-  "docs-7.24/cli-reference/tool/sniffer/packet.md",
-  "docs-7.24/cli-reference/tool/sniffer/protocol.md",
-  "docs-7.24/cli-reference/tool/sniffer/quick.md",
-  "docs-7.24/cli-reference/tool/sniffer/save.md",
-  "docs-7.24/cli-reference/tool/sniffer/start.md",
-  "docs-7.24/cli-reference/tool/sniffer/stop.md",
-  "docs-7.24/cli-reference/tool/sniffer.md",
-  "docs-7.24/cli-reference/tool/snmp-walk.md",
-  "docs-7.24/cli-reference/tool/snmp-get.md",
-  "docs-7.24/cli-reference/tool/torch.md",
-  "docs-7.24/cli-reference/tool/traffic-generator/inject-pcap.md",
-  "docs-7.24/cli-reference/tool/traceroute.md",
-  "docs-7.24/cli-reference/tool/traffic-generator/inject.md",
-  "docs-7.24/cli-reference/tool/traffic-generator/packet-template.md",
-  "docs-7.24/cli-reference/tool/traffic-generator/port.md",
-  "docs-7.24/cli-reference/tool/traffic-generator/quick.md",
-  "docs-7.24/cli-reference/tool/traffic-generator/raw-packet-template.md",
-  "docs-7.24/cli-reference/tool/traffic-generator/start.md",
-  "docs-7.24/cli-reference/tool/traffic-generator/stats/latency-distribution.md",
-  "docs-7.24/cli-reference/tool/traffic-generator/stats/port.md",
-  "docs-7.24/cli-reference/tool/traffic-generator/stats/raw.md",
-  "docs-7.24/cli-reference/tool/traffic-generator/stats/stream.md",
-  "docs-7.24/cli-reference/tool/traffic-generator/stop.md",
-  "docs-7.24/cli-reference/tool/traffic-generator.md",
-  "docs-7.24/cli-reference/tool/traffic-generator/stream.md",
-  "docs-7.24/cli-reference/tool/traffic-monitor.md",
-  "docs-7.24/cli-reference/tr069-client/reset-tr069-config.md",
-  "docs-7.24/cli-reference/tool/wol.md",
-  "docs-7.24/cli-reference/tr069-client.md",
-  "docs-7.24/cli-reference/user/active.md",
-  "docs-7.24/cli-reference/user/aaa.md",
-  "docs-7.24/cli-reference/undo.md",
-  "docs-7.24/cli-reference/user/expire-password.md",
-  "docs-7.24/cli-reference/user/settings.md",
-  "docs-7.24/cli-reference/user/group.md",
-  "docs-7.24/cli-reference/user/ssh-keys/private/import.md",
-  "docs-7.24/cli-reference/user/ssh-keys/import.md",
-  "docs-7.24/cli-reference/user-manager/advanced.md",
-  "docs-7.24/cli-reference/user/ssh-keys.md",
-  "docs-7.24/cli-reference/user/ssh-keys/private.md",
-  "docs-7.24/cli-reference/user-manager/attribute.md",
-  "docs-7.24/cli-reference/user-manager/database/load.md",
-  "docs-7.24/cli-reference/user-manager/database/optimize-db.md",
-  "docs-7.24/cli-reference/user-manager/database/migrate-legacy-db.md",
-  "docs-7.24/cli-reference/user-manager/database/save.md",
-  "docs-7.24/cli-reference/user-manager/generate-report.md",
-  "docs-7.24/cli-reference/user-manager/database.md",
-  "docs-7.24/cli-reference/user-manager/monitor.md",
-  "docs-7.24/cli-reference/user-manager/limitation.md",
-  "docs-7.24/cli-reference/user-manager/profile-limitation.md",
-  "docs-7.24/cli-reference/user-manager/profile.md",
-  "docs-7.24/cli-reference/user-manager/payment.md",
-  "docs-7.24/cli-reference/user-manager/router/monitor.md",
-  "docs-7.24/cli-reference/user-manager/router/reset-counters.md",
-  "docs-7.24/cli-reference/user-manager/router.md",
-  "docs-7.24/cli-reference/user-manager/session.md",
-  "docs-7.24/cli-reference/user-manager/user/generate-voucher.md",
-  "docs-7.24/cli-reference/user-manager/user/group.md",
-  "docs-7.24/cli-reference/user-manager/user/add-batch-users.md",
-  "docs-7.24/cli-reference/user-manager/user/monitor.md",
-  "docs-7.24/cli-reference/user-manager/user-profile.md",
-  "docs-7.24/cli-reference/user-manager/user-profile/activate-user-profile.md",
-  "docs-7.24/cli-reference/user-manager/user.md",
-  "docs-7.24/cli-reference/user-manager.md",
-  "docs-7.24/cli-reference/user.md",
-  "docs-7.24/cli-reference/zerotier/controller/member.md",
-  "docs-7.24/cli-reference/zerotier/controller.md",
-  "docs-7.24/cli-reference/zerotier/interface.md",
-  "docs-7.24/cli-reference/zerotier/peer/hint.md",
-  "docs-7.24/cli-reference/zerotier/peer.md",
-  "docs-7.24/cli-reference/zerotier.md",
-  "docs-7.24/cli-reference/user-manager/session/close-session.md",
-  "docs-7.24/containers/apps/available-apps.md",
-  "docs-7.24/cli-reference.md",
-  "docs-7.24/containers/user-guides/container-haproxy.md",
-  "docs-7.24/containers/user-guides/container-homeassistant.md",
-  "docs-7.24/containers/apps.md",
-  "docs-7.24/containers/user-guides/container-freeradius-server.md",
-  "docs-7.24/containers/user-guides/container-matrix-synapse.md",
-  "docs-7.24/containers/veth.md",
-  "docs-7.24/containers/user-guides/container-mosquitto-mqtt-server.md",
-  "docs-7.24/containers/user-guides/container-postgres.md",
-  "docs-7.24/developer-guides/api/python3-example.md",
-  "docs-7.24/developer-guides/rest-api.md",
-  "docs-7.24/containers/user-guides/container-thingsboard-mqtt-http-server.md",
-  "docs-7.24/containers.md",
+  "docs-7.24/cli-reference/system/ntp/client.md",
+  "docs-7.24/cli-reference/system/history.md",
+  "docs-7.24/cli-reference/tool/profile.md",
+  "docs-7.24/cli-reference/tool/speed-test.md",
   "docs-7.24/developer-guides/api.md",
-  "docs-7.24/developer-guides/scripting/scripting-examples.md",
-  "docs-7.24/developer-guides.md",
-  "docs-7.24/developer-guides/scripting/scripting-tips-and-tricks.md",
-  "docs-7.24/diagnostics-monitoring-and-troubleshooting/detect-internet.md",
-  "docs-7.24/diagnostics-monitoring-and-troubleshooting/downgrading-routeros.md",
-  "docs-7.24/diagnostics-monitoring-and-troubleshooting/bandwidth-test.md",
-  "docs-7.24/diagnostics-monitoring-and-troubleshooting/flood-ping.md",
-  "docs-7.24/diagnostics-monitoring-and-troubleshooting/dynamic-dns.md",
-  "docs-7.24/diagnostics-monitoring-and-troubleshooting/health.md",
-  "docs-7.24/diagnostics-monitoring-and-troubleshooting/interface-stats-and-monitor-traffic.md",
-  "docs-7.24/diagnostics-monitoring-and-troubleshooting/ip-scan.md",
-  "docs-7.24/diagnostics-monitoring-and-troubleshooting/graphing.md",
-  "docs-7.24/diagnostics-monitoring-and-troubleshooting/log/cef-with-elasticsearch.md",
-  "docs-7.24/diagnostics-monitoring-and-troubleshooting/log.md",
-  "docs-7.24/diagnostics-monitoring-and-troubleshooting/netwatch.md",
-  "docs-7.24/developer-guides/scripting.md",
-  "docs-7.24/diagnostics-monitoring-and-troubleshooting/log/syslog-with-elasticsearch.md",
-  "docs-7.24/diagnostics-monitoring-and-troubleshooting/packet-sniffer.md",
-  "docs-7.24/diagnostics-monitoring-and-troubleshooting/profiler.md",
-  "docs-7.24/diagnostics-monitoring-and-troubleshooting/ping.md",
-  "docs-7.24/diagnostics-monitoring-and-troubleshooting/speed-test.md",
-  "docs-7.24/diagnostics-monitoring-and-troubleshooting/torch.md",
-  "docs-7.24/diagnostics-monitoring-and-troubleshooting/resource.md",
-  "docs-7.24/diagnostics-monitoring-and-troubleshooting/traceroute.md",
-  "docs-7.24/diagnostics-monitoring-and-troubleshooting/snmp.md",
-  "docs-7.24/diagnostics-monitoring-and-troubleshooting/watchdog.md",
-  "docs-7.24/diagnostics-monitoring-and-troubleshooting/traffic-flow.md",
-  "docs-7.24/diagnostics-monitoring-and-troubleshooting.md",
-  "docs-7.24/firewall-and-quality-of-service/firewall/address-lists.md",
-  "docs-7.24/firewall-and-quality-of-service/connection-tracking.md",
-  "docs-7.24/diagnostics-monitoring-and-troubleshooting/traffic-generator.md",
-  "docs-7.24/firewall-and-quality-of-service/firewall/common-firewall-matchers-and-actions.md",
-  "docs-7.24/diagnostics-monitoring-and-troubleshooting/traffic-flow/netflow-analysis-with-elasticsearch.md",
-  "docs-7.24/firewall-and-quality-of-service/firewall/layer7.md",
-  "docs-7.24/firewall-and-quality-of-service/firewall/mangle.md",
-  "docs-7.24/firewall-and-quality-of-service/firewall/filter.md",
-  "docs-7.24/firewall-and-quality-of-service/firewall.md",
-  "docs-7.24/firewall-and-quality-of-service/kid-control.md",
-  "docs-7.24/firewall-and-quality-of-service/nat-pmp.md",
-  "docs-7.24/firewall-and-quality-of-service/queues/pcq-example.md",
-  "docs-7.24/firewall-and-quality-of-service/firewall/nat.md",
-  "docs-7.24/firewall-and-quality-of-service/queues/htb-hierarchical-token-bucket.md",
-  "docs-7.24/firewall-and-quality-of-service/queues/queue-size.md",
-  "docs-7.24/firewall-and-quality-of-service/queues/queue-burst.md",
   "docs-7.24/firewall-and-quality-of-service/queues/queue-types/pfifo-bfifo.md",
-  "docs-7.24/firewall-and-quality-of-service/queues/queue-types.md",
-  "docs-7.24/firewall-and-quality-of-service/queues/queue-types/cake.md",
-  "docs-7.24/firewall-and-quality-of-service/user-guides/bruteforce-prevention.md",
-  "docs-7.24/firewall-and-quality-of-service/packet-flow-in-routeros.md",
-  "docs-7.24/firewall-and-quality-of-service/upnp.md",
-  "docs-7.24/firewall-and-quality-of-service/user-guides/connection-rate.md",
-  "docs-7.24/firewall-and-quality-of-service/user-guides/ddos-protection.md",
-  "docs-7.24/firewall-and-quality-of-service/user-guides/building-advanced-firewall.md",
-  "docs-7.24/firewall-and-quality-of-service/user-guides.md",
-  "docs-7.24/firewall-and-quality-of-service.md",
-  "docs-7.24/firewall-and-quality-of-service/queues.md",
   "docs-7.24/getting-started/configuration-management/default-configuration-passwords.md",
-  "docs-7.24/firewall-and-quality-of-service/user-guides/port-knocking.md",
-  "docs-7.24/getting-started/configuration-management/backup.md",
-  "docs-7.24/getting-started/configuration-management/list-of-menus-with-sensitive-parameters.md",
-  "docs-7.24/getting-started/configuration-management/default-configurations.md",
-  "docs-7.24/getting-started/configuration-management.md",
-  "docs-7.24/getting-started/configuration-management/routeros-configuration-reset.md",
-  "docs-7.24/getting-started/installation-and-upgrade/install/chr-installation/aws.md",
-  "docs-7.24/getting-started/installation-and-upgrade/install/chr-installation/esxi.md",
-  "docs-7.24/getting-started/installation-and-upgrade/install/chr-installation/hetzner.md",
-  "docs-7.24/getting-started/installation-and-upgrade/install/chr-installation/troubleshooting.md",
-  "docs-7.24/getting-started/installation-and-upgrade/install/chr-installation/hyperv.md",
-  "docs-7.24/getting-started/first-time-configuration.md",
-  "docs-7.24/getting-started/installation-and-upgrade/install/chr-installation/proxmox.md",
-  "docs-7.24/getting-started/installation-and-upgrade/install/chr-installation/vultr.md",
-  "docs-7.24/getting-started/installation-and-upgrade/install/chr-installation/virtualbox.md",
-  "docs-7.24/getting-started/installation-and-upgrade/install/x86-installation.md",
-  "docs-7.24/getting-started/installation-and-upgrade/netinstall/netinstall-linux.md",
-  "docs-7.24/getting-started/installation-and-upgrade/install/chr-installation.md",
-  "docs-7.24/getting-started/installation-and-upgrade/netinstall/netinstall-package.md",
-  "docs-7.24/getting-started/installation-and-upgrade/netinstall.md",
-  "docs-7.24/getting-started/installation-and-upgrade/netinstall/netinstall-windows.md",
-  "docs-7.24/getting-started/installation-and-upgrade/upgrade-server.md",
-  "docs-7.24/getting-started/installation-and-upgrade/packages.md",
-  "docs-7.24/getting-started/installation-and-upgrade/routerboot.md",
-  "docs-7.24/getting-started/installation-and-upgrade.md",
-  "docs-7.24/getting-started/manual-network-setup.md",
-  "docs-7.24/getting-started/installation-and-upgrade/upgrade.md",
-  "docs-7.24/getting-started/networking-fundamentals/ipv6-neighbor-discovery.md",
-  "docs-7.24/getting-started/networking-fundamentals/ipv6-addresses.md",
-  "docs-7.24/getting-started/routeros-licensing/chr.md",
-  "docs-7.24/getting-started/routeros-licensing/mikrotik-hardware.md",
-  "docs-7.24/getting-started/networking-fundamentals.md",
-  "docs-7.24/getting-started/routeros-licensing.md",
-  "docs-7.24/getting-started/software-specifications/feature-support-based-on-architecture.md",
-  "docs-7.24/getting-started/routeros-licensing/x86.md",
-  "docs-7.24/getting-started/securing-your-router.md",
+  "docs-7.24/firewall-and-quality-of-service/queues/htb-hierarchical-token-bucket.md",
   "docs-7.24/getting-started/routeros-licensing/chr/chr-licensing.md",
   "docs-7.24/getting-started/supout-rif.md",
-  "docs-7.24/getting-started/software-specifications.md",
-  "docs-7.24/getting-started.md",
-  "docs-7.24/hardware/disks/smart.md",
-  "docs-7.24/getting-started/upgrading-to-v7.md",
-  "docs-7.24/hardware/grounding.md",
-  "docs-7.24/hardware/leds.md",
-  "docs-7.24/hardware/disks.md",
-  "docs-7.24/hardware/lcd-touchscreen.md",
-  "docs-7.24/hardware/mtu-in-routeros.md",
-  "docs-7.24/hardware/peripherals.md",
-  "docs-7.24/hardware/ports.md",
-  "docs-7.24/hardware/s-plus-rj10-general-guidance.md",
-  "docs-7.24/hardware/product-naming.md",
-  "docs-7.24/hardware/try-before-rma.md",
-  "docs-7.24/hardware.md",
-  "docs-7.24/hardware/usb-features.md",
-  "docs-7.24/hardware/poe-out.md",
   "docs-7.24/hardware/routerboard.md",
-  "docs-7.24/high-availability-solutions/load-balancing/failover-wan-backup.md",
-  "docs-7.24/high-availability-solutions/bonding.md",
-  "docs-7.24/high-availability-solutions/load-balancing.md",
-  "docs-7.24/high-availability-solutions/load-balancing/per-connection-classifier.md",
-  "docs-7.24/high-availability-solutions/user-guides/bonding-examples.md",
-  "docs-7.24/high-availability-solutions.md",
-  "docs-7.24/high-availability-solutions/multi-chassis-link-aggregation-group.md",
-  "docs-7.24/high-availability-solutions/user-guides/vrrp-configuration-examples.md",
-  "docs-7.24/internet-of-things/bluetooth/mikrotik-beacon-manager/mikrotik-bluetooth-tg-bt5-xx-tag.md",
-  "docs-7.24/high-availability-solutions/vrrp.md",
-  "docs-7.24/internet-of-things/bluetooth/mikrotik-beacon-manager/mikrotik-beacon-manager-for-ios-devices.md",
-  "docs-7.24/internet-of-things/bluetooth/mikrotik-beacon-manager.md",
-  "docs-7.24/internet-of-things/bluetooth/mikrotik-beacon-manager/mikrotik-tag-advertisement-formats.md",
-  "docs-7.24/internet-of-things/bluetooth/mikrotik-beacon-manager/mikrotik-beacon-manager-android-devices.md",
-  "docs-7.24/internet-of-things/bluetooth/user-guides/email-notification-mikrotik-ble-tag-s.md",
-  "docs-7.24/internet-of-things/bluetooth/user-guides/https-post-and-azure-configuration.md",
-  "docs-7.24/internet-of-things/bluetooth/user-guides/mqtt-and-azure-configuration.md",
-  "docs-7.24/internet-of-things/bluetooth/user-guides/ifttt-app-notifications-ble-tag.md",
-  "docs-7.24/internet-of-things/bluetooth/user-guides/mqtt-https-and-aws-configuration.md",
-  "docs-7.24/internet-of-things/gpio/using-gpio-as-pulse-input-from-meter.md",
-  "docs-7.24/internet-of-things/bluetooth/user-guides/bluetooth-tag-tracking-mqtt-thingsboard.md",
-  "docs-7.24/internet-of-things/bluetooth/user-guides/sending-temperature-readings-from-tg.md",
-  "docs-7.24/internet-of-things/bluetooth.md",
   "docs-7.24/internet-of-things/gpio.md",
-  "docs-7.24/internet-of-things/lora/user-guides/aws-lorawan-configuration.md",
-  "docs-7.24/internet-of-things/lora/user-guides/step-by-step-installation.md",
-  "docs-7.24/internet-of-things/lora/user-guides/chirpstack.md",
-  "docs-7.24/internet-of-things/lora/user-guides.md",
-  "docs-7.24/internet-of-things/lora.md",
-  "docs-7.24/internet-of-things/lora/general-properties.md",
-  "docs-7.24/internet-of-things/lora/user-guides/the-things-stack.md",
-  "docs-7.24/internet-of-things/modbus.md",
-  "docs-7.24/internet-of-things/mqtt/kaa-iot-setup.md",
-  "docs-7.24/internet-of-things.md",
-  "docs-7.24/internet-of-things/wiliot.md",
-  "docs-7.24/internet-of-things/mqtt/mqtt-and-thingsboard-configuration.md",
-  "docs-7.24/introduction.md",
-  "docs-7.24/management-tools/branding.md",
-  "docs-7.24/management-tools/dude.md",
-  "docs-7.24/internet-of-things/mqtt.md",
-  "docs-7.24/management-tools/mikrotik-mobile-app.md",
-  "docs-7.24/management-tools/flashfig.md",
-  "docs-7.24/management-tools/mac-server.md",
-  "docs-7.24/management-tools/romon.md",
-  "docs-7.24/management-tools/quick-set.md",
-  "docs-7.24/management-tools/console.md",
-  "docs-7.24/management-tools/serial-console.md",
-  "docs-7.24/management-tools/webfig.md",
-  "docs-7.24/management-tools/ssh.md",
-  "docs-7.24/management-tools/tr-069.md",
-  "docs-7.24/management-tools.md",
-  "docs-7.24/mobile-networking/bg77-modem-at-commands/wwan-and-gnss-priority-automatization.md",
-  "docs-7.24/mobile-networking/dual-sim-application.md",
-  "docs-7.24/mobile-networking/gps/gps-tracking-using-http-post.md",
-  "docs-7.24/mobile-networking/gps/gps-tracking-using-mqtt-and-thingsboard.md",
-  "docs-7.24/mobile-networking/bg77-modem-at-commands.md",
-  "docs-7.24/mobile-networking/gps.md",
-  "docs-7.24/mobile-networking/mikrotik-connectivity.md",
-  "docs-7.24/mobile-networking/ppp.md",
-  "docs-7.24/management-tools/winbox.md",
-  "docs-7.24/mobile-networking.md",
-  "docs-7.24/network-management/arp.md",
-  "docs-7.24/mobile-networking/sms.md",
-  "docs-7.24/network-management/cloud/communication-mikrotik-cloud-servers.md",
-  "docs-7.24/network-management/cloud/back-to-home.md",
-  "docs-7.24/network-management/cloud/file-share.md",
-  "docs-7.24/mobile-networking/lte-5g.md",
   "docs-7.24/network-management/cloud.md",
-  "docs-7.24/network-management/proxy/reverse-proxy.md",
-  "docs-7.24/network-management/openflow.md",
-  "docs-7.24/network-management/dns.md",
-  "docs-7.24/network-management/socks/socksify.md",
-  "docs-7.24/network-management.md",
-  "docs-7.24/network-management/socks.md",
-  "docs-7.24/network-management/dhcp.md",
-  "docs-7.24/storage/btrfs/raid.md",
+  "docs-7.24/storage/btrfs/maintenance.md",
   "docs-7.24/network-management/proxy.md",
-  "docs-7.24/storage/btrfs/maintenance.md"
+  "docs-7.24/getting-started/configuration-management/default-configurations.md",
+  "docs-7.24/storage/btrfs.md",
+  "docs-7.24/storage/btrfs/raid.md",
+  "docs-7.24/storage/dlna.md",
+  "docs-7.24/storage/btrfs/snapshots.md",
+  "docs-7.24/storage/encrypted-storage.md",
+  "docs-7.24/storage/iscsi.md",
+  "docs-7.24/storage/raid/hot-spare.md",
+  "docs-7.24/storage/nfs.md",
+  "docs-7.24/storage/raid/moving-array.md",
+  "docs-7.24/network-management/dhcp.md",
+  "docs-7.24/storage/nvme-over-tcp.md",
+  "docs-7.24/storage/self-encrypting-drives.md",
+  "docs-7.24/storage/rsync.md",
+  "docs-7.24/storage/ramdisk.md",
+  "docs-7.24/storage/raid.md",
+  "docs-7.24/storage/tmpfs.md",
+  "docs-7.24/storage.md",
+  "docs-7.24/system-information-and-utilities/clock.md",
+  "docs-7.24/storage/smb.md",
+  "docs-7.24/system-information-and-utilities/device-mode.md",
+  "docs-7.24/system-information-and-utilities/e-mail.md",
+  "docs-7.24/system-information-and-utilities/fetch.md",
+  "docs-7.24/system-information-and-utilities/identity.md",
+  "docs-7.24/system-information-and-utilities/files.md",
+  "docs-7.24/system-information-and-utilities/interface-lists.md",
+  "docs-7.24/system-information-and-utilities/ip-packing.md",
+  "docs-7.24/system-information-and-utilities/note.md",
+  "docs-7.24/system-information-and-utilities/ntp.md",
+  "docs-7.24/system-information-and-utilities/neighbor-discovery.md",
+  "docs-7.24/system-information-and-utilities/scheduler.md",
+  "docs-7.24/system-information-and-utilities/partitions.md",
+  "docs-7.24/system-information-and-utilities/services.md",
+  "docs-7.24/system-information-and-utilities/wake-on-lan.md",
+  "docs-7.24/system-information-and-utilities/precision-time-protocol.md",
+  "docs-7.24/system-information-and-utilities/tftp.md",
+  "docs-7.24/system-information-and-utilities.md",
+  "docs-7.24/user-guides/routing-and-networking-protocols/mpls/exp-bit-and-mpls-queuing.md",
+  "docs-7.24/system-information-and-utilities/ups.md",
+  "docs-7.24/user-guides/routing-and-networking-protocols/mpls/traffic-eng.md",
+  "docs-7.24/user-guides/routing-and-networking-protocols/mpls/vpls/control-word.md",
+  "docs-7.24/user-guides/routing-and-networking-protocols/mpls/vpls.md",
+  "docs-7.24/user-guides/routing-and-networking-protocols/mpls/ldp.md",
+  "docs-7.24/user-guides/routing-and-networking-protocols/multicast/group-management-protocol.md",
+  "docs-7.24/user-guides/routing-and-networking-protocols/mpls.md",
+  "docs-7.24/user-guides/routing-and-networking-protocols/multicast/igmp-proxy.md",
+  "docs-7.24/user-guides/routing-and-networking-protocols/multicast/pim-sm.md",
+  "docs-7.24/user-guides/routing-and-networking-protocols/multicast.md",
+  "docs-7.24/user-guides/routing-and-networking-protocols/route-distinguisher-and-route-target.md",
+  "docs-7.24/user-guides/routing-and-networking-protocols/policy-routing.md",
+  "docs-7.24/user-guides/routing-and-networking-protocols/moving-from-rosv6-to-rosv7.md",
+  "docs-7.24/user-guides/routing-and-networking-protocols/unicast/bfd.md",
+  "docs-7.24/user-guides/routing-and-networking-protocols/routing-protocol-multi-core-support.md",
+  "docs-7.24/user-guides/routing-and-networking-protocols/route-selection-and-filtering.md",
+  "docs-7.24/user-guides/routing-and-networking-protocols/unicast/bgp/faq.md",
+  "docs-7.24/user-guides/routing-and-networking-protocols/unicast/bgp/nexthop-selection.md",
+  "docs-7.24/user-guides/routing-and-networking-protocols/unicast/bgp.md",
+  "docs-7.24/user-guides/routing-and-networking-protocols/routing-decision.md",
+  "docs-7.24/user-guides/routing-and-networking-protocols/unicast/bgp/peering-sessions.md",
+  "docs-7.24/user-guides/routing-and-networking-protocols/unicast/is-is.md",
+  "docs-7.24/user-guides/routing-and-networking-protocols/unicast/bgp/understanding-bgp.md",
+  "docs-7.24/user-guides/routing-and-networking-protocols/unicast/ospf/faq.md",
+  "docs-7.24/user-guides/routing-and-networking-protocols/unicast/evpn.md",
+  "docs-7.24/user-guides/routing-and-networking-protocols/unicast/ospf/neighbour-relationship.md",
+  "docs-7.24/user-guides/routing-and-networking-protocols/unicast/ospf.md",
+  "docs-7.24/user-guides/routing-and-networking-protocols/unicast/ospf/areas-and-virtual-links.md",
+  "docs-7.24/user-guides/routing-and-networking-protocols/unicast/ospf/understanding-ospf.md",
+  "docs-7.24/user-guides/routing-and-networking-protocols/unicast/rip.md",
+  "docs-7.24/user-guides/routing-and-networking-protocols/unicast.md",
+  "docs-7.24/user-guides/routing-and-networking-protocols/unicast/rpki.md",
+  "docs-7.24/user-guides/routing-and-networking-protocols.md",
+  "docs-7.24/user-guides/routing-and-networking-protocols/unicast/ospf/routing-calculation.md",
+  "docs-7.24/user-guides.md",
+  "docs-7.24/virtual-private-networks/6to4.md",
+  "docs-7.24/virtual-private-networks/eoip.md",
+  "docs-7.24/virtual-private-networks/gre.md",
+  "docs-7.24/virtual-private-networks/ipip.md",
+  "docs-7.24/virtual-private-networks/ipsec/ikev2-eap-between-nordvpn-and-routeros.md",
+  "docs-7.24/user-guides/routing-and-networking-protocols/vrf.md",
+  "docs-7.24/virtual-private-networks/ipsec/qkd-integration-in-routeros-ipsec-ppk.md",
+  "docs-7.24/virtual-private-networks/l2tp/lac-and-lns-setup-with-cisco-as-lac.md",
+  "docs-7.24/virtual-private-networks/pppoe/ipv6-pd-over-ppp.md",
+  "docs-7.24/virtual-private-networks/l2tp.md",
+  "docs-7.24/virtual-private-networks/openvpn.md",
+  "docs-7.24/virtual-private-networks/pppoe/mlppp-over-single-and-multiple-links.md",
+  "docs-7.24/virtual-private-networks/pptp.md",
+  "docs-7.24/virtual-private-networks/sstp.md",
+  "docs-7.24/virtual-private-networks/pppoe.md",
+  "docs-7.24/virtual-private-networks.md",
+  "docs-7.24/virtual-private-networks/zerotier.md",
+  "docs-7.24/virtual-private-networks/wireguard.md",
+  "docs-7.24/wired-connections/pwr-line.md",
+  "docs-7.24/wired-connections/ethernet.md",
+  "docs-7.24/wired-connections.md",
+  "docs-7.24/wireless/abgn/capsman/capsman-with-vlans.md",
+  "docs-7.24/wired-connections/mikrotik-wired-interface-compatibility.md",
+  "docs-7.24/virtual-private-networks/ipsec.md",
+  "docs-7.24/wireless/abgn/hwmpplus-mesh.md",
+  "docs-7.24/wireless/abgn/capsman/ap-controller-capsman.md",
+  "docs-7.24/wireless/abgn/capsman.md",
+  "docs-7.24/wireless/abgn/interworking-profiles.md",
+  "docs-7.24/wireless/abgn/vlans-on-wireless.md",
+  "docs-7.24/wireless/abgn/spectral-scan.md",
+  "docs-7.24/wireless/abgn.md",
+  "docs-7.24/wireless/user-guides/enterprise-wireless-security-user.md",
+  "docs-7.24/wireless/abgn/nv2.md",
+  "docs-7.24/wireless/user-guides.md",
+  "docs-7.24/wireless/abgn/wireless-troubleshooting.md",
+  "docs-7.24/wireless/w60g/distance-guide.md",
+  "docs-7.24/wireless/user-guides/wireless-station-modes.md",
+  "docs-7.24/wireless/w60g/fail-over-ptmp-cli-example.md",
+  "docs-7.24/wireless/w60g/fail-over-ptp-cli-example.md",
+  "docs-7.24/wireless/w60g/ptp-cli-example.md",
+  "docs-7.24/wireless/w60g/ptp-gui-example.md",
+  "docs-7.24/wireless/w60g/fail-over-ptp-gui-example.md",
+  "docs-7.24/wireless/wifi/configuring-outdoor-cpe-to-ap-links.md",
+  "docs-7.24/wireless/w60g.md",
+  "docs-7.24/wireless/wifi/capsman.md",
+  "docs-7.24/wireless/wifi/configuring-repeater.md",
+  "docs-7.24/wireless/abgn/wireless-interface.md",
+  "docs-7.24/wireless/wifi-ac.md",
+  "docs-7.24/wireless/wifi/configuring-standalone-access-point.md",
+  "docs-7.24/wireless/wifi/interworking-for-wifi6.md",
+  "docs-7.24/wireless.md",
+  "docs-7.24/wireless/wifi.md",
+  "docs-7.25/authentication-authorization-accounting/dot1x.md",
+  "docs-7.25/authentication-authorization-accounting/ppp-aaa.md",
+  "docs-7.25/authentication-authorization-accounting/radius.md",
+  "docs-7.25/authentication-authorization-accounting/hotspot-captive-portal/hotspot-customisation.md",
+  "docs-7.25/authentication-authorization-accounting/user-manager.md",
+  "docs-7.25/authentication-authorization-accounting.md",
+  "docs-7.25/authentication-authorization-accounting/certificates.md",
+  "docs-7.25/bridging-and-switching/macsec.md",
+  "docs-7.25/authentication-authorization-accounting/user.md",
+  "docs-7.25/authentication-authorization-accounting/hotspot-captive-portal.md",
+  "docs-7.25/bridging-and-switching/macvlan.md",
+  "docs-7.25/bridging-and-switching/l3-hardware-offloading.md",
+  "docs-7.25/bridging-and-switching/quality-of-service.md",
+  "docs-7.25/bridging-and-switching/marvell-prestera-switch-chip-features.md",
+  "docs-7.25/bridging-and-switching/swos/crs3.md",
+  "docs-7.25/bridging-and-switching/swos/css106.md",
+  "docs-7.25/bridging-and-switching/swos/css610.md",
+  "docs-7.25/bridging-and-switching/swos.md",
+  "docs-7.25/bridging-and-switching/switch-chip-features.md",
+  "docs-7.25/bridging-and-switching/swos/gpen21.md",
+  "docs-7.25/bridging-and-switching/user-guides/basic-vlan-switching.md",
+  "docs-7.25/bridging-and-switching/swos/troubleshooting.md",
+  "docs-7.25/bridging-and-switching/user-guides/bridge-igmp-mld-snooping.md",
+  "docs-7.25/bridging-and-switching/user-guides/bridge-vlan-table.md",
+  "docs-7.25/bridging-and-switching/user-guides/spanning-tree-protocol.md",
+  "docs-7.25/bridging-and-switching/user-guides/loop-protect.md",
+  "docs-7.25/bridging-and-switching/user-guides/layer2-misconfiguration.md",
+  "docs-7.25/bridging-and-switching/user-guides/wireless-vlan-trunk.md",
+  "docs-7.25/bridging-and-switching/user-guides/wmm-and-vlan-priority.md",
+  "docs-7.25/bridging-and-switching/user-guides.md",
+  "docs-7.25/bridging-and-switching/vlan.md",
+  "docs-7.25/cli-reference/app/cleanup.md",
+  "docs-7.25/cli-reference/app/network.md",
+  "docs-7.25/cli-reference/app/remove.md",
+  "docs-7.25/cli-reference/app/restart.md",
+  "docs-7.25/cli-reference/app/settings.md",
+  "docs-7.25/cli-reference/app/setup.md",
+  "docs-7.25/cli-reference/app/update.md",
+  "docs-7.25/cli-reference/app.md",
+  "docs-7.25/cli-reference/beep.md",
+  "docs-7.25/cli-reference/blink.md",
+  "docs-7.25/cli-reference/caps-man/aaa.md",
+  "docs-7.25/cli-reference/caps-man/access-list.md",
+  "docs-7.25/cli-reference/caps-man/actual-interface-configuration.md",
+  "docs-7.25/cli-reference/caps-man/channel.md",
+  "docs-7.25/cli-reference/caps-man/configuration.md",
+  "docs-7.25/cli-reference/caps-man/datapath.md",
+  "docs-7.25/cli-reference/caps-man/interface/hw-info.md",
+  "docs-7.25/cli-reference/caps-man/interface/possible-channels.md",
+  "docs-7.25/cli-reference/caps-man/interface/reselect-channel.md",
+  "docs-7.25/cli-reference/caps-man/interface/scan.md",
+  "docs-7.25/cli-reference/caps-man/interface.md",
+  "docs-7.25/cli-reference/caps-man/manager/interface.md",
+  "docs-7.25/cli-reference/caps-man/manager.md",
+  "docs-7.25/cli-reference/caps-man/provisioning.md",
+  "docs-7.25/cli-reference/caps-man/radio/hw-info.md",
+  "docs-7.25/cli-reference/caps-man/radio/provision.md",
+  "docs-7.25/cli-reference/caps-man/radio.md",
+  "docs-7.25/cli-reference/caps-man/rates.md",
+  "docs-7.25/cli-reference/caps-man/registration-table.md",
+  "docs-7.25/cli-reference/caps-man/remote-cap/provision.md",
+  "docs-7.25/cli-reference/caps-man/remote-cap/set-identity.md",
+  "docs-7.25/cli-reference/caps-man/remote-cap/upgrade.md",
+  "docs-7.25/cli-reference/caps-man/remote-cap.md",
+  "docs-7.25/cli-reference/caps-man/security.md",
+  "docs-7.25/cli-reference/certificate/acme-renew.md",
+  "docs-7.25/cli-reference/certificate/add-acme.md",
+  "docs-7.25/cli-reference/certificate/add-scep.md",
+  "docs-7.25/cli-reference/certificate/builtin.md",
+  "docs-7.25/cli-reference/certificate/card-reinstall.md",
+  "docs-7.25/cli-reference/certificate/card-verify.md",
+  "docs-7.25/cli-reference/certificate/create-certificate-request.md",
+  "docs-7.25/cli-reference/certificate/crl/download.md",
+  "docs-7.25/cli-reference/certificate/crl/flush.md",
+  "docs-7.25/cli-reference/certificate/crl.md",
+  "docs-7.25/cli-reference/certificate/enable-ssl-certificate.md",
+  "docs-7.25/cli-reference/certificate/export-certificate.md",
+  "docs-7.25/cli-reference/certificate/import.md",
+  "docs-7.25/cli-reference/certificate/issued-revoke.md",
+  "docs-7.25/cli-reference/certificate/scep-renew.md",
+  "docs-7.25/cli-reference/certificate/scep-server/otp/generate.md",
+  "docs-7.25/cli-reference/certificate/scep-server/otp.md",
+  "docs-7.25/cli-reference/certificate/scep-server/ra/renew.md",
+  "docs-7.25/cli-reference/certificate/scep-server/ra.md",
+  "docs-7.25/cli-reference/certificate/scep-server/requests/grant.md",
+  "docs-7.25/cli-reference/certificate/scep-server/requests.md",
+  "docs-7.25/cli-reference/certificate/scep-server.md",
+  "docs-7.25/cli-reference/certificate/settings.md",
+  "docs-7.25/cli-reference/certificate/sign-certificate-request.md",
+  "docs-7.25/cli-reference/certificate/sign.md",
+  "docs-7.25/cli-reference/certificate.md",
+  "docs-7.25/cli-reference/console/inspect.md",
+  "docs-7.25/cli-reference/console/settings.md",
+  "docs-7.25/cli-reference/container/config.md",
+  "docs-7.25/cli-reference/container/envs.md",
+  "docs-7.25/cli-reference/container/kill.md",
+  "docs-7.25/cli-reference/container/layers.md",
+  "docs-7.25/cli-reference/container/log.md",
+  "docs-7.25/cli-reference/container/mounts.md",
+  "docs-7.25/cli-reference/container/repull.md",
+  "docs-7.25/cli-reference/container/restart.md",
+  "docs-7.25/cli-reference/container/save.md",
+  "docs-7.25/cli-reference/container/start.md",
+  "docs-7.25/cli-reference/container/stop.md",
+  "docs-7.25/cli-reference/container/update.md",
+  "docs-7.25/cli-reference/container.md",
+  "docs-7.25/cli-reference/disk/blink.md",
+  "docs-7.25/cli-reference/disk/btrfs/filesystem/add-device.md",
+  "docs-7.25/cli-reference/disk/btrfs/filesystem/balance-cancel.md",
+  "docs-7.25/cli-reference/disk/btrfs/filesystem/balance-start.md",
+  "docs-7.25/cli-reference/disk/btrfs/filesystem/remove-device.md",
+  "docs-7.25/cli-reference/disk/btrfs/filesystem/replace-cancel.md",
+  "docs-7.25/cli-reference/disk/btrfs/filesystem/replace-device.md",
+  "docs-7.25/cli-reference/disk/btrfs/filesystem/reset-counters.md",
+  "docs-7.25/cli-reference/disk/btrfs/filesystem/scrub-cancel.md",
+  "docs-7.25/cli-reference/disk/btrfs/filesystem/scrub-start.md",
+  "docs-7.25/cli-reference/disk/btrfs/filesystem.md",
+  "docs-7.25/cli-reference/disk/btrfs/subvolume.md",
+  "docs-7.25/cli-reference/disk/btrfs/transfer.md",
+  "docs-7.25/cli-reference/disk/btrfs.md",
+  "docs-7.25/cli-reference/disk/check.md",
+  "docs-7.25/cli-reference/disk/copy.md",
+  "docs-7.25/cli-reference/disk/eject.md",
+  "docs-7.25/cli-reference/disk/format.md",
+  "docs-7.25/cli-reference/disk/monitor-traffic.md",
+  "docs-7.25/cli-reference/disk/nvme-discover.md",
+  "docs-7.25/cli-reference/disk/raid-scrub-cancel.md",
+  "docs-7.25/cli-reference/disk/raid-scrub.md",
+  "docs-7.25/cli-reference/disk/repair.md",
+  "docs-7.25/cli-reference/disk/reset-counters.md",
+  "docs-7.25/cli-reference/disk/scan.md",
+  "docs-7.25/cli-reference/disk/settings.md",
+  "docs-7.25/cli-reference/disk/smart-info.md",
+  "docs-7.25/cli-reference/disk/test.md",
+  "docs-7.25/cli-reference/disk/trim.md",
+  "docs-7.25/cli-reference/disk.md",
+  "docs-7.25/cli-reference/dude/agent.md",
+  "docs-7.25/cli-reference/dude/device-type.md",
+  "docs-7.25/cli-reference/dude/device.md",
+  "docs-7.25/cli-reference/dude/export-db.md",
+  "docs-7.25/cli-reference/dude/import-db.md",
+  "docs-7.25/cli-reference/dude/notification.md",
+  "docs-7.25/cli-reference/dude/probe.md",
+  "docs-7.25/cli-reference/dude/ros/address.md",
+  "docs-7.25/cli-reference/dude/ros/arp.md",
+  "docs-7.25/cli-reference/dude/ros/health.md",
+  "docs-7.25/cli-reference/dude/ros/interface.md",
+  "docs-7.25/cli-reference/dude/ros/lease.md",
+  "docs-7.25/cli-reference/dude/ros/neighbor.md",
+  "docs-7.25/cli-reference/dude/ros/queue.md",
+  "docs-7.25/cli-reference/dude/ros/registration-table.md",
+  "docs-7.25/cli-reference/dude/ros/resource.md",
+  "docs-7.25/cli-reference/dude/ros/route.md",
+  "docs-7.25/cli-reference/dude/ros/routerboard.md",
+  "docs-7.25/cli-reference/dude/ros.md",
+  "docs-7.25/cli-reference/dude/service.md",
+  "docs-7.25/cli-reference/dude/settings.md",
+  "docs-7.25/cli-reference/dude/vacuum-db.md",
+  "docs-7.25/cli-reference/dude.md",
+  "docs-7.25/cli-reference/environment.md",
+  "docs-7.25/bridging-and-switching/user-guides/crs1xx-2xx-series-switches-examples.md",
+  "docs-7.25/cli-reference/file/copy.md",
+  "docs-7.25/cli-reference/file/head.md",
+  "docs-7.25/cli-reference/file/rsync-daemon.md",
+  "docs-7.25/cli-reference/file/sync/monitor.md",
+  "docs-7.25/cli-reference/file/sync.md",
+  "docs-7.25/bridging-and-switching.md",
+  "docs-7.25/cli-reference/file/read.md",
+  "docs-7.25/cli-reference/import.md",
+  "docs-7.25/cli-reference/file/tail.md",
+  "docs-7.25/cli-reference/interface/blink.md",
+  "docs-7.25/bridging-and-switching/vxlan.md",
+  "docs-7.25/cli-reference/interface/bonding/monitor-slaves.md",
+  "docs-7.25/cli-reference/interface/6to4.md",
+  "docs-7.25/cli-reference/interface/bridge/calea/reset-counters-all.md",
+  "docs-7.25/cli-reference/interface/bridge/calea/reset-counters.md",
+  "docs-7.25/cli-reference/interface/bridge/calea.md",
+  "docs-7.25/cli-reference/interface/bridge/filter/reset-counters-all.md",
+  "docs-7.25/cli-reference/interface/bridge/filter/reset-counters.md",
+  "docs-7.25/cli-reference/interface/bridge/filter.md",
+  "docs-7.25/cli-reference/interface/bridge/host.md",
+  "docs-7.25/cli-reference/interface/bridge/mdb.md",
+  "docs-7.25/cli-reference/interface/bridge/monitor.md",
+  "docs-7.25/cli-reference/interface/bridge/msti/monitor.md",
+  "docs-7.25/cli-reference/interface/bridge/msti.md",
+  "docs-7.25/cli-reference/interface/bridge/nat/reset-counters-all.md",
+  "docs-7.25/cli-reference/interface/bridge/nat/reset-counters.md",
+  "docs-7.25/cli-reference/interface/bridge/nat.md",
+  "docs-7.25/cli-reference/interface/bridge/port/monitor.md",
+  "docs-7.25/cli-reference/interface/bridge/port/mst-override/monitor.md",
+  "docs-7.25/cli-reference/interface/bridge/port/mst-override.md",
+  "docs-7.25/cli-reference/interface/bridge/port.md",
+  "docs-7.25/cli-reference/interface/bridge/settings.md",
+  "docs-7.25/cli-reference/interface/bridge/vlan/mvrp.md",
+  "docs-7.25/cli-reference/interface/bridge/vlan.md",
+  "docs-7.25/cli-reference/interface/bridge.md",
+  "docs-7.25/cli-reference/interface/detect-internet/state.md",
+  "docs-7.25/cli-reference/file.md",
+  "docs-7.25/cli-reference/interface/dot1x/client.md",
+  "docs-7.25/cli-reference/interface/dot1x/server/active.md",
+  "docs-7.25/cli-reference/interface/dot1x/server/state.md",
+  "docs-7.25/cli-reference/interface/dot1x/server.md",
+  "docs-7.25/cli-reference/interface/dot1x.md",
+  "docs-7.25/cli-reference/interface/detect-internet.md",
+  "docs-7.25/cli-reference/interface/eoip.md",
+  "docs-7.25/cli-reference/interface/ethernet/blink.md",
+  "docs-7.25/cli-reference/interface/ethernet/cable-test.md",
+  "docs-7.25/cli-reference/interface/ethernet/monitor.md",
+  "docs-7.25/cli-reference/interface/ethernet/poe/monitor.md",
+  "docs-7.25/cli-reference/interface/ethernet/poe/power-cycle.md",
+  "docs-7.25/cli-reference/interface/ethernet/poe/settings.md",
+  "docs-7.25/cli-reference/interface/ethernet/poe.md",
+  "docs-7.25/cli-reference/interface/eoipv6.md",
+  "docs-7.25/cli-reference/interface/ethernet/reset-counters.md",
+  "docs-7.25/cli-reference/interface/ethernet/reset-mac-address.md",
+  "docs-7.25/cli-reference/interface/ethernet/switch/acl/policer.md",
+  "docs-7.25/cli-reference/interface/ethernet/pon.md",
+  "docs-7.25/cli-reference/interface/ethernet/switch/dscp-qos-map.md",
+  "docs-7.25/cli-reference/interface/ethernet/switch/dscp-to-dscp.md",
+  "docs-7.25/cli-reference/interface/ethernet/switch/acl.md",
+  "docs-7.25/cli-reference/interface/ethernet/switch/egress-vlan-translation.md",
+  "docs-7.25/cli-reference/interface/ethernet/switch/host.md",
+  "docs-7.25/cli-reference/interface/ethernet/switch/ingress-port-policer.md",
+  "docs-7.25/cli-reference/interface/ethernet/switch/egress-vlan-tag.md",
+  "docs-7.25/cli-reference/interface/ethernet/switch/ingress-vlan-translation.md",
+  "docs-7.25/cli-reference/interface/ethernet/switch/l3hw-settings/advanced/monitor.md",
+  "docs-7.25/cli-reference/interface/bonding.md",
+  "docs-7.25/cli-reference/interface/ethernet/switch/l3hw-settings.md",
+  "docs-7.25/cli-reference/interface/bonding/monitor.md",
+  "docs-7.25/cli-reference/interface/ethernet/switch/multicast-fdb.md",
+  "docs-7.25/cli-reference/interface/ethernet/switch/one2one-vlan-switching.md",
+  "docs-7.25/cli-reference/interface/ethernet/switch/policer-qos-map.md",
+  "docs-7.25/cli-reference/interface/ethernet/switch/port/reset-counters.md",
+  "docs-7.25/cli-reference/interface/ethernet/switch/port-isolation.md",
+  "docs-7.25/cli-reference/interface/ethernet/switch/port-leakage.md",
+  "docs-7.25/cli-reference/interface/ethernet/switch/port.md",
+  "docs-7.25/cli-reference/interface/ethernet/switch/protocol-based-vlan.md",
+  "docs-7.25/cli-reference/interface/ethernet/switch/qos/map/ip.md",
+  "docs-7.25/cli-reference/interface/ethernet/switch/qos/map/vlan.md",
+  "docs-7.25/cli-reference/interface/ethernet/switch/qos/map.md",
+  "docs-7.25/cli-reference/interface/ethernet/switch/qos/monitor.md",
+  "docs-7.25/cli-reference/interface/ethernet/switch/qos/port/reset-counters.md",
+  "docs-7.25/cli-reference/interface/ethernet/switch/mac-based-vlan.md",
+  "docs-7.25/cli-reference/interface/ethernet/switch/qos/priority-flow-control.md",
+  "docs-7.25/cli-reference/interface/ethernet/switch/qos/profile.md",
+  "docs-7.25/cli-reference/interface/ethernet/switch/qos/settings.md",
+  "docs-7.25/cli-reference/interface/ethernet/switch/qos/tx-manager/queue.md",
+  "docs-7.25/cli-reference/interface/ethernet/switch/qos/tx-manager.md",
+  "docs-7.25/cli-reference/interface/ethernet/switch/qos-group.md",
+  "docs-7.25/cli-reference/interface/ethernet/switch/qos.md",
+  "docs-7.25/cli-reference/interface/ethernet/switch/reserved-fdb.md",
+  "docs-7.25/cli-reference/interface/ethernet/switch/l3hw-settings/advanced.md",
+  "docs-7.25/cli-reference/interface/ethernet/switch/l3hw-settings/monitor.md",
+  "docs-7.25/cli-reference/interface/ethernet/switch/qos/port.md"
  ],
- "completed_pages": 493,
+ "completed_pages": 394,
  "pending": {
-  "blocks": 54640,
-  "titles": 1142,
+  "blocks": 47648,
+  "titles": 904,
   "labels": 239,
-  "descriptions": 861,
-  "pages": 3502,
-  "units": 56882,
+  "descriptions": 707,
+  "pages": 3102,
+  "units": 49498,
   "bySection": {
    "docs": {
-    "blocks": 18692,
-    "titles": 336,
+    "blocks": 18634,
+    "titles": 292,
     "sidebar_labels": 239,
     "descriptions": 381
    },
    "docs-7.25": {
-    "blocks": 16799,
-    "titles": 307,
+    "blocks": 14123,
+    "titles": 239,
     "sidebar_labels": 0,
-    "descriptions": 355
+    "descriptions": 326
    },
    "docs-7.24": {
-    "blocks": 4316,
-    "titles": 126,
+    "blocks": 58,
+    "titles": 0,
     "sidebar_labels": 0,
-    "descriptions": 125
+    "descriptions": 0
    },
    "hardware": {
     "blocks": 13428,
@@ -9858,7 +9759,7 @@
    {
     "section": "docs",
     "path": "containers/user-guides/container-mosquitto-mqtt-server.md",
-    "blocks": 56,
+    "blocks": 55,
     "title": true,
     "sidebar_label": true,
     "description": true
@@ -9914,7 +9815,7 @@
    {
     "section": "docs",
     "path": "developer-guides/api.md",
-    "blocks": 129,
+    "blocks": 128,
     "title": false,
     "sidebar_label": false,
     "description": true
@@ -10138,7 +10039,7 @@
    {
     "section": "docs",
     "path": "diagnostics-monitoring-and-troubleshooting/traffic-flow/netflow-analysis-with-elasticsearch.md",
-    "blocks": 35,
+    "blocks": 34,
     "title": true,
     "sidebar_label": true,
     "description": true
@@ -10274,7 +10175,7 @@
    {
     "section": "docs",
     "path": "firewall-and-quality-of-service/queues/htb-hierarchical-token-bucket.md",
-    "blocks": 84,
+    "blocks": 82,
     "title": false,
     "sidebar_label": false,
     "description": true
@@ -10466,7 +10367,7 @@
    {
     "section": "docs",
     "path": "getting-started/configuration-management/default-configurations.md",
-    "blocks": 94,
+    "blocks": 93,
     "title": true,
     "sidebar_label": true,
     "description": true
@@ -10514,7 +10415,7 @@
    {
     "section": "docs",
     "path": "getting-started/installation-and-upgrade/install/chr-installation/esxi.md",
-    "blocks": 12,
+    "blocks": 10,
     "title": true,
     "sidebar_label": true,
     "description": true
@@ -10530,7 +10431,7 @@
    {
     "section": "docs",
     "path": "getting-started/installation-and-upgrade/install/chr-installation/hyperv.md",
-    "blocks": 8,
+    "blocks": 6,
     "title": true,
     "sidebar_label": true,
     "description": true
@@ -10538,7 +10439,7 @@
    {
     "section": "docs",
     "path": "getting-started/installation-and-upgrade/install/chr-installation/proxmox.md",
-    "blocks": 36,
+    "blocks": 35,
     "title": true,
     "sidebar_label": true,
     "description": true
@@ -10570,7 +10471,7 @@
    {
     "section": "docs",
     "path": "getting-started/installation-and-upgrade/install/chr-installation.md",
-    "blocks": 34,
+    "blocks": 32,
     "title": true,
     "sidebar_label": false,
     "description": true
@@ -10810,7 +10711,7 @@
    {
     "section": "docs",
     "path": "hardware/mtu-in-routeros.md",
-    "blocks": 45,
+    "blocks": 44,
     "title": true,
     "sidebar_label": true,
     "description": true
@@ -10818,7 +10719,7 @@
    {
     "section": "docs",
     "path": "hardware/peripherals.md",
-    "blocks": 17,
+    "blocks": 16,
     "title": true,
     "sidebar_label": true,
     "description": true
@@ -10826,7 +10727,7 @@
    {
     "section": "docs",
     "path": "hardware/poe-out.md",
-    "blocks": 115,
+    "blocks": 113,
     "title": false,
     "sidebar_label": false,
     "description": true
@@ -10986,7 +10887,7 @@
    {
     "section": "docs",
     "path": "internet-of-things/bluetooth/mikrotik-beacon-manager/mikrotik-tag-advertisement-formats.md",
-    "blocks": 81,
+    "blocks": 80,
     "title": true,
     "sidebar_label": true,
     "description": false
@@ -11002,7 +10903,7 @@
    {
     "section": "docs",
     "path": "internet-of-things/bluetooth/user-guides/bluetooth-tag-tracking-mqtt-thingsboard.md",
-    "blocks": 167,
+    "blocks": 155,
     "title": true,
     "sidebar_label": true,
     "description": true
@@ -11010,7 +10911,7 @@
    {
     "section": "docs",
     "path": "internet-of-things/bluetooth/user-guides/email-notification-mikrotik-ble-tag-s.md",
-    "blocks": 51,
+    "blocks": 50,
     "title": true,
     "sidebar_label": true,
     "description": false
@@ -11018,7 +10919,7 @@
    {
     "section": "docs",
     "path": "internet-of-things/bluetooth/user-guides/https-post-and-azure-configuration.md",
-    "blocks": 41,
+    "blocks": 39,
     "title": true,
     "sidebar_label": true,
     "description": false
@@ -11026,7 +10927,7 @@
    {
     "section": "docs",
     "path": "internet-of-things/bluetooth/user-guides/ifttt-app-notifications-ble-tag.md",
-    "blocks": 59,
+    "blocks": 58,
     "title": true,
     "sidebar_label": true,
     "description": false
@@ -11034,7 +10935,7 @@
    {
     "section": "docs",
     "path": "internet-of-things/bluetooth/user-guides/mqtt-and-azure-configuration.md",
-    "blocks": 57,
+    "blocks": 55,
     "title": true,
     "sidebar_label": true,
     "description": true
@@ -11042,7 +10943,7 @@
    {
     "section": "docs",
     "path": "internet-of-things/bluetooth/user-guides/mqtt-https-and-aws-configuration.md",
-    "blocks": 63,
+    "blocks": 62,
     "title": true,
     "sidebar_label": true,
     "description": true
@@ -11050,7 +10951,7 @@
    {
     "section": "docs",
     "path": "internet-of-things/bluetooth/user-guides/sending-temperature-readings-from-tg.md",
-    "blocks": 66,
+    "blocks": 65,
     "title": true,
     "sidebar_label": true,
     "description": false
@@ -11082,7 +10983,7 @@
    {
     "section": "docs",
     "path": "internet-of-things/lora/general-properties.md",
-    "blocks": 67,
+    "blocks": 66,
     "title": true,
     "sidebar_label": true,
     "description": true
@@ -11154,7 +11055,7 @@
    {
     "section": "docs",
     "path": "internet-of-things/mqtt/mqtt-and-thingsboard-configuration.md",
-    "blocks": 63,
+    "blocks": 62,
     "title": true,
     "sidebar_label": true,
     "description": true
@@ -11338,7 +11239,7 @@
    {
     "section": "docs",
     "path": "mobile-networking/bg77-modem-at-commands.md",
-    "blocks": 79,
+    "blocks": 70,
     "title": true,
     "sidebar_label": false,
     "description": false
@@ -11378,7 +11279,7 @@
    {
     "section": "docs",
     "path": "mobile-networking/lte-5g.md",
-    "blocks": 183,
+    "blocks": 182,
     "title": false,
     "sidebar_label": false,
     "description": true
@@ -11394,7 +11295,7 @@
    {
     "section": "docs",
     "path": "mobile-networking/ppp.md",
-    "blocks": 16,
+    "blocks": 15,
     "title": false,
     "sidebar_label": false,
     "description": true
@@ -11499,7 +11400,7 @@
     "section": "docs",
     "path": "network-management/dhcp.md",
     "blocks": 31,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -11514,7 +11415,7 @@
    {
     "section": "docs",
     "path": "network-management/openflow.md",
-    "blocks": 26,
+    "blocks": 22,
     "title": true,
     "sidebar_label": false,
     "description": true
@@ -11579,7 +11480,7 @@
     "section": "docs",
     "path": "storage/btrfs/raid.md",
     "blocks": 70,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -11595,7 +11496,7 @@
     "section": "docs",
     "path": "storage/btrfs.md",
     "blocks": 10,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -11619,7 +11520,7 @@
     "section": "docs",
     "path": "storage/iscsi.md",
     "blocks": 10,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -11627,7 +11528,7 @@
     "section": "docs",
     "path": "storage/nfs.md",
     "blocks": 9,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -11659,7 +11560,7 @@
     "section": "docs",
     "path": "storage/raid.md",
     "blocks": 41,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -11667,7 +11568,7 @@
     "section": "docs",
     "path": "storage/ramdisk.md",
     "blocks": 14,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -11675,7 +11576,7 @@
     "section": "docs",
     "path": "storage/rsync.md",
     "blocks": 10,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -11691,7 +11592,7 @@
     "section": "docs",
     "path": "storage/smb.md",
     "blocks": 23,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -11707,7 +11608,7 @@
     "section": "docs",
     "path": "storage/tmpfs.md",
     "blocks": 37,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -11747,7 +11648,7 @@
     "section": "docs",
     "path": "system-information-and-utilities/fetch.md",
     "blocks": 40,
-    "title": true,
+    "title": false,
     "sidebar_label": true,
     "description": true
    },
@@ -11795,7 +11696,7 @@
     "section": "docs",
     "path": "system-information-and-utilities/ntp.md",
     "blocks": 31,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -11835,7 +11736,7 @@
     "section": "docs",
     "path": "system-information-and-utilities/tftp.md",
     "blocks": 36,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -11843,7 +11744,7 @@
     "section": "docs",
     "path": "system-information-and-utilities/ups.md",
     "blocks": 26,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -11891,7 +11792,7 @@
     "section": "docs",
     "path": "user-guides/routing-and-networking-protocols/mpls/ldp.md",
     "blocks": 81,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -11915,7 +11816,7 @@
     "section": "docs",
     "path": "user-guides/routing-and-networking-protocols/mpls/vpls.md",
     "blocks": 12,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -11923,7 +11824,7 @@
     "section": "docs",
     "path": "user-guides/routing-and-networking-protocols/mpls.md",
     "blocks": 12,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -11947,7 +11848,7 @@
     "section": "docs",
     "path": "user-guides/routing-and-networking-protocols/multicast/pim-sm.md",
     "blocks": 20,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -12003,7 +11904,7 @@
     "section": "docs",
     "path": "user-guides/routing-and-networking-protocols/unicast/bfd.md",
     "blocks": 19,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -12051,7 +11952,7 @@
     "section": "docs",
     "path": "user-guides/routing-and-networking-protocols/unicast/bgp.md",
     "blocks": 0,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -12059,7 +11960,7 @@
     "section": "docs",
     "path": "user-guides/routing-and-networking-protocols/unicast/evpn.md",
     "blocks": 69,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -12067,7 +11968,7 @@
     "section": "docs",
     "path": "user-guides/routing-and-networking-protocols/unicast/is-is.md",
     "blocks": 22,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -12115,7 +12016,7 @@
     "section": "docs",
     "path": "user-guides/routing-and-networking-protocols/unicast/ospf.md",
     "blocks": 0,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -12123,7 +12024,7 @@
     "section": "docs",
     "path": "user-guides/routing-and-networking-protocols/unicast/rip.md",
     "blocks": 2,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -12131,7 +12032,7 @@
     "section": "docs",
     "path": "user-guides/routing-and-networking-protocols/unicast/rpki.md",
     "blocks": 27,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -12147,7 +12048,7 @@
     "section": "docs",
     "path": "user-guides/routing-and-networking-protocols/vrf.md",
     "blocks": 92,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -12179,7 +12080,7 @@
     "section": "docs",
     "path": "virtual-private-networks/eoip.md",
     "blocks": 43,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -12187,7 +12088,7 @@
     "section": "docs",
     "path": "virtual-private-networks/gre.md",
     "blocks": 28,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -12195,7 +12096,7 @@
     "section": "docs",
     "path": "virtual-private-networks/ipip.md",
     "blocks": 57,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -12267,7 +12168,7 @@
     "section": "docs",
     "path": "virtual-private-networks/ipsec.md",
     "blocks": 52,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -12283,7 +12184,7 @@
     "section": "docs",
     "path": "virtual-private-networks/l2tp.md",
     "blocks": 47,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -12291,7 +12192,7 @@
     "section": "docs",
     "path": "virtual-private-networks/openvpn.md",
     "blocks": 44,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -12315,7 +12216,7 @@
     "section": "docs",
     "path": "virtual-private-networks/pppoe.md",
     "blocks": 32,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -12323,7 +12224,7 @@
     "section": "docs",
     "path": "virtual-private-networks/pptp.md",
     "blocks": 39,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -12331,7 +12232,7 @@
     "section": "docs",
     "path": "virtual-private-networks/sstp.md",
     "blocks": 31,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -12339,7 +12240,7 @@
     "section": "docs",
     "path": "virtual-private-networks/wireguard.md",
     "blocks": 78,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -12355,7 +12256,7 @@
     "section": "docs",
     "path": "virtual-private-networks/zerotier.md",
     "blocks": 24,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -12378,7 +12279,7 @@
    {
     "section": "docs",
     "path": "wired-connections/mikrotik-wired-interface-compatibility.md",
-    "blocks": 94,
+    "blocks": 92,
     "title": true,
     "sidebar_label": true,
     "description": true
@@ -12387,7 +12288,7 @@
     "section": "docs",
     "path": "wired-connections/pwr-line.md",
     "blocks": 24,
-    "title": true,
+    "title": false,
     "sidebar_label": true,
     "description": true
    },
@@ -12419,7 +12320,7 @@
     "section": "docs",
     "path": "wireless/abgn/capsman.md",
     "blocks": 71,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -12443,7 +12344,7 @@
     "section": "docs",
     "path": "wireless/abgn/nv2.md",
     "blocks": 67,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -12474,7 +12375,7 @@
    {
     "section": "docs",
     "path": "wireless/abgn/wireless-troubleshooting.md",
-    "blocks": 103,
+    "blocks": 102,
     "title": true,
     "sidebar_label": true,
     "description": true
@@ -12483,7 +12384,7 @@
     "section": "docs",
     "path": "wireless/abgn.md",
     "blocks": 3,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -12563,7 +12464,7 @@
     "section": "docs",
     "path": "wireless/w60g.md",
     "blocks": 78,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -12571,7 +12472,7 @@
     "section": "docs",
     "path": "wireless/wifi/capsman.md",
     "blocks": 55,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -12651,7 +12552,7 @@
     "section": "docs",
     "path": "wireless/wifi-ac.md",
     "blocks": 11,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -12673,264 +12574,8 @@
    },
    {
     "section": "docs-7.25",
-    "path": "authentication-authorization-accounting/certificates.md",
-    "blocks": 78,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.25",
-    "path": "authentication-authorization-accounting/dot1x.md",
-    "blocks": 42,
-    "title": false,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.25",
-    "path": "authentication-authorization-accounting/hotspot-captive-portal/hotspot-customisation.md",
-    "blocks": 127,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.25",
-    "path": "authentication-authorization-accounting/hotspot-captive-portal.md",
-    "blocks": 70,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.25",
-    "path": "authentication-authorization-accounting/ppp-aaa.md",
-    "blocks": 37,
-    "title": false,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.25",
-    "path": "authentication-authorization-accounting/radius.md",
-    "blocks": 58,
-    "title": false,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.25",
-    "path": "authentication-authorization-accounting/user-manager.md",
-    "blocks": 135,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.25",
-    "path": "authentication-authorization-accounting/user.md",
-    "blocks": 46,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.25",
-    "path": "authentication-authorization-accounting.md",
-    "blocks": 1,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.25",
-    "path": "bridging-and-switching/l3-hardware-offloading.md",
-    "blocks": 140,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.25",
-    "path": "bridging-and-switching/macsec.md",
-    "blocks": 19,
-    "title": false,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.25",
-    "path": "bridging-and-switching/macvlan.md",
-    "blocks": 10,
-    "title": false,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.25",
-    "path": "bridging-and-switching/marvell-prestera-switch-chip-features.md",
-    "blocks": 198,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.25",
-    "path": "bridging-and-switching/quality-of-service.md",
-    "blocks": 124,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.25",
-    "path": "bridging-and-switching/switch-chip-features.md",
-    "blocks": 135,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.25",
-    "path": "bridging-and-switching/swos/crs3.md",
-    "blocks": 72,
-    "title": true,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "bridging-and-switching/swos/css106.md",
-    "blocks": 75,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.25",
-    "path": "bridging-and-switching/swos/css610.md",
-    "blocks": 86,
-    "title": true,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "bridging-and-switching/swos/gpen21.md",
-    "blocks": 65,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.25",
-    "path": "bridging-and-switching/swos/troubleshooting.md",
-    "blocks": 41,
-    "title": true,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "bridging-and-switching/swos.md",
-    "blocks": 6,
-    "title": false,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.25",
-    "path": "bridging-and-switching/user-guides/basic-vlan-switching.md",
-    "blocks": 14,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.25",
-    "path": "bridging-and-switching/user-guides/bridge-igmp-mld-snooping.md",
-    "blocks": 47,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.25",
-    "path": "bridging-and-switching/user-guides/bridge-vlan-table.md",
-    "blocks": 80,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.25",
-    "path": "bridging-and-switching/user-guides/crs1xx-2xx-series-switches-examples.md",
-    "blocks": 168,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.25",
-    "path": "bridging-and-switching/user-guides/layer2-misconfiguration.md",
-    "blocks": 209,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.25",
-    "path": "bridging-and-switching/user-guides/loop-protect.md",
-    "blocks": 7,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.25",
-    "path": "bridging-and-switching/user-guides/spanning-tree-protocol.md",
-    "blocks": 120,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.25",
-    "path": "bridging-and-switching/user-guides/wireless-vlan-trunk.md",
-    "blocks": 16,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.25",
-    "path": "bridging-and-switching/user-guides/wmm-and-vlan-priority.md",
-    "blocks": 40,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.25",
-    "path": "bridging-and-switching/user-guides.md",
-    "blocks": 1,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.25",
-    "path": "bridging-and-switching/vlan.md",
-    "blocks": 39,
-    "title": false,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.25",
     "path": "bridging-and-switching/vxlan.md",
-    "blocks": 35,
+    "blocks": 29,
     "title": false,
     "sidebar_label": false,
     "description": true
@@ -12938,1143 +12583,15 @@
    {
     "section": "docs-7.25",
     "path": "bridging-and-switching.md",
-    "blocks": 313,
+    "blocks": 308,
     "title": true,
     "sidebar_label": false,
     "description": false
    },
    {
     "section": "docs-7.25",
-    "path": "cli-reference/app/cleanup.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/app/network.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/app/remove.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/app/restart.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/app/settings.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/app/setup.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/app/update.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/app.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/beep.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/blink.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/caps-man/aaa.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/caps-man/access-list.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/caps-man/actual-interface-configuration.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/caps-man/channel.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/caps-man/configuration.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/caps-man/datapath.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/caps-man/interface/hw-info.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/caps-man/interface/possible-channels.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/caps-man/interface/reselect-channel.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/caps-man/interface/scan.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/caps-man/interface.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/caps-man/manager/interface.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/caps-man/manager.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/caps-man/provisioning.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/caps-man/radio/hw-info.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/caps-man/radio/provision.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/caps-man/radio.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/caps-man/rates.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/caps-man/registration-table.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/caps-man/remote-cap/provision.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/caps-man/remote-cap/set-identity.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/caps-man/remote-cap/upgrade.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/caps-man/remote-cap.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/caps-man/security.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/certificate/acme-renew.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/certificate/add-acme.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/certificate/add-scep.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/certificate/builtin.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/certificate/card-reinstall.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/certificate/card-verify.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/certificate/create-certificate-request.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/certificate/crl/download.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/certificate/crl/flush.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/certificate/crl.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/certificate/enable-ssl-certificate.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/certificate/export-certificate.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/certificate/import.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/certificate/issued-revoke.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/certificate/scep-renew.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/certificate/scep-server/otp/generate.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/certificate/scep-server/otp.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/certificate/scep-server/ra/renew.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/certificate/scep-server/ra.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/certificate/scep-server/requests/grant.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/certificate/scep-server/requests.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/certificate/scep-server.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/certificate/settings.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/certificate/sign-certificate-request.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/certificate/sign.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/certificate.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/console/inspect.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/console/settings.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/container/config.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/container/envs.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/container/kill.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/container/layers.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/container/log.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/container/mounts.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/container/repull.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/container/restart.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/container/save.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/container/start.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/container/stop.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/container/update.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/container.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/disk/blink.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/disk/btrfs/filesystem/add-device.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/disk/btrfs/filesystem/balance-cancel.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/disk/btrfs/filesystem/balance-start.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/disk/btrfs/filesystem/remove-device.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/disk/btrfs/filesystem/replace-cancel.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/disk/btrfs/filesystem/replace-device.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/disk/btrfs/filesystem/reset-counters.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/disk/btrfs/filesystem/scrub-cancel.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/disk/btrfs/filesystem/scrub-start.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/disk/btrfs/filesystem.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/disk/btrfs/subvolume.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/disk/btrfs/transfer.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/disk/btrfs.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/disk/check.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/disk/copy.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/disk/eject.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/disk/format.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/disk/monitor-traffic.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/disk/nvme-discover.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/disk/raid-scrub-cancel.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/disk/raid-scrub.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/disk/repair.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/disk/reset-counters.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/disk/scan.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/disk/settings.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/disk/smart-info.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/disk/test.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/disk/trim.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/disk.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/dude/agent.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/dude/device-type.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/dude/device.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/dude/export-db.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/dude/import-db.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/dude/notification.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/dude/probe.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/dude/ros/address.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/dude/ros/arp.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/dude/ros/health.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/dude/ros/interface.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/dude/ros/lease.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/dude/ros/neighbor.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/dude/ros/queue.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/dude/ros/registration-table.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/dude/ros/resource.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/dude/ros/route.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/dude/ros/routerboard.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/dude/ros.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/dude/service.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/dude/settings.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/dude/vacuum-db.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/dude.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/environment.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/file/copy.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/file/head.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/file/read.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/file/rsync-daemon.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/file/sync/monitor.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/file/sync.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/file/tail.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/file.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/import.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/6to4.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/blink.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/bonding/monitor-slaves.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
     "path": "cli-reference/interface/bonding/monitor.md",
-    "blocks": 2,
+    "blocks": 1,
     "title": false,
     "sidebar_label": false,
     "description": false
@@ -14082,551 +12599,7 @@
    {
     "section": "docs-7.25",
     "path": "cli-reference/interface/bonding.md",
-    "blocks": 3,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/bridge/calea/reset-counters-all.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/bridge/calea/reset-counters.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/bridge/calea.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/bridge/filter/reset-counters-all.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/bridge/filter/reset-counters.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/bridge/filter.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/bridge/host.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/bridge/mdb.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/bridge/monitor.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/bridge/msti/monitor.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/bridge/msti.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/bridge/nat/reset-counters-all.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/bridge/nat/reset-counters.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/bridge/nat.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/bridge/port/monitor.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/bridge/port/mst-override/monitor.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/bridge/port/mst-override.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/bridge/port.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/bridge/settings.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/bridge/vlan/mvrp.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/bridge/vlan.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/bridge.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/detect-internet/state.md",
     "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/detect-internet.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/dot1x/client.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/dot1x/server/active.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/dot1x/server/state.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/dot1x/server.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/dot1x.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/eoip.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/eoipv6.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/ethernet/blink.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/ethernet/cable-test.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/ethernet/monitor.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/ethernet/poe/monitor.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/ethernet/poe/power-cycle.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/ethernet/poe/settings.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/ethernet/poe.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/ethernet/pon.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/ethernet/reset-counters.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/ethernet/reset-mac-address.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/ethernet/switch/acl/policer.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/ethernet/switch/acl.md",
-    "blocks": 3,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/ethernet/switch/dscp-qos-map.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/ethernet/switch/dscp-to-dscp.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/ethernet/switch/egress-vlan-tag.md",
-    "blocks": 3,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/ethernet/switch/egress-vlan-translation.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/ethernet/switch/host.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/ethernet/switch/ingress-port-policer.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/ethernet/switch/ingress-vlan-translation.md",
-    "blocks": 4,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/ethernet/switch/l3hw-settings/advanced/monitor.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/ethernet/switch/l3hw-settings/advanced.md",
-    "blocks": 3,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/ethernet/switch/l3hw-settings/monitor.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/ethernet/switch/l3hw-settings.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/ethernet/switch/mac-based-vlan.md",
-    "blocks": 3,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/ethernet/switch/multicast-fdb.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/ethernet/switch/one2one-vlan-switching.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/ethernet/switch/policer-qos-map.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/ethernet/switch/port/reset-counters.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/ethernet/switch/port-isolation.md",
-    "blocks": 9,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/ethernet/switch/port-leakage.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/ethernet/switch/port.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/ethernet/switch/protocol-based-vlan.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/ethernet/switch/qos/map/ip.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/ethernet/switch/qos/map/vlan.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/ethernet/switch/qos/map.md",
-    "blocks": 3,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/ethernet/switch/qos/monitor.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/ethernet/switch/qos/port/reset-counters.md",
-    "blocks": 1,
     "title": false,
     "sidebar_label": false,
     "description": false
@@ -14634,70 +12607,6 @@
    {
     "section": "docs-7.25",
     "path": "cli-reference/interface/ethernet/switch/qos/port.md",
-    "blocks": 7,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/ethernet/switch/qos/priority-flow-control.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/ethernet/switch/qos/profile.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/ethernet/switch/qos/settings.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/ethernet/switch/qos/tx-manager/queue.md",
-    "blocks": 5,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/ethernet/switch/qos/tx-manager.md",
-    "blocks": 3,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/ethernet/switch/qos-group.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/ethernet/switch/qos.md",
-    "blocks": 4,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.25",
-    "path": "cli-reference/interface/ethernet/switch/reserved-fdb.md",
     "blocks": 2,
     "title": false,
     "sidebar_label": false,
@@ -21458,7 +19367,7 @@
    {
     "section": "docs-7.25",
     "path": "containers/user-guides/container-mosquitto-mqtt-server.md",
-    "blocks": 71,
+    "blocks": 70,
     "title": true,
     "sidebar_label": false,
     "description": true
@@ -21506,7 +19415,7 @@
    {
     "section": "docs-7.25",
     "path": "developer-guides/api.md",
-    "blocks": 91,
+    "blocks": 90,
     "title": false,
     "sidebar_label": false,
     "description": true
@@ -21690,7 +19599,7 @@
    {
     "section": "docs-7.25",
     "path": "diagnostics-monitoring-and-troubleshooting/snmp.md",
-    "blocks": 48,
+    "blocks": 47,
     "title": false,
     "sidebar_label": false,
     "description": true
@@ -21722,7 +19631,7 @@
    {
     "section": "docs-7.25",
     "path": "diagnostics-monitoring-and-troubleshooting/traffic-flow/netflow-analysis-with-elasticsearch.md",
-    "blocks": 35,
+    "blocks": 34,
     "title": true,
     "sidebar_label": false,
     "description": true
@@ -21794,7 +19703,7 @@
    {
     "section": "docs-7.25",
     "path": "firewall-and-quality-of-service/firewall/layer7.md",
-    "blocks": 17,
+    "blocks": 16,
     "title": false,
     "sidebar_label": false,
     "description": true
@@ -21810,7 +19719,7 @@
    {
     "section": "docs-7.25",
     "path": "firewall-and-quality-of-service/firewall/nat.md",
-    "blocks": 62,
+    "blocks": 60,
     "title": false,
     "sidebar_label": false,
     "description": true
@@ -21842,7 +19751,7 @@
    {
     "section": "docs-7.25",
     "path": "firewall-and-quality-of-service/packet-flow-in-routeros.md",
-    "blocks": 121,
+    "blocks": 119,
     "title": true,
     "sidebar_label": false,
     "description": true
@@ -21850,7 +19759,7 @@
    {
     "section": "docs-7.25",
     "path": "firewall-and-quality-of-service/queues/htb-hierarchical-token-bucket.md",
-    "blocks": 82,
+    "blocks": 80,
     "title": false,
     "sidebar_label": false,
     "description": true
@@ -21866,7 +19775,7 @@
    {
     "section": "docs-7.25",
     "path": "firewall-and-quality-of-service/queues/queue-burst.md",
-    "blocks": 16,
+    "blocks": 14,
     "title": true,
     "sidebar_label": false,
     "description": true
@@ -21994,7 +19903,7 @@
    {
     "section": "docs-7.25",
     "path": "getting-started/configuration-management/default-configurations.md",
-    "blocks": 98,
+    "blocks": 97,
     "title": true,
     "sidebar_label": false,
     "description": true
@@ -22042,7 +19951,7 @@
    {
     "section": "docs-7.25",
     "path": "getting-started/installation-and-upgrade/install/chr-installation/esxi.md",
-    "blocks": 12,
+    "blocks": 10,
     "title": true,
     "sidebar_label": false,
     "description": true
@@ -22058,7 +19967,7 @@
    {
     "section": "docs-7.25",
     "path": "getting-started/installation-and-upgrade/install/chr-installation/hyperv.md",
-    "blocks": 8,
+    "blocks": 6,
     "title": true,
     "sidebar_label": false,
     "description": true
@@ -22066,7 +19975,7 @@
    {
     "section": "docs-7.25",
     "path": "getting-started/installation-and-upgrade/install/chr-installation/proxmox.md",
-    "blocks": 36,
+    "blocks": 35,
     "title": true,
     "sidebar_label": false,
     "description": true
@@ -22098,7 +20007,7 @@
    {
     "section": "docs-7.25",
     "path": "getting-started/installation-and-upgrade/install/chr-installation.md",
-    "blocks": 34,
+    "blocks": 32,
     "title": true,
     "sidebar_label": false,
     "description": true
@@ -22338,7 +20247,7 @@
    {
     "section": "docs-7.25",
     "path": "hardware/mtu-in-routeros.md",
-    "blocks": 45,
+    "blocks": 44,
     "title": true,
     "sidebar_label": false,
     "description": true
@@ -22346,7 +20255,7 @@
    {
     "section": "docs-7.25",
     "path": "hardware/peripherals.md",
-    "blocks": 17,
+    "blocks": 16,
     "title": true,
     "sidebar_label": false,
     "description": true
@@ -22354,7 +20263,7 @@
    {
     "section": "docs-7.25",
     "path": "hardware/poe-out.md",
-    "blocks": 115,
+    "blocks": 113,
     "title": false,
     "sidebar_label": false,
     "description": true
@@ -22474,7 +20383,7 @@
    {
     "section": "docs-7.25",
     "path": "high-availability-solutions/vrrp.md",
-    "blocks": 80,
+    "blocks": 78,
     "title": false,
     "sidebar_label": false,
     "description": true
@@ -22514,7 +20423,7 @@
    {
     "section": "docs-7.25",
     "path": "internet-of-things/bluetooth/mikrotik-beacon-manager/mikrotik-tag-advertisement-formats.md",
-    "blocks": 81,
+    "blocks": 80,
     "title": true,
     "sidebar_label": false,
     "description": false
@@ -22530,7 +20439,7 @@
    {
     "section": "docs-7.25",
     "path": "internet-of-things/bluetooth/user-guides/bluetooth-tag-tracking-mqtt-thingsboard.md",
-    "blocks": 167,
+    "blocks": 155,
     "title": true,
     "sidebar_label": false,
     "description": true
@@ -22538,7 +20447,7 @@
    {
     "section": "docs-7.25",
     "path": "internet-of-things/bluetooth/user-guides/email-notification-mikrotik-ble-tag-s.md",
-    "blocks": 51,
+    "blocks": 50,
     "title": true,
     "sidebar_label": false,
     "description": false
@@ -22546,7 +20455,7 @@
    {
     "section": "docs-7.25",
     "path": "internet-of-things/bluetooth/user-guides/https-post-and-azure-configuration.md",
-    "blocks": 41,
+    "blocks": 39,
     "title": true,
     "sidebar_label": false,
     "description": false
@@ -22554,7 +20463,7 @@
    {
     "section": "docs-7.25",
     "path": "internet-of-things/bluetooth/user-guides/ifttt-app-notifications-ble-tag.md",
-    "blocks": 59,
+    "blocks": 58,
     "title": true,
     "sidebar_label": false,
     "description": false
@@ -22562,7 +20471,7 @@
    {
     "section": "docs-7.25",
     "path": "internet-of-things/bluetooth/user-guides/mqtt-and-azure-configuration.md",
-    "blocks": 57,
+    "blocks": 55,
     "title": true,
     "sidebar_label": false,
     "description": true
@@ -22570,7 +20479,7 @@
    {
     "section": "docs-7.25",
     "path": "internet-of-things/bluetooth/user-guides/mqtt-https-and-aws-configuration.md",
-    "blocks": 63,
+    "blocks": 62,
     "title": true,
     "sidebar_label": false,
     "description": true
@@ -22578,7 +20487,7 @@
    {
     "section": "docs-7.25",
     "path": "internet-of-things/bluetooth/user-guides/sending-temperature-readings-from-tg.md",
-    "blocks": 66,
+    "blocks": 65,
     "title": true,
     "sidebar_label": false,
     "description": false
@@ -22610,7 +20519,7 @@
    {
     "section": "docs-7.25",
     "path": "internet-of-things/lora/general-properties.md",
-    "blocks": 67,
+    "blocks": 66,
     "title": true,
     "sidebar_label": false,
     "description": true
@@ -22682,7 +20591,7 @@
    {
     "section": "docs-7.25",
     "path": "internet-of-things/mqtt/mqtt-and-thingsboard-configuration.md",
-    "blocks": 63,
+    "blocks": 62,
     "title": true,
     "sidebar_label": false,
     "description": true
@@ -22850,7 +20759,7 @@
    {
     "section": "docs-7.25",
     "path": "mobile-networking/bg77-modem-at-commands.md",
-    "blocks": 79,
+    "blocks": 70,
     "title": true,
     "sidebar_label": false,
     "description": false
@@ -22890,7 +20799,7 @@
    {
     "section": "docs-7.25",
     "path": "mobile-networking/lte-5g.md",
-    "blocks": 161,
+    "blocks": 160,
     "title": false,
     "sidebar_label": false,
     "description": true
@@ -22906,7 +20815,7 @@
    {
     "section": "docs-7.25",
     "path": "mobile-networking/ppp.md",
-    "blocks": 16,
+    "blocks": 15,
     "title": false,
     "sidebar_label": false,
     "description": true
@@ -23011,7 +20920,7 @@
     "section": "docs-7.25",
     "path": "network-management/dhcp.md",
     "blocks": 31,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -23026,7 +20935,7 @@
    {
     "section": "docs-7.25",
     "path": "network-management/openflow.md",
-    "blocks": 24,
+    "blocks": 20,
     "title": false,
     "sidebar_label": false,
     "description": true
@@ -23131,7 +21040,7 @@
     "section": "docs-7.25",
     "path": "storage/iscsi.md",
     "blocks": 7,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -23139,7 +21048,7 @@
     "section": "docs-7.25",
     "path": "storage/nfs.md",
     "blocks": 7,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -23171,7 +21080,7 @@
     "section": "docs-7.25",
     "path": "storage/raid.md",
     "blocks": 39,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -23179,7 +21088,7 @@
     "section": "docs-7.25",
     "path": "storage/ramdisk.md",
     "blocks": 14,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -23187,7 +21096,7 @@
     "section": "docs-7.25",
     "path": "storage/rsync.md",
     "blocks": 11,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -23203,7 +21112,7 @@
     "section": "docs-7.25",
     "path": "storage/smb.md",
     "blocks": 25,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -23219,7 +21128,7 @@
     "section": "docs-7.25",
     "path": "storage/tmpfs.md",
     "blocks": 37,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -23259,7 +21168,7 @@
     "section": "docs-7.25",
     "path": "system-information-and-utilities/fetch.md",
     "blocks": 40,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -23307,7 +21216,7 @@
     "section": "docs-7.25",
     "path": "system-information-and-utilities/ntp.md",
     "blocks": 31,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -23347,7 +21256,7 @@
     "section": "docs-7.25",
     "path": "system-information-and-utilities/tftp.md",
     "blocks": 36,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -23355,7 +21264,7 @@
     "section": "docs-7.25",
     "path": "system-information-and-utilities/ups.md",
     "blocks": 26,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -23395,7 +21304,7 @@
     "section": "docs-7.25",
     "path": "user-guides/routing-and-networking-protocols/mpls/ldp.md",
     "blocks": 81,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -23419,7 +21328,7 @@
     "section": "docs-7.25",
     "path": "user-guides/routing-and-networking-protocols/mpls/vpls.md",
     "blocks": 12,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -23427,7 +21336,7 @@
     "section": "docs-7.25",
     "path": "user-guides/routing-and-networking-protocols/mpls.md",
     "blocks": 12,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -23451,7 +21360,7 @@
     "section": "docs-7.25",
     "path": "user-guides/routing-and-networking-protocols/multicast/pim-sm.md",
     "blocks": 20,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -23507,7 +21416,7 @@
     "section": "docs-7.25",
     "path": "user-guides/routing-and-networking-protocols/unicast/bfd.md",
     "blocks": 19,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -23555,7 +21464,7 @@
     "section": "docs-7.25",
     "path": "user-guides/routing-and-networking-protocols/unicast/bgp.md",
     "blocks": 0,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -23563,7 +21472,7 @@
     "section": "docs-7.25",
     "path": "user-guides/routing-and-networking-protocols/unicast/evpn.md",
     "blocks": 69,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -23571,7 +21480,7 @@
     "section": "docs-7.25",
     "path": "user-guides/routing-and-networking-protocols/unicast/is-is.md",
     "blocks": 22,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -23619,7 +21528,7 @@
     "section": "docs-7.25",
     "path": "user-guides/routing-and-networking-protocols/unicast/ospf.md",
     "blocks": 0,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -23627,7 +21536,7 @@
     "section": "docs-7.25",
     "path": "user-guides/routing-and-networking-protocols/unicast/rip.md",
     "blocks": 2,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -23635,7 +21544,7 @@
     "section": "docs-7.25",
     "path": "user-guides/routing-and-networking-protocols/unicast/rpki.md",
     "blocks": 8,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -23651,7 +21560,7 @@
     "section": "docs-7.25",
     "path": "user-guides/routing-and-networking-protocols/vrf.md",
     "blocks": 92,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -23683,7 +21592,7 @@
     "section": "docs-7.25",
     "path": "virtual-private-networks/eoip.md",
     "blocks": 24,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -23691,7 +21600,7 @@
     "section": "docs-7.25",
     "path": "virtual-private-networks/gre.md",
     "blocks": 15,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -23699,7 +21608,7 @@
     "section": "docs-7.25",
     "path": "virtual-private-networks/ipip.md",
     "blocks": 11,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -23723,7 +21632,7 @@
     "section": "docs-7.25",
     "path": "virtual-private-networks/ipsec.md",
     "blocks": 311,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -23739,7 +21648,7 @@
     "section": "docs-7.25",
     "path": "virtual-private-networks/l2tp.md",
     "blocks": 35,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -23747,7 +21656,7 @@
     "section": "docs-7.25",
     "path": "virtual-private-networks/openvpn.md",
     "blocks": 33,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -23771,7 +21680,7 @@
     "section": "docs-7.25",
     "path": "virtual-private-networks/pppoe.md",
     "blocks": 40,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -23779,7 +21688,7 @@
     "section": "docs-7.25",
     "path": "virtual-private-networks/pptp.md",
     "blocks": 15,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -23787,7 +21696,7 @@
     "section": "docs-7.25",
     "path": "virtual-private-networks/sstp.md",
     "blocks": 24,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -23795,7 +21704,7 @@
     "section": "docs-7.25",
     "path": "virtual-private-networks/wireguard.md",
     "blocks": 78,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -23803,7 +21712,7 @@
     "section": "docs-7.25",
     "path": "virtual-private-networks/zerotier.md",
     "blocks": 44,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -23826,7 +21735,7 @@
    {
     "section": "docs-7.25",
     "path": "wired-connections/mikrotik-wired-interface-compatibility.md",
-    "blocks": 92,
+    "blocks": 90,
     "title": true,
     "sidebar_label": false,
     "description": true
@@ -23835,7 +21744,7 @@
     "section": "docs-7.25",
     "path": "wired-connections/pwr-line.md",
     "blocks": 24,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -23867,7 +21776,7 @@
     "section": "docs-7.25",
     "path": "wireless/abgn/capsman.md",
     "blocks": 71,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -23891,7 +21800,7 @@
     "section": "docs-7.25",
     "path": "wireless/abgn/nv2.md",
     "blocks": 67,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -23922,7 +21831,7 @@
    {
     "section": "docs-7.25",
     "path": "wireless/abgn/wireless-troubleshooting.md",
-    "blocks": 103,
+    "blocks": 102,
     "title": true,
     "sidebar_label": false,
     "description": true
@@ -23931,7 +21840,7 @@
     "section": "docs-7.25",
     "path": "wireless/abgn.md",
     "blocks": 3,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -24011,7 +21920,7 @@
     "section": "docs-7.25",
     "path": "wireless/w60g.md",
     "blocks": 78,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -24019,7 +21928,7 @@
     "section": "docs-7.25",
     "path": "wireless/wifi/capsman.md",
     "blocks": 49,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -24059,7 +21968,7 @@
     "section": "docs-7.25",
     "path": "wireless/wifi-ac.md",
     "blocks": 11,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -24067,7 +21976,7 @@
     "section": "docs-7.25",
     "path": "wireless/wifi.md",
     "blocks": 163,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
     "description": true
    },
@@ -24081,143 +21990,7 @@
    },
    {
     "section": "docs-7.24",
-    "path": "cli-reference/system/history.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.24",
-    "path": "cli-reference/system/ntp/client.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.24",
-    "path": "cli-reference/tool/profile.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.24",
-    "path": "cli-reference/tool/speed-test.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.24",
-    "path": "containers/user-guides/container-mosquitto-mqtt-server.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.24",
-    "path": "developer-guides/api.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.24",
-    "path": "diagnostics-monitoring-and-troubleshooting/ping.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.24",
-    "path": "diagnostics-monitoring-and-troubleshooting/snmp.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.24",
-    "path": "diagnostics-monitoring-and-troubleshooting/traffic-flow/netflow-analysis-with-elasticsearch.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.24",
-    "path": "firewall-and-quality-of-service/firewall/layer7.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.24",
-    "path": "firewall-and-quality-of-service/firewall/nat.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.24",
-    "path": "firewall-and-quality-of-service/packet-flow-in-routeros.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.24",
     "path": "firewall-and-quality-of-service/queues/htb-hierarchical-token-bucket.md",
-    "blocks": 3,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.24",
-    "path": "firewall-and-quality-of-service/queues/queue-burst.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.24",
-    "path": "firewall-and-quality-of-service/queues/queue-types/cake.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.24",
-    "path": "firewall-and-quality-of-service/queues/queue-types/pfifo-bfifo.md",
-    "blocks": 0,
-    "title": true,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.24",
-    "path": "firewall-and-quality-of-service/user-guides/ddos-protection.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.24",
-    "path": "firewall-and-quality-of-service/user-guides/port-knocking.md",
     "blocks": 1,
     "title": false,
     "sidebar_label": false,
@@ -24234,39 +22007,7 @@
    {
     "section": "docs-7.24",
     "path": "getting-started/configuration-management/default-configurations.md",
-    "blocks": 6,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.24",
-    "path": "getting-started/installation-and-upgrade/install/chr-installation/esxi.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.24",
-    "path": "getting-started/installation-and-upgrade/install/chr-installation/hyperv.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.24",
-    "path": "getting-started/installation-and-upgrade/install/chr-installation.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.24",
-    "path": "getting-started/routeros-licensing/chr/chr-licensing.md",
-    "blocks": 1,
+    "blocks": 5,
     "title": false,
     "sidebar_label": false,
     "description": false
@@ -24274,110 +22015,6 @@
    {
     "section": "docs-7.24",
     "path": "getting-started/supout-rif.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.24",
-    "path": "getting-started/upgrading-to-v7.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.24",
-    "path": "hardware/mtu-in-routeros.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.24",
-    "path": "hardware/peripherals.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.24",
-    "path": "hardware/poe-out.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.24",
-    "path": "hardware/routerboard.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.24",
-    "path": "high-availability-solutions/vrrp.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.24",
-    "path": "internet-of-things/bluetooth/mikrotik-beacon-manager/mikrotik-tag-advertisement-formats.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.24",
-    "path": "internet-of-things/bluetooth/user-guides/bluetooth-tag-tracking-mqtt-thingsboard.md",
-    "blocks": 12,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.24",
-    "path": "internet-of-things/bluetooth/user-guides/https-post-and-azure-configuration.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.24",
-    "path": "internet-of-things/bluetooth/user-guides/ifttt-app-notifications-ble-tag.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.24",
-    "path": "internet-of-things/bluetooth/user-guides/mqtt-and-azure-configuration.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.24",
-    "path": "internet-of-things/bluetooth/user-guides/mqtt-https-and-aws-configuration.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.24",
-    "path": "internet-of-things/bluetooth/user-guides/sending-temperature-readings-from-tg.md",
     "blocks": 1,
     "title": false,
     "sidebar_label": false,
@@ -24393,70 +22030,6 @@
    },
    {
     "section": "docs-7.24",
-    "path": "internet-of-things/lora/general-properties.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.24",
-    "path": "internet-of-things/mqtt/mqtt-and-thingsboard-configuration.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.24",
-    "path": "management-tools/ssh.md",
-    "blocks": 4,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.24",
-    "path": "management-tools/tr-069.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.24",
-    "path": "mobile-networking/bg77-modem-at-commands.md",
-    "blocks": 9,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.24",
-    "path": "mobile-networking/lte-5g.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.24",
-    "path": "mobile-networking/ppp.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.24",
-    "path": "network-management/cloud/back-to-home.md",
-    "blocks": 1,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.24",
     "path": "network-management/cloud.md",
     "blocks": 1,
     "title": false,
@@ -24465,1027 +22038,155 @@
    },
    {
     "section": "docs-7.24",
-    "path": "network-management/dhcp.md",
-    "blocks": 82,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "network-management/dns.md",
-    "blocks": 2,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.24",
-    "path": "network-management/openflow.md",
-    "blocks": 4,
-    "title": false,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.24",
-    "path": "network-management/proxy.md",
-    "blocks": 2,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "storage/btrfs/maintenance.md",
-    "blocks": 0,
-    "title": true,
-    "sidebar_label": false,
-    "description": false
-   },
-   {
-    "section": "docs-7.24",
-    "path": "storage/btrfs/raid.md",
-    "blocks": 24,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "storage/btrfs/snapshots.md",
-    "blocks": 43,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "storage/btrfs.md",
-    "blocks": 8,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "storage/dlna.md",
-    "blocks": 10,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "storage/encrypted-storage.md",
-    "blocks": 11,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "storage/iscsi.md",
-    "blocks": 5,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "storage/nfs.md",
-    "blocks": 7,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "storage/nvme-over-tcp.md",
-    "blocks": 32,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "storage/raid/hot-spare.md",
-    "blocks": 3,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "storage/raid/moving-array.md",
-    "blocks": 6,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
     "path": "storage/raid.md",
-    "blocks": 41,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "storage/ramdisk.md",
-    "blocks": 7,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "storage/rsync.md",
-    "blocks": 13,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "storage/self-encrypting-drives.md",
     "blocks": 5,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "storage/smb.md",
-    "blocks": 33,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "storage/tmpfs.md",
-    "blocks": 6,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "storage.md",
-    "blocks": 4,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "system-information-and-utilities/clock.md",
-    "blocks": 11,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "system-information-and-utilities/device-mode.md",
-    "blocks": 39,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "system-information-and-utilities/e-mail.md",
-    "blocks": 20,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "system-information-and-utilities/fetch.md",
-    "blocks": 19,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "system-information-and-utilities/files.md",
-    "blocks": 21,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "system-information-and-utilities/identity.md",
-    "blocks": 8,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "system-information-and-utilities/interface-lists.md",
-    "blocks": 11,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "system-information-and-utilities/ip-packing.md",
-    "blocks": 17,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "system-information-and-utilities/neighbor-discovery.md",
-    "blocks": 19,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "system-information-and-utilities/note.md",
-    "blocks": 7,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "system-information-and-utilities/ntp.md",
-    "blocks": 19,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "system-information-and-utilities/partitions.md",
-    "blocks": 20,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "system-information-and-utilities/precision-time-protocol.md",
-    "blocks": 38,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "system-information-and-utilities/scheduler.md",
-    "blocks": 17,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "system-information-and-utilities/services.md",
-    "blocks": 20,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "system-information-and-utilities/tftp.md",
-    "blocks": 22,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "system-information-and-utilities/ups.md",
-    "blocks": 26,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "system-information-and-utilities/wake-on-lan.md",
-    "blocks": 6,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "system-information-and-utilities.md",
-    "blocks": 1,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "user-guides/routing-and-networking-protocols/moving-from-rosv6-to-rosv7.md",
-    "blocks": 74,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "user-guides/routing-and-networking-protocols/mpls/exp-bit-and-mpls-queuing.md",
-    "blocks": 22,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "user-guides/routing-and-networking-protocols/mpls/ldp.md",
-    "blocks": 81,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "user-guides/routing-and-networking-protocols/mpls/traffic-eng.md",
-    "blocks": 6,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "user-guides/routing-and-networking-protocols/mpls/vpls/control-word.md",
-    "blocks": 10,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "user-guides/routing-and-networking-protocols/mpls/vpls.md",
-    "blocks": 12,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "user-guides/routing-and-networking-protocols/mpls.md",
-    "blocks": 12,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "user-guides/routing-and-networking-protocols/multicast/group-management-protocol.md",
-    "blocks": 7,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "user-guides/routing-and-networking-protocols/multicast/igmp-proxy.md",
-    "blocks": 9,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "user-guides/routing-and-networking-protocols/multicast/pim-sm.md",
-    "blocks": 20,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "user-guides/routing-and-networking-protocols/multicast.md",
-    "blocks": 1,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "user-guides/routing-and-networking-protocols/policy-routing.md",
-    "blocks": 21,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
+    "description": false
    },
    {
     "section": "docs-7.24",
     "path": "user-guides/routing-and-networking-protocols/route-distinguisher-and-route-target.md",
-    "blocks": 8,
-    "title": true,
+    "blocks": 1,
+    "title": false,
     "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "user-guides/routing-and-networking-protocols/route-selection-and-filtering.md",
-    "blocks": 65,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "user-guides/routing-and-networking-protocols/routing-decision.md",
-    "blocks": 87,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "user-guides/routing-and-networking-protocols/routing-protocol-multi-core-support.md",
-    "blocks": 14,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "user-guides/routing-and-networking-protocols/unicast/bfd.md",
-    "blocks": 19,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "user-guides/routing-and-networking-protocols/unicast/bgp/faq.md",
-    "blocks": 13,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "user-guides/routing-and-networking-protocols/unicast/bgp/nexthop-selection.md",
-    "blocks": 5,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
+    "description": false
    },
    {
     "section": "docs-7.24",
     "path": "user-guides/routing-and-networking-protocols/unicast/bgp/peering-sessions.md",
-    "blocks": 41,
-    "title": true,
+    "blocks": 1,
+    "title": false,
     "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "user-guides/routing-and-networking-protocols/unicast/bgp/understanding-bgp.md",
-    "blocks": 38,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "user-guides/routing-and-networking-protocols/unicast/bgp.md",
-    "blocks": 0,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
+    "description": false
    },
    {
     "section": "docs-7.24",
     "path": "user-guides/routing-and-networking-protocols/unicast/evpn.md",
-    "blocks": 69,
-    "title": true,
+    "blocks": 11,
+    "title": false,
     "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "user-guides/routing-and-networking-protocols/unicast/is-is.md",
-    "blocks": 22,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
+    "description": false
    },
    {
     "section": "docs-7.24",
     "path": "user-guides/routing-and-networking-protocols/unicast/ospf/areas-and-virtual-links.md",
-    "blocks": 67,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "user-guides/routing-and-networking-protocols/unicast/ospf/faq.md",
-    "blocks": 5,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "user-guides/routing-and-networking-protocols/unicast/ospf/neighbour-relationship.md",
-    "blocks": 50,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "user-guides/routing-and-networking-protocols/unicast/ospf/routing-calculation.md",
-    "blocks": 20,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "user-guides/routing-and-networking-protocols/unicast/ospf/understanding-ospf.md",
-    "blocks": 9,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "user-guides/routing-and-networking-protocols/unicast/ospf.md",
-    "blocks": 0,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "user-guides/routing-and-networking-protocols/unicast/rip.md",
-    "blocks": 2,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "user-guides/routing-and-networking-protocols/unicast/rpki.md",
-    "blocks": 8,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "user-guides/routing-and-networking-protocols/unicast.md",
     "blocks": 1,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "user-guides/routing-and-networking-protocols/vrf.md",
-    "blocks": 92,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "user-guides/routing-and-networking-protocols.md",
-    "blocks": 1,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "user-guides.md",
-    "blocks": 1,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "virtual-private-networks/6to4.md",
-    "blocks": 27,
     "title": false,
     "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "virtual-private-networks/eoip.md",
-    "blocks": 25,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "virtual-private-networks/gre.md",
-    "blocks": 18,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "virtual-private-networks/ipip.md",
-    "blocks": 14,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "virtual-private-networks/ipsec/ikev2-eap-between-nordvpn-and-routeros.md",
-    "blocks": 28,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "virtual-private-networks/ipsec/qkd-integration-in-routeros-ipsec-ppk.md",
-    "blocks": 57,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "virtual-private-networks/ipsec.md",
-    "blocks": 334,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "virtual-private-networks/l2tp/lac-and-lns-setup-with-cisco-as-lac.md",
-    "blocks": 17,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
+    "description": false
    },
    {
     "section": "docs-7.24",
     "path": "virtual-private-networks/l2tp.md",
-    "blocks": 30,
-    "title": true,
+    "blocks": 1,
+    "title": false,
     "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "virtual-private-networks/openvpn.md",
-    "blocks": 44,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "virtual-private-networks/pppoe/ipv6-pd-over-ppp.md",
-    "blocks": 11,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "virtual-private-networks/pppoe/mlppp-over-single-and-multiple-links.md",
-    "blocks": 21,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "virtual-private-networks/pppoe.md",
-    "blocks": 52,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "virtual-private-networks/pptp.md",
-    "blocks": 21,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
+    "description": false
    },
    {
     "section": "docs-7.24",
     "path": "virtual-private-networks/sstp.md",
-    "blocks": 30,
-    "title": true,
+    "blocks": 1,
+    "title": false,
     "sidebar_label": false,
-    "description": true
+    "description": false
    },
    {
     "section": "docs-7.24",
     "path": "virtual-private-networks/wireguard.md",
-    "blocks": 67,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "virtual-private-networks/zerotier.md",
-    "blocks": 51,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "virtual-private-networks.md",
     "blocks": 1,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "wired-connections/ethernet.md",
-    "blocks": 61,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
+    "description": false
    },
    {
     "section": "docs-7.24",
     "path": "wired-connections/mikrotik-wired-interface-compatibility.md",
-    "blocks": 92,
-    "title": true,
+    "blocks": 9,
+    "title": false,
     "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "wired-connections/pwr-line.md",
-    "blocks": 24,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "wired-connections.md",
-    "blocks": 1,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "wireless/abgn/capsman/ap-controller-capsman.md",
-    "blocks": 165,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "wireless/abgn/capsman/capsman-with-vlans.md",
-    "blocks": 40,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
+    "description": false
    },
    {
     "section": "docs-7.24",
     "path": "wireless/abgn/capsman.md",
-    "blocks": 71,
-    "title": true,
+    "blocks": 2,
+    "title": false,
     "sidebar_label": false,
-    "description": true
+    "description": false
    },
    {
     "section": "docs-7.24",
     "path": "wireless/abgn/hwmpplus-mesh.md",
-    "blocks": 85,
-    "title": true,
+    "blocks": 1,
+    "title": false,
     "sidebar_label": false,
-    "description": true
+    "description": false
    },
    {
     "section": "docs-7.24",
     "path": "wireless/abgn/interworking-profiles.md",
-    "blocks": 65,
-    "title": true,
+    "blocks": 1,
+    "title": false,
     "sidebar_label": false,
-    "description": true
+    "description": false
    },
    {
     "section": "docs-7.24",
     "path": "wireless/abgn/nv2.md",
-    "blocks": 67,
-    "title": true,
+    "blocks": 2,
+    "title": false,
     "sidebar_label": false,
-    "description": true
+    "description": false
    },
    {
     "section": "docs-7.24",
     "path": "wireless/abgn/spectral-scan.md",
-    "blocks": 18,
-    "title": true,
+    "blocks": 2,
+    "title": false,
     "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "wireless/abgn/vlans-on-wireless.md",
-    "blocks": 12,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
+    "description": false
    },
    {
     "section": "docs-7.24",
     "path": "wireless/abgn/wireless-interface.md",
-    "blocks": 251,
-    "title": true,
+    "blocks": 4,
+    "title": false,
     "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "wireless/abgn/wireless-troubleshooting.md",
-    "blocks": 103,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "wireless/abgn.md",
-    "blocks": 3,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "wireless/user-guides/enterprise-wireless-security-user.md",
-    "blocks": 32,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
+    "description": false
    },
    {
     "section": "docs-7.24",
     "path": "wireless/user-guides/wireless-station-modes.md",
-    "blocks": 40,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "wireless/user-guides.md",
     "blocks": 1,
-    "title": true,
+    "title": false,
     "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "wireless/w60g/distance-guide.md",
-    "blocks": 2,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "wireless/w60g/fail-over-ptmp-cli-example.md",
-    "blocks": 32,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "wireless/w60g/fail-over-ptp-cli-example.md",
-    "blocks": 30,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "wireless/w60g/fail-over-ptp-gui-example.md",
-    "blocks": 37,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "wireless/w60g/ptp-cli-example.md",
-    "blocks": 22,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "wireless/w60g/ptp-gui-example.md",
-    "blocks": 20,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
+    "description": false
    },
    {
     "section": "docs-7.24",
     "path": "wireless/w60g.md",
-    "blocks": 78,
-    "title": true,
+    "blocks": 2,
+    "title": false,
     "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "wireless/wifi/capsman.md",
-    "blocks": 49,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "wireless/wifi/configuring-outdoor-cpe-to-ap-links.md",
-    "blocks": 48,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "wireless/wifi/configuring-repeater.md",
-    "blocks": 32,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "wireless/wifi/configuring-standalone-access-point.md",
-    "blocks": 39,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
+    "description": false
    },
    {
     "section": "docs-7.24",
     "path": "wireless/wifi/interworking-for-wifi6.md",
-    "blocks": 49,
-    "title": true,
+    "blocks": 1,
+    "title": false,
     "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "wireless/wifi-ac.md",
-    "blocks": 10,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
+    "description": false
    },
    {
     "section": "docs-7.24",
     "path": "wireless/wifi.md",
-    "blocks": 161,
-    "title": true,
+    "blocks": 1,
+    "title": false,
     "sidebar_label": false,
-    "description": true
-   },
-   {
-    "section": "docs-7.24",
-    "path": "wireless.md",
-    "blocks": 40,
-    "title": true,
-    "sidebar_label": false,
-    "description": true
+    "description": false
    },
    {
     "section": "hardware",
@@ -28588,26 +25289,26 @@
  },
  "tm": {
   "baseline_entries": 0,
-  "shard_files": 127,
-  "shard_entries": 11346,
-  "merged_entries": 11284
+  "shard_files": 170,
+  "shard_entries": 17795,
+  "merged_entries": 17707
  },
  "counts": {
-  "translated": 7959,
-  "llm_translated": 7817,
-  "tm_reused": 142,
-  "titles": 202,
+  "translated": 6843,
+  "llm_translated": 4155,
+  "tm_reused": 2688,
+  "titles": 151,
   "labels": 0,
   "comments": 0
  },
  "previous_run": {
-  "run_id": "20261128T123908Z-f0c086",
+  "run_id": "20261128T141126Z-262521",
   "locale": "zh-Hans",
-  "started_at": "2026-11-28T12:39:08.885Z",
-  "finished_at": "2026-11-28T14:08:20.876Z",
+  "started_at": "2026-11-28T14:11:26.422Z",
+  "finished_at": "2026-11-28T15:40:26.421Z",
   "stopped": "budget",
   "limit": "budget-minutes",
-  "translated": 446,
-  "tm_merged_entries": 3549
+  "translated": 7959,
+  "tm_merged_entries": 11284
  }
 }

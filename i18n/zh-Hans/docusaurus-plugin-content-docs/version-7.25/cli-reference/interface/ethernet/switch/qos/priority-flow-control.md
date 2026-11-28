@@ -1,0 +1,42 @@
+---
+title: "priority-flow-control"
+source: https://manual.mikrotik.com/docs/7.25/cli-reference/interface/ethernet/switch/qos/priority-flow-control
+captured_at: '2026-11-28T10:17:19.424Z'
+translated_at: "2026-11-28T15:42:55.558Z"
+translation_provider: "opencode-go"
+translation_model: "hy4-flash-free"
+translation_source: "tm"
+---
+
+-----------
+
+## interface/ethernet/switch/qos/priority-flow-control 
+**Syscap：** rbswitch 和 crs_prestera 和 !prestera-ac3
+**类型：** 目录
+
+[PFC](/docs/7.24/bridging-and-switching/quality-of-service#priority-based-flow-control-pfc) 配置按配置文件组织。不同交换机端口可以分配到不同的 PFC 配置文件。硬件 Tx manager 的最大数量取决于交换芯片型号。名为“**disabled**”的内置配置文件无法更改。
+
+<ArgTable c1="Flag" c2="Name" c3="Description">
+<ArgTableRow arg="*" typ="default"></ArgTableRow>
+<ArgTableRow arg="X" typ="disabled"></ArgTableRow>
+<ArgTableRow arg="I" typ="inactive"></ArgTableRow>
+<ArgTableRow arg="H" typ="hw-offloaded"></ArgTableRow>
+</ArgTable>
+
+<ArgTable c1="Argument" c2="Type" c3="Description">
+<ArgTableRow arg="name" typ="string" mandatory="1">The user-defined name of the PFC profile.</ArgTableRow>
+<ArgTableRow arg="traffic-class" typ="multi { array-id, tc: num [ .. 7]
+ }" mandatory="1">The list of PFC-enabled traffic classes.</ArgTableRow>
+<ArgTableRow arg="rx" typ="bool">Enables receiving of PFC frames. The received PFC frame pauses the specific priority queues on the port that received the PFC frame for the duration specified by the PFC frame. Disabling rx disables queue pausing.</ArgTableRow>
+<ArgTableRow arg="tx" typ="bool">Enables transmission of PFC frames.</ArgTableRow>
+<ArgTableRow arg="pause-threshold" typ="alt { pause-threshold-pct: num [ .. 100]
+, pause-threshold-byte: num [1536 .. ]
+ }">Transmits a pause frame (XOFF) when the total size of enqueued packets reaches this threshold. Enqueued packets are counted per ingress port. Applies only when **tx=yes**. The value can be given either explicitly in bytes or percent of the respective shared pool size (**shared-poolX-byte-cap**).</ArgTableRow>
+<ArgTableRow arg="resume-threshold" typ="alt { resume-threshold-pct: num [ .. 100]
+, resume-threshold-byte: num [256 .. ]
+ }">Transmits a resume frame (XON) when the total size of enqueued packets drops down to this threshold. Enqueued packets are counted per ingress port. Applies only when **tx=yes**. The value can be given either explicitly in bytes or percent of the respective shared pool size (**shared-poolX-byte-cap**).</ArgTableRow>
+</ArgTable>
+
+<ArgTable c1="Read-only Argument" c2="Type" c3="Description">
+<ArgTableRow arg="hw-id" typ="num"></ArgTableRow>
+</ArgTable>

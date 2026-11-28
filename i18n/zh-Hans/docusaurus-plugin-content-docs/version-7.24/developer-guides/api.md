@@ -6,7 +6,7 @@ tags:
   - 'management'
 source: https://manual.mikrotik.com/docs/7.24/developer-guides/api
 captured_at: '2026-11-28T10:19:39.818Z'
-translated_at: "2026-11-28T14:11:26.249Z"
+translated_at: "2026-11-28T15:42:55.558Z"
 translation_provider: "opencode-go"
 translation_model: "hy4-flash-free"
 translation_source: "llm"
@@ -42,7 +42,7 @@ translation_source: "llm"
 如果未提供 zero-length word，路由器将不会开始评估已发送的 word，并将所有后续输入视为同一句子的一部分。
 :::
 
-### API word {#api-words}
+### API 字 {#api-words}
 
 - Word 按句子分组。zero-length word 用于终止句子。
 - 每个 word 编码为一个长度值，后跟该长度对应的内容字节数。

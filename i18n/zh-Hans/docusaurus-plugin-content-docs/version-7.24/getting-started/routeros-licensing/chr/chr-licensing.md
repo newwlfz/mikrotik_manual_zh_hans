@@ -8,7 +8,7 @@ source: https://manual.mikrotik.com/docs/7.24/getting-started/routeros-licensing
 captured_at: '2026-11-28T10:19:39.818Z'
 pagination_prev: "getting-started/routeros-licensing/chr"
 pagination_next: "getting-started/routeros-licensing/mikrotik-hardware"
-translated_at: "2026-11-28T14:11:26.249Z"
+translated_at: "2026-11-28T15:42:55.558Z"
 translation_provider: "opencode-go"
 translation_model: "hy4-flash-free"
 translation_source: "llm"
@@ -368,7 +368,7 @@ P-Unlimited（perpetual-unlimited）许可证是最高级别。它允许 CHR 无
 
 如果收到以下错误：
 :::danger
-*“This key is not eligible for transfer as there is no other valid CHR key that could be upgraded to the license level of this key.”*
+*“由于没有其他有效的 CHR key 可升级到该 key 的许可证级别，因此该 key 无法转移。”*
 :::
 这表示你没有处于 Trial 模式的 CHR 实例来接收许可证。
 

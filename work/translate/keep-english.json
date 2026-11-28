@@ -2,8 +2,11 @@
  "schema": 3,
  "note": "Units the model returned unchanged: technical notation, grammar, identifiers and proper-noun titles. The planner never queues them again; config/force-translate.yml overrides a block lock.",
  "blocks": [
+  "### S+RJ10",
+  "### \\<REASON\\>",
   "### `/user/active/listen`",
   "#### `VLAN Map`",
+  "- XS+31LC10D - XS+2733LC15D",
   "- `:put` - `/ip route get` - `find gateway=1.1.1.1`",
   "- `AA:BB:CC:DD:*:*` - `AA:BB:CC:DD:EE:*` - `AA:*:*:*:*:*`",
   "- https://kb.vmware.com/kb/1004099",
@@ -13,6 +16,11 @@
  ],
  "titles": [
   {
+   "key": "802.11 a/b/g/n",
+   "original": "802.11 a/b/g/n",
+   "reason": "model-kept-proper-noun"
+  },
+  {
    "key": "API",
    "original": "API",
    "reason": "model-kept-proper-noun"
@@ -20,6 +28,16 @@
   {
    "key": "ARP",
    "original": "ARP",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "BFD",
+   "original": "BFD",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "BGP",
+   "original": "BGP",
    "reason": "model-kept-proper-noun"
   },
   {
@@ -38,8 +56,23 @@
    "reason": "model-kept-proper-noun"
   },
   {
+   "key": "Btrfs",
+   "original": "Btrfs",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "Btrfs RAID",
+   "original": "Btrfs RAID",
+   "reason": "model-kept-proper-noun"
+  },
+  {
    "key": "CAKE",
    "original": "CAKE",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "CAPsMAN",
+   "original": "CAPsMAN",
    "reason": "model-kept-proper-noun"
   },
   {
@@ -73,6 +106,11 @@
    "reason": "model-kept-proper-noun"
   },
   {
+   "key": "DHCP",
+   "original": "DHCP",
+   "reason": "model-kept-proper-noun"
+  },
+  {
    "key": "DNS",
    "original": "DNS",
    "reason": "model-kept-proper-noun"
@@ -85,6 +123,21 @@
   {
    "key": "Dude",
    "original": "Dude",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "EVPN",
+   "original": "EVPN",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "EoIP",
+   "original": "EoIP",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "Fetch",
+   "original": "Fetch",
    "reason": "model-kept-proper-noun"
   },
   {
@@ -103,8 +156,38 @@
    "reason": "model-kept-proper-noun"
   },
   {
+   "key": "GRE",
+   "original": "GRE",
+   "reason": "model-kept-proper-noun"
+  },
+  {
    "key": "HTB(Hierarchical Token Bucket)",
    "original": "HTB(Hierarchical Token Bucket)",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "IPIP",
+   "original": "IPIP",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "IPsec",
+   "original": "IPsec",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "IS-IS",
+   "original": "IS-IS",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "L2TP",
+   "original": "L2TP",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "LDP",
+   "original": "LDP",
    "reason": "model-kept-proper-noun"
   },
   {
@@ -130,6 +213,11 @@
   {
    "key": "MACsec",
    "original": "MACsec",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "MPLS",
+   "original": "MPLS",
    "reason": "model-kept-proper-noun"
   },
   {
@@ -163,6 +251,16 @@
    "reason": "model-kept-proper-noun"
   },
   {
+   "key": "NFS",
+   "original": "NFS",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "NTP",
+   "original": "NTP",
+   "reason": "model-kept-proper-noun"
+  },
+  {
    "key": "Netinstall",
    "original": "Netinstall",
    "reason": "model-kept-proper-noun"
@@ -173,8 +271,33 @@
    "reason": "model-kept-proper-noun"
   },
   {
+   "key": "Nv2",
+   "original": "Nv2",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "OSPF",
+   "original": "OSPF",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "OpenVPN",
+   "original": "OpenVPN",
+   "reason": "model-kept-proper-noun"
+  },
+  {
    "key": "Openflow",
    "original": "Openflow",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "PFIFO、BFIFO",
+   "original": "PFIFO、BFIFO",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "PIM-SM",
+   "original": "PIM-SM",
    "reason": "model-kept-proper-noun"
   },
   {
@@ -185,6 +308,21 @@
   {
    "key": "PPP AAA",
    "original": "PPP AAA",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "PPPoE",
+   "original": "PPPoE",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "PPTP",
+   "original": "PPTP",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "PWR Line",
+   "original": "PWR Line",
    "reason": "model-kept-proper-noun"
   },
   {
@@ -203,8 +341,28 @@
    "reason": "model-kept-proper-noun"
   },
   {
+   "key": "RAID",
+   "original": "RAID",
+   "reason": "model-kept-proper-noun"
+  },
+  {
    "key": "REST API",
    "original": "REST API",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "RIP",
+   "original": "RIP",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "RPKI",
+   "original": "RPKI",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "Ramdisk",
+   "original": "Ramdisk",
    "reason": "model-kept-proper-noun"
   },
   {
@@ -220,6 +378,16 @@
   {
    "key": "RouterBOOT",
    "original": "RouterBOOT",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "Rsync",
+   "original": "Rsync",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "SMB",
+   "original": "SMB",
    "reason": "model-kept-proper-noun"
   },
   {
@@ -243,6 +411,11 @@
    "reason": "model-kept-proper-noun"
   },
   {
+   "key": "SSTP",
+   "original": "SSTP",
+   "reason": "model-kept-proper-noun"
+  },
+  {
    "key": "Socksify",
    "original": "Socksify",
    "reason": "model-kept-proper-noun"
@@ -258,6 +431,11 @@
    "reason": "model-kept-proper-noun"
   },
   {
+   "key": "TFTP",
+   "original": "TFTP",
+   "reason": "model-kept-proper-noun"
+  },
+  {
    "key": "TR-069",
    "original": "TR-069",
    "reason": "model-kept-proper-noun"
@@ -268,6 +446,11 @@
    "reason": "model-kept-proper-noun"
   },
   {
+   "key": "Tmpfs",
+   "original": "Tmpfs",
+   "reason": "model-kept-proper-noun"
+  },
+  {
    "key": "Torch",
    "original": "Torch",
    "reason": "model-kept-proper-noun"
@@ -275,6 +458,11 @@
   {
    "key": "Traceroute",
    "original": "Traceroute",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "UPS",
+   "original": "UPS",
    "reason": "model-kept-proper-noun"
   },
   {
@@ -293,6 +481,16 @@
    "reason": "model-kept-proper-noun"
   },
   {
+   "key": "VPLS",
+   "original": "VPLS",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "VRF",
+   "original": "VRF",
+   "reason": "model-kept-proper-noun"
+  },
+  {
    "key": "VRRP",
    "original": "VRRP",
    "reason": "model-kept-proper-noun"
@@ -303,8 +501,28 @@
    "reason": "model-kept-proper-noun"
   },
   {
+   "key": "W60G",
+   "original": "W60G",
+   "reason": "model-kept-proper-noun"
+  },
+  {
    "key": "WebFig",
    "original": "WebFig",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "Wi-Fi 5(802.11ac)",
+   "original": "Wi-Fi 5(802.11ac)",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "Wi-Fi 6 / 7(802.11ax/be)",
+   "original": "Wi-Fi 6 / 7(802.11ax/be)",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "WiFi CAPsMAN",
+   "original": "WiFi CAPsMAN",
    "reason": "model-kept-proper-noun"
   },
   {
@@ -315,6 +533,21 @@
   {
    "key": "WinBox",
    "original": "WinBox",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "WireGuard",
+   "original": "WireGuard",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "ZeroTier",
+   "original": "ZeroTier",
+   "reason": "model-kept-proper-noun"
+  },
+  {
+   "key": "iSCSI",
+   "original": "iSCSI",
    "reason": "model-kept-proper-noun"
   }
  ],

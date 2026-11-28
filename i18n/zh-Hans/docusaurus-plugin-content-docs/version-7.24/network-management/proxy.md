@@ -1,13 +1,13 @@
 ---
-title: "Proxy"
-description: 'MikroTik RouterOS proxy features enable HTTP and FTP caching, transparent proxying, access control via source/destination lists, URL filtering, and logging. It supports direct connections, parent proxying, and content scanning for security, with configuration examples including regular and transparent proxy setups.'
+title: "代理"
+description: "MikroTik RouterOS 代理功能支持 HTTP 和 FTP 缓存、透明代理、基于源/目标列表的访问控制、URL 过滤和日志记录。它支持直接连接、父代理以及用于安全的内容扫描，并提供了常规代理和透明代理配置示例。"
 tags:
   - 'proxy'
   - 'firewall'
   - 'caching'
 source: https://manual.mikrotik.com/docs/7.24/network-management/proxy
 captured_at: '2026-11-28T10:19:39.818Z'
-translated_at: "2026-11-28T14:11:26.249Z"
+translated_at: "2026-11-28T15:42:55.558Z"
 translation_provider: "opencode-go"
 translation_model: "hy4-flash-free"
 translation_source: "llm"

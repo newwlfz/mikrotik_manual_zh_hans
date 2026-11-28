@@ -3,7 +3,7 @@ title: "默认配置密码"
 description: "查找刚出厂或完全重置后的 MikroTik RouterOS 设备的默认登录凭据。"
 source: https://manual.mikrotik.com/docs/7.24/getting-started/configuration-management/default-configuration-passwords
 captured_at: '2026-11-28T10:19:39.818Z'
-translated_at: "2026-11-28T14:11:26.249Z"
+translated_at: "2026-11-28T15:42:55.558Z"
 translation_provider: "opencode-go"
 translation_model: "hy4-flash-free"
 translation_source: "llm"
@@ -47,7 +47,7 @@ MikroTik 设备出厂时带有默认配置，其中包含预设密码。执行�
 
 如果无法联系经销商或无法检索密码，仍可通过使用 **[Netinstall](/docs/getting-started/installation-and-upgrade/netinstall)** **重新安装 RouterOS**，或执行 **[完整配置重置](/docs/getting-started/configuration-management/routeros-configuration-reset)** 来恢复访问权限。
 
-:::tip[Mass-configuration with Flashfig]
+:::tip[使用 Flashfig 批量配置]
 
 如需批量部署多台设备，请使用 Flashfig 工具：
 

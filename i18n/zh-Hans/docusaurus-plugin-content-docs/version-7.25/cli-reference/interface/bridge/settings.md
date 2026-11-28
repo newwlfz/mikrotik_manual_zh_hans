@@ -1,0 +1,30 @@
+---
+title: "settings"
+source: https://manual.mikrotik.com/docs/7.25/cli-reference/interface/bridge/settings
+captured_at: '2026-11-28T10:17:19.424Z'
+pagination_next: "cli-reference/interface/bridge/vlan"
+translated_at: "2026-11-28T15:42:55.558Z"
+translation_provider: "opencode-go"
+translation_model: "hy4-flash-free"
+translation_source: "tm"
+---
+
+-----------
+
+## interface/bridge/settings 
+**类型：** 设置目录
+
+<ArgTable c1="Argument" c2="Type" c3="Description">
+<ArgTableRow arg="use-ip-firewall" typ="bool"></ArgTableRow>
+<ArgTableRow arg="use-ip-firewall-for-vlan" typ="bool"></ArgTableRow>
+<ArgTableRow arg="use-ip-firewall-for-pppoe" typ="bool"></ArgTableRow>
+<ArgTableRow arg="allow-fast-path" typ="bool"></ArgTableRow>
+</ArgTable>
+
+<ArgTable c1="Read-only Argument" c2="Type" c3="Description">
+<ArgTableRow arg="bridge-fast-path-active" typ="bool"></ArgTableRow>
+<ArgTableRow arg="bridge-fast-path-packets" typ="num"></ArgTableRow>
+<ArgTableRow arg="bridge-fast-path-bytes" typ="num"></ArgTableRow>
+<ArgTableRow arg="bridge-fast-forward-packets" typ="num"></ArgTableRow>
+<ArgTableRow arg="bridge-fast-forward-bytes" typ="num"></ArgTableRow>
+</ArgTable>

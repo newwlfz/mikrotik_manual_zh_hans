@@ -7,7 +7,7 @@ tags:
   - 'queues'
 source: https://manual.mikrotik.com/docs/7.24/firewall-and-quality-of-service/queues/queue-types/pfifo-bfifo
 captured_at: '2026-11-28T10:19:39.818Z'
-translated_at: "2026-11-28T14:11:26.249Z"
+translated_at: "2026-11-28T15:42:55.558Z"
 translation_provider: "opencode-go"
 translation_model: "hy4-flash-free"
 translation_source: "llm"
